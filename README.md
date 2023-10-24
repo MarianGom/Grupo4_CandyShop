@@ -54,7 +54,7 @@ Elegimos esta página debido a su amplia gama de productos que se ajustan perfec
   - Marcos Mariam Rocio: fs-dev de día, estudiante de Bellas Artes de noche, ilustradora en tiempos libres (Próximamente directora artística de proyectos audiovisuales). 
 
     
-  - Dib Fernando
+  - Dib Fernando: empleado con conocimientos en administración y contabilidad; siempre con inquietudes en diferentes áreas por lo que ahora Programación. De Hobby hago Artes Marciales.
 
     
   - Sanchez Rocio
