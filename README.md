@@ -57,7 +57,7 @@ Elegimos esta página debido a su amplia gama de productos que se ajustan perfec
   - Dib Fernando: empleado con conocimientos en administración y contabilidad; siempre con inquietudes en diferentes áreas por lo que ahora Programación. De Hobby hago Artes Marciales.
 
     
-  - Sanchez Rocio
+  - Sanchez Rocio: Diseñadora grafica, actualmente me desempeño como Team Leader en una Agencia Digital, tengo 29 años. En mis tiempos libres me gusta correr, nadar y cocinar.
 
     
 
