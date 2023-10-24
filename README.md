@@ -42,7 +42,7 @@ Elegimos esta página debido a su amplia gama de productos que se ajustan perfec
 
 
 • Integrantes
-  - Figueroa Maria Luciana: estudiante avanzada de Lic. en Sistemas de Información, 21 años de edad. En sus tiempos libres realiza cursos de idiomas y de programación
+  - Figueroa Maria Luciana: estudiante avanzada de Lic. en Sistemas de Información, 21 años de edad. En sus tiempos libres realiza cursos de idiomas y de programación.
 
     
   - Gomez Mariana Alejandra
