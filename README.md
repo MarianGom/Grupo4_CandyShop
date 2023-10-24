@@ -45,7 +45,7 @@ Elegimos esta página debido a su amplia gama de productos que se ajustan perfec
   - Figueroa Maria Luciana: estudiante avanzada de Lic. en Sistemas de Información, 21 años de edad. En sus tiempos libres realiza cursos de idiomas y de programación.
 
     
-  - Gomez Mariana Alejandra
+  - Gomez Mariana Alejandra: soy estudiante de programación, tengo conocimientos básicos en JAVA, HTML, CSS, JavaScript, MySQL. Actualmente estoy ocupando un puesto en el NOC- DataCenter, donde se realizan tareas de monitoreo de red y de servidores, configuración y control de acceso a la red, entre otras. Tambien soy emprendedora, tengo dos emprendimientos familiares, y mi lado artistísco, la danza.
 
     
   - Ledesma Rita: Estudiante de Ingenieria Electronica, Tengo 23 años, en mis tiempos libres hago natacion, actualmente profesora de Programacion y Robotica.
@@ -60,4 +60,4 @@ Elegimos esta página debido a su amplia gama de productos que se ajustan perfec
   - Sanchez Rocio
 
     
-  - 
+
