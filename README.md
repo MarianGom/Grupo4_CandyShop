@@ -39,3 +39,25 @@ Elegimos estas páginas por sus funcionalidades ya que ofrecen una experiencia d
 https://dulceria.co/lista-de-deseos/
 
 Elegimos esta página debido a su amplia gama de productos que se ajustan perfectamente a nuestras necesidades y gustos. 
+
+
+• Integrantes
+  - Figueroa Luciana
+
+    
+  - Gomez Mariana Alejandra
+
+    
+  - Ledesma Rita
+
+    
+  - Marcos Mariam Rocio
+
+    
+  - Fernando
+
+    
+  - Sanchez Rocio
+
+    
+  - 
