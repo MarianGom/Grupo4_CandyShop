@@ -51,10 +51,10 @@ Elegimos esta página debido a su amplia gama de productos que se ajustan perfec
   - Ledesma Rita
 
     
-  - Marcos Mariam Rocio
+  - Marcos Mariam Rocio: fs-dev de día, estudiante de Bellas Artes de noche, ilustradora en tiempos libres (Próximamente directora artística de proyectos audiovisuales). 
 
     
-  - Fernando
+  - Dib Fernando
 
     
   - Sanchez Rocio
