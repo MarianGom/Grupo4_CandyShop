@@ -48,7 +48,7 @@ Elegimos esta página debido a su amplia gama de productos que se ajustan perfec
   - Gomez Mariana Alejandra
 
     
-  - Ledesma Rita
+  - Ledesma Rita: Estudiante de Ingenieria Electronica, Tengo 23 años, en mis tiempos libres hago natacion, actualmente profesora de Programacion y Robotica.
 
     
   - Marcos Mariam Rocio: fs-dev de día, estudiante de Bellas Artes de noche, ilustradora en tiempos libres (Próximamente directora artística de proyectos audiovisuales). 
