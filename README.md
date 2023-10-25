@@ -2,11 +2,11 @@
 
 Nuestra página de CandyShop ofrece una amplia y deliciosa variedad de golosinas y dulces que deleitarán a personas de todas las edades. Encontrarás algo para satisfacer todos los antojos de azúcar. Ofrecemos una selección de productos que incluyen:
 
-Chocolates: barras de chocolates.
+Chocolates: desde barras de chocolates, bombones, alfajores, tabletas y muchas opciones más.
 
-Golosinas clásicas: gomitas clásicas, ácidas, con formas.
+Golosinas: caramelos, chicles, gomitas, chupetines, entre otros.
 
-Dulces temática: Para celebraciones y eventos especiales, ofrecemos una variedad de golosinas temáticas, como dulces de Halloween, Navidad o San Valentín.
+Dulces temáticos: Para celebraciones y eventos especiales, ofrecemos una variedad de golosinas temáticas, como dulces de Halloween, Navidad o San Valentín.
 
 Regalos personalizados: Creamos regalos de dulces personalizados para ocasiones especiales, como por ejemplo ramos de golosinas a elección.
 
@@ -36,13 +36,13 @@ https://spanish.alibaba.com/?spm=a27aq.cp_201275273.scGlobalHomeHeader.7.29d8587
 Elegimos estas páginas por sus funcionalidades ya que ofrecen una experiencia de usuario eficiente y efectiva. Las características intuitivas, como la búsqueda avanzada hacen que la navegación sea fácil de completar
 
 • Productos
-https://dulceria.co/lista-de-deseos/
+https://arcorencasa.com
 
 Elegimos esta página debido a su amplia gama de productos que se ajustan perfectamente a nuestras necesidades y gustos. 
 
 
 • Integrantes
-  - Figueroa Maria Luciana: estudiante avanzada de Lic. en Sistemas de Información, 21 años de edad. En sus tiempos libres realiza cursos de idiomas y de programación.
+  - Figueroa Maria Luciana: estudiante avanzada de Lic. en Sistemas de Información, tengo 21 años de edad. En mis tiempos libres realizo cursos de idiomas y de programación.
 
     
   - Gomez Mariana Alejandra
