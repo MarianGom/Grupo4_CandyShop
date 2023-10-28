@@ -40,6 +40,14 @@ Elegimos estas páginas por sus funcionalidades ya que ofrecen una experiencia d
 
 Elegimos esta página debido a su amplia gama de productos que se ajustan perfectamente a nuestras necesidades y gustos. 
 
+----------------------- MANUAL DE MARCA ------------------------
+Paleta de colores:
+- Amarillo: #FFF1F1
+- Violeta: #5D12D2
+- Fucsia: #B931FC
+- Rosa: #FFB4E0
+- Rosa Claro: #FFF1F1
+
 
 • Integrantes:
   - Figueroa Maria Luciana: estudiante avanzada de Lic. en Sistemas de Información, tengo 21 años de edad. En mis tiempos libres realizo cursos de idiomas y de programación.
