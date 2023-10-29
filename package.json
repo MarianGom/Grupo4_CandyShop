@@ -1,0 +1,14 @@
+{
+  "name": "grupo4_candyshop",
+  "version": "1.0.0",
+  "description": "Nuestra página de CandyShop ofrece una amplia y deliciosa variedad de golosinas y dulces que deleitarán a personas de todas las edades. Encontrarás algo para satisfacer todos los antojos de azúcar. Ofrecemos una selección de productos que incluyen:",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
