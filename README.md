@@ -69,4 +69,6 @@ Paleta de colores:
   - Sanchez Rocio: Diseñadora grafica, actualmente me desempeño como Team Leader en una Agencia Digital, tengo 29 años. En mis tiempos libres me gusta correr, nadar y cocinar.
 
     
+--------------------------- TRELLO --------------------------------
 
+Link: https://trello.com/invite/b/rtUV53xk/ATTI3b8694890af959667e9aebb1039eb30bADE88EC6/digital-house-grupo-4
