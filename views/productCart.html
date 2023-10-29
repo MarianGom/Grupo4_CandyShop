@@ -20,7 +20,7 @@
 <body>
     <!-- Rocio Marcos -->
 
-    <nav>
+    <nav class="sombra-sm">
         <!-- Logo -->
         <div>
             <img src="/img/candyshop-sm.png" alt="Logo de CandyShop" width="66px">
@@ -28,12 +28,12 @@
         <!-- Opciones -->
         <div>
             <ul>
-                <li><a href="">Inicio</a></li>
-                <li><a href="">Productos</a></li>
-                <li><a href="">Nosotros</a></li>
-                <li><a href="">Iniciar Sesión</a></li>
+                <li><a href="/home">Inicio</a></li>
+                <li><a href="/productos">Productos</a></li>
+                <li><a href="#">Nosotros</a></li>
+                <li><a href="/login">Iniciar Sesión</a></li>
             </ul>
-            <a href=""><i class="bi bi-cart"></i></a>
+            <a href="/carrito"><i class="bi bi-cart"></i></a>
             <button><i class="bi bi-list"></i></button>
         </div>
 
@@ -41,128 +41,197 @@
 
     <main>
 
-        <section>
-            <div>
-                <h3>Tu compra es <strong>100%</strong> segura</h3>
-                <h6>¿Necesitas ayuda?<br>Llamanos <strong>+54 123 456 7890</strong></h6>
+        <section id="anuncio">
+            <div class="bg-rosaoscuro text-blanco contenedor">
+                <h3 class="fw-5">Tu compra es <b>100%</b> segura</h3>
+                <h6 class="fw-4">¿Necesitas ayuda?<br>Llamanos<br><b>+54 123 456 7890</b></h6>
             </div>
         </section>
 
         <!-- Lista de compra -->
-        <section>
-            <h1>Tu pedido</h1>
-            <table>
-                <thead>
-                    <th>Producto</th>
-                    <th>Precio</th>
-                    <th>Cantidad</th>
-                    <th></th>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <img src="/img/productos/flynnpaff-manzana.png" alt="Flynn Paff Manzana" height="25px">
-                            <h6>Caramelo masticable</h6>
-                            <p>"FLYNN PAFF"</p>
-                            <p>Sabor Manzana</p>
-                        </td>
-                        <td>
-                            <p>$ 150,00</p>
-                        </td>
-                        <td>
-                            <input type="text" id="cantidad" name="cantidad">
-                        </td>
-                        <td>
-                            <i class="bi bi-trash"></i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <img src="/img/productos/flynnpaff-tutti.png" alt="Flynn Paff Tutti Frutti" height="25px">
-                            <h6>Caramelo masticable</h6>
-                            <p>"FLYNN PAFF"</p>
-                            <p>Sabor Tutti-Frutti</p>
-                        </td>
-                        <td>
-                            <p>$ 150,00</p>
-                        </td>
-                        <td>
-                            <input type="text" id="cantidad" name="cantidad">
-                        </td>
-                        <td>
-                            <i class="bi bi-trash"></i>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <button>Ir a pagar</button>
+        <section id="carrito">
+            <div class="contenedor">
+                <h1>Tu pedido</h1>
+
+                <table>
+                    <thead>
+                        <th>Producto</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th></th>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td class="table-first">
+                                <img src="/img/productos/flynnpaff-manzana.png" alt="Flynn Paff Manzana" height="25px">
+                                <h6>Caramelo masticable</h6>
+                                <p>"FLYNN PAFF"</p>
+                                <p>Sabor Manzana</p>
+                            </td>
+                            <td class="table-middle">
+                                <p>$ 150,00</p>
+                            </td>
+                            <td class="table-middle">
+                                <input type="text" id="cantidad" name="cantidad" maxlength="3">
+                            </td>
+                            <td class="table-end">
+                                <i class="bi bi-trash"></i>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="table-first">
+                                <img src="/img/productos/flynnpaff-tutti.png" alt="Flynn Paff Tutti Frutti" height="25px">
+                                <h6>Caramelo masticable</h6>
+                                <p>"FLYNN PAFF"</p>
+                                <p>Sabor Tutti-Frutti</p>
+                            </td>
+                            <td class="table-middle">
+                                <p>$ 150,00</p>
+                            </td>
+                            <td class="table-middle">
+                                <input type="text" id="cantidad" name="cantidad" maxlength="3">
+                            </td>
+                            <td class="table-end">
+                                <i class="bi bi-trash"></i>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <a href="#pagar">Ir a pagar</a>
+            </div>
         </section>
 
 
         <!-- Recomendados -->
-        <section>
-            <h2>Acompaña tu compra con:</h2>
-            <article>
-                <div>
-                    <img src="/img/productos/flynnpaff-banana.png" alt="Flynn Paff Banana" height="50px">
-                    <h6>Precio</h6>
-                    <p>$ 150,00 c/u</p>
-                </div>
-                <div>
-                    <h6>Caramelo masticable</h6>
-                    <p>"FLYNN PAFF"</p>
-                    <p>Sabor Banana</p>
+        <section id="acompaniar">
+            <div class="contenedor">
+                <h2>Acompaña tu compra con:</h2>
+
+                <article>
                     <div>
-                        <input type="text">
-                        <button><i class="bi bi-cart-plus-fill"></i></button>
+                        <img src="/img/productos/flynnpaff-banana.png" alt="Flynn Paff Banana" height="50px">
+                        <h6>Precio</h6>
+                        <p>$ 150,00 c/u</p>
                     </div>
-                </div>
-            </article>
-            <article>
-                <div>
-                    <img src="/img/productos/flynnpaff-uva.png" alt="Flynn Paff Uva" height="50px">
-                    <h6>Precio</h6>
-                    <p>$ 150,00 c/u</p>
-                </div>
-                <div>
-                    <h6>Caramelo masticable</h6>
-                    <p>"FLYNN PAFF"</p>
-                    <p>Sabor Banana</p>
                     <div>
-                        <input type="text">
-                        <button><i class="bi bi-cart-plus-fill"></i></button>
+                        <h6>Caramelo masticable</h6>
+                        <p>"FLYNN PAFF"</p>
+                        <p>Sabor Banana</p>
+                        <div>
+                            <input type="text">
+                            <button><i class="bi bi-cart-plus-fill"></i></button>
+                        </div>
                     </div>
-                </div>
-            </article>
-            <article>
-                <div>
-                    <img src="/img/productos/flynnpaff-frutilla.png" alt="Flynn Paff Frutilla" height="50px">
-                    <h6>Precio</h6>
-                    <p>$ 150,00 c/u</p>
-                </div>
-                <div>
-                    <h6>Caramelo masticable</h6>
-                    <p>"FLYNN PAFF"</p>
-                    <p>Sabor Banana</p>
+                </article>
+
+                <article>
                     <div>
-                        <input type="text">
-                        <button><i class="bi bi-cart-plus-fill"></i></button>
+                        <img src="/img/productos/flynnpaff-uva.png" alt="Flynn Paff Uva" height="50px">
+                        <h6>Precio</h6>
+                        <p>$ 150,00 c/u</p>
                     </div>
-                </div>
-            </article>
+                    <div>
+                        <h6>Caramelo masticable</h6>
+                        <p>"FLYNN PAFF"</p>
+                        <p>Sabor Banana</p>
+                        <div>
+                            <input type="text">
+                            <button><i class="bi bi-cart-plus-fill"></i></button>
+                        </div>
+                    </div>
+                </article>
+
+                <article>
+                    <div>
+                        <img src="/img/productos/flynnpaff-frutilla.png" alt="Flynn Paff Frutilla" height="50px">
+                        <h6>Precio</h6>
+                        <p>$ 150,00 c/u</p>
+                    </div>
+                    <div>
+                        <h6>Caramelo masticable</h6>
+                        <p>"FLYNN PAFF"</p>
+                        <p>Sabor Banana</p>
+                        <div>
+                            <input type="text">
+                            <button><i class="bi bi-cart-plus-fill"></i></button>
+                        </div>
+                    </div>
+                </article>
+            </div>
         </section>
 
 
         <!-- Pagar -->
-        <section>
-            
-            
+        <section id="pagar">
+            <div class="contenedor">
+                <div>
+                    <button>Añadir cupón de descuento</button>
+                </div>
+    
+                <div class="d-flex jc-between">
+                    <p>Subtotal</p>
+                    <p>$ 300,00</p>
+                </div>
+    
+                <div class="d-flex jc-between">
+                    <p>Descuentos</p>
+                    <p>$ 169,30</p>
+                </div>
+    
+                <div class="d-flex jc-between text-violeta">
+                    <h3>Total</h3>
+                    <h3>$ 130,70</h3>
+                </div>
+    
+                <button>Finalizar compra</button>
+    
+                <div>
+                    <input type="checkbox">
+                    <p>Acepto términos y condiciones y autorizo el tratamiento de mis datos personales conforme a la política de privacidad y tratamiento de datos personales.</p>
+                </div>
+    
+                <div>
+                    <div>
+                        <i class="bi bi-lock"></i>
+                        <p>Pago seguro</p>
+                    </div>
+    
+                    <div>
+                        <i class="bi bi-truck"></i>
+                        <p>Cambios y devoluciones</p>
+                    </div>
+    
+                    <div>
+                        <i class="bi bi-hand-thumbs-up"></i>
+                        <p>Clientes satisfechos</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
     </main>
 
     <footer>
+        <div>
+            <div class="redes">
+                <p>Seguinos en<br>nuestras redes</p>
+                <ul>
+                    <li><a href=""><i class="bi bi-telegram"></i></a></li>
+                    <li><a href=""><i class="bi bi-whatsapp"></i></a></li>
+                    <li><a href=""><i class="bi bi-facebook"></i></a></li>
+                    <li><a href=""><i class="bi bi-tiktok"></i></a></li>
+                    <li><a href=""><i class="bi bi-instagram"></i></a></li>
+                </ul>
+            </div>
 
+            <div class="copyright">
+                <img src="/img/candyshop.png" alt="Logo de CandyShop" width="200px">
+                <p>© 2023 CandyShop<br>All rights reserved</p>
+            </div>
+        </div>
     </footer>
 
 </body>

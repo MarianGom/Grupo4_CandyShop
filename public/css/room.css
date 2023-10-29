@@ -7,6 +7,7 @@
     --bg-violeta-claro: #EAD8FA;
     --bg-violeta-oscuro: #BC7AF9;
     --text-principal: #272727;
+    --text-secundario: rgba(39, 39, 39, 0.5);
     --text-disabled: #6F6F6F;
     --text-blanco: #FCFCFC;
     --text-rosa-claro: #E474BA;
@@ -22,6 +23,220 @@
 
 body{
     font-family: 'Inter', sans-serif;
+    background-color: var(--bg-principal);
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    padding: 0px 20px;
+    margin-bottom: 2rem;
+}
+
+nav ul{
+    display: none;
+}
+
+nav button{
+    border: none;
+    background: none;
+    margin-left: 10px;
+}
+
+nav .bi{
+    font-size: 25px;
+}
+
+li{
+    list-style: none;
+}
+
+h6{
+    font-size: 0.75rem;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+
+#anuncio, #carrito, #acompaniar{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+
+#anuncio .contenedor{
+    display: flex;
+    align-items: center;
+    height: 80px;
+    min-width: 320px;
+    width: 90vw;
+    padding: 0px 2rem;
+    border-radius: 25px;
+}
+
+#anuncio h6{
+    text-align: center;
+    min-width: 45%;
+}
+
+
+#carrito .contenedor, #acompaniar .contenedor{
+    min-width: 320px;
+    width: 80vw;
+}
+
+#carrito h1{
+    color: var(--text-violeta);
+    font-size: 2.25rem;
+}
+
+#carrito table{
+    margin: 1.5rem 0px;
+    min-width: 320px;
+    width: 80vw;
+}
+
+tbody td{
+    margin: 3rem 0px;
+    min-height: 120px;
+}
+
+.table-first{
+    border-top: 3px solid var(--text-disabled);
+    border-left: 3px solid var(--text-disabled);
+    border-bottom: 3px solid var(--text-disabled);
+    border-radius: 10px 0px 0px 10px;
+}
+.table-middle{
+    border-top: 3px solid var(--text-disabled);
+    border-bottom: 3px solid var(--text-disabled);
+}
+.table-end{
+    border-top: 3px solid var(--text-disabled);
+    border-right: 3px solid var(--text-disabled);
+    border-bottom: 3px solid var(--text-disabled);
+    border-radius: 0px 10px 10px 0px;
+}
+
+#carrito #producto{
+    text-align: center;
+}
+
+input#cantidad{
+    width: 65px;
+    height: 35px;
+    border: 3px solid var(--bg-violeta-oscuro);
+    border-radius: 20px;
+    text-align: center;
+    color: var(--text-violeta);
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+}
+
+
+#pagar{
+    display: flex;
+    justify-content: center;
+    padding: 1.5rem 0px;
+    border-top: 5px solid var(--bg-violeta-oscuro);
+    border-bottom: 5px solid var(--bg-violeta-oscuro);
+}
+
+#pagar .contenedor{
+    min-width: 320px;
+    width: 80vw;
+}
+
+#pagar button{
+    text-transform: uppercase;
+}
+
+
+
+footer{
+    display: flex;
+    justify-content: center;
+    padding: 35px 0px;
+    border-top: 1px solid var(--text-secundario);
+}
+
+footer div{
+    text-align: center;
+}
+
+footer ul{
+    display: flex;
+    justify-content: space-around;
+    min-width: 320px;
+    width: 80vw;
+    margin: 1.5rem 0px;
+    font-size: 30px;
+}
+
+footer .redes p{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+footer img{
+    margin: 0.75rem 0px;
+}
+
+
+
+
+
+/* Para asignar como clase */
+
+.bg-rosaclaro{
+    background-color: var(--bg-rosa-claro);
+}
+
+.bg-rosaoscuro{
+    background-color: var(--bg-rosa-oscuro);
+}
+
+.bg-violetaclaro{
+    background-color: var(--bg-violeta-claro);
+}
+
+.d-flex{
+    display: flex;
+}
+
+.jc-center{
+    justify-content: center;
+}
+
+.jc-between{
+    justify-content: space-between;
+}
+
+.text-blanco{
+    color: var(--text-blanco);
+}
+
+.text-violeta{
+    color: var(--text-violeta);
+}
+
+.fw-4{
+    font-weight: 400;
+}
+
+.fw-5{
+    font-weight: 500;
+}
+
+.sombra-sm{
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
 }
 
 
