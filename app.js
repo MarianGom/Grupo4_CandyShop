@@ -11,7 +11,7 @@ app.use(express.static(publicPath));
 /* RUTAS */
 
 /* Landing -> Mariana */
-app.get('/home', (req, res) =>{
+app.get('/', (req, res) =>{
     res.sendFile(path.join(__dirname, '/views/index.html'));
 });
 
@@ -41,5 +41,5 @@ app.get('/login', (req, res) =>{
 const PORT = 3000;
 const linkcito = 'http://127.0.0.1:' + PORT;
 app.listen(PORT, () =>
-    console.log('¡Up!\n Listo para usar en ', linkcito)
+    console.log('¡Up!\nListo para usar en ', linkcito)
 );
