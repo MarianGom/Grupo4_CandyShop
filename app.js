@@ -11,28 +11,28 @@ app.use(express.static(publicPath));
 /* RUTAS */
 
 /* Landing -> Mariana */
-app.get('/', (req, res) =>{
+app.get('/home', (req, res) =>{
     res.sendFile(path.join(__dirname, '/views/index.html'));
 });
 
 /* Productos -> Rita */
-app.get('/', (req, res) =>{
-    res.sendFile(path.resolve(__dirname, '/views/productDetail.html'));
+app.get('/productos', (req, res) =>{
+    res.sendFile(path.join(__dirname, '/views/productDetail.html'));
 });
 
 /* Carrito -> RooM*/
-app.get('/', (req, res) =>{
-    res.sendFile(path.resolve(__dirname, '/views/productCart.html'));
+app.get('/carrito', (req, res) =>{
+    res.sendFile(path.join(__dirname, '/views/productCart.html'));
 });
 
 /* Registro -> Luciana */
-app.get('/', (req, res) =>{
-    res.sendFile(path.resolve(__dirname, '/views/register.html'));
+app.get('/registrar', (req, res) =>{
+    res.sendFile(path.join(__dirname, '/views/register.html'));
 });
 
 /* Login -> Rocio */
-app.get('/', (req, res) =>{
-    res.sendFile(path.resolve(__dirname, '/views/login.html'));
+app.get('/login', (req, res) =>{
+    res.sendFile(path.join(__dirname, '/views/login.html'));
 });
 
 
