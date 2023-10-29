@@ -1,0 +1,36 @@
+:root{
+    --bg-principal: #FCFCFC;
+    --bg-disabled: #DEDEDE;
+    --bg-amarillo: #FFE66B;
+    --bg-rosa-claro: #FFB4E0;
+    --bg-rosa-oscuro: #FF6AC2;
+    --bg-violeta-claro: #EAD8FA;
+    --bg-violeta-oscuro: #BC7AF9;
+    --text-principal: #272727;
+    --text-disabled: #6F6F6F;
+    --text-blanco: #FCFCFC;
+    --text-rosa-claro: #E474BA;
+    --text-rosa-oscuro: #8E2764;
+    --text-violeta: #AA63EC;
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Inter', sans-serif;
+}
+
+
+/* MD - Pantallas */
+@media only screen and (min-width: 700px) {
+    
+}
+
+/* LG - Pantallas */
+@media only screen and (min-width: 1000px) {
+
+}
