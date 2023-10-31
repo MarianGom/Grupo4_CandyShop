@@ -50,6 +50,15 @@ Paleta de colores:
 - Rosa Claro: #FFF1F1
 
 
+-------------------------- FIGMA ------------------------------
+
+• WIREFRAME: https://www.figma.com/file/6EpmMkoUU2hiP0wwvDLAOZ/Wireframe-Candyshop-DH?type=whiteboard&node-id=0%3A1&t=TNWaPFEpTvBp4MuK-1
+
+• PROTOTIPO: https://www.figma.com/file/rlUi5whOq9sWZiI3J6s7eW/Untitled?type=design&node-id=0%3A1&mode=design&t=jMhwWAkpjZTl1BWm-1
+
+
+----------------------- INTEGRANTES --------------------------
+
 • Integrantes:
   - Figueroa Maria Luciana: estudiante avanzada de Lic. en Sistemas de Información, tengo 21 años de edad. En mis tiempos libres realizo cursos de idiomas y de programación.
 
