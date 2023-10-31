@@ -88,48 +88,49 @@ a{
 
 #carrito .contenedor, #acompaniar .contenedor{
     min-width: 320px;
-    width: 80vw;
+    width: 90vw;
 }
 
 #carrito h1{
     color: var(--text-violeta);
     font-size: 2.25rem;
+    padding: 0px 5vw;
 }
 
-#carrito table{
+#carrito h6{
+    font-weight: 500;
+}
+
+#carrito p{
+    color: var(--text-principal);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+#carrito .producto{
+    width: 100%;
+    text-align: center;
     margin: 1.5rem 0px;
+    border: 3px solid var(--text-secundario);
+    border-radius: 10px;
+    padding: 15px 20px;
+    line-height: 1.05rem;
+}
+
+#carrito ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     min-width: 320px;
     width: 80vw;
 }
 
-tbody td{
-    margin: 3rem 0px;
-    min-height: 120px;
-}
-
-.table-first{
-    border-top: 3px solid var(--text-disabled);
-    border-left: 3px solid var(--text-disabled);
-    border-bottom: 3px solid var(--text-disabled);
-    border-radius: 10px 0px 0px 10px;
-}
-.table-middle{
-    border-top: 3px solid var(--text-disabled);
-    border-bottom: 3px solid var(--text-disabled);
-}
-.table-end{
-    border-top: 3px solid var(--text-disabled);
-    border-right: 3px solid var(--text-disabled);
-    border-bottom: 3px solid var(--text-disabled);
-    border-radius: 0px 10px 10px 0px;
-}
-
-#carrito #producto{
-    text-align: center;
+#carrito i.bi{
+    font-size: 30px;
 }
 
 input#cantidad{
-    width: 65px;
+    width: 55px;
     height: 35px;
     border: 3px solid var(--bg-violeta-oscuro);
     border-radius: 20px;
@@ -137,6 +138,52 @@ input#cantidad{
     color: var(--text-violeta);
     font-weight: 700;
     font-family: 'Inter', sans-serif;
+}
+
+#carrito .btn-rosa{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    background-color: transparent;
+    border: 3px solid var(--bg-rosa-claro);
+    border-radius: 10px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--text-rosa-claro);
+    transition: all 0.25s ease-in-out;
+}
+
+#carrito .btn-rosa:hover{
+    background-color: var(--bg-rosa-oscuro);
+    border-color: var(--bg-rosa-oscuro);
+    text-transform: uppercase;
+    text-shadow: 0px 0px 10px var(--text-blanco);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-blanco);
+}
+
+#acompaniar{
+    background-color: var(--bg-violeta-claro);
+    padding: 2rem 0px;
+}
+
+#acompaniar h2{
+    color: var(--text-violeta);
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+#acompaniar .producto{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    background-color: var(--bg-principal);
+    border: 3px solid var(--bg-rosa-claro);
+    border-radius: 10px;
 }
 
 

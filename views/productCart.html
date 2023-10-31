@@ -53,54 +53,51 @@
             <div class="contenedor">
                 <h1>Tu pedido</h1>
 
-                <table>
-                    <thead>
-                        <th>Producto</th>
-                        <th>Precio</th>
-                        <th>Cantidad</th>
-                        <th></th>
-                    </thead>
+                <div>
+                    <ul class="producto">
+                        <li>
+                            <img src="/img/productos/flynnpaff-tutti.png" alt="Flynn Paff Tutti Frutti" height="25px">
+                            <h6>Caramelo masticable</h6>
+                            <p>"FLYNN PAFF"</p>
+                            <p>Sabor Tutti-Frutti</p>
+                        </li>
 
-                    <tbody>
-                        <tr>
-                            <td class="table-first">
-                                <img src="/img/productos/flynnpaff-manzana.png" alt="Flynn Paff Manzana" height="25px">
-                                <h6>Caramelo masticable</h6>
-                                <p>"FLYNN PAFF"</p>
-                                <p>Sabor Manzana</p>
-                            </td>
-                            <td class="table-middle">
-                                <p>$ 150,00</p>
-                            </td>
-                            <td class="table-middle">
-                                <input type="text" id="cantidad" name="cantidad" maxlength="3">
-                            </td>
-                            <td class="table-end">
-                                <i class="bi bi-trash"></i>
-                            </td>
-                        </tr>
+                        <li>
+                            <p>$ 150,00</p>
+                        </li>
 
-                        <tr>
-                            <td class="table-first">
-                                <img src="/img/productos/flynnpaff-tutti.png" alt="Flynn Paff Tutti Frutti" height="25px">
-                                <h6>Caramelo masticable</h6>
-                                <p>"FLYNN PAFF"</p>
-                                <p>Sabor Tutti-Frutti</p>
-                            </td>
-                            <td class="table-middle">
-                                <p>$ 150,00</p>
-                            </td>
-                            <td class="table-middle">
-                                <input type="text" id="cantidad" name="cantidad" maxlength="3">
-                            </td>
-                            <td class="table-end">
-                                <i class="bi bi-trash"></i>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                        <li>
+                            <input type="text" id="cantidad" name="cantidad" maxlength="3" placeholder="1">
+                        </li>
+                        
+                        <li>
+                            <i class="bi bi-trash"></i>
+                        </li>
+                    </ul>
 
-                <a href="#pagar">Ir a pagar</a>
+                    <ul class="producto">
+                        <li>
+                            <img src="/img/productos/flynnpaff-manzana.png" alt="Flynn Paff Manzana" height="25px">
+                            <h6>Caramelo masticable</h6>
+                            <p>"FLYNN PAFF"</p>
+                            <p>Sabor Manzana</p>
+                        </li>
+
+                        <li>
+                            <p>$ 150,00</p>
+                        </li>
+
+                        <li>
+                            <input type="text" id="cantidad" name="cantidad" maxlength="3" placeholder="1">
+                        </li>
+                        
+                        <li>
+                            <i class="bi bi-trash"></i>
+                        </li>
+                    </ul>
+                </div>
+
+                <a class="btn-rosa" href="#pagar">Ir a pagar</a>
             </div>
         </section>
 
@@ -110,7 +107,7 @@
             <div class="contenedor">
                 <h2>Acompaña tu compra con:</h2>
 
-                <article>
+                <article class="producto">
                     <div>
                         <img src="/img/productos/flynnpaff-banana.png" alt="Flynn Paff Banana" height="50px">
                         <h6>Precio</h6>
@@ -120,14 +117,14 @@
                         <h6>Caramelo masticable</h6>
                         <p>"FLYNN PAFF"</p>
                         <p>Sabor Banana</p>
-                        <div>
-                            <input type="text">
+                        <div class="">
+                            <input type="text" id="cantidad" name="cantidad" maxlength="3" placeholder="1">
                             <button><i class="bi bi-cart-plus-fill"></i></button>
                         </div>
                     </div>
                 </article>
 
-                <article>
+                <article class="producto">
                     <div>
                         <img src="/img/productos/flynnpaff-uva.png" alt="Flynn Paff Uva" height="50px">
                         <h6>Precio</h6>
@@ -138,13 +135,13 @@
                         <p>"FLYNN PAFF"</p>
                         <p>Sabor Banana</p>
                         <div>
-                            <input type="text">
+                            <input type="text" id="cantidad" name="cantidad" maxlength="3" placeholder="1">
                             <button><i class="bi bi-cart-plus-fill"></i></button>
                         </div>
                     </div>
                 </article>
 
-                <article>
+                <article class="producto">
                     <div>
                         <img src="/img/productos/flynnpaff-frutilla.png" alt="Flynn Paff Frutilla" height="50px">
                         <h6>Precio</h6>
@@ -155,7 +152,7 @@
                         <p>"FLYNN PAFF"</p>
                         <p>Sabor Banana</p>
                         <div>
-                            <input type="text">
+                            <input type="text" id="cantidad" name="cantidad" maxlength="3" placeholder="1">
                             <button><i class="bi bi-cart-plus-fill"></i></button>
                         </div>
                     </div>
