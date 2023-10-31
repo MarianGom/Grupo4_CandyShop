@@ -11,7 +11,7 @@ app.use(express.static(publicPath));
 /* RUTAS */
 
 /* Landing -> Mariana */
-app.get('/', (req, res) =>{
+app.get('/landing', (req, res) =>{
     res.sendFile(path.join(__dirname, '/views/index.html'));
 });
 

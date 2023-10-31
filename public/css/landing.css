@@ -1,0 +1,111 @@
+#banner{
+    background-color: var(--bg-rosa-claro);
+    width:100vw ;
+    height: 25vh;
+}
+
+.destacados{
+    width: 100vw ;
+    height: 60vh;
+}
+
+.opiniones{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.comentario{
+    width: 100vw;
+    height: 25vh;
+    background-color: var(--bg-violeta-oscuro);
+    text-align: center;
+    padding: 56px 25px 10px 25px;
+    z-index: 1;
+    margin-top: 60px;
+    font-size: 0.8rem;
+}
+
+footer{
+    height: 15vh;
+}
+h2{
+    font-size: 1.2rem;
+    margin: 20px 0px 10px 30px;
+}
+
+h4{
+    font-size: 0.8rem;
+    text-align: center;
+   
+}
+
+article{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.fn-product{    
+    background-color: var(--text-rosa-claro);
+    opacity: 0.75;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.fn-product img{
+    width: 30vw;
+}
+
+.description{
+    text-align: center;
+
+}
+.detail{
+    
+    font-size: 0.55rem;
+    margin-top: 5px;
+}
+.name,.dec{
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.products2{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.cliente{
+     display: flex;
+    flex-direction: column;
+    position: relative;
+    bottom: 60px;
+    top: 20px;
+    align-items: center;
+}
+
+.fn-perfil{        
+  
+    background-color: var(--bg-violeta-oscuro);
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    z-index: 2;
+    justify-content: center;
+}
+
+.fn-perfil img{
+    width: 40vw;
+}
