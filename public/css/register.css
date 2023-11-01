@@ -26,7 +26,7 @@ body {
     background-color: var(--bg-principal);
 }
 
-/navbar/
+/*navbar*/
 nav {
     display: flex;
     justify-content: space-between;
@@ -63,7 +63,7 @@ a {
     color: inherit;
 }
 
-/Main/
+/*Main*/
 .contenedor-icono-caramelo {
     display: flex;
     justify-content: center;
@@ -208,7 +208,7 @@ label {
     }
 }
 
-/footer/
+/*footer*/
 
 footer {
     display: flex;
