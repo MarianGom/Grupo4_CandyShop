@@ -25,16 +25,15 @@ app.get('/carrito', (req, res) =>{
     res.sendFile(path.join(__dirname, '/views/productCart.html'));
 });
 
-/* Registro -> Luciana */
+/* Registro -> Rocio */
 app.get('/registrar', (req, res) =>{
     res.sendFile(path.join(__dirname, '/views/register.html'));
 });
 
-/* Login -> Rocio */
+/* Login -> Luciana */
 app.get('/login', (req, res) =>{
     res.sendFile(path.join(__dirname, '/views/login.html'));
 });
-
 
 
 /* SERVER UP */
