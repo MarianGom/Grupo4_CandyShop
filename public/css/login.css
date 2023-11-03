@@ -64,7 +64,6 @@ a {
 }
 
 /*Main*/
-
 .contenedor-icono-caramelo {
     display: flex;
     justify-content: center;
@@ -169,7 +168,7 @@ label {
     margin: 15px 15px;
 }
 
-.contenedor-registro {
+.contenedor-registro-ld,.contenedor-registro-li {
     width: 18rem;
     border: 2px solid gray;
     border-radius: 10px;
@@ -194,7 +193,7 @@ label {
 /* Media query para dispositivos móviles*/
 @media screen and (min-width: 361px) {
     main {
-        background: yellow;
+        background: #FFE66B;
         width: 100%;
         height: auto;
     }
@@ -204,13 +203,16 @@ label {
     .contenedor-golosinas{
         margin-top: 2.5rem;
     }
+    .contenedor-registro-li{
+        margin-top: 1.5rem;
+    }
 }
 
 /* Media query para desktop*/
 @media screen and (min-width:769px) {
     main {
         height: auto;
-        background: linear-gradient(to right, yellow 50%, #E39AFC 50%);
+        background: linear-gradient(to right, #FFE66B 50%, #E39AFC 50%);
         /* Fondo amarillo y lila */
     }
     .contenedor-lados{
@@ -219,7 +221,7 @@ label {
     .lado-izquierdo, .lado-derecho {
         width: 50%;
     }
-    .contenedor-registro{
+    .contenedor-registro-ld{
         margin-top: 1rem;
     }
     .contenedor-mujer{
@@ -235,11 +237,11 @@ label {
        flex-wrap: wrap;
        justify-content: center;
     }
-    .h3-ladoizq{
+    .h3-ladoizq,.contenedor-registro-li{
         display: none;
     }
     .contenedor-golosinas{
-        margin-top:0;
+        margin-top: 0;
     }
 }
 
