@@ -64,6 +64,7 @@ a {
 }
 
 /*Main*/
+
 .contenedor-icono-caramelo {
     display: flex;
     justify-content: center;
@@ -81,9 +82,11 @@ h3 {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2rem;
+    margin-top: 1rem;
 }
-
+.h3-ladoizq{
+    margin-bottom: 2rem;
+}
 .contenedor-email-contraseña {
     display: flex;
     flex-direction: column;
@@ -181,13 +184,11 @@ label {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 0;
 }
 
 .golosinas-login {
-    width: 130px;
+    width: 150px;
     height: auto;
-    padding-top: 4.5rem;
 }
 
 /* Media query para dispositivos móviles*/
@@ -197,6 +198,12 @@ label {
         width: 100%;
         height: auto;
     }
+    .logo-lado-izquierdo,.lado-derecho{
+        display:none;
+    }
+    .contenedor-golosinas{
+        margin-top: 2.5rem;
+    }
 }
 
 /* Media query para desktop*/
@@ -205,6 +212,34 @@ label {
         height: auto;
         background: linear-gradient(to right, yellow 50%, #E39AFC 50%);
         /* Fondo amarillo y lila */
+    }
+    .contenedor-lados{
+        display: flex;
+    }
+    .lado-izquierdo, .lado-derecho {
+        width: 50%;
+    }
+    .contenedor-registro{
+        margin-top: 1rem;
+    }
+    .contenedor-mujer{
+        margin-top: 3.5rem;
+    }
+    .lado-derecho{
+        display:initial;
+    }
+    .logo-lado-izquierdo{
+       text-align: center;
+       padding-bottom: 2rem;
+       display: flex;
+       flex-wrap: wrap;
+       justify-content: center;
+    }
+    .h3-ladoizq{
+        display: none;
+    }
+    .contenedor-golosinas{
+        margin-top:0;
     }
 }
 
