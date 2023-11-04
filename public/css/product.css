@@ -250,7 +250,7 @@ p{
     letter-spacing: -0.49px;
 }
 
-.carrito img{
+.compra {
     display: flex;
     flex-shrink: 0;
     border-radius: 0px 5px 5px 0px;
@@ -262,6 +262,8 @@ p{
     position: relative;
     left: 50px;
     bottom: 80px;
+    color: #FCFCFC;
+    border: none;
 
 
 }
@@ -374,3 +376,4 @@ footer img{
     
 
 }
+
