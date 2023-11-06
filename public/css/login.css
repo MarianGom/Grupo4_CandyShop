@@ -131,7 +131,16 @@ label {
     display: block;
     margin-bottom: 0;
 }
+.recordar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
 
+.recordar input[type="checkbox"] {
+    margin-right: 10px;
+}
 .olvido-contraseña {
     color: #272727;
     display: flex;
