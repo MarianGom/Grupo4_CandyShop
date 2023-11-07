@@ -111,34 +111,34 @@ h3 {
 }
 
 .input-email input {
-    background-image: url("/images/usuario.png");
+    background-image: url("/img/usuario.png");
     background-position: right center;
     background-size: 1.5rem 1.5rem;
     background-repeat: no-repeat;
 }
 
 .input-contraseña input {
-    background-image: url("/images/contrasena.png");
+    background-image: url("/img/contrasena.png");
     background-position: right center;
     background-size: 2rem 2rem;
     background-repeat: no-repeat;
 }
 
 .input-nombre input {
-    background-image: url("/images/id-card.png");
+    background-image: url("/img/id-card.png");
     background-position: right center;
     background-size: 2rem 2rem;
     background-repeat: no-repeat;
 }
 
 .input-apellido input {
-background-image: url("/images/id-card.png");
+background-image: url("/img/id-card.png");
     background-position: right center;
     background-size: 2rem 2rem;
     background-repeat: no-repeat;
 }
 .input-confirmar-contra input {
-    background-image: url("/images/contrasena.png");
+    background-image: url("/img/contrasena.png");
     background-position: right center;
     background-size: 2rem 2rem;
     background-repeat: no-repeat;
