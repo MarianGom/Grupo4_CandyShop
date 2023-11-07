@@ -76,6 +76,126 @@ a {
     width: 187px;
     height: auto;
 }
+.contenedor-email-contraseña {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-email,.input-nombre,.input-apellido,.input-contraseña {
+    padding-bottom: 1rem;
+}
+
+.input-email input,
+.input-contraseña input,.input-nombre input,.input-apellido input,.input-confirmar-contra input  {
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    width: 16.5rem;
+    outline: none;
+}
+
+.input-email input:focus,
+.input-contraseña input:focus,.input-nombre input:focus,.input-apellido input:focus,.input-confirmar-contra input:focus {
+    border: 2.5px solid #8E2764;
+}
+
+.input-email input {
+    background-image: url("/images/usuario.png");
+    background-position: right center;
+    background-size: 1.5rem 1.5rem;
+    background-repeat: no-repeat;
+}
+
+.input-contraseña input {
+    background-image: url("/images/contrasena.png");
+    background-position: right center;
+    background-size: 2rem 2rem;
+    background-repeat: no-repeat;
+}
+
+.input-nombre input {
+    background-image: url("/images/id-card.png");
+    background-position: right center;
+    background-size: 2rem 2rem;
+    background-repeat: no-repeat;
+}
+
+.input-apellido input {
+background-image: url("/images/id-card.png");
+    background-position: right center;
+    background-size: 2rem 2rem;
+    background-repeat: no-repeat;
+}
+.input-confirmar-contra input {
+    background-image: url("/images/contrasena.png");
+    background-position: right center;
+    background-size: 2rem 2rem;
+    background-repeat: no-repeat;
+}
+label {
+    font-size: 15px;
+    color: #AD6800;
+    display: block;
+    margin-bottom: 0;
+}
+.terminos-condiciones {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.terminos-condiciones input[type="checkbox"] {
+    margin-right: 10px;
+}
+.olvido-contraseña {
+    color: #272727;
+    display: flex;
+    font-size: 13px;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 2rem;
+    padding-top: 1rem;
+}
+
+.contenedor-boton-is {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.boton-is {
+    background-color: #FF6AC2;
+    border: none;
+    border-radius: 10px;
+    padding: 0.8rem 3rem;
+}
+
+.contenedor-redes {
+    text-align: center;
+    padding-top: 2rem;
+}
+
+.facebook,
+.google {
+    display: inline-block;
+    width: 50px;
+    height: auto;
+    margin: 15px 15px;
+}
+
+.contenedor-registro {
+    width: 18rem;
+    border: 2px solid gray;
+    border-radius: 10px;
+    text-align: center;
+    margin: 3.5rem auto 0;
+    max-width: 90%;
+    font-size: 15px;
+    line-height: 2;
+}
 .contenedor-golosinas {
     display: flex;
     justify-content: center;
@@ -90,7 +210,7 @@ a {
 /* Media query para dispositivos móviles*/
 @media screen and (min-width: 361px) {
     main {
-        background: yellow;
+        background: #FFB4E0;
         width: 100%;
         height: auto;
     }
