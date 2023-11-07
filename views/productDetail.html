@@ -1,374 +1,416 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Productos</title>
 
-    <link rel="shortcut icon" href="/img/favicon.png" type="image/png">
-    <link rel="stylesheet" href="/css/product.css">
-    <link rel="stylesheet" href="/css/room.css">
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+/*navbar*/
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    padding: 0px 20px;
+    margin-bottom: 2rem;
+}
 
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+nav ul{
+    display: none;
+}
 
-</head>
-    <!-- Rita Ledesma -->
-    <header>
-        <nav class="sombra-sm">
-            <!-- Logo -->
-            <div>
-                <img src="/img/candyshop-sm.png" alt="Logo de CandyShop" width="66px">
-            </div>
-        <!-- Opciones -->
-            <div>
-                <ul>
-                    <li><a href="/home">Inicio</a></li>
-                    <li><a href="/productos">Productos</a></li>
-                    <li><a href="#">Nosotros</a></li>
-                    <li><a href="/login">Iniciar Sesión</a></li>
-                </ul>
-                <a href="/carrito"><i class="bi bi-cart"></i></a>
-                <button><i class="bi bi-list"></i></button>
-            </div>
+nav button{
+    border: none;
+    background: none;
+    margin-left: 10px;
+}
 
-        </nav>
-    </header>
-        <!-- Slider -->
-        <section class="container">
-            <div class="slide-wrapper">
-                <div class="slider-frame">
-                    <img id="slider1" src="#" alt="">
-                    <img id="slider2" src="#" alt="">
-                    <img id="slider3" src="#" alt="">
-                    <img id="slider4" src="#" alt="">
+nav .bi{
+    font-size: 25px;
+}
 
-                    <div class="slider-nav">
-                        <a href="#slider1"></a>
-                        <a href="#slider2"></a>
-                        <a href="#slider3"></a>
-                        <a href="#slider4"></a>
-                    </div>
-                </div>
-            </div>
+li{
+    list-style: none;
+}
 
-        </section>
-    <main>
+h6{
+    font-size: 0.75rem;
+}
 
-        <!---barra de Navegacion Dulces --> 
+a{
+    text-decoration: none;
+    color: inherit;
+}
 
+
+
+/*slider publicidad*/
+
+.slider.wrapper{
+    position: relative;
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
     
+}
 
-        <section class="bars"> 
-            <div class="menu">
-                <div class="btn-group">
-                    <button type="button" class="arrow" data-bs-toggle="dropdown" aria-expanded="false">
-                    Opciones<i class="bi bi-chevron-down"></i></button>
-                    <ul class="dropdown-menu">
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#chupetines">Chupetines</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#caramelos">Caramelos</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#gomitas">Gomitas</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#alfajores">Alfajores</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#chocolate">Chocolate</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#sin-azucar">Sin Azúcar</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#otros">Otros</a></li>
-                    </ul>
-                    
-                </div>
-                </div>
-            <div class="productos">
-                <div id="chupetines" class="productos-categoria">
-                    <!-- Productos de Chupetines -->
-                    <article class="chupetin1">
-                        <img src="/img/productos/chupetin1.webp" alt="">
-                        <div class="detail">
-                            <div class="product"> Chupetin </div>
-                            <div class="brand"> "ARCOR"</div>
-                            <div class="desc"> Mr Pops Frutal</div> 
-                        </div> 
-                        <div class="price">
-                            <p>Precio</p>$92,85</div>
-                        <div class="carrito">
-                            <input type="text" id="name" name="name" required minlength="4" maxlength="8"/>
-                            <button class="compra"><i class="bi bi-cart-plus"></i></button>
-                        </div>
+.slider-frame{
+    display: flex;
+    box-sizing: border-box;
+    justify-content: center;  
+    aspect-ratio: 16 / 9;
+    overflow-x: hidden;
+    scroll-snap-type: mandatory;
+    scroll-behavior: smooth;
+    
+    border-radius: .5rem;
 
-                    </article>
-                </div>
-                <div id="caramelos" class="productos-categoria">
-                    <!-- Productos de Caramelos -->
-                    <article class="caramelo1">
-                        <img src="/img/productos/flynnpaff-banana.png" alt="">
-                        <div class="detail">
-                            <div class="product">Caramelo masticable </div>
-                            <div class="brand"> "FLYNN PAFF"</div>
-                            <div class="desc"> Sabor Banana</div>  
-                        </div>                  
-                        <div class="price">
-                            <p>Precio</p>$150</div>
-                        <div class="carrito">
-                            <input type="text" id="name" name="name" required minlength="4" maxlength="8"/>
-                            <button class="compra"><i class="bi bi-cart-plus"></i></button>
-                        </div>
-                    </article>
+    background-color: #FFB4E0;
+    animation: slide 10s linear infinite;
+    width: 100%;
+    height: 268px;
+
+}
+
+.slider img{
+    flex: 1 0 100%;
+    width: 100%;
+    scroll-snap-align: start;
+    object-fit: cover;
+
+}
+
+/*opciones del slider*/
+.slider-nav{
+    display: flex;
+    column-gap: 1rem;
+    position: absolute;
+    left:50%;
+    bottom: 60%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.slider-nav a{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: #FFFFFF80;
+    opacity: .75;
+    transition: opacity ease-in-out 8s;
+}
+
+
+/*Productos*/
+article{
+
+    background-color: #fff;
+    border: 3px solid #E474BA;
+    margin: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    height: 150px; 
+    border-radius: 10px;
+    border: 5px solid #FFB4E0;
+
+}
+.product{
+    color: #8E2764;
+    text-align: center;
+    font-family: Open Sans;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 129.682%; 
+    letter-spacing: -0.35px;
+}
+
+.brand, .desc{
+    color: #272727;
+    font-family: Open Sans;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 129.682%;
+    letter-spacing: -0.49px;
+
+
+}
+
+.detail{
+    display: flex;
+    width: 179px;
+    height: 66px;
+
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    left: 50px;
+    bottom: 70px;
+}
+
+
+
+article img{
+    box-sizing: border-box;
+    justify-content: flex-start;
+    flex-shrink: 0;
+
+    position: relative;
+    bottom: 10px;
+    right: 90px;
+    width: 96px;
+    height: 70px;
+    
+}
+
+p{
+    color: #8E2764;
+    text-align: center;
+    font-family: Open Sans;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 100%; /* 10px */
+    letter-spacing: -0.35px;
+}
+.price{
+    position: relative;
+    top: -40px;
+    right: 90px;
+    color: #272727;
+    font-family: Open Sans;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%;
+    letter-spacing: -0.49px;
+}
+
+.compra {
+    display: flex;
+    flex-shrink: 0;
+    border-radius: 0px 5px 5px 0px;
+    justify-content: center;
+    align-items: center;
+    background: #E474BA;    
+    width: 32px;
+    height: 32px;
+    position: relative;
+    left: 50px;
+    bottom: 80px;
+    color: #FCFCFC;
+    border: none;
+
+
+}
+
+.carrito {
+    display: flex;
+    flex-direction: row;
+
+
+}
+
+input{
+    position: relative;
+    left: 50px;
+    bottom: 80px;
+    width: 83px;
+    height: 32px;
+    color: #E474BA ;
+    text-align: center;
+    font-family: Open Sans;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 200%; /* 32px */
+    letter-spacing: -0.56px;
+
+    border: solid #E474BA 2px;
+}
+
+
+
+article:hover {
+    background-color: rgba(255, 180, 224, 0.40); 
+}
+
+
+li a:hover {
+    background-color: #FF6AC2; 
+}
+
+ul a:hover {
+    background-color: #FF6AC2; 
+}
+
+
+
+/*numero de paginas*/
+
+.page-numbers {
+    display: flex;
+    box-sizing: border-box;
+    justify-content: space-around;
+    width: 50%;
+    padding: 10px 0;
+    border: solid 3px #E474BA ;
+    background-color: #fff;
+    font-size: 20px;
+    color: #E474BA;
+    align-items: center;
+    margin: 10px auto; 
+
+}
+
+
+
+
+@media (min-width: 361px){
+    .menu {
+        list-style-type: none;
+    
+    
+        display: flex;
+        box-sizing: border-box;
+        margin : 10px;
+        padding: 10px 0 10px 0;
+        justify-content: space-around;
+        background-color: #FFE5E5;
+        flex-wrap: wrap;
+        width: 100%;
+        height: 100%;
+        border-radius: 60px;
+        flex-wrap: wrap;
+    }
+    
+    .menu li {
+        display: inline;
+        margin-right: 10px;
         
-                    <article class="caramelo2">
-                        <img src="/img/productos/flynnpaff-frutilla.png" alt="">
-                        <div class="detail">
-                            <div class="product">Caramelo masticable </div>
-                            <div class="brand"> "FLYNN PAFF"</div>
-                            <div class="desc"> Sabor Frutilla</div>    
-                        </div> 
-                        <div class="price">
-                            <p>Precio</p>$150</div>
-                        <div class="carrito">
-                            <input type="text" id="name" name="name" required minlength="4" maxlength="8"/>
-                            <button class="compra"><i class="bi bi-cart-plus"></i></button>
-                        </div>
-                    </article>
+    }
+
+}
+
+@media (min-width: 769px){
+    .menu {
+        list-style-type: none;
+    
+    
+        display: flex;
+        box-sizing: border-box;
+        margin : 10px;
+        padding: 10px 0 10px 0;
+        justify-content: space-around;
+        background-color: #FFE5E5;
+        flex-wrap: wrap;
+        width: 100%;
+        height: 100%;
+        border-radius: 60px;
+        flex-wrap: wrap;
+    }
+    
+    .menu li {
+        display: inline;
+        margin-right: 10px;
         
-                    <article class="caramelo3">
-                        <img src="/img/productos/flynnpaff-manzana.png" alt="">
-                        <div class="detail">
-                            <div class="product">Caramelo masticable </div>
-                            <div class="brand"> "FLYNN PAFF"</div>
-                            <div class="desc"> Sabor Manzana</div>
-                        </div>
-                        <div class="price">
-                            <p>Precio</p>$150</div>
-                        <div class="carrito">
-                            <input type="text" id="name" name="name" required minlength="4" maxlength="8"/>
-                            <button class="compra"><i class="bi bi-cart-plus"></i></button>
-                        </div>
-                    </article>
-        
-                    <article class="caramelo4">
-                        <img src="/img/productos/flynnpaff-tutti.png" alt="">
-                        <div class="detail">
-                            <div class="product">Caramelo masticable </div>
-                            <div class="brand"> "FLYNN PAFF"</div>
-                            <div class="desc"> Sabor Tutti-Frutti</div>
-                        </div>  
-                        <div class="price">
-                            <p>Precio</p>$150</div>
-                        <div class="carrito">
-                            <input type="text" id="name" name="name" required minlength="4" maxlength="8"/>
-                            <button class="compra"><i class="bi bi-cart-plus"></i></button>
-                        </div>
-                    </article>
-                </div>
-                <div id="gomitas" class="productos-categoria">
-                    <!-- Productos de Gomitas -->
-                    <article class="gomita1">
-                        <img src="/img/productos/gomitas ositos.jpg" alt="">
-                        <div class="detail">
-                            <div class="product"> Gomitas </div>
-                            <div class="brand"> "MOGUL"</div>
-                            <div class="desc"> Gomitas Ositos x 10 gr</div>  
-                        </div>
-                        <div class="price">
-                            <p>Precio</p>$127,30</div>
-                        <div class="carrito">
-                            <input type="text" id="name" name="name" required minlength="4" maxlength="8"/>
-                            <button class="compra"><i class="bi bi-cart-plus"></i></button>
-                        </div>
-                    </article>
+    }
 
-                    <article class="gomita2">
-                        <img src="/img/productos/gomitas.jpg" alt="">
-                        <div class="detail">
-                            <div class="product"> Gomitas </div>
-                            <div class="brand"> "MOGUL"</div>
-                            <div class="desc"> Gomitas Murcielago x 10 gr</div>  
-                        </div>
-                        <div class="price">
-                            <p>Precio</p>$127,30</div>
-                        <div class="carrito">
-                            <input type="text" id="name" name="name" required minlength="4" maxlength="8"/>
-                            <button class="compra"><i class="bi bi-cart-plus"></i></button>
-                        </div>
-                    </article>
-                </div>
+}
 
-                <div id="alfajores" class="productos-categoria">
-                    <!-- Productos de Alfajores -->
-                    <article class="alfajor1">
-                        <img src="/img/productos/alfajor1.jpg" alt="">
-                        <div class="detail">
-                            <div class="product">Alfajor </div>
-                            <div class="brand"> "BON O BON"</div>
-                            <div class="desc"> Alfajor Original 40 gr</div>  
-                        </div>
-                        <div class="price">
-                            <p>Precio</p>$350</div>
-                        <div class="carrito">
-                            <input type="text" id="name" name="name" required minlength="4" maxlength="8"/>
-                            <button class="compra"><i class="bi bi-cart-plus"></i></button>
-                        </div>
-                    </article>
-
-                    <article class="alfajor2">
-                        <img src="/img/productos/alfajor2.jpg" alt="">
-                        <div class="detail">
-                            <div class="product">Alfajor </div>
-                            <div class="brand"> "TOFI"</div>
-                            <div class="desc"> Alfajor Negro 46 gr</div>  
-                        </div>
-                        <div class="price">
-                            <p>Precio</p>$260</div>
-                        <div class="carrito">
-                            <input type="text" id="name" name="name" required minlength="4" maxlength="8"/>
-                            <button class="compra"><i class="bi bi-cart-plus"></i></button>
-                        </div>
-                    </article>
+/*menu productos*/
 
 
-                </div>
+.menu {
+    text-align: center;
+    display: flex;
+    box-sizing: border-box;
+    margin : 10px;
+    padding: 10px 0 10px 0;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFE5E5;
+    border-radius: 60px;
+    width: 250px;
+    position: relative;
+    left:20%;
+}
 
-                <div id="chocolate" class="productos-categoria">
-                    <!-- Productos de Chocolates -->
-                    <article class="chocolate1">
-                        <img src="/img/productos/bonobon-blanco.png" alt="">
-                        <div class="detail">
-                            <div class="product">Bombon Relleno </div>
-                            <div class="brand"> "BON O BON"</div>
-                            <div class="desc"> Bombon Original 15 gr</div>  
-                        </div>
-                        <div class="price">
-                            <p>Precio</p>$90</div>
-                        <div class="carrito">
-                            <input type="text" id="name" name="name" required minlength="4" maxlength="8"/>
-                            <button class="compra"><i class="bi bi-cart-plus"></i></button>
-                        </div>
-                    </article>
+.menu li {
+    display: inline;
+    margin-right: 10px;
+    
+}
 
-                    <article class="chocolate2">
-                        <img src="/img/productos/block.jpg" alt="">
-                        <div class="detail">
-                            <div class="product"> Chocolate </div>
-                            <div class="brand"> "COFLER BLOCK"</div>
-                            <div class="desc"> Chocolate con mani 170 gr</div>  
-                        </div>
-                        <div class="price">
-                            <p>Precio</p>$1098,91</div>
-                        <div class="carrito">
-                            <input type="text" id="name" name="name" required minlength="4" maxlength="8"/>
-                            <button class="compra"><i class="bi bi-cart-plus"></i></button>
-                        </div>
-                    </article>
+#chupetines {
+    display: flex;
+}
 
 
-                </div>
-
-                <div id="sin-azucar" class="productos-categoria">
-                    <article class="sin-azucar1">
-                        <img src="/img/productos/sin azucar 1.png" alt="">
-                        <div class="detail">
-                            <div class="product"> Chocolate Sin Azucar </div>
-                            <div class="brand"> "GEORGALOS"</div>
-                            <div class="desc"> Chocolate con leche 30 gr</div>  
-                        </div>
-                        <div class="price">
-                            <p>Precio</p>$390</div>
-                        <div class="carrito">
-                            <input type="text" id="name" name="name" required minlength="4" maxlength="8"/>
-                            <button class="compra"><i class="bi bi-cart-plus"></i></button>
-                        </div>
-                    </article>
-
-                    <article class="sin-azucar2">
-                        <img src="/img/productos/sin azucar 2 brownie.png" alt="">
-                        <div class="detail">
-                            <div class="product"> Chococereal sin azucar </div>
-                            <div class="brand"> "GEORGALOS"</div>
-                            <div class="desc"> Brownie chocolate amargo</div>  
-                        </div>
-                        <div class="price">
-                            <p>Precio</p>$290</div>
-                        <div class="carrito">
-                            <input type="text" id="name" name="name" required minlength="4" maxlength="8"/>
-                            <button class="compra"><i class="bi bi-cart-plus"></i></button>
-                        </div>
-                    </article>
-                </div>
-
-                <div id="otros" class="productos-categoria">
-                    <!-- Productos varios -->
-                    <article class="sin-azucar2">
-                        <img src="/img/productos/cubanitos.webp" alt="">
-                        <div class="detail">
-                            <div class="product"> Cubanitos </div>
-                            <div class="brand"> "GEORGALOS"</div>
-                            <div class="desc"> Caja cubanitos x 40u</div>  
-                        </div>
-                        <div class="price">
-                            <p>Precio</p>$694,89</div>
-                        <div class="carrito">
-                            <input type="text" id="name" name="name" required minlength="4" maxlength="8"/>
-                            <button class="compra"><i class="bi bi-cart-plus"></i></button>
-                        </div>
-                    </article>
-                </div>
+.productos-categoria{
+    display: none
+     
+}
 
 
-        </div>
+:target {
+    display: flex;        
+    flex-wrap: wrap;
 
-        </section>
- 
+}
 
-        <ul class="page-numbers">
-            <li><a href="#">Ant</a></li>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">Sig</a></li>
-        </ul>
-
-    </main>
-    <footer>
-        <div>
-            <div class="redes">
-                <p>Seguinos en<br>nuestras redes</p>
-                <ul>
-                    <li><a href=""><i class="bi bi-telegram"></i></a></li>
-                    <li><a href=""><i class="bi bi-whatsapp"></i></a></li>
-                    <li><a href=""><i class="bi bi-facebook"></i></a></li>
-                    <li><a href=""><i class="bi bi-tiktok"></i></a></li>
-                    <li><a href=""><i class="bi bi-instagram"></i></a></li>
-                </ul>
-            </div>
-
-            <div class="copyright">
-                <img src="/img/candyshop.png" alt="Logo de CandyShop" width="200px">
-                <p>© 2023 CandyShop<br>All rights reserved</p>
-            </div>
-        </div>
-    </footer>
-
-
-</body>
-</html>
+.arrow{
+    display: flex;
+    width: 140px;
+    height: 30px;
+    justify-content: center;
+    flex-shrink: 0;
+    
+    border: none;
+    
+    position: relative;
+    right: 20px;
+    background-color: #FFA8D4BF;
+    color: #000;
+    text-align: center;
+    font-family: Open Sans;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: -0.525px;
+}
 
 
 
 
 
 
+.dropdown-menu {
+    display: none;
+    
+}
 
+.btn-group:focus .dropdown-menu {
+    display:block;
 
+}
 
+.btn-group:focus-within .dropdown-menu {
+    display: block;
+}
+
+.arrow i{
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    left: 55px;
+    top: 5px;
+    font-size: 1.5rem;
+    
+    color:#E474BA;
+    background-color: #FFE5E5;
+
+}
 
 
 
