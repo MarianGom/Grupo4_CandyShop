@@ -430,5 +430,9 @@ footer img{
 
 /* LG - Pantallas */
 @media only screen and (min-width: 1000px) {
+    
+    #carrito{
+        width: 60%;
+    }
 
 }
