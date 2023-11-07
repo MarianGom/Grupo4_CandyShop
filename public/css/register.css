@@ -76,6 +76,15 @@ a {
     width: 187px;
     height: auto;
 }
+h3 {
+    color: #272727;
+    font-size: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
 .contenedor-email-contraseña {
     display: flex;
     flex-direction: column;
@@ -194,7 +203,8 @@ label {
     margin: 3.5rem auto 0;
     max-width: 90%;
     font-size: 15px;
-    line-height: 2;
+    line-height: 2;
+    height: 75px;
 }
 .contenedor-golosinas {
     display: flex;
