@@ -7,6 +7,7 @@
 
     <link rel="shortcut icon" href="/img/favicon.png" type="image/png">
     <link rel="stylesheet" href="/css/product.css">
+    <link rel="stylesheet" href="/css/room.css">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,25 +25,25 @@
             <div>
                 <img src="/img/candyshop-sm.png" alt="Logo de CandyShop" width="66px">
             </div>
-            <!-- Opciones -->
+        <!-- Opciones -->
             <div>
                 <ul>
-                    <li><a href="/views/index.html">Inicio</a></li>
-                    <li><a href="/views/productCart.html">Productos</a></li>
+                    <li><a href="/home">Inicio</a></li>
+                    <li><a href="/productos">Productos</a></li>
                     <li><a href="#">Nosotros</a></li>
-                    <li><a href="/views/login.html">Iniciar Sesión</a></li>
+                    <li><a href="/login">Iniciar Sesión</a></li>
                 </ul>
-                <a href="/views/productDetail.html"><i class="bi bi-cart"></i></a>
+                <a href="/carrito"><i class="bi bi-cart"></i></a>
                 <button><i class="bi bi-list"></i></button>
             </div>
-    
+
         </nav>
     </header>
         <!-- Slider -->
         <section class="container">
             <div class="slide-wrapper">
                 <div class="slider-frame">
-                    <img id="slider1" src="#" alt="banner1">
+                    <img id="slider1" src="#" alt="">
                     <img id="slider2" src="#" alt="">
                     <img id="slider3" src="#" alt="">
                     <img id="slider4" src="#" alt="">
@@ -60,19 +61,33 @@
     <main>
 
         <!---barra de Navegacion Dulces --> 
+
+    
+
         <section class="bars"> 
             <div class="menu">
-                <ul>
-                    <li><a href="#chupetines">Chupetines</a></li>
-                    <li><a href="#caramelos">Caramelos</a></li>
-                    <li><a href="#gomitas">Gomitas</a></li>
-                    <li><a href="#alfajores">Alfajores</a></li>
-                    <li><a href="#chocolate">Chocolate</a></li>
-                    <li><a href="#sin-azucar">Sin Azúcar</a></li>
-                    <li><a href="#otros">Otros</a></li>
-                </ul>
-                <button class="arrow"><i class="bi bi-chevron-down"></i></button>
-            </div>
+                <div class="btn-group">
+                    <button type="button" class="arrow" data-bs-toggle="dropdown" aria-expanded="false">
+                    Opciones<i class="bi bi-chevron-down"></i></button>
+                    <ul class="dropdown-menu">
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#chupetines">Chupetines</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#caramelos">Caramelos</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#gomitas">Gomitas</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#alfajores">Alfajores</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#chocolate">Chocolate</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#sin-azucar">Sin Azúcar</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#otros">Otros</a></li>
+                    </ul>
+                    
+                </div>
+                </div>
             <div class="productos">
                 <div id="chupetines" class="productos-categoria">
                     <!-- Productos de Chupetines -->
@@ -345,6 +360,8 @@
 
 </body>
 </html>
+
+
 
 
 
