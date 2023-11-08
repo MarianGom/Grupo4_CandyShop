@@ -257,6 +257,9 @@ ul a:hover {
     
 }
 
+#chupetines {
+    display: flex;
+}
 
 
 .productos-categoria{
@@ -364,12 +367,10 @@ ul a:hover {
         position: relative;
         top: 10px;
         right: 0px;
-        width: 200px;
+        width: fit-content;
         height: 104px;
-
         
     }
-
 
     .price{
         position: relative;
@@ -379,6 +380,7 @@ ul a:hover {
     }
     .product, .brand, .desc{
         font-size: 20px;
+        text-align: center;
     }
 
 
@@ -494,8 +496,9 @@ ul a:hover {
         position: relative;
         top: 10px;
         right: 0px;
-        width: 200px;
+        width: fit-content;
         height: 104px;
+        
 
         
     }
@@ -509,6 +512,7 @@ ul a:hover {
     }
     .product, .brand, .desc{
         font-size: 20px;
+        text-align: center;
     }
 
 
