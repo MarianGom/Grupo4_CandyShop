@@ -257,9 +257,11 @@ ul a:hover {
     
 }
 
-#chupetines {
+#caramelos {
     display: flex;
+    flex-wrap: wrap ;
 }
+
 
 
 .productos-categoria{
