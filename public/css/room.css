@@ -24,29 +24,69 @@
 body{
     font-family: 'Inter', sans-serif;
     background-color: var(--bg-principal);
+    overflow-x: hidden;
 }
 
-nav{
+#navbar{
     display: flex;
+    position: fixed;
+    top: 0;
     justify-content: space-between;
     align-items: center;
     height: 50px;
+    width: 100%;
     padding: 0px 20px;
     margin-bottom: 2rem;
+    z-index: 10000;
+    background-color: var(--bg-principal);
 }
 
-nav ul{
+#menu-opciones{
     display: none;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 50px;
+    width: 100vw;
+    border-bottom: 1px solid var(--bg-rosa-claro);
+    box-shadow: 0px 100vh 0px 100vh rgba(0, 0, 0, 0.5);
+    z-index: 100;
+}
+
+nav ul li{
+    width: 100vw;
+    height: 60px;
+    background-color: var(--bg-principal);
+    border-top: 1px solid var(--bg-rosa-claro);
+    transition: all 0.2s ease-in;
+}
+
+
+nav ul li:hover{
+    background-color: var(--bg-rosa-claro);
+}
+
+nav li a{
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 nav button{
     border: none;
     background: none;
     margin-left: 10px;
+    cursor: pointer;
 }
 
 nav .bi{
     font-size: 25px;
+}
+
+main{
+    padding-top: 90px;
 }
 
 li{
@@ -72,6 +112,7 @@ a{
 
 #anuncio .contenedor{
     display: flex;
+    justify-content: space-between;
     align-items: center;
     height: 80px;
     min-width: 320px;
@@ -83,6 +124,10 @@ a{
 #anuncio h6{
     text-align: center;
     min-width: 45%;
+}
+
+#anuncio h5{
+    display: none;
 }
 
 
@@ -115,6 +160,10 @@ a{
     border-radius: 10px;
     padding: 15px 20px;
     line-height: 1.05rem;
+}
+
+#carrito .producto img{
+    height: 25px;
 }
 
 #carrito ul{
@@ -183,6 +232,10 @@ input#cantidad{
 #acompaniar p{
     font-weight: 500;
     font-size: 14px;
+}
+
+.precioUnitario-lg{
+    display: none;
 }
 
 #acompaniar h6{
@@ -333,6 +386,8 @@ input#cantidad{
 
 footer{
     display: flex;
+    width: 100%;
+    flex-direction: column;
     justify-content: center;
     padding: 35px 0px;
     border-top: 1px solid var(--text-secundario);
@@ -344,9 +399,9 @@ footer div{
 
 footer ul{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     min-width: 320px;
-    width: 80vw;
+    width: 100%;
     margin: 1.5rem 0px;
     font-size: 30px;
 }
@@ -423,16 +478,264 @@ footer img{
     margin-top: 2.5rem;
 }
 
+
+
 /* MD - Pantallas */
 @media only screen and (min-width: 700px) {
+    .horizontal{
+        display: flex;
+        min-width: 500px;
+        align-items: center;
+        padding-right: 10px;
+    }
+
+    #navbar{
+        display: flex;
+        position: fixed;
+        top: 0;
+        justify-content: space-between;
+        align-items: center;
+        height: 50px;
+        width: 100vw;
+        z-index: 10000;
+        background-color: var(--bg-principal);
+    }
+
+    #menu-opciones{
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        height: 50px;
+        top: 0;
+        border: none;
+        box-shadow: none;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    nav ul li{
+        width: 100%;
+        height: 100%;
+        background-color: var(--bg-principal);
+        border-top: none;
+        transition: all 0.2s ease-in;
+    }
+
+    nav li a{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .horizontal>a{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        padding: 0px 15px 0px 15px;
+        transition: all 0.2s ease-in;
+    }
+
+    .horizontal>a:hover{
+        background-color: var(--bg-rosa-claro);
+    }
+
+    nav button{
+        display: none;
+    }
+
+    #anuncio .contenedor{
+        justify-content: space-around;
+    }
+
+    #anuncio h3{
+        font-size: 1.5rem;
+    }
+
+    #anuncio h6{
+        display: none;
+    }
+
+    #anuncio h5{
+        display: block;
+        text-align: center;
+        min-width: 45%;
+        font-size: 0.9rem;
+    }
+
     
+    footer{
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    #acompaniar .contenedor{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    #acompaniar h2{
+        width: 100%;
+    }
+    
+    #acompaniar .producto{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30%;
+        max-width: 200px;
+        background-color: var(--bg-principal);
+        border: 3px solid var(--bg-rosa-claro);
+        border-radius: 10px;
+        margin: 1rem 0px; 
+        padding: 15px;
+    }
+
+    #acompaniar .agregarproducto{
+        display: none;
+    }
+    
+    #acompaniar img{
+        margin: 10px 0px;
+    }
+
+
+    .precioUnitario-xs{
+        display: none;
+    }
+
+    .precioUnitario-lg{
+        display: block;
+        margin: 25px 0px;
+    }
+
+    .agregarproducto-lg .btn-rosa{
+        width: 100%;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
+        border: 3px solid var(--bg-rosa-claro);
+        border-radius: 5px;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 12px;
+        font-family: 'Inter', sans-serif;
+        color: var(--text-rosa-claro);
+        transition: all 0.25s ease-in-out;
+    }
+
+    .agregarproducto-lg .btn-rosa:hover{
+        background-color: var(--bg-rosa-oscuro);
+        border-color: var(--bg-rosa-oscuro);
+        color: var(--text-blanco);
+        font-family: 'Inter', sans-serif;
+    }
+
 }
+
+
+
 
 /* LG - Pantallas */
 @media only screen and (min-width: 1000px) {
-    
+    .horizontal{
+        display: flex;
+        width: 100%;
+        justify-content: end;
+    }
+
+    #menu-opciones{
+        max-width: 50%;
+    }
+
     #carrito{
+        min-height: 500px;
         width: 60%;
     }
 
+    #carrito .contenedor{
+        margin-left: 5vw;
+    }
+
+    #lista-productos{
+        margin-top: 5rem;
+    }
+
+    #carrito .producto img{
+        height: auto;
+        width: 125px;
+        margin-right: 10px;
+    }
+
+    #carrito .producto li:first-child{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #anuncio h3{
+        font-size: 2rem;
+    }
+
+    #anuncio h5{
+        font-size: 1rem;
+    }
+
+    #carrito .btn-rosa{
+        display: none;
+    }
+
+    #pagar{
+        position: absolute;
+        width: 32.5%;
+        right: 5vw;
+        top: 200px;
+        border: 5px solid var(--bg-violeta-oscuro);
+        border-radius: 10px;
+        padding: 0px;
+        padding-bottom: 1.5rem;
+    }
+
+    #pagar .contenedor{
+        min-width: 225px;
+        width: 90%;
+    }
+
+    #pagar .btn-rosa, #pagar .btn-rosa-full{
+        font-size: 14px;
+    }
+
+
+    #acompaniar{
+        background-color: var(--bg-principal);
+    }
+
+    #acompaniar .contenedor{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+
+    #pagar i{
+        font-size: 30px;
+    }
+
+    .terminos{
+        display: flex;
+        justify-content: center;
+    }
+
+    .terminos p{
+        max-width: 230px;
+    }
+
+    .perks{
+        padding: 0px 10px;
+    }
 }

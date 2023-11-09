@@ -16,25 +16,28 @@
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
+    <!-- JS -->
+    <script src="/js/menu.js"></script>
+
 </head>
-<body>
+<body onresize="resizeMenu()">
     <!-- Rocio Marcos -->
 
-    <nav class="sombra-sm">
+    <nav id="navbar" class="sombra-sm">
         <!-- Logo -->
         <div>
             <img src="/img/candyshop-sm.png" alt="Logo de CandyShop" width="66px">
         </div>
         <!-- Opciones -->
-        <div>
-            <ul>
-                <li><a href="/home">Inicio</a></li>
+        <div class="horizontal">
+            <ul id="menu-opciones">
+                <li><a href="/landing">Inicio</a></li>
                 <li><a href="/productos">Productos</a></li>
                 <li><a href="#">Nosotros</a></li>
                 <li><a href="/login">Iniciar Sesión</a></li>
             </ul>
             <a href="/carrito"><i class="bi bi-cart"></i></a>
-            <button><i class="bi bi-list"></i></button>
+            <button type="button" onclick="opencloseMenu()"><i class="bi bi-list"></i></button>
         </div>
 
     </nav>
@@ -45,6 +48,7 @@
             <div class="bg-rosaoscuro text-blanco contenedor">
                 <h3 class="fw-5">Tu compra es <b>100%</b> segura</h3>
                 <h6 class="fw-4">¿Necesitas ayuda?<br>Llamanos<br><b>+54 123 456 7890</b></h6>
+                <h5 class="fw-4">¿Necesitas ayuda? Llamanos <b>+54 123 456 7890</b></h5>
             </div>
         </section>
 
@@ -53,13 +57,15 @@
             <div class="contenedor">
                 <h1>Tu pedido</h1>
 
-                <div>
+                <div id="lista-productos">
                     <ul class="producto">
                         <li>
-                            <img src="/img/productos/flynnpaff-tutti.png" alt="Flynn Paff Tutti Frutti" height="25px">
-                            <h6>Caramelo masticable</h6>
-                            <p>"FLYNN PAFF"</p>
-                            <p>Sabor Tutti-Frutti</p>
+                            <img src="/img/productos/flynnpaff-tutti.png" alt="Flynn Paff Tutti Frutti">
+                            <div>
+                                <h6>Caramelo masticable</h6>
+                                <p>"FLYNN PAFF"</p>
+                                <p>Sabor Tutti-Frutti</p>
+                            </div>
                         </li>
 
                         <li>
@@ -77,10 +83,12 @@
 
                     <ul class="producto">
                         <li>
-                            <img src="/img/productos/flynnpaff-manzana.png" alt="Flynn Paff Manzana" height="25px">
-                            <h6>Caramelo masticable</h6>
-                            <p>"FLYNN PAFF"</p>
-                            <p>Sabor Manzana</p>
+                            <img src="/img/productos/flynnpaff-manzana.png" alt="Flynn Paff Manzana">
+                            <div>
+                                <h6>Caramelo masticable</h6>
+                                <p>"FLYNN PAFF"</p>
+                                <p>Sabor Manzana</p>
+                            </div>
                         </li>
 
                         <li>
@@ -110,51 +118,75 @@
                 <article class="producto">
                     <div>
                         <img src="/img/productos/flynnpaff-banana.png" alt="Flynn Paff Banana" height="65px">  
-                        <h6>Precio</h6>
-                        <p>$ 150,00 c/u</p>
+                        <div class="precioUnitario-xs">
+                            <h6>Precio</h6>
+                            <p>$ 150,00 c/u</p>
+                        </div>
                     </div>
                     <div>
                         <h6>Caramelo masticable</h6>
                         <p>"FLYNN PAFF"</p>
-                        <p>Sabor Banana</p>     
+                        <p>Sabor Banana</p>
+                        <div class="precioUnitario-lg">
+                            <h4>$ 150,00</h4>
+                        </div>     
                         <div class="agregarproducto">
                             <input type="text" id="cantidad-mas" name="cantidad" maxlength="3" placeholder="0">
                             <button><i class="bi bi-cart-plus-fill"></i></button>
                         </div>
+                    </div>
+                    <div class="agregarproducto-lg">
+                        <button class="btn-rosa">Agregar al carrito</button>
                     </div>
                 </article>
 
                 <article class="producto">
                     <div>
                         <img src="/img/productos/flynnpaff-uva.png" alt="Flynn Paff Uva" height="65px">
-                        <h6>Precio</h6>
-                        <p>$ 150,00 c/u</p>
+                        <div class="precioUnitario-xs">
+                            <h6>Precio</h6>
+                            <p>$ 150,00</p>
+                        </div>
                     </div>
                     <div>
                         <h6>Caramelo masticable</h6>
                         <p>"FLYNN PAFF"</p>
                         <p>Sabor Banana</p>
+                        <div class="precioUnitario-lg">
+                            <h4>$ 150,00</h4>
+                        </div>
                         <div class="agregarproducto">
                             <input type="text" id="cantidad-mas" name="cantidad" maxlength="3" placeholder="0">
                             <button><i class="bi bi-cart-plus-fill"></i></button>
                         </div>
+                    </div>
+                    <div class="agregarproducto-lg">
+                        <button class="btn-rosa">Agregar al carrito</button>
                     </div>
                 </article>
 
                 <article class="producto">
                     <div>
                         <img src="/img/productos/flynnpaff-frutilla.png" alt="Flynn Paff Frutilla" height="65px">
-                        <h6>Precio</h6>
-                        <p>$ 150,00 c/u</p>
+                        <div class="precioUnitario-xs">
+                            <h6>Precio</h6>
+                            <p>$ 150,00</p>
+                        </div>
                     </div>
                     <div>
                         <h6>Caramelo masticable</h6>
                         <p>"FLYNN PAFF"</p>
                         <p>Sabor Banana</p>
+                        <div class="precioUnitario-lg">
+                            <h4>$ 150,00</h4>
+                        </div>
                         <div class="agregarproducto">
                             <input type="text" id="cantidad-mas" name="cantidad" maxlength="3" placeholder="0">
                             <button><i class="bi bi-cart-plus-fill"></i></button>
                         </div>
+                    </div>
+                    <div class="agregarproducto-lg">
+                        <button class="btn-rosa">Agregar al carrito</button>
                     </div>
                 </article>
             </div>
@@ -192,17 +224,17 @@
                 <div class="perks">
                     <div>
                         <i class="bi bi-lock"></i>
-                        <p>Pago seguro</p>
+                        <p>Pago<br>seguro</p>
                     </div>
     
                     <div>
                         <i class="bi bi-truck"></i>
-                        <p>Cambios y devoluciones</p>
+                        <p>Cambios y<br>devoluciones</p>
                     </div>
     
                     <div>
                         <i class="bi bi-hand-thumbs-up"></i>
-                        <p>Clientes satisfechos</p>
+                        <p>Clientes<br>satisfechos</p>
                     </div>
                 </div>
             </div>
@@ -211,22 +243,20 @@
     </main>
 
     <footer>
-        <div>
-            <div class="redes">
-                <p>Seguinos en<br>nuestras redes</p>
-                <ul>
-                    <li><a href=""><i class="bi bi-telegram"></i></a></li>
-                    <li><a href=""><i class="bi bi-whatsapp"></i></a></li>
-                    <li><a href=""><i class="bi bi-facebook"></i></a></li>
-                    <li><a href=""><i class="bi bi-tiktok"></i></a></li>
-                    <li><a href=""><i class="bi bi-instagram"></i></a></li>
-                </ul>
-            </div>
+        <div class="redes">
+            <p>Seguinos en<br>nuestras redes</p>
+            <ul>
+                <li><a href=""><i class="bi bi-telegram"></i></a></li>
+                <li><a href=""><i class="bi bi-whatsapp"></i></a></li>
+                <li><a href=""><i class="bi bi-facebook"></i></a></li>
+                <li><a href=""><i class="bi bi-tiktok"></i></a></li>
+                <li><a href=""><i class="bi bi-instagram"></i></a></li>
+            </ul>
+        </div>
 
-            <div class="copyright">
-                <img src="/img/candyshop.png" alt="Logo de CandyShop" width="200px">
-                <p>© 2023 CandyShop<br>All rights reserved</p>
-            </div>
+        <div class="copyright">
+            <img src="/img/candyshop.png" alt="Logo de CandyShop" width="200px">
+            <p>© 2023 CandyShop<br>All rights reserved</p>
         </div>
     </footer>
 
