@@ -1,44 +1,5 @@
 
 
-/*navbar*/
-nav{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 50px;
-    padding: 0px 20px;
-    margin-bottom: 2rem;
-}
-
-nav ul{
-    display: none;
-}
-
-nav button{
-    border: none;
-    background: none;
-    margin-left: 10px;
-}
-
-nav .bi{
-    font-size: 25px;
-}
-
-li{
-    list-style: none;
-}
-
-h6{
-    font-size: 0.75rem;
-}
-
-a{
-    text-decoration: none;
-    color: inherit;
-}
-
-
-
 /*slider publicidad*/
 
 .slider.wrapper{
@@ -81,7 +42,7 @@ a{
     column-gap: 1rem;
     position: absolute;
     left:50%;
-    bottom: 60%;
+    bottom: 65%;
     transform: translateX(-50%);
     z-index: 1;
 }
@@ -110,6 +71,7 @@ article{
     height: 150px; 
     border-radius: 10px;
     border: 5px solid #FFB4E0;
+
 
 }
 .product{
@@ -210,6 +172,10 @@ p{
 
 }
 
+.add{
+    display: none;
+}
+
 input{
     position: relative;
     left: 50px;
@@ -265,58 +231,6 @@ ul a:hover {
 
 
 
-@media (min-width: 361px){
-    .menu {
-        list-style-type: none;
-    
-    
-        display: flex;
-        box-sizing: border-box;
-        margin : 10px;
-        padding: 10px 0 10px 0;
-        justify-content: space-around;
-        background-color: #FFE5E5;
-        flex-wrap: wrap;
-        width: 100%;
-        height: 100%;
-        border-radius: 60px;
-        flex-wrap: wrap;
-    }
-    
-    .menu li {
-        display: inline;
-        margin-right: 10px;
-        
-    }
-
-}
-
-@media (min-width: 769px){
-    .menu {
-        list-style-type: none;
-    
-    
-        display: flex;
-        box-sizing: border-box;
-        margin : 10px;
-        padding: 10px 0 10px 0;
-        justify-content: space-around;
-        background-color: #FFE5E5;
-        flex-wrap: wrap;
-        width: 100%;
-        height: 100%;
-        border-radius: 60px;
-        flex-wrap: wrap;
-    }
-    
-    .menu li {
-        display: inline;
-        margin-right: 10px;
-        
-    }
-
-}
-
 /*menu productos*/
 
 
@@ -332,7 +246,9 @@ ul a:hover {
     border-radius: 60px;
     width: 250px;
     position: relative;
-    left:20%;
+    left:10%;
+    
+    
 }
 
 .menu li {
@@ -341,9 +257,11 @@ ul a:hover {
     
 }
 
-#chupetines {
+#caramelos {
     display: flex;
+    flex-wrap: wrap ;
 }
+
 
 
 .productos-categoria{
@@ -378,6 +296,7 @@ ul a:hover {
     font-weight: 600;
     line-height: normal;
     letter-spacing: -0.525px;
+    border-radius:60px;
 }
 
 
@@ -409,5 +328,268 @@ ul a:hover {
     
     color:#E474BA;
     background-color: #FFE5E5;
+    
+
+}
+
+
+
+
+@media (min-width: 361px){
+  
+  
+    article {
+ 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 250px;
+        height: 400px;
+
+        }
+
+
+    .detail{
+        color: #272727;
+        flex-direction: column;
+        justify-content: center;
+        flex-shrink: 0;
+
+        position: relative;
+        left: 0px;
+        top:50px;
+    }
+
+    p{
+        display: none;
+    }
+
+    article img{
+
+        position: relative;
+        top: 10px;
+        right: 0px;
+        width: fit-content;
+        height: 104px;
+        
+    }
+
+    .price{
+        position: relative;
+        top: 80px;
+        right: 0px;
+        font-size:25px;
+    }
+    .product, .brand, .desc{
+        font-size: 20px;
+        text-align: center;
+    }
+
+
+    .carrito {
+        display: none;
+
+
+    }
+
+    .add{
+        display: flex;
+        box-sizing: border-box;
+        justify-content: space-around;
+        padding: 10px 0;
+        border: solid 3px #E474BA ;
+        background-color: #fff;
+        font-size: 20px;
+        color: #E474BA;
+        align-items: center;
+        margin: 10px auto; 
+        position: relative;
+        top: 100px;
+        width: 199.266px;
+        height: 40px;
+    
+
+    }
+    .menu button{
+        display:none;
+    }
+
+    .dropdown-menu{
+        display:flex;
+    }
+    .menu {
+
+        width: 100%;
+        position: relative;
+        left:-5%;
+        background-color: #FCFCFC;
+        
+        
+    }
+
+    .menu ul{
+        width: 100%;
+        height: 100%;
+        left: 0px;
+        display: flex;
+        flex-wrap: wrap;
+        margin : 10px;
+        padding: 10px 0 10px 0;
+        justify-content: space-around;
+        border-radius: 60px;
+        background: #FFE5E5;
+        
+    }
+    
+
+    .menu li {
+        display: inline;
+        margin-right: 10px;
+        
+    }
+
+
+    .btn-group:focus .dropdown-menu {
+        display:none;
+
+    }
+
+    .btn-group:focus-within .dropdown-menu {
+        display: none;
+    }
+
+
+
+
+
+}
+
+@media (min-width: 769px){
+   
+  
+    article {
+ 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 250px;
+        height: 400px;
+
+        }
+
+
+    .detail{
+        color: #272727;
+        flex-direction: column;
+        justify-content: center;
+        flex-shrink: 0;
+
+        position: relative;
+        left: 0px;
+        top:50px;
+    }
+
+    p{
+        display: none;
+    }
+
+    article img{
+
+        position: relative;
+        top: 10px;
+        right: 0px;
+        width: fit-content;
+        height: 104px;
+        
+
+        
+    }
+
+
+    .price{
+        position: relative;
+        top: 80px;
+        right: 0px;
+        font-size:25px;
+    }
+    .product, .brand, .desc{
+        font-size: 20px;
+        text-align: center;
+    }
+
+
+    .carrito {
+        display: none;
+
+
+    }
+
+    .add{
+        display: flex;
+        box-sizing: border-box;
+        justify-content: space-around;
+        padding: 10px 0;
+        border: solid 3px #E474BA ;
+        background-color: #fff;
+        font-size: 20px;
+        color: #E474BA;
+        align-items: center;
+        margin: 10px auto; 
+        position: relative;
+        top: 100px;
+        width: 199.266px;
+        height: 40px;
+    
+
+    }
+    .menu button{
+        display:none;
+    }
+
+    .dropdown-menu{
+        display:flex;
+    }
+    .menu {
+
+        width: 100%;
+        position: relative;
+        left:-5%;
+        background-color: #FCFCFC;
+        
+        
+    }
+
+    .menu ul{
+        width: 100%;
+        height: 100%;
+        left: 0px;
+        display: flex;
+        flex-wrap: wrap;
+        margin : 10px;
+        padding: 10px 0 10px 0;
+        justify-content: space-around;
+        border-radius: 60px;
+        background: #FFE5E5;
+        
+    }
+    
+
+    .menu li {
+        display: inline;
+        margin-right: 10px;
+        
+    }
+
+
+    .btn-group:focus .dropdown-menu {
+        display:none;
+
+    }
+
+    .btn-group:focus-within .dropdown-menu {
+        display: none;
+    }
+
+
 
 }
