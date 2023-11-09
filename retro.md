@@ -1,9 +1,9 @@
 - Start Doing:
-        - Establecer prácticas de revisión de código entre los integrantes del equipo.
-        - Documentar el desarrollo de la aplicación.
+         |Establecer prácticas de revisión de código entre los integrantes del equipo.
+         |Documentar el desarrollo de la aplicación.
           
 - More of:
-        *Mejorar la comunicación/feedack entre los integrantes.
+        *Mejorar la comunicación/feedback entre los integrantes.
         *Realizar más reuniones de equipo.
         *Tareas totalmente finalizadas al momento del cierre de sprint
   
