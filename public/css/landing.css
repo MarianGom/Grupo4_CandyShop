@@ -24,29 +24,74 @@
 body {
     font-family: 'Inter', sans-serif;
     background-color: var(--bg-principal);
+    overflow-x: hidden;
 }
 
-nav {
+/* NAV */
+
+#navbar{
     display: flex;
+    position: fixed;
+    top: 0;
     justify-content: space-between;
     align-items: center;
     height: 50px;
+    width: 100%;
     padding: 0px 20px;
+    margin-bottom: 2rem;
+    z-index: 10000;
+    background-color: var(--bg-principal);
 }
 
-nav ul {
+#menu-opciones{
     display: none;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 50px;
+    width: 100vw;
+    border-bottom: 1px solid var(--bg-rosa-claro);
+    box-shadow: 0px 100vh 0px 100vh rgba(0, 0, 0, 0.5);
+    z-index: 100;
 }
 
-nav button {
+nav ul li{
+    width: 100vw;
+    height: 60px;
+    background-color: var(--bg-principal);
+    border-top: 1px solid var(--bg-rosa-claro);
+    transition: all 0.2s ease-in;
+}
+
+
+nav ul li:hover{
+    background-color: var(--bg-rosa-claro);
+}
+
+nav li a{
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav button{
     border: none;
     background: none;
     margin-left: 10px;
+    cursor: pointer;
 }
 
-nav .bi {
+nav .bi{
     font-size: 25px;
 }
+
+main{
+    padding-top: 50px;
+}
+
+
 
 li {
     list-style: none;
@@ -285,15 +330,8 @@ article {
 
 /* MD - Pantallas */
 @media only screen and (min-width: 700px) {
-    
-nav ul {
-    display: flex;
-    align-items: center;
-}
 
-li{
-        margin-right: 50px;
-}
+
 h2 {
     text-align: left;
     margin: 50px;
@@ -407,6 +445,72 @@ footer ul {
     display: flex;
     flex-direction: column;
 }
+
+    /* NAV */
+
+    #navbar{
+        display: flex;
+        position: fixed;
+        top: 0;
+        justify-content: space-between;
+        align-items: center;
+        height: 50px;
+        width: 100vw;
+        z-index: 10000;
+        background-color: var(--bg-principal);
+    }
+
+    #menu-opciones{
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        height: 50px;
+        top: 0;
+        border: none;
+        box-shadow: none;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    nav ul li{
+        width: 100%;
+        height: 100%;
+        background-color: var(--bg-principal);
+        border-top: none;
+        transition: all 0.2s ease-in;
+    }
+
+    nav li a{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    nav button{
+        display: none;
+    }
+
+    .horizontal>a{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        padding: 0px 15px 0px 15px;
+        transition: all 0.2s ease-in;
+    }
+
+    .horizontal>a:hover{
+        background-color: var(--bg-rosa-claro);
+    }
+
+    .horizontal{
+        display: flex;
+        min-width: 500px;
+        align-items: center;
+        padding-right: 10px;
+    }
 }
 
 /* LG - Pantallas */
@@ -449,5 +553,17 @@ footer ul {
     }
     .copyright{
         order:-2;
+    }
+
+
+    /* NAV */
+    .horizontal{
+        display: flex;
+        width: 100%;
+        justify-content: end;
+    }
+
+    #menu-opciones{
+        max-width: 50%;
     }
 }

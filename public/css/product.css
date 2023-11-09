@@ -1,6 +1,15 @@
 
 
+body{
+    overflow-x: hidden;
+}
+
+.container{
+    margin-top: 50px;
+}
+
 /*slider publicidad*/
+
 
 .slider.wrapper{
     position: relative;
@@ -334,7 +343,6 @@ ul a:hover {
 
 
 
-
 @media (min-width: 361px){
   
   
@@ -459,7 +467,9 @@ ul a:hover {
     }
 
 
-
+    nav li a:hover{
+        background-color: var(--bg-rosa-claro);
+    }
 
 
 }

@@ -482,12 +482,7 @@ footer img{
 
 /* MD - Pantallas */
 @media only screen and (min-width: 700px) {
-    .horizontal{
-        display: flex;
-        min-width: 500px;
-        align-items: center;
-        padding-right: 10px;
-    }
+    
 
     #navbar{
         display: flex;
@@ -529,6 +524,10 @@ footer img{
         justify-content: center;
     }
 
+    nav button{
+        display: none;
+    }
+
     .horizontal>a{
         display: flex;
         align-items: center;
@@ -542,9 +541,13 @@ footer img{
         background-color: var(--bg-rosa-claro);
     }
 
-    nav button{
-        display: none;
+    .horizontal{
+        display: flex;
+        min-width: 500px;
+        align-items: center;
+        padding-right: 10px;
     }
+
 
     #anuncio .contenedor{
         justify-content: space-around;
