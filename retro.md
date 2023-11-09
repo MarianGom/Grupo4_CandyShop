@@ -1,17 +1,19 @@
 - Start Doing:
-        Establecer prácticas de revisión de código entre los integrantes del equipo.
-        Documentar el desarrollo de la aplicación.
+        *Establecer prácticas de revisión de código entre los integrantes del equipo.
+        *Documentar el desarrollo de la aplicación.
           
 - More of:
-        Mejorar la comunicación/feedack entre los integrantes.
-        Realizar más reuniones de equipo.
+        *Mejorar la comunicación/feedack entre los integrantes.
+        *Realizar más reuniones de equipo.
+        *Tareas totalmente finalizadas al momento del cierre de sprint
   
 - Keep Doing:
-        Actualizaciónes en el repositorio de GitHub.
-        Actualizaciones del tablero Trello.
+        *Actualizaciónes en el repositorio de GitHub.
+        *Actualizaciones del tablero Trello.
+        *Busquedas, investigaciones que favorezcan el desarrollo.
   
 - Less of:
-        Evitar demoras en la finalización de tareas.
+        *Demoras en la finalización de tareas.
   
 - Stop Doing:
-        Posponer entregas, revisiones de código
+          *Posponer entregas, revisiones de código.
