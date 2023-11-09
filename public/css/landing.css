@@ -51,7 +51,9 @@ nav .bi {
 li {
     list-style: none;
 }
-
+h4{
+    display: none;
+}
 h6 {
     font-size: 0.75rem;
 }
@@ -63,7 +65,6 @@ a {
 
 
 .banner{    
-    height: 240px;
     background: #FFB4E0;
     display: flex;
     align-items: center;
@@ -101,7 +102,7 @@ footer {
     padding: 20px 0px;
 }
 
-footer div {
+footer .container-footer {
     text-align: center;
 }
 
@@ -126,7 +127,6 @@ footer img {
 
 .destacados {
     width: 100vw;
-    height: 90vh;
 }
 
 
@@ -207,6 +207,7 @@ article {
     text-align: center;
     padding: 25px 90px 10px 90px;
 }
+
 .perfil img {
     width: 50vw;
     border-radius: 50%;
@@ -225,6 +226,8 @@ article {
     margin-top: 40px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+
 }
 
 .cliente p {
@@ -281,7 +284,170 @@ article {
 
 
 /* MD - Pantallas */
-@media only screen and (min-width: 700px) {}
+@media only screen and (min-width: 700px) {
+    
+nav ul {
+    display: flex;
+    align-items: center;
+}
+
+li{
+        margin-right: 50px;
+}
+h2 {
+    text-align: left;
+    margin: 50px;
+    padding: 0% 10%;
+    font-size: 1.3rem;    
+    margin: 5% 0px 5% 0px;
+
+}
+h4{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+nav .bi.bi-list{
+    display: none;
+}
+
+.contenedor-nav{
+    display: flex;
+}
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    align-content: flex-end;
+}
+#product1{
+    width: 100vh;
+}
+#product2, #product3{
+    width: 50vh;
+}
+
+
+.perfil{
+    
+    position: relative;
+    top: -12vh;
+}
+
+.perfil img {    
+    width: 20vw;
+    border-radius: 50%;
+    border: solid 6px var(--bg-violeta-oscuro);
+  }
+
+.cliente { 
+    display: flex;
+    width: 70vw;
+    border-radius: 5%;
+    justify-content: center;
+
+    font-size: 2vw;
+}
+.cliente p{ 
+    font-size: 1.5vw;
+}
+.opiniones {
+    align-items: center;
+    height: 70vh;
+
+}
+.buttons {
+    display: flex;
+    margin-block-start: inherit;
+    margin-bottom: 15px;
+    color: #FFF;
+    align-items: center;
+}
+.buttons .row {
+    font-size: 35px;
+    margin-block-start: auto;
+    position: relative;   
+    width: 55vw;
+
+}
+
+.redes{
+    display: flex;
+    flex-direction: column;
+
+}
+
+footer {
+    display: block;
+    padding: 20px 0px;
+}
+footer .container-footer{
+    text-align: center;
+    display: flex;    
+    justify-content: space-around;
+    align-items: center;
+    min-width: 350px;
+}
+footer li{
+    margin: 0px;
+}
+
+footer ul {
+    
+    display: flex;
+    width: 10vw;
+    min-width: 250px;
+    justify-content: space-around;
+    margin: 1.5rem 0px;
+    font-size: 30px;
+}
+.copyright{
+    display: flex;
+    flex-direction: column;
+}
+}
 
 /* LG - Pantallas */
-@media only screen and (min-width: 1000px) {}
+@media only screen and (min-width: 1000px) {
+    .banner {
+        height: 70vh;
+    }
+    .banner img {
+        width: 80vw;
+    }
+    .destacados {
+        width: 100vw;
+        height: 50vh;
+    }
+
+   
+    h4{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+    .products{
+        display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    }
+    #product1, #product2, #product3{
+        width: 30vh;
+    }
+    
+.button1, .button2,.button3{
+    display: none;
+ }
+
+    footer .container-footer {
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 100px;
+
+    }
+    .copyright{
+        order:-2;
+    }
+}
