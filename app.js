@@ -25,8 +25,8 @@ app.get('/carrito', (req, res) =>{
     res.sendFile(path.join(__dirname, '/views/productCart.html'));
 });
 
-/* Registro -> Rocio */
-app.get('/registrar', (req, res) =>{
+/* Registro -> Luciana */
+app.get('/register', (req, res) =>{
     res.sendFile(path.join(__dirname, '/views/register.html'));
 });
 

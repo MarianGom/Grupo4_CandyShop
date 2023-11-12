@@ -104,7 +104,57 @@ a {
     color: inherit;
 }
 
-/*MAIN*/
+/* Main */
+main {
+    position: relative;
+    z-index: 0; /* Asegura que el fondo esté detrás de otros elementos */
+    overflow: hidden; /* Ocultar el overflow si se ajusta el tamaño */
+}
+
+main::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: url("/img/fondo-register.jpg");
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+
+main::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.7); /* Aquí defines la opacidad */
+    z-index: -1; /* Asegura que el fondo esté detrás de otros elementos */
+}
+.contenedor-register {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(179,242,244,0.7);
+    border: 10px solid rgba(227, 154, 252, 0.7);
+    border-radius: 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.logo-register {
+    text-align: center;
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .contenedor-icono-caramelo {
     display: flex;
     justify-content: center;
@@ -115,6 +165,7 @@ a {
     width: 187px;
     height: auto;
 }
+
 h3 {
     color: #272727;
     font-size: 35px;
@@ -122,6 +173,8 @@ h3 {
     justify-content: center;
     align-items: center;
     margin-top: 1rem;
+}
+.h3-register{
     margin-bottom: 2rem;
 }
 .contenedor-email-contraseña {
@@ -150,34 +203,34 @@ h3 {
 }
 
 .input-email input {
-    background-image: url("/img/usuario.png");
+    background-image: url("/images/usuario.png");
     background-position: right center;
     background-size: 1.5rem 1.5rem;
     background-repeat: no-repeat;
 }
 
 .input-contraseña input {
-    background-image: url("/img/contrasena.png");
+    background-image: url("/images/contrasena.png");
     background-position: right center;
     background-size: 2rem 2rem;
     background-repeat: no-repeat;
 }
 
 .input-nombre input {
-    background-image: url("/img/id-card.png");
+    background-image: url("/images/id-card.png");
     background-position: right center;
     background-size: 2rem 2rem;
     background-repeat: no-repeat;
 }
 
 .input-apellido input {
-background-image: url("/img/id-card.png");
+background-image: url("/images/id-card.png");
     background-position: right center;
     background-size: 2rem 2rem;
     background-repeat: no-repeat;
 }
 .input-confirmar-contra input {
-    background-image: url("/img/contrasena.png");
+    background-image: url("/images/contrasena.png");
     background-position: right center;
     background-size: 2rem 2rem;
     background-repeat: no-repeat;
@@ -243,35 +296,40 @@ label {
     max-width: 90%;
     font-size: 15px;
     line-height: 2;
-    height: 75px;
 }
+
 .contenedor-golosinas {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 0;
+    padding-top:4rem;
 }
-.golosinas-login {
-    width: 130px;
+
+.golosinas-register {
+    width: 150px;
     height: auto;
-    padding-top: 4.5rem;
 }
-/* Media query para dispositivos móviles*/
-@media screen and (min-width: 361px) {
-    main {
-        background: #FFB4E0;
-        width: 100%;
-        height: auto;
+
+
+@media screen and (min-width: 576px){
+    /* Tablet */
+    .contenedor-register {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(179,242,244,0.7);
+        border: 10px solid rgba(227, 154, 252, 0.7);
+        border-radius: 20px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 500px;
+        margin: 0 auto;
     }
 }
 
-/* Media query para desktop*/
-@media screen and (min-width:769px) {
-    main {
-        height: auto;
-        background: linear-gradient(to right, #FFB4E0 50%, #F880B2 50%);
-        /* Fondo amarillo y lila */
-    }
+@media screen and(min-width: 992px){
+    /* Desktop */
 }
 
 /*footer*/

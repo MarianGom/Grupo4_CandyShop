@@ -20,7 +20,7 @@
 
 </head>
 <body onresize="resizeMenu()">
-    <!--ROCIO SANCHEZ-->
+    <!--LUCIANA FIGUEROA-->
 
     <nav id="navbar" class="sombra-sm">
         <!-- Logo -->
@@ -41,56 +41,59 @@
     </nav>
 
     <main>
-        <section class="contenedor-icono-caramelo">
-            <img class="icono-caramelo" src="/img/caramelo-amarillo-lila-recortado.png">
-        </section>
-        <h3>Registrate</h3>
-        <section class="contenedor-email-contraseña">
-            <form action="ingresar-mail-contraseña" method="post">
-                <div class="input-email">
-                    <label for="email">E-mail</label>
-                    <input type="email" id="email" name="email" placeholder="maria@gmail.com" required>
-                </div>
-                <div class="input-nombre">
-                    <label for="nombre">Nombre:</label>
-                    <input type="text" id="nombre" name="nombre" placeholder="Maria" required>
-                </div>
-                <div class="input-apellido">
-                    <label for="apellido">Apellido:</label>
-                    <input type="text" id="apellido" name="apellido" placeholder="Gonzalez" required>
-                </div>
-                <div class="input-contraseña">
-                    <label for="password">Contraseña</label>
-                    <input type="password" id="password" name="password" placeholder="********" required>
-                </div>
-                <div class="input-confirmar-contra">
-                    <label for="confirmar-contrasena">Confirmar Contraseña:</label>
-                    <input type="password" id="confirmar-contrasena" name="confirmar-contrasena"placeholder="********"  required>
-                </div>
-                <div class="terminos-condiciones">
-                    <input type="checkbox" id="tyc" name="tyc">
-                    <label for="tyc">Acepto términos y condiciones</label>
-                </div>
-                <div class="olvido-contraseña">
-                    <a href=""><strong>¿Olvidaste tu contraseña?</strong></a>
-                </div>
-                <div class="contenedor-boton-is"><button type="submit" class="boton-is"><strong>Registrarme</strong></button></div>
-            </form>
-        </section>
-        <section class="contenedor-redes">
-            <p><strong>O puedes hacerlo con</strong></p>
-            <div>
-                <a href="https://www.facebook.com/"><img class="facebook" src="/img/facebook-registro.png" alt="Facebook"></a>
-                <a href="https://www.google.com/"><img class="google" src="/img/google.png" alt="Google"></a>
+        <div class="contenedor-register">
+            <div class="logo-register">
+                <img src="/img/candyshop-sm.png" alt="Logo de CandyShop" width="100%">
             </div>
-        </section>
-        <section class="contenedor-registro">
-            <p>¿Ya posees una cuenta?</p>
-            <div class="enlace-registro">
-                <a href=""><strong>Inicia Sesión</strong></a>
-            </div>
-        </section>
-        <div class="contenedor-golosinas"><img class="golosinas-login" src="/img/golosinas-login.png"></div>
+            <h3 class="h3-register">Registrate</h3>
+            <section class="contenedor-email-contraseña">
+                <form action="ingresar-mail-contraseña" method="post">
+                    <div class="input-email">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" placeholder="maria@gmail.com" required>
+                    </div>
+                    <div class="input-nombre">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Maria" required>
+                    </div>
+                    <div class="input-apellido">
+                        <label for="apellido">Apellido:</label>
+                        <input type="text" id="apellido" name="apellido" placeholder="Gonzalez" required>
+                    </div>
+                    <div class="input-contraseña">
+                        <label for="password">Contraseña</label>
+                        <input type="password" id="password" name="password" placeholder="********" required>
+                    </div>
+                    <div class="input-confirmar-contra">
+                        <label for="confirmar-contrasena">Confirmar Contraseña:</label>
+                        <input type="password" id="confirmar-contrasena" name="confirmar-contrasena"placeholder="********"  required>
+                    </div>
+                    <div class="terminos-condiciones">
+                        <input type="checkbox" id="tyc" name="tyc">
+                        <label for="tyc">Acepto términos y condiciones</label>
+                    </div>
+                    <div class="olvido-contraseña">
+                        <a href=""><strong>¿Olvidaste tu contraseña?</strong></a>
+                    </div>
+                    <div class="contenedor-boton-is"><button type="submit" class="boton-is"><strong>Registrarme</strong></button></div>
+                </form>
+            </section>
+    
+            <section class="contenedor-redes">
+                <p><strong>O puedes hacerlo con</strong></p>
+                <div>
+                    <a href="https://www.facebook.com/"><img class="facebook" src="/img/facebook-registro.png" alt="Facebook"></a>
+                    <a href="https://www.google.com/"><img class="google" src="/img/google.png" alt="Google"></a>
+                </div>
+            </section>
+            <section class="contenedor-registro">
+                <p>¿Ya posees una cuenta?</p>
+                <div class="enlace-registro">
+                    <a href="/login"><strong>Inicia Sesión</strong></a>
+                </div>
+            </section>
+            <div class="contenedor-golosinas"><img class="golosinas-register"src="/img/golosinas-login-recortado.png"></div>
+        </div>
     </main>
     
     <footer>
