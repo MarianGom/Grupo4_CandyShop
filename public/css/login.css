@@ -105,6 +105,57 @@ a {
 }
 
 /*Main*/
+
+main {
+    position: relative;
+    z-index: 0; 
+    overflow: hidden;
+}
+
+main::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: url("/img/fondo-rosa.jpg");
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+
+main::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.8); 
+    z-index: -1; 
+}
+.contenedor-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 230, 107, 0.7);
+    border: 10px solid rgba(227, 154, 252, 0.7);
+    border-radius: 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.logo-login {
+    text-align: center;
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .contenedor-icono-caramelo {
     display: flex;
     justify-content: center;
@@ -123,8 +174,9 @@ h3 {
     justify-content: center;
     align-items: center;
     margin-top: 1rem;
+    margin-bottom: 2rem;
 }
-.h3-ladoizq{
+.h3-logo{
     margin-bottom: 2rem;
 }
 .contenedor-email-contraseña {
@@ -218,7 +270,7 @@ label {
     margin: 15px 15px;
 }
 
-.contenedor-registro-ld,.contenedor-registro-li {
+.contenedor-registro {
     width: 18rem;
     border: 2px solid gray;
     border-radius: 10px;
@@ -233,6 +285,7 @@ label {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-top:4rem;
 }
 
 .golosinas-login {
@@ -240,59 +293,26 @@ label {
     height: auto;
 }
 
-/* Media query para dispositivos móviles*/
-@media screen and (min-width: 361px) {
-    main {
-        background: #FFE66B;
-        width: 100%;
-        height: auto;
-    }
-    .logo-lado-izquierdo,.lado-derecho{
-        display:none;
-    }
-    .contenedor-golosinas{
-        margin-top: 2.5rem;
-    }
-    .contenedor-registro-li{
-        margin-top: 1.5rem;
-    }
+
+@media screen and (min-width: 576px){
+    /* Tablet */
+    .contenedor-login {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(255, 230, 107, 0.7);
+        border: 10px solid rgba(227, 154, 252, 0.7);
+        border-radius: 20px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 500px;
+        margin: 0 auto;
+    } 
 }
 
-/* Media query para desktop*/
-@media screen and (min-width:769px) {
-    main {
-        height: auto;
-        background: linear-gradient(to right, #FFE66B 50%, #E39AFC 50%);
-        /* Fondo amarillo y lila */
-    }
-    .contenedor-lados{
-        display: flex;
-    }
-    .lado-izquierdo, .lado-derecho {
-        width: 50%;
-    }
-    .contenedor-registro-ld{
-        margin-top: 1rem;
-    }
-    .contenedor-mujer{
-        margin-top: 3.5rem;
-    }
-    .lado-derecho{
-        display:initial;
-    }
-    .logo-lado-izquierdo{
-       text-align: center;
-       padding-bottom: 2rem;
-       display: flex;
-       flex-wrap: wrap;
-       justify-content: center;
-    }
-    .h3-ladoizq,.contenedor-registro-li{
-        display: none;
-    }
-    .contenedor-golosinas{
-        margin-top: 0;
-    }
+@media screen and(min-width: 992px){
+   /* Desktop  */
 }
 
 /*footer*/
