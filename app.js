@@ -10,9 +10,14 @@ app.use(express.static(publicPath));
 
 /* RUTAS */
 
+/* Home */
+app.get('/', (req, res) =>{
+    res.sendFile(path.join(__dirname, '/views/home.html'));
+});
+
 /* Landing -> Mariana */
 app.get('/landing', (req, res) =>{
-    res.sendFile(path.join(__dirname, '/views/index.html'));
+    res.sendFile(path.join(__dirname, '/views/landing.html'));
 });
 
 /* Productos -> Rita */
