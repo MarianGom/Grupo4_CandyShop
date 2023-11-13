@@ -11,10 +11,10 @@ function opencloseMenu(){
 function resizeMenu(){
     let menu = document.getElementById("menu-opciones");
     let vwidth = window.innerWidth;
-    if (vwidth >= 700){
+    if (vwidth >= 576){
         menu.style.display = "flex";
     }
-    if (vwidth < 700){
+    if (vwidth < 576){
         menu.style.display = "none";
     }
 }
