@@ -358,7 +358,7 @@ ul a:hover {
 
 
 
-@media (min-width: 361px){
+@media (min-width: 576px){
   
   
     article {
@@ -489,7 +489,7 @@ ul a:hover {
 
 }
 
-@media (min-width: 769px){
+@media (min-width: 992px){
    
   
     article {

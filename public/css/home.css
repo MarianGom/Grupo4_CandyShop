@@ -1,0 +1,279 @@
+main{
+    padding-top: 0px;
+}
+h3 ,h4{
+    color: #AA63EC;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 129.682%; /* 38.904px */
+    letter-spacing: -1.05px;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.banner img{
+    width: 100%;
+}
+
+.circle1{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    bottom: 40px;
+}
+
+.publisher{
+ display: flex;
+ width: 100%;
+ justify-content: center;
+
+}
+
+.logos{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 50%;
+    height: 30%;
+    justify-content: center;
+
+}
+
+.logos img{
+    width: 50%;
+    height: fit-content;
+    flex-shrink: 0;
+}
+/*
+.banners{
+    width: min-content;
+    height: 30%;
+    display: none;
+    flex-direction: row;
+
+
+}
+*/
+.iconos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 10px;
+    padding: 10px;
+}
+
+.envio{
+    display: flex;
+    flex-direction: row;
+}
+
+.iconos img{
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+
+}
+.pago, .min-compra{
+    display: none;
+}
+
+.iconos p{
+    color: #000;
+    font-family: Open Sans;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 129.682%;
+    letter-spacing: -0.56px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.new-products, .star-products, .categories{
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
+.add{
+    color: #E474BA;
+    text-align: center;
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    display: flex;
+
+    justify-content: space-around;
+    padding: 10px 0;
+    border-radius: 5px;
+    border: 3px solid #FFB4E0;
+    background-color: #fff;
+    align-items: center;
+    margin: 10px auto; 
+    width: 156px;
+    height: 35px;
+    flex-shrink: 0;
+
+}
+
+.img{
+
+    background-color: rgba(228, 116, 186, 0.25);
+    border: none;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+article img{
+    justify-content: center;
+    display: flex;
+    width:100px;
+    height: fit-content;
+    flex-shrink: 0;
+}
+article{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.price{
+    color: #000;
+    text-align: center;
+    font-family: Open Sans;
+    font-size: 15px;
+    font-weight: bold;
+}
+.circle{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    margin: 10px;
+}
+
+.categories img{
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/*Productos*/
+
+
+.product{
+    color: #272727;
+    font-family: Open Sans;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 129.682%;
+    letter-spacing: -0.91px;
+}
+
+.brand, .cat{
+    color: #272727;
+    text-align: center;
+    font-family: Open Sans;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 129.682%; /* 20.749px */
+    letter-spacing: -0.56px;
+
+
+}
+
+
+.mid{
+
+    border: none;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 262px;
+    background: #F7F6F6;
+
+}
+
+.butter{
+    transform: rotate(-11.869deg);
+}
+
+.mid img{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width:100px;
+    height: fit-content;
+    flex-shrink: 0;
+}
+#mid1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#mid2, #mid3{
+    display: none;
+}
+
+
+@media (min-width: 576px){
+
+    
+    .logos{
+        display: flex;
+        width: 50%;
+        height: auto;
+    }
+    #mid2{
+        display: flex;
+        flex-direction: column;
+    }
+    .pago{
+        display: flex;
+        flex-direction: row;
+    }
+
+    
+}
+@media (min-width: 992px){
+    .logos img{
+        display: flex;
+        height: auto;
+        width: 50%;
+    }
+    #mid3{
+        display: flex;
+        flex-direction: column;
+    }
+    .min-compra{
+        display: flex;
+        flex-direction: row;
+    }
+}
