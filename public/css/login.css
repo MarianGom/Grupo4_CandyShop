@@ -119,7 +119,7 @@ main::before {
     right: 0;
     bottom: 0;
     left: 0;
-    background: url("/img/fondo-rosa.jpg");
+    background: url("/img/fondo-gomitas.jpg");
     background-size: cover;
     background-position: center;
     z-index: -1;
@@ -132,7 +132,7 @@ main::after {
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: rgba(255, 255, 255, 0.8); 
+    background-color: rgba(255, 255, 255, 0.7); 
     z-index: -1; 
 }
 .contenedor-login {
@@ -140,7 +140,7 @@ main::after {
     justify-content: center;
     align-items: center;
     background-color: rgba(255, 230, 107, 0.7);
-    border: 10px solid rgba(227, 154, 252, 0.7);
+    border: 10px solid rgba(248,128,178,0.7);
     border-radius: 20px;
     flex-direction: column;
     align-items: center;
@@ -301,7 +301,7 @@ label {
         justify-content: center;
         align-items: center;
         background-color: rgba(255, 230, 107, 0.7);
-        border: 10px solid rgba(227, 154, 252, 0.7);
+        border: 10px solid rgba(248,128,178,0.7);
         border-radius: 20px;
         flex-direction: column;
         align-items: center;
