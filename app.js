@@ -14,8 +14,8 @@ app.get('/', (req, res) =>{
 });
 
 /* Landing -> Mariana */
-app.get('/landing', (req, res) =>{
-    res.sendFile(path.join(__dirname, '/views/landing.html'));
+app.get('/nosotros', (req, res) =>{
+    res.sendFile(path.join(__dirname, '/views/nosotros.html'));
 });
 
 /* Productos -> Rita */
