@@ -13,7 +13,7 @@ app.get('/', (req, res) =>{
     res.sendFile(path.join(__dirname, '/views/home.html'));
 });
 
-/* Landing -> Mariana */
+/* Nosotros -> Mariana */
 app.get('/nosotros', (req, res) =>{
     res.sendFile(path.join(__dirname, '/views/nosotros.html'));
 });
