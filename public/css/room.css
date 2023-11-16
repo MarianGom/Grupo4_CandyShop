@@ -13,6 +13,13 @@
     --text-rosa-claro: #E474BA;
     --text-rosa-oscuro: #8E2764;
     --text-violeta: #AA63EC;
+
+    --telegram: #0088cc;
+    --whatsapp: #25D366;
+    --facebook: #3b5998;
+    --tiktok-up: #00F7EF;
+    --tiktok-down: #FD014F;
+    --instagram: #DD2A7B;
 }
 
 *{
@@ -479,6 +486,47 @@ footer img{
 }
 
 
+.bi-facebook{
+    transition: color 0.15s ease-in;
+}
+.bi-facebook:hover{
+    color: var(--facebook);
+}
+
+.bi-instagram{
+    transition: color 0.15s ease-in;
+}
+.bi-instagram:hover{
+    color: var(--instagram);
+}
+
+.bi-telegram{
+    transition: color 0.15s ease-in;
+}
+.bi-telegram:hover{
+    color: var(--telegram);
+}
+
+.bi-tiktok{
+    transition: all 0.15s ease-in;
+}
+.bi-tiktok:hover{
+    text-shadow: -2px -2px var(--tiktok-up), 2px 2px var(--tiktok-down);
+}
+
+.bi-whatsapp{
+    transition: color 0.15s ease-in;
+}
+.bi-whatsapp:hover{
+    color: var(--whatsapp);
+}
+
+.only-xl{
+    display: none;
+}
+.not-xl{
+    display: block;
+}
 
 /* MD - Pantallas */
 @media only screen and (min-width: 700px) {
@@ -509,8 +557,8 @@ footer img{
     }
 
     nav ul li{
-        width: 100%;
         height: 100%;
+        width: 100%;
         background-color: var(--bg-principal);
         border-top: none;
         transition: all 0.2s ease-in;
@@ -527,6 +575,11 @@ footer img{
     nav button{
         display: none;
     }
+
+    nav img{
+        margin-right: 25px;
+    }
+    
 
     .horizontal>a{
         display: flex;
@@ -740,5 +793,15 @@ footer img{
 
     .perks{
         padding: 0px 10px;
+    }
+
+
+    /* Footer */
+
+    .only-xl{
+        display: block;
+    }
+    .not-xl{
+        display: none;
     }
 }

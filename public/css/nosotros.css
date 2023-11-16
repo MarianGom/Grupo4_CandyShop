@@ -13,6 +13,12 @@
     --text-rosa-claro: #E474BA;
     --text-rosa-oscuro: #8E2764;
     --text-violeta: #AA63EC;
+    --telegram: #0088cc;
+    --whatsapp: #25D366;
+    --facebook: #3b5998;
+    --tiktok-up: #00F7EF;
+    --tiktok-down: #FD014F;
+    --instagram: #DD2A7B;
 }
 
 * {
@@ -87,6 +93,7 @@ nav .bi {
     font-size: 25px;
 }
 
+
 main {
     padding-top: 50px;
     margin: auto;
@@ -106,13 +113,19 @@ a {
 
 
 .banner {
-    background: #FFCB5D;
+    /* background: #FFCB5D; */
+    background-image: url(/img/banner-nosotros.jpg);
+    background-size: cover;
+    height: 250px;
+    width: 100%;
+
 }
 
-.banner img {
+/* .banner img {
     width: 100%;
     height: 100%;
-}   
+} */
+
 .texto-banner-ad {
     position: absolute;
     top: 120px; 
@@ -366,6 +379,50 @@ h3 {
 }
 
 
+/* Iconos */
+
+.bi-facebook{
+    transition: color 0.15s ease-in;
+}
+.bi-facebook:hover{
+    color: var(--facebook);
+}
+
+.bi-instagram{
+    transition: color 0.15s ease-in;
+}
+.bi-instagram:hover{
+    color: var(--instagram);
+}
+
+.bi-telegram{
+    transition: color 0.15s ease-in;
+}
+.bi-telegram:hover{
+    color: var(--telegram);
+}
+
+.bi-tiktok{
+    transition: all 0.15s ease-in;
+}
+.bi-tiktok:hover{
+    text-shadow: -2px -2px var(--tiktok-up), 2px 2px var(--tiktok-down);
+}
+
+.bi-whatsapp{
+    transition: color 0.15s ease-in;
+}
+.bi-whatsapp:hover{
+    color: var(--whatsapp);
+}
+
+.only-xl{
+    display: none;
+}
+.not-xl{
+    display: block;
+}
+
 /* MD - Pantallas */
 @media only screen and (min-width: 576px) {
 
@@ -391,6 +448,12 @@ h3 {
     .contenedor-nav {
         display: flex;
     }
+
+    .banner{
+        background-position: center;
+        height: 300px;
+    }
+
     .texto-banner-ad {
         position: absolute;
         top: 150px; 
@@ -537,6 +600,10 @@ h3 {
         display: none;
     }
 
+    nav img{
+        margin-right: 25px;
+    }
+
     .horizontal>a {
         display: flex;
         align-items: center;
@@ -568,14 +635,16 @@ h3 {
     .circle {
         display: none;
     }
-
+    
     .banner {
-        height: 100vh;
+        background-position: center;
+        height: 500px;
+       /*  height: 100vh; */
     }
 
-    .banner img {
+    /* .banner img {
         width: 100vw;
-    }
+    } */
 
     .texto-banner-ad {
         position: absolute;
@@ -662,5 +731,13 @@ h3 {
 
     #menu-opciones {
         max-width: 50%;
+    }
+
+    /* Footer */
+    .only-xl{
+        display: block;
+    }
+    .not-xl{
+        display: none;
     }
 }

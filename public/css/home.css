@@ -1,5 +1,15 @@
+:root{
+    --telegram: #0088cc;
+    --whatsapp: #25D366;
+    --facebook: #3b5998;
+    --tiktok-up: #00F7EF;
+    --tiktok-down: #FD014F;
+    --instagram: #DD2A7B;
+}
+
+
 main{
-    padding-top: 0px;
+    padding-top: 50px;
 }
 h3 ,h4{
     color: #AA63EC;
@@ -229,7 +239,7 @@ article{
     justify-content: center;
     align-items: center;
     display: flex;
-    width:100px;
+    width: 100px;
     height: fit-content;
     flex-shrink: 0;
 }
@@ -242,6 +252,59 @@ article{
     display: none;
 }
 
+/* Banner */
+#banner{
+    height: 250px;
+    background-image: url(/img/banner/Candy.png);
+    background-size: cover;
+    background-position: center;
+}
+
+
+/* Iconos */
+
+.bi-facebook{
+    transition: color 0.15s ease-in;
+}
+.bi-facebook:hover{
+    color: var(--facebook);
+}
+
+.bi-instagram{
+    transition: color 0.15s ease-in;
+}
+.bi-instagram:hover{
+    color: var(--instagram);
+}
+
+.bi-telegram{
+    transition: color 0.15s ease-in;
+}
+.bi-telegram:hover{
+    color: var(--telegram);
+}
+
+.bi-tiktok{
+    transition: all 0.15s ease-in;
+}
+.bi-tiktok:hover{
+    text-shadow: -2px -2px var(--tiktok-up), 2px 2px var(--tiktok-down);
+}
+
+.bi-whatsapp{
+    transition: color 0.15s ease-in;
+}
+.bi-whatsapp:hover{
+    color: var(--whatsapp);
+}
+
+/* Footer */
+.only-xl{
+    display: none;
+}
+.not-xl{
+    display: block;
+}
 
 @media (min-width: 576px){
 
@@ -260,8 +323,17 @@ article{
         flex-direction: row;
     }
 
+    /* Banner */
+    #banner{
+        height: 300px;
+        background-image: url(/img/banner/Candy.png);
+        background-size: cover;
+        background-position: center;
+    }
     
 }
+
+
 @media (min-width: 992px){
     .logos img{
         display: flex;
@@ -275,5 +347,19 @@ article{
     .min-compra{
         display: flex;
         flex-direction: row;
+    }
+
+
+    /* Banner */
+    #banner{
+        height: 500px;
+    }
+
+    /* Footer */
+    .only-xl{
+        display: block;
+    }
+    .not-xl{
+        display: none;
     }
 }

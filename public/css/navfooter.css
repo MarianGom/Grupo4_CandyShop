@@ -1,0 +1,350 @@
+
+/*  Si no saben par qué sirve, NO TOQUEN / BORREN NADA
+    Primero vayan a leer el playground, o pregunten por el grupo */
+
+
+/* NAVBAR */
+
+#navbar{
+    display: flex;
+    position: fixed;
+    top: 0;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+    padding: 0px 20px;
+    margin-bottom: 2rem;
+    z-index: 10000;
+    background-color: var(--bg-principal);
+}
+
+#menu-opciones{
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 50px;
+    width: 100vw;
+    border-bottom: 1px solid var(--bg-rosa-claro);
+    box-shadow: 0px 100vh 0px 100vh rgba(0, 0, 0, 0.5);
+    z-index: 100;
+}
+
+nav ul li{
+    width: 100vw;
+    height: 60px;
+    background-color: var(--bg-principal);
+    border-top: 1px solid var(--bg-rosa-claro);
+    transition: all 0.2s ease-in;
+}
+
+
+nav ul li:hover{
+    background-color: var(--bg-rosa-claro);
+}
+
+nav li a{
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav button{
+    border: none;
+    background: none;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+nav .bi{
+    font-size: 25px;
+}
+
+nav img{
+    margin-right: 25px;
+}
+
+.horizontal>a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    padding: 0px 15px 0px 15px;
+    transition: all 0.2s ease-in;
+}
+
+.horizontal>a:hover{
+    background-color: var(--bg-rosa-claro);
+}
+
+.horizontal{
+    display: flex;
+    align-items: center;
+    padding-right: 10px;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+/* FOOTER */
+
+footer{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    padding: 35px 0px;
+    border-top: 1px solid var(--text-secundario);
+}
+
+footer div{
+    text-align: center;
+}
+
+footer ul{
+    display: flex;
+    justify-content: space-evenly;
+    min-width: 320px;
+    width: 100%;
+    margin: 1.5rem 0px;
+    font-size: 30px;
+}
+
+footer .redes p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+footer img {
+    margin: 0.75rem 0px;
+}
+
+
+.sombra-sm {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+}
+
+
+.only-xl{
+    display: none;
+}
+.not-xl{
+    display: block;
+}
+
+
+/* F-Iconos */
+
+.bi-facebook{
+    transition: color 0.15s ease-in;
+}
+.bi-facebook:hover{
+    color: var(--facebook);
+}
+
+.bi-instagram{
+    transition: color 0.15s ease-in;
+}
+.bi-instagram:hover{
+    color: var(--instagram);
+}
+
+.bi-telegram{
+    transition: color 0.15s ease-in;
+}
+.bi-telegram:hover{
+    color: var(--telegram);
+}
+
+.bi-tiktok{
+    transition: all 0.15s ease-in;
+}
+.bi-tiktok:hover{
+    text-shadow: -2px -2px var(--tiktok-up), 2px 2px var(--tiktok-down);
+}
+
+.bi-whatsapp{
+    transition: color 0.15s ease-in;
+}
+.bi-whatsapp:hover{
+    color: var(--whatsapp);
+}
+
+
+
+
+@media only screen and (min-width: 576px) {
+
+    /* N */
+
+    #navbar{
+        display: flex;
+        position: fixed;
+        top: 0;
+        justify-content: space-between;
+        align-items: center;
+        height: 50px;
+        width: 100vw;
+        z-index: 10000;
+        background-color: var(--bg-principal);
+    }
+
+    #menu-opciones{
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        height: 50px;
+        top: 0;
+        border: none;
+        box-shadow: none;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    nav ul li{
+        width: 100%;
+        height: 100%;
+        background-color: var(--bg-principal);
+        border-top: none;
+        transition: all 0.2s ease-in;
+    }
+
+    nav li a{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    nav button{
+        display: none;
+    }
+
+    nav img{
+        margin-right: 25px;
+    }
+
+    .horizontal>a{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        padding: 0px 15px 0px 15px;
+        transition: all 0.2s ease-in;
+    }
+
+    .horizontal>a:hover{
+        background-color: var(--bg-rosa-claro);
+    }
+
+    .horizontal{
+        display: flex;
+        min-width: 500px;
+        align-items: center;
+        padding-right: 10px;
+    }#navbar{
+        display: flex;
+        position: fixed;
+        top: 0;
+        justify-content: space-between;
+        align-items: center;
+        height: 50px;
+        width: 100vw;
+        z-index: 10000;
+        background-color: var(--bg-principal);
+    }
+
+    #menu-opciones{
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        height: 50px;
+        top: 0;
+        border: none;
+        box-shadow: none;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    nav ul li{
+        width: 100%;
+        height: 100%;
+        background-color: var(--bg-principal);
+        border-top: none;
+        transition: all 0.2s ease-in;
+    }
+
+    nav li a{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    nav button{
+        display: none;
+    }
+
+    .horizontal>a{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        padding: 0px 15px 0px 15px;
+        transition: all 0.2s ease-in;
+    }
+
+    .horizontal>a:hover{
+        background-color: var(--bg-rosa-claro);
+    }
+
+    .horizontal{
+        display: flex;
+        min-width: 500px;
+        align-items: center;
+        padding-right: 10px;
+    }
+
+
+    /* F */
+
+    footer{
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+}
+
+
+@media only screen and (min-width: 992px) {
+
+    /* N */
+
+    .horizontal{
+        display: flex;
+        width: 100%;
+        justify-content: end;
+    }
+
+    #menu-opciones{
+        max-width: 50%;
+    }
+
+
+    /* F */
+
+    .only-xl{
+        display: block;
+    }
+    .not-xl{
+        display: none;
+    }
+}
