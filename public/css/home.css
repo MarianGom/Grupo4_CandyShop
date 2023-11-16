@@ -11,6 +11,11 @@
 main{
     padding-top: 50px;
 }
+
+.subtitulo{
+    margin-top: 5rem;
+}
+
 h3 ,h4{
     color: #AA63EC;
     font-family: Open Sans;
@@ -71,13 +76,14 @@ h3 ,h4{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    margin: 10px;
+    margin: 40px;
     padding: 10px;
 }
 
 .envio{
     display: flex;
     flex-direction: row;
+    max-width: 100%;
 }
 
 .iconos img{
@@ -252,6 +258,34 @@ article{
     display: none;
 }
 
+.top{
+    width: 250px;
+}
+
+.producto-pic{
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.producto-pic .circulo{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: rgba(228, 116, 186, 0.25);
+    z-index: 10;
+}
+
+.producto-pic img{
+    position: absolute;
+    width: 250px;
+    z-index: 100;
+}
+
+
 /* Banner */
 #banner{
     height: 250px;
@@ -261,6 +295,7 @@ article{
     display: flex;
     justify-content: center;
     align-items: end;
+    transition: all 0.2s ease-in-out;
 }
 
 #banner .bannerNav{
@@ -338,6 +373,20 @@ article{
     display: block;
 }
 
+
+
+/* Marcas */
+#marcas ul{
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.marcas{
+    margin: 0px 20px;
+    width: 75px;
+}
+
 @media (min-width: 576px){
 
     
@@ -353,14 +402,20 @@ article{
     .pago{
         display: flex;
         flex-direction: row;
+        text-align: center;
+        max-width: 45%;
+    }
+
+    .envio{
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+        max-width: 45%;
     }
 
     /* Banner */
     #banner{
         height: 300px;
-        background-image: url(/img/banner/Candy.png);
-        background-size: cover;
-        background-position: center;
     }
     
 }
@@ -379,8 +434,17 @@ article{
     .min-compra{
         display: flex;
         flex-direction: row;
+        text-align: center;
+        max-width: 30%;
     }
 
+    .pago{
+        max-width: 30%;
+    }
+
+    .envio{
+        max-width: 30%;
+    }
 
     /* Banner */
     #banner{
