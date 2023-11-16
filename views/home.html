@@ -19,6 +19,8 @@
     
     <!-- JS -->
     <script src="/js/menu.js"></script>
+    <script src="/js/banner.js"></script>
+
 </head>
 
 <body onresize="resizeMenu()">
@@ -45,14 +47,13 @@
     <main>
         <div id="banner">
             <div class="bannerNav">
-                <button class="bannerBtn">
-
+                <button id="btn-banner1" class="bannerBtn-activo" onclick="changeBanner(1)">
                 </button>
-                <button class="bannerBtn">
 
+                <button id="btn-banner2" class="bannerBtn" onclick="changeBanner(2)">
                 </button>
-                <button class="bannerBtn">
 
+                <button id="btn-banner3" class="bannerBtn" onclick="changeBanner(3)">
                 </button>
             </div>
         </div>

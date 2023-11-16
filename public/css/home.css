@@ -258,8 +258,40 @@ article{
     background-image: url(/img/banner/Candy.png);
     background-size: cover;
     background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: end;
 }
 
+#banner .bannerNav{
+    position: relative;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 100px;
+}
+
+#banner .bannerBtn{
+    height: 20px;
+    width: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    border-radius: 50%;
+    border: 1px solid #969696a0;
+}
+
+#banner .bannerBtn:active{
+    background-color: rgba(255, 255, 255, 1);
+}
+
+#banner .bannerBtn-activo{
+    height: 20px;
+    width: 20px;
+    background-color: rgba(255, 255, 255, 1);
+    border: none;
+    border-radius: 50%;
+    border: 1px solid #969696a0;
+}
 
 /* Iconos */
 
