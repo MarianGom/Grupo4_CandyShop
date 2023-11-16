@@ -523,7 +523,7 @@ h3 {
 
     /* NAV */
 
-    /*#navbar {
+    #navbar{
         display: flex;
         position: fixed;
         top: 0;
@@ -533,7 +533,7 @@ h3 {
         width: 100vw;
         z-index: 10000;
         background-color: var(--bg-principal);
-    }*/
+    }
 
     #menu-opciones {
         display: flex;
@@ -595,8 +595,15 @@ h3 {
 
 /* LG - Pantallas */
 @media only screen and (min-width: 992px) {
-    .circle {
-        display: none;
+
+    .circle img{
+        max-height: 350px;
+        width: auto;
+        margin: 0px 3rem;
+    }
+
+    .texto-history h2{
+        text-align: left;
     }
     
     .banner {
@@ -604,6 +611,10 @@ h3 {
         height: 500px;
     }
 
+    .contenedor-history{
+        padding: 3rem 0px;
+        max-width: 1000px;
+    }
 
     .texto-banner-ad {
         position: absolute;
@@ -613,6 +624,7 @@ h3 {
         font-size: 40px; 
         z-index: 1; 
     }
+
     .texto-banner-cs {
         position: absolute;
         top: 300px;
@@ -624,22 +636,21 @@ h3 {
         text-decoration-color: #AA63EC;
         text-underline-offset: 10px;
     }
+
     .history {
-        height: 50vh;
+        height: max-content;
         display: flex;
+        flex-direction: row;
         margin-bottom: 0px;
         align-items: center;
-        margin-bottom: 10%;
     }
 
     .history2 {
-        height: 50vh;
+        height: max-content;
         display: flex;
         flex-direction: row-reverse;
         margin-bottom: 0px;
         align-items: center;
-        margin-bottom: 10%;
-
     }
     
     .candyshop-text{
