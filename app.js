@@ -20,7 +20,7 @@ app.get('/nosotros', (req, res) =>{
 
 /* Productos -> Rita */
 app.get('/productos', (req, res) =>{
-    res.sendFile(path.join(__dirname, '/views/productDetail.html'));
+    res.sendFile(path.join(__dirname, '/views/productoDetail.html'));
 });
 
 /* Carrito -> RooM*/

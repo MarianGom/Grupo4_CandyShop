@@ -285,6 +285,9 @@ article{
     z-index: 100;
 }
 
+.segundo-item, .tercer-item{
+    display: none;
+}
 
 /* Banner */
 #banner{
@@ -413,6 +416,10 @@ article{
         max-width: 45%;
     }
 
+    .segundo-item{
+        display: block;
+    }
+
     /* Banner */
     #banner{
         height: 300px;
@@ -444,6 +451,10 @@ article{
 
     .envio{
         max-width: 30%;
+    }
+
+    .tercer-item{
+        display: block;
     }
 
     /* Banner */
