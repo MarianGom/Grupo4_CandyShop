@@ -113,19 +113,17 @@ a {
 
 
 .banner {
-    /* background: #FFCB5D; */
     background-image: url(/img/banner-nosotros.jpg);
     background-size: cover;
     height: 250px;
     width: 100%;
-
 }
 
-/* .banner img {
-    width: 100%;
-    height: 100%;
-} */
 
+.texto-banner{
+    position: relative;
+    top: -90px;
+}
 .texto-banner-ad {
     position: absolute;
     top: 120px; 
@@ -175,8 +173,9 @@ a {
 
 footer {
     display: flex;
-    justify-content: center;
     padding: 20px 0px;
+    flex-direction: column;
+    align-items: center;
 }
 
 footer .container-footer {
@@ -202,7 +201,12 @@ footer img {
     margin: 0.75rem 0px;
 }
 
-
+.redes{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 h2 {
     text-align: center;
     font-size: 1.3rem;
@@ -226,14 +230,10 @@ h3 {
     color: var(--text-violeta);
 }
 
-.history {
-    margin-bottom: 0px;
-    /* height: 100vh; */
-}
-
-.history2 {
-    margin-bottom: 0px;
-    /* height: 100vh; */
+.history , .history2{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 #p1 {
@@ -251,17 +251,10 @@ h3 {
     font-weight: bold;
 }
 
-/* .circle {
-    position: absolute;
-    background-image: black;
-    bottom: -130px;
-} */
-
 .contenedor-history img {
     width: 55vw;
     border-radius: 50%;
-    margin: 20%;
-    position: relative;
+    margin: 20% 0% 30%;
 }
 
 .line {
@@ -331,7 +324,12 @@ h3 {
     font-weight: 500;
     font-size: 17px;
 }
-
+.copyright{
+    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
 /* Para asignar como clase */
 
 .bg-rosaclaro {
@@ -426,13 +424,8 @@ h3 {
 /* MD - Pantallas */
 @media only screen and (min-width: 576px) {
 
-    h2 {
-        text-align: left;
-        margin: 50px;
-        padding: 0% 10%;
-        font-size: 1.3rem;
+    h2 { 
         margin: 5% 0px 5% 0px;
-
     }
 
     h4 {
@@ -453,7 +446,11 @@ h3 {
         background-position: center;
         height: 300px;
     }
-
+    .texto-banner {
+        position: relative;
+        top: -120px;
+        left: 10px;
+    }
     .texto-banner-ad {
         position: absolute;
         top: 150px; 
@@ -475,10 +472,7 @@ h3 {
     }
 
     .contenedor-history img {
-        width: 30vw;
-        border-radius: 50%;
-        position: relative;
-        margin: 2%;
+        width: 35vw;
     }
 
     .cliente {
@@ -512,14 +506,12 @@ h3 {
         font-size: 35px;
         margin-block-start: auto;
         position: relative;
-        width: 45vw;
-
     }
 
     .redes {
         display: flex;
         flex-direction: column;
-
+        align-items: center;
     }
 
     footer {
@@ -556,7 +548,7 @@ h3 {
 
     /* NAV */
 
-    #navbar {
+    /*#navbar {
         display: flex;
         position: fixed;
         top: 0;
@@ -566,7 +558,7 @@ h3 {
         width: 100vw;
         z-index: 10000;
         background-color: var(--bg-principal);
-    }
+    }*/
 
     #menu-opciones {
         display: flex;
@@ -624,10 +616,6 @@ h3 {
         padding-right: 10px;
     }
 
-
-    .circle {
-        display: none;
-    }
 }
 
 /* LG - Pantallas */
@@ -639,12 +627,8 @@ h3 {
     .banner {
         background-position: center;
         height: 500px;
-       /*  height: 100vh; */
     }
 
-    /* .banner img {
-        width: 100vw;
-    } */
 
     .texto-banner-ad {
         position: absolute;
