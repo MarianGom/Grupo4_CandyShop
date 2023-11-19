@@ -153,22 +153,31 @@ a {
     margin-top: 15%;
     margin-bottom: 10%;
     color: #FFF;
+    row-gap: 20%;
+    gap: 10%;
     align-items: center;
+    justify-content: center;
 }
 
-.button1 {
-    margin: 0 15px;
-}
 
 .button2,
 .button3 {
     opacity: 50%;
-    margin: 0 15px;
 }
 
-.buttons .row {
-    margin: 0px 20px;
-    font-size: 35px;
+.arrow2 svg {
+    width:1.7rem;
+}
+.arrow1 {
+    display: none;
+}
+.arrow2 #left{
+    position: relative;
+    left: -190%;
+}
+.arrow2 #right{
+    position: relative;
+    right: -190%;
 }
 
 footer{
@@ -289,15 +298,9 @@ h3 {
 }
 
 .cliente {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    align-items: center;
-    height: 90vh;
     background-color: var(--bg-violeta-oscuro);
     color: white;
     text-align: center;
-    height: 100%;
     padding: 25px 81px 10px 81px;
 }
 
@@ -485,8 +488,11 @@ h3 {
     }
     .cliente {
         width: 90vw;
+        display: flex;
         border-radius: 4%;
-        font-size: 1em;
+        padding: 3%;
+        align-items: center;
+        flex-direction: row;
     }
     .perfil img {
         width: 25vw;
@@ -499,7 +505,15 @@ h3 {
             display: flex;
             flex-direction: column;
             position: relative;
-            top: -100px;
+            top: -90px;
+
+    }
+    .arrow1 {
+        display: contents;
+    }
+    .arrow2 {
+        display: none;
+        
     }
     .cliente p {
         font-size: 1.2em;
@@ -524,10 +538,18 @@ h3 {
         align-items: center;
     }
 
-    .buttons .row {
+    .buttons .arrow {
         font-size: 35px;
         margin-block-start: auto;
         position: relative;
+    }
+    
+    .arrow2 {
+        display: none;
+    }
+
+    .arrow1 svg{
+        width: 8rem;
     }
 
     .redes {
@@ -693,6 +715,7 @@ h3 {
         border-radius: 50%;
         border: solid 9px #BC7AF9;
     }
+
 
     h2 {
         font-size: 2em;
