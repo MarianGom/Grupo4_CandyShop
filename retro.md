@@ -1,8 +1,8 @@
 # 2do Sprint
 
 - Start Doing:
-         *Establecer prácticas de revisión de código entre los integrantes del equipo.
-           *Documentar el desarrollo de la aplicación.
+        *Establecer prácticas de revisión de código entre los integrantes del equipo.
+        *Documentar el desarrollo de la aplicación.
           
 - More of:
         *Mejorar la comunicación/feedback entre los integrantes.
@@ -18,7 +18,7 @@
         *Demoras en la finalización de tareas.
   
 - Stop Doing:
-          *Posponer entregas, revisiones de código.
+        *Posponer entregas, revisiones de código.
 
 
 
@@ -31,6 +31,7 @@
 - More of:
         *Realizar más reuniones de equipo.
         *Testear el código pusheado propio y ajeno.
+        *Observar y dividir con anticipación los temas del sprint para que cada una pueda organizarse y así llegar en tiempo y forma con la entrega.
   
 - Keep Doing:
         *Actualizaciónes en el repositorio de GitHub.
@@ -44,3 +45,4 @@
 - Stop Doing:
         *Posponer entregas.
         *No responder ante el pedido de algún integrante.
+        *No contestar mensajes en Whatsapp.
