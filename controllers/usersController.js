@@ -5,8 +5,8 @@ const usersController = {
         res.render('login', {});
     },
     add: (req, res, next) => {
-        res.render('register', {})
+        res.render('register', {});
     }
-}
+};
 
 module.exports = usersController;
