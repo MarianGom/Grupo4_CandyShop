@@ -22,25 +22,7 @@
 </head>
 <body onresize="resizeMenu()">
     <!-- Luciana Figueroa -->
-
-    <nav id="navbar" class="sombra-sm">
-        <!-- Logo -->
-        <div>
-            <img src="/img/candyshop-sm.png" alt="Logo de CandyShop" width="66px">
-        </div>
-        <!-- Opciones -->
-        <div class="horizontal">
-            <ul id="menu-opciones">
-                <li><a href="/">Inicio</a></li>
-                <li><a href="/productos">Productos</a></li>
-                <li><a href="/nosotros">Nosotros</a></li>
-                <li><a href="/login">Iniciar Sesión</a></li>
-            </ul>
-            <a href="/carrito"><i class="bi bi-cart"></i></a>
-            <button type="button" onclick="opencloseMenu()"><i class="bi bi-list"></i></button>
-        </div>
-
-    </nav>
+    <%- include('./partials/nav') %>
     <main>
         <div class="contenedor-login">
             <div class="logo-login">
@@ -87,23 +69,6 @@
         </div>
     </main>
     
-    <footer>
-        <p class="only-xl">© 2023 CandyShop<br>All rights reserved</p>
-        <div class="redes">
-            <p>Seguinos en<br>nuestras redes</p>
-            <ul>
-                <li><a href=""><i class="bi bi-telegram"></i></a></li>
-                <li><a href=""><i class="bi bi-whatsapp"></i></a></li>
-                <li><a href=""><i class="bi bi-facebook"></i></a></li>
-                <li><a href=""><i class="bi bi-tiktok"></i></a></li>
-                <li><a href=""><i class="bi bi-instagram"></i></a></li>
-            </ul>
-        </div>
-
-        <div class="copyright">
-            <img src="/img/candyshop.png" alt="Logo de CandyShop" width="200px">
-            <p class="not-xl">© 2023 CandyShop<br>All rights reserved</p>
-        </div>
-    </footer>
+    <%- include('./partials/footer') %>
 </body>
 </html>

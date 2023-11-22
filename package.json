@@ -4,6 +4,8 @@
   "description": "Nuestra página de CandyShop ofrece una amplia y deliciosa variedad de golosinas y dulces que deleitarán a personas de todas las edades. Encontrarás algo para satisfacer todos los antojos de azúcar. Ofrecemos una selección de productos que incluyen:",
   "main": "index.js",
   "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
