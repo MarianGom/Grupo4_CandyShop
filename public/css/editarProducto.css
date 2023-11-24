@@ -1,0 +1,296 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+main{
+    padding-top: 50px;
+}
+#banner{
+    height: 100px;
+    background-color:var(  --bg-rosa-claro);
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10% 0%;
+    height: 40vh;
+    justify-content: space-between;
+}
+
+h2{
+    color: var( --text-violeta);
+    font-size: 2rem;
+    font-weight: 800;
+}
+.nav-products{
+    display: none;
+}
+.add-product{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 25vh;
+    justify-content: space-evenly;
+}
+
+#add {
+    background-color: var(--bg-rosa-oscuro);
+    width: 50vw;
+    height: 7vh;
+    border-radius: 2vw;
+    border: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+#add i{
+    font-size: 1.2rem;
+}
+
+form .input {
+    border-radius: 3vw;
+    border: solid 3px #C1C1C1;
+    text-align: center;
+    font-weight: bold;
+    color: #67655D;
+    padding: 7px 20px;
+    height: 10vh;
+    font-size: 0.8rem;
+    width: 80vw;
+    display: flex;
+    align-items: center;
+    gap: 10%;
+}
+
+form i{
+    font-size: 1.3rem;
+    color: var(--text-rosa-claro);
+}
+form p{
+    display: none;
+}
+
+.products {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 20%;
+}
+
+article{
+        margin: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        width: 60vw;
+        height: 60vh;
+        border-radius: 10px;
+        border: 5px solid #FFB4E0;
+}
+
+article img{
+    width: 25vw;
+    margin: 5% 0% 0% 0%;
+}
+
+.main-product{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 11vh;
+    justify-content: space-evenly; 
+}
+
+#categoria{
+    display: none;
+}
+.type{
+    color: #8E2764;
+    font-weight: 550;
+    font-size: 0.9rem;
+    margin-bottom: 3%;
+}
+
+.main-product p{
+    color: #272727;
+    font-size: 1rem;
+    font-weight: 550;
+}
+
+
+p{
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.menu-article{
+    display: flex;
+    width: 40vw;
+    align-items: center;
+    justify-content: space-around;
+}
+
+@media (min-width: 576px){
+
+   form .input{ 
+    border-radius: 1vw;
+    padding: 7px 20px;
+    height: 12vh;
+    font-size: 1rem;
+    width: 80vw;
+    gap: 30%;
+    justify-content: space-between;
+
+   }
+
+   #add {
+    width: 40vw;
+    height: 9vh;
+   }
+   .add-product {
+    height: 0vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80vw;
+   }
+ .nav-products{
+    display: flex;
+    align-items: center;
+    gap: 1%;
+    margin-left: 15px;
+}
+
+.info {
+    display: flex;
+    width: 80vw;
+    justify-content: space-evenly;
+}
+
+    article {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 95vw;
+        height: 18vh;
+        padding: 5px;
+        gap: 2%
+    }
+    article img {
+        width: 10vw;
+        margin-top: 0px;
+
+    }
+    
+    .main-product{
+        flex-direction: row;    
+        gap: 5%;
+        text-align: center;
+    }
+    .main-product p, article p{
+        font-weight: 400;
+    }
+
+    .type{
+        color: #272727;
+    font-size: 0.9rem;
+    font-weight: 500;
+    }
+
+    .desc{
+    width: 18vw;
+    }
+    
+    #categoria{
+        display: block;
+        font-size: 0.9rem;
+    }
+
+    .menu-article {
+        display: flex;
+        width: 20vw;
+        align-items: center;
+        justify-content: space-evenly;
+ 
+    }
+
+}
+
+@media (min-width: 992px){
+    
+    
+form p{
+    display: block;
+    font-style: normal;
+    color: #67655D;
+    font-weight: 550;
+}
+.container {
+    height: 22vh;
+}
+#add {
+    width: 20vw;
+    height: 6vh;
+    border-radius: 0.6vw;
+}
+
+.info{
+    display: flex;
+    width: 70vw;
+    gap: 10%;
+    margin: le;
+    margin-left: 10%;
+}
+
+article{
+    height: 14vh;
+    padding: 10px;
+    gap: 0.1%;
+    width: 85vw;
+
+}
+article img {
+    width: 8vw;
+}
+
+.main-product{ 
+    gap: 2%;
+}
+.main-product p, article p{
+    font-weight: 400;
+}
+
+
+#categoria{
+    
+    font-size: 1rem;
+}
+
+.type{
+    color: #272727;
+font-size: 1rem;
+font-weight: 400;
+}
+.menu-article {   
+    width: 10vw;
+    justify-content: space-between;
+}
+
+    /* Footer */
+    .only-xl{
+        display: block;
+    }
+    .not-xl{
+        display: none;
+    }
+
+}
