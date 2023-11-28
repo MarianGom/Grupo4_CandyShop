@@ -46,3 +46,31 @@
         *Posponer entregas.
         *No responder ante el pedido de algún integrante.
         *No contestar mensajes en Whatsapp.
+
+# 4to Sprint
+
+- Start Doing:
+        *Unificar código y ponerse de acuerdo en el nombre de elementos/variables (Votar?)
+        *Documentar el desarrollo de la aplicación.
+        *Avisar con anticipación si alguna no puede realizar una actividad.
+          
+- More of:
+        *Realizar más reuniones de equipo.
+        *Testear el código pusheado propio y ajeno.
+        *Observar y dividir con anticipación los temas del sprint para que cada una pueda organizarse y así llegar en tiempo y forma con la entrega.
+        *Pactar y cumplir de forma estricta con los horarios para las reuniones.
+        *Revisar el trello de forma frecuente.
+  
+- Keep Doing:
+        *Actualizaciónes en el repositorio de GitHub.
+        *Actualizaciones del tablero Trello.
+        *Busquedas, investigaciones que favorezcan el desarrollo.
+        *Comunicación/feedback entre los integrantes.
+  
+- Less of:
+        *Demoras en la finalización de tareas.
+  
+- Stop Doing:
+        *Posponer entregas.
+        *No responder ante el pedido de algún integrante.
+        *No contestar mensajes en Whatsapp.
