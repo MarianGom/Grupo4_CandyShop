@@ -1,0 +1,112 @@
+[
+  {
+    "idProd": 1,
+    "nombreProd": "vestibulum vestibulum",
+    "precioProd": 71732.09,
+    "stock": 4226,
+    "fotoProd": "http://dummyimage.com/234x225.jpg/cc0000/ffffff",
+    "categoriaProd": "tincidunt",
+    "descripcionProd": "libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae",
+    "tipoProd": "luctus et ultrices",
+    "estado": false
+  },
+  {
+    "idProd": 2,
+    "nombreProd": "sit amet",
+    "precioProd": 24002.7,
+    "stock": 1033,
+    "fotoProd": "http://dummyimage.com/197x113.bmp/ff4444/ffffff",
+    "categoriaProd": "sit amet",
+    "descripcionProd": "venenatis non sodales sed tincidunt eu felis fusce posuere felis sed lacus morbi sem mauris laoreet ut",
+    "tipoProd": "ac diam cras",
+    "estado": true
+  },
+  {
+    "idProd": 3,
+    "nombreProd": "duis bibendum",
+    "precioProd": 16800.9,
+    "stock": 7320,
+    "fotoProd": "http://dummyimage.com/183x226.bmp/5fa2dd/ffffff",
+    "categoriaProd": "aliquet at feugiat",
+    "descripcionProd": "eget nunc",
+    "tipoProd": "posuere",
+    "estado": true
+  },
+  {
+    "idProd": 4,
+    "nombreProd": "vitae ipsum",
+    "precioProd": 4012.48,
+    "stock": 495,
+    "fotoProd": "http://dummyimage.com/148x214.bmp/5fa2dd/ffffff",
+    "categoriaProd": "odio curabitur convallis",
+    "descripcionProd": "ipsum praesent blandit lacinia erat vestibulum",
+    "tipoProd": "cubilia",
+    "estado": false
+  },
+  {
+    "idProd": 5,
+    "nombreProd": "morbi a ipsum",
+    "precioProd": 27554.36,
+    "stock": 2574,
+    "fotoProd": "http://dummyimage.com/167x217.png/ff4444/ffffff",
+    "categoriaProd": "tortor",
+    "descripcionProd": "lorem id ligula suspendisse ornare consequat lectus",
+    "tipoProd": "porttitor",
+    "estado": false
+  },
+  {
+    "idProd": 6,
+    "nombreProd": "donec ut mauris",
+    "precioProd": 99872.28,
+    "stock": 8544,
+    "fotoProd": "http://dummyimage.com/181x238.png/5fa2dd/ffffff",
+    "categoriaProd": "aliquam convallis nunc",
+    "descripcionProd": "amet cursus id turpis integer aliquet massa id lobortis convallis tortor risus dapibus augue vel accumsan tellus nisi eu orci mauris lacinia sapien quis libero nullam",
+    "tipoProd": "sapien in",
+    "estado": false
+  },
+  {
+    "idProd": 7,
+    "nombreProd": "eu magna",
+    "precioProd": 19270.62,
+    "stock": 179,
+    "fotoProd": "http://dummyimage.com/232x225.bmp/5fa2dd/ffffff",
+    "categoriaProd": "donec",
+    "descripcionProd": "rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis nam",
+    "tipoProd": "penatibus et",
+    "estado": true
+  },
+  {
+    "idProd": 8,
+    "nombreProd": "lectus vestibulum",
+    "precioProd": 61405.58,
+    "stock": 6236,
+    "fotoProd": "http://dummyimage.com/179x166.jpg/ff4444/ffffff",
+    "categoriaProd": "dapibus",
+    "descripcionProd": "sapien sapien non mi integer ac neque duis bibendum morbi non",
+    "tipoProd": "ligula suspendisse",
+    "estado": true
+  },
+  {
+    "idProd": 9,
+    "nombreProd": "ipsum aliquam non",
+    "precioProd": 51968.96,
+    "stock": 3495,
+    "fotoProd": "http://dummyimage.com/110x181.png/dddddd/000000",
+    "categoriaProd": "mus etiam",
+    "descripcionProd": "orci nullam molestie nibh",
+    "tipoProd": "lacus",
+    "estado": false
+  },
+  {
+    "idProd": 10,
+    "nombreProd": "mattis",
+    "precioProd": 80472.69,
+    "stock": 3436,
+    "fotoProd": "http://dummyimage.com/114x196.bmp/ff4444/ffffff",
+    "categoriaProd": "mauris morbi non",
+    "descripcionProd": "lacus purus aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend quam a odio in hac habitasse platea dictumst",
+    "tipoProd": "nulla suspendisse",
+    "estado": true
+  }
+]
