@@ -4,8 +4,6 @@ var router = express.Router();
 
 /* GET users page. */
 router.get('/', usersController.login)
-
-
 router.get('/register', usersController.add)
 
 module.exports = router;

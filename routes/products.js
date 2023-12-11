@@ -1,8 +1,18 @@
 var express = require('express');
-const productosController = require('../controllers/productosController');
+const productsController = require('../controllers/productosController');
 var router = express.Router();
 
-/* GET productos page. */
-router.get('/', productosController.index)
+/*** GET ALL PRODUCTS ***/ 
+router.get('/', productsController.index); 
+
+/*** CREATE ONE PRODUCT ***/ 
+router.get('/crearProductos/', productsController.create); 
+router.put('/', productsController.store); 
+
+
+/*** EDIT ONE PRODUCT ***/ 
+router.get('/editarProductos/', productsController.edit); 
+//router.???('/:id', productsController.update); 
+
 
 module.exports = router;

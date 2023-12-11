@@ -8,6 +8,13 @@ router.get('/', mainController.index);
 /* GET nosotros page. */
 router.get('/nosotros', mainController.info)
 
+/* GET productos page. */
+router.get('/productos', mainController.productos)
+
+
+/* GET carrito page. */
+router.get('/carrito', mainController.carrito)
+
 
 module.exports = router;
 
