@@ -135,17 +135,15 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
 
 
 
 
 
 
-/* SERVER UP 
+/* SERVER UP */
 const PORT = 4000;
 const linkcito = 'http://127.0.0.1:' + PORT;
 app.listen(PORT, () =>
     console.log('¡Up!\nListo para usar en ', linkcito)
 );
-*/

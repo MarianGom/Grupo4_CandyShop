@@ -27,60 +27,66 @@
     <main>
         <div class="contenedor-rosa"></div>
         <h1>Editar Producto</h1>
-        <div class="contenedor-nombre">
-            <label class="label-titulos" for="nombre">Nombre</label>
-            <div class="contenedor-input-nombre">
-                <input type="text" class="input-custom" placeholder="“FLYNN PAFF” Sabor Manzana">
-                <img src="/img/agregar-foto.png">
-            </div>
-        </div>
-        <div class="contenedor-stock">
-            <label class="label-titulos" for="stock">Stock</label>
-            <div class="contenedor-stock-cb">
-                <div class="contenedor-input-stock">
-                    <label class="label-subtitulos" for="stock">Stock</label>
-                    <input type="text" class="input-stock" placeholder="1000">
+        
+			<form>
+                <div class="contenedor-nombre">
+                    <label class="label-titulos" for="nombre">Nombre</label>
+                    <div class="contenedor-input-nombre">
+                        <input type="text" class="input-custom" name="nombreProd" placeholder="“FLYNN PAFF” Sabor Manzana">
+                        <input type="file" id="image" name="image">
+                        <!-- <img src="/img/agregar-foto.png"> -->
+                    </div>
                 </div>
-                <div class="contenedor-input-cb">
-                    <label class="label-subtitulos" for="cb">Código de Barras</label>
-                    <input type="text" class="input-cb" placeholder="ACB580">
+                <div class="contenedor-stock">
+                    <label class="label-titulos" for="stock">Stock</label>
+                    <div class="contenedor-stock-cb">
+                        <div class="contenedor-input-stock">
+                            <label class="label-subtitulos" for="stock">Stock</label>
+                            <input type="text" class="input-stock" name="stock" placeholder="1000">
+                        </div>
+                        <!-- <div class="contenedor-input-cb">
+                            <label class="label-subtitulos" for="cb">Código de Barras</label>
+                            <input type="text" class="input-cb" name="" placeholder="ACB580">
+                        </div> -->
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="contenedor-precio">
-            <label class="label-titulos" for="precio">Precio</label>
-            <div class="contenedor-precioOyP">
-                <div class="contenedor-input-precio">
-                    <label class="label-subtitulos" for="po">Precio Original</label>
-                    <input type="text" class="input-precio" placeholder="150">
+                <div class="contenedor-precio">
+                    <label class="label-titulos" for="precio">Precio</label>
+                    <div class="contenedor-precioOyP">
+                        <div class="contenedor-input-precio">
+                            <label class="label-subtitulos" for="po">Precio Original</label>
+                            <input type="text" class="input-precio" name="precioProd" placeholder="150">
+                         </div>
+                        <!--<div class="contenedor-input-precio">
+                            <label class="label-subtitulos" for="pp">Precio Promocional</label>
+                            <input type="text" class="input-precio" placeholder="135">
+                        </div> -->
+                    </div>
+                    <!-- <img src="/img/mostrar-precio.png"> -->
                 </div>
-                <div class="contenedor-input-precio">
-                    <label class="label-subtitulos" for="pp">Precio Promocional</label>
-                    <input type="text" class="input-precio" placeholder="135">
+                <div class="contenedor-descripcion">
+                    <label class="label-titulos" for="nombre">Descripción</label>
+                    <div class="contenedor-input-descrip">
+                        <input type="text" class="input-descrip" name="descripcionProd" placeholder="Escriba una descripción del producto...">
+                    </div>
                 </div>
-            </div>
-            <img src="/img/mostrar-precio.png">
+                <div class="contenedor-categoria">
+                    <label class="label-titulos" for="nombre">Categoría</label>
+                    <div class="contenedor-input-cat">
+                        <input type="text" class="input-cat" name="categoriaProd" placeholder="Caramelo">
+                        <!-- <img src="/img/agregar-cat.png"> -->
+                    </div>
+                </div>
+                <div class="contenedor-tipo">
+                    <label class="label-titulos" for="nombre">Tipo</label>
+                    <div class="contenedor-input-tipo">
+                        <input type="text" class="input-tipo" name="tipoProd" placeholder="Caramelo Masticable">
+                    </div>
+                </div>
+        <div class="">
+            <button type="submit" id="add"><i class="bi bi-plus-circle"></i>GUARDAR PRODUCTO</button>
         </div>
-        <div class="contenedor-descripcion">
-            <label class="label-titulos" for="nombre">Descripción</label>
-            <div class="contenedor-input-descrip">
-                <input type="text" class="input-descrip" placeholder="Escriba una descripción del producto...">
-            </div>
-        </div>
-        <div class="contenedor-categoria">
-            <label class="label-titulos" for="nombre">Categoría</label>
-            <div class="contenedor-input-cat">
-                <input type="text" class="input-cat" placeholder="Caramelo">
-                <img src="/img/agregar-cat.png">
-            </div>
-        </div>
-        <div class="contenedor-tipo">
-            <label class="label-titulos" for="nombre">Tipo</label>
-            <div class="contenedor-input-tipo">
-                <input type="text" class="input-tipo" placeholder="Caramelo Masticable">
-            </div>
-        </div>
-        <div class="crear-producto"><img src="/img/crear-producto.png"></div>
+    </form>
     </main>
 
     <%- include('../partials/footer') %>

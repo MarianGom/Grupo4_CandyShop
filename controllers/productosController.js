@@ -28,10 +28,15 @@ const productosController = {
     },
     
     store:(req, res) => {
-        const product = req.body
-        product.fotoProd = req.file.filename
-        create(product)
-        res.redirect('/')
+        console.log("entro por el controller, req.body ", req.body)
+		console.log("entro por el controller, req.file ", req.file)
+        console.log("req.body", req.body);
+
+        const productNew = req.body
+        productNew.fotoProd = req.file.filename
+
+        create(productNew)
+        res.redirect('/listadoProductos/')
     },
 
     edit: (req, res) => {
@@ -41,13 +46,12 @@ const productosController = {
     },
 
    update: (req, res) => {
-        // Lógica para actualizar el producto con el ID proporcionado en req.params.id
-        // ...
         res.send('Actualización exitosa'); 
     },
 
     delete: (req, res) => {
-        console.log("query", req.query._method)
+        console.log("query", req.query)
+
         res.status().send({message: "OK"})
     },  
 }

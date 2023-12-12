@@ -25,9 +25,7 @@ function createImageName(file) {
     return 'img-'+ Date.now() + '-' + file.originalname
 }
 
-const uploadFile = multer({
-    storage
-})
+const uploadFile = multer({ storage: storage });
 
 // *** Configurar multer ***
 
@@ -45,9 +43,9 @@ router.post('/', uploadFile.single('image'), productsController.store);
 
 /*** EDIT ONE PRODUCT ***/ 
 router.get('/edit/:id/', productsController.edit); 
-router.put('/:id', productsController.update);
+router.put('/edit/:id', productsController.update);
 
 /*** DELETE ONE PRODUCT ***/ 
-router.get('/:id/', productsController.delete); 
+router.delete('/delete/:id/', productsController.delete); 
 
 module.exports = router;

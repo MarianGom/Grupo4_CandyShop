@@ -16,8 +16,7 @@ const model = {
 
        allProducts.push(product)
 
-       writeFileSync(model.file, JSON.sringify(allProducts))
-
+       writeFileSync(model.file, JSON.stringify(allProducts, null, 2))
     }
  
 }

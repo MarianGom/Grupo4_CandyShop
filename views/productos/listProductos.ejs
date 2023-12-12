@@ -101,7 +101,7 @@
                                         fill="#AA63EC" />
                                 </svg>
                             </a>
-                            <form action="/listadoProductos/edit/<%= product.idProd %>?method=PUT">
+                            <a href="/listadoProductos/edit/<%= product.idProd %>">
                                 <button>
                                     <svg width="25" height="27" viewBox="0 0 25 27" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -110,10 +110,10 @@
                                             fill="#AD6800" />
                                     </svg>
                                 </button>
-                            </form>
+                            </a>
 
-                            <form action="/listadoProductos/<%= product.idProd %>?method=DELETE" method="POST">
-                                <button>
+                            <form action="/listadoProductos/delete/<%= product.idProd %>?method=DELETE" method="POST" style="display: inline-flex">
+                                <button type="submit">
                                     <svg width="24" height="25" viewBox="0 0 24 25" fill="none"
                                         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                         <rect width="24" height="25" fill="url(#pattern0)" />
