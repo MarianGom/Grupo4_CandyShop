@@ -1,0 +1,25 @@
+const {readFileSync, writeFileSync, readFile } = require('fs')
+const { join } = require('path')
+
+const model = {
+    file: join(__dirname, '../data', 'productsDataBase.json'),
+    //leemos el archivo
+    findAll: () => JSON.parse(readFileSync(model.file, {encoding : 'utf-8'})),
+
+    //buscar producto por id
+    findOne: id => model.findAll().find(producto => producto.id == id), 
+
+    create: (product) => {
+       const allProducts = model.findAll()
+
+       product.id = Date.now()
+
+       allProducts.push(product)
+
+       writeFileSync(model.file, JSON.sringify(allProducts))
+
+    }
+ 
+}
+
+module.exports = model

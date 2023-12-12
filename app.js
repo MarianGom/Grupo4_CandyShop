@@ -21,7 +21,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', mainRouter);
-app.use('/productos', productsRouter);
 app.use('/listadoProductos', productsRouter);
 app.use('/login', usersRouter);
 

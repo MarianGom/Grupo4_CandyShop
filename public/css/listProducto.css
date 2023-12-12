@@ -12,6 +12,11 @@ main{
     background-color:var(  --bg-rosa-claro);
 }
 
+button{
+    border: none;
+    background: none;
+}
+
 .container{
     display: flex;
     flex-direction: column;
