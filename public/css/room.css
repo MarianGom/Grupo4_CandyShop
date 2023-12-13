@@ -159,6 +159,16 @@ a{
     font-weight: 600;
 }
 
+#carrito .titulos{
+    width: 100%;
+    text-align: center;
+    padding: 15px 20px;
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--text-disabled);
+
+}
+
 #carrito .producto{
     width: 100%;
     text-align: center;
@@ -185,15 +195,29 @@ a{
     font-size: 30px;
 }
 
+.btn-menos-mas{
+    border: 3px solid var(--bg-violeta-oscuro);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+}
+
 input#cantidad{
     width: 55px;
     height: 35px;
-    border: 3px solid var(--bg-violeta-oscuro);
-    border-radius: 20px;
     text-align: center;
     color: var(--text-violeta);
+    border:none;
     font-weight: 700;
     font-family: 'Inter', sans-serif;
+    font-size: 16px;
+}
+
+.menos-btn, .mas-btn{
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    font-size: 20px;
 }
 
 #carrito .btn-rosa{
@@ -261,6 +285,14 @@ input#cantidad{
     padding: 15px 40px;
 }
 
+#acompaniar .producto img{
+    height: 65px;
+}
+
+#acompaniar .descripcionProducto{
+    display: none;
+}
+
 .agregarproducto{
     display: flex;
     margin-top: 0.75rem;
@@ -287,6 +319,10 @@ input#cantidad{
     color: var(--text-blanco);
     padding: 5px 10px;
     font-size: 1.5rem;
+}
+
+.agregarproducto-lg{
+    display: none;
 }
 
 #pagar{
@@ -361,6 +397,10 @@ input#cantidad{
     display: flex;
     font-size: 12px;
     margin-bottom: 1.25rem;
+}
+
+.terminos a{
+    text-decoration: underline;
 }
 
 .terminos button{
@@ -648,7 +688,7 @@ footer img{
         border: 3px solid var(--bg-rosa-claro);
         border-radius: 10px;
         margin: 1rem 0px; 
-        padding: 15px;
+        padding: 20px 15px;
     }
 
     #acompaniar .agregarproducto{
@@ -656,7 +696,7 @@ footer img{
     }
     
     #acompaniar img{
-        margin: 10px 0px;
+        margin: 10px 0px 20px 0px;
     }
 
 
@@ -667,6 +707,10 @@ footer img{
     .precioUnitario-lg{
         display: block;
         margin: 25px 0px;
+    }
+
+    .agregarproducto-lg{
+        display: block;
     }
 
     .agregarproducto-lg .btn-rosa{
@@ -719,8 +763,12 @@ footer img{
         margin-left: 5vw;
     }
 
+    #carrito h1{
+        padding-top: 0.75rem;
+    }
+
     #lista-productos{
-        margin-top: 5rem;
+        margin-top: 3rem;
     }
 
     #carrito .producto img{
@@ -776,6 +824,31 @@ footer img{
         display: flex;
         flex-wrap: wrap;
         justify-content: space-evenly;
+    }
+
+    #acompaniar .producto{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30%;
+        max-width: 275px;
+        background-color: var(--bg-principal);
+        border: 3px solid var(--bg-rosa-claro);
+        border-radius: 10px;
+        margin: 2rem 0px; 
+        padding: 20px 15px;
+    }
+
+    #acompaniar .producto img{
+        height: 100px;
+    }
+
+    #acompaniar .descripcionProducto{
+        display: block;
+        padding-top: 15px;
+        font-size: 12px;
+        line-height: 1.2rem;
+        font-weight: 500;
     }
 
     #pagar i{

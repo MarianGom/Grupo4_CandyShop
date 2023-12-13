@@ -41,6 +41,16 @@
                 <h1>Tu pedido</h1>
 
                 <div id="lista-productos">
+
+                    <ul class="titulos">
+                        <li>Producto</li>
+                        <li></li>
+                        <li></li>
+                        <li>Precio</li>
+                        <li>Cantidad</li>
+                        <li>Quitar</li>
+                    </ul>
+
                     <ul class="producto">
                         <li>
                             <img src="/img/productos/flynnpaff-tutti.png" alt="Flynn Paff Tutti Frutti">
@@ -56,7 +66,11 @@
                         </li>
 
                         <li>
-                            <input type="text" id="cantidad" name="cantidad" maxlength="3" placeholder="1">
+                            <div class="btn-menos-mas">
+                                <button onclick="" class="menos-btn"><i class="bi bi-dash"></i></button>
+                                <input type="text" id="cantidad" name="cantidad" maxlength="3" placeholder="1">
+                                <button onclick="" class="mas-btn"><i class="bi bi-plus"></i></button>
+                            </div>
                         </li>
                         
                         <li>
@@ -79,7 +93,11 @@
                         </li>
 
                         <li>
-                            <input type="text" id="cantidad" name="cantidad" maxlength="3" placeholder="1">
+                            <div class="btn-menos-mas">
+                                <button onclick="" class="menos-btn"><i class="bi bi-dash"></i></button>
+                                <input type="text" id="cantidad" name="cantidad" maxlength="3" placeholder="1">
+                                <button onclick="" class="mas-btn"><i class="bi bi-plus"></i></button>
+                            </div>
                         </li>
                         
                         <li>
@@ -100,7 +118,7 @@
 
                 <article class="producto">
                     <div>
-                        <img src="/img/productos/flynnpaff-banana.png" alt="Flynn Paff Banana" height="65px">  
+                        <img src="/img/productos/flynnpaff-banana.png" alt="Flynn Paff Banana">  
                         <div class="precioUnitario-xs">
                             <h6>Precio</h6>
                             <p>$ 150,00 c/u</p>
@@ -110,6 +128,11 @@
                         <h6>Caramelo masticable</h6>
                         <p>"FLYNN PAFF"</p>
                         <p>Sabor Banana</p>
+
+                        <div class="descripcionProducto">
+                            Caramelos masticables GEORGALOS "Flynn Paff: Sabor Banana" (Por unidad)
+                        </div>
+
                         <div class="precioUnitario-lg">
                             <h4>$ 150,00</h4>
                         </div>     
@@ -125,7 +148,7 @@
 
                 <article class="producto">
                     <div>
-                        <img src="/img/productos/flynnpaff-uva.png" alt="Flynn Paff Uva" height="65px">
+                        <img src="/img/productos/flynnpaff-uva.png" alt="Flynn Paff Uva">
                         <div class="precioUnitario-xs">
                             <h6>Precio</h6>
                             <p>$ 150,00</p>
@@ -134,7 +157,12 @@
                     <div>
                         <h6>Caramelo masticable</h6>
                         <p>"FLYNN PAFF"</p>
-                        <p>Sabor Banana</p>
+                        <p>Sabor Uva</p>
+
+                        <div class="descripcionProducto">
+                            Caramelos masticables GEORGALOS "Flynn Paff: Sabor Uva" (Por unidad)
+                        </div>
+
                         <div class="precioUnitario-lg">
                             <h4>$ 150,00</h4>
                         </div>
@@ -150,7 +178,7 @@
 
                 <article class="producto">
                     <div>
-                        <img src="/img/productos/flynnpaff-frutilla.png" alt="Flynn Paff Frutilla" height="65px">
+                        <img src="/img/productos/flynnpaff-frutilla.png" alt="Flynn Paff Frutilla">
                         <div class="precioUnitario-xs">
                             <h6>Precio</h6>
                             <p>$ 150,00</p>
@@ -159,7 +187,12 @@
                     <div>
                         <h6>Caramelo masticable</h6>
                         <p>"FLYNN PAFF"</p>
-                        <p>Sabor Banana</p>
+                        <p>Sabor Frutilla</p>
+
+                        <div class="descripcionProducto">
+                            Caramelos masticables GEORGALOS "Flynn Paff: Sabor Frutilla" (Por unidad)
+                        </div>
+
                         <div class="precioUnitario-lg">
                             <h4>$ 150,00</h4>
                         </div>
@@ -201,7 +234,7 @@
     
                 <div class="terminos">
                     <button><i class="bi bi-check-square-fill"></i></button>
-                    <p>Acepto términos y condiciones y autorizo el tratamiento de mis datos personales conforme a la política de privacidad y tratamiento de datos personales.</p>
+                    <p>Acepto <a href="#">términos y condiciones</a> y autorizo el tratamiento de mis datos personales conforme a la <a href="#">política de privacidad y tratamiento de datos personales.</a></p>
                 </div>
     
                 <div class="perks">
