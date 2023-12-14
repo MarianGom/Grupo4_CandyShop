@@ -67,9 +67,9 @@
 
                         <li>
                             <div class="btn-menos-mas">
-                                <button onclick="" class="menos-btn"><i class="bi bi-dash"></i></button>
-                                <input type="text" id="cantidad" name="cantidad" maxlength="3" placeholder="1">
-                                <button onclick="" class="mas-btn"><i class="bi bi-plus"></i></button>
+                                <button onclick="quitar(0)" id="menos-btn"><i class="bi bi-dash"></i></button>
+                                <input type="text" class="cantidad" id="cantidad-0" name="cantidad" maxlength="3" value="1">
+                                <button onclick="agregar(0)" id="mas-btn"><i class="bi bi-plus"></i></button>
                             </div>
                         </li>
                         
@@ -94,9 +94,9 @@
 
                         <li>
                             <div class="btn-menos-mas">
-                                <button onclick="" class="menos-btn"><i class="bi bi-dash"></i></button>
-                                <input type="text" id="cantidad" name="cantidad" maxlength="3" placeholder="1">
-                                <button onclick="" class="mas-btn"><i class="bi bi-plus"></i></button>
+                                <button onclick="quitar(1)" id="menos-btn"><i class="bi bi-dash"></i></button>
+                                <input type="text" class="cantidad" id="cantidad-1" name="cantidad" maxlength="3" value="1">
+                                <button onclick="agregar(1)" id="mas-btn"><i class="bi bi-plus"></i></button>
                             </div>
                         </li>
                         
@@ -257,6 +257,26 @@
         </section>
 
     </main>
+
+    <script>
+
+        function agregar(num){
+            nombre = "cantidad-"+num;
+            console.log(nombre)
+            var cantidad = document.getElementById(nombre);
+            cantidad.value = parseInt(cantidad.value) + 1;
+            console.log(cantidad.value);
+        }
+
+        function quitar(num){
+            nombre = "cantidad-"+num;
+            var cantidad = document.getElementById(nombre);
+            cantidad.value = cantidad.value - 1;
+            console.log(cantidad.value);
+        }
+
+    </script>
+
 
     <%- include('../partials/footer') %>
 
