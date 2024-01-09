@@ -7,12 +7,12 @@ const model = {
     findAll: () => JSON.parse(readFileSync(model.file, {encoding : 'utf-8'})),
 
     //buscar producto por id
-    findOne: id => model.findAll().find(producto => producto.id == id), 
+    findOne: id => model.findAll().find(producto => producto.idProd == id), 
 
     create: (product) => {
        const allProducts = model.findAll()
 
-       product.id = Date.now()
+       product.idProd = Date.now()
 
        allProducts.push(product)
 

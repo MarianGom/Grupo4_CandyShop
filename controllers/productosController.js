@@ -6,7 +6,8 @@ const createProduct = path.resolve(__dirname, '../views/productos/crearProductos
 const editProduct = path.resolve(__dirname, '../views/productos/editarProductos.ejs');
 const detailProduct = path.resolve(__dirname, '../views/productos/productoVer.ejs');
 
-const { findAll, findOne , create} = require('../models/product.model')
+const { findAll, findOne , create} = require('../models/product.model');
+const { json } = require('body-parser');
 
 const productosController = {
     index:(req, res) => {
@@ -15,9 +16,6 @@ const productosController = {
     },
 
     detail: (req, res) => {
-        console.log("llego a detail", req.params.id)
-        const idProduct = req.params.id
-        console.log(idProduct)
         const product = findOne(idProduct)
         console.log("El producto es ", product)
         res.render(detailProduct, {product : product})
@@ -46,7 +44,24 @@ const productosController = {
     },
 
    update: (req, res) => {
+        console.log("Llego update")
+        const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../data/productsDataBase.json")))
+        req.body.id = req.params.id;
+        req.body.imagen = req.file ? req.file.filename : req.body.oldImagen;
+        const productUpdate = products.map (prod => {
+            if(prod.idProd == req.body.id){ 
+                prod.fotoProd = req.file.imagen
+                console.log("req.body", req.body);  
+                return prod = req.body;
+            }
+            
+            return prod;
+        })
+        
+        const prodUpdates = JSON.stringify(productUpdate, null, 2)
+        fs.writeFileSync(path.resolve(__dirname, "../data/productsDataBase.json"), prodUpdates)
         res.send('Actualización exitosa'); 
+        res.redirect('/listadoProductos/')
     },
 
     delete: (req, res) => {

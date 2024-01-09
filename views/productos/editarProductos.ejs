@@ -28,13 +28,20 @@
         <div class="contenedor-rosa"></div>
         <h1>Editar Producto</h1>
         
-			<form>
+			<form action="/listadoProductos/edit/<%= productToEdit.idProd %>?_method=PUT" method="POST" enctype="multipart/form-data" >
                 <div class="contenedor-nombre">
                     <label class="label-titulos" for="nombre">Nombre</label>
                     <div class="contenedor-input-nombre">
-                        <input type="text" class="input-custom" name="nombreProd" placeholder="“FLYNN PAFF” Sabor Manzana">
-                        <input type="file" id="image" name="image">
-                        <!-- <img src="/img/agregar-foto.png"> -->
+                        <input type="text" class="input-custom" name="nombreProd" value="<%= productToEdit.nombreProd %>">
+                        
+                        <!--Aquí solicito la imagen-->
+                        <div class="custom-file">
+                            <figure class="form-group">
+                                <img  class="w-100" src="/img/productos/<%= productToEdit.fotoProd%>" alt="<%= productToEdit.nombreProd%>">
+                            </figure>
+                            <input type="hidden"  name="oldImagen"  value="<%= productToEdit.fotoProd%>">
+                            <!--De esta forma logro conservar y que viaje la imagen anterior de esta forma evito que el usuario seleccione una imagen nuevamente, ( si no lo desea) -->
+                            <input type="file" name="image" >
                     </div>
                 </div>
                 <div class="contenedor-stock">
@@ -42,7 +49,7 @@
                     <div class="contenedor-stock-cb">
                         <div class="contenedor-input-stock">
                             <label class="label-subtitulos" for="stock">Stock</label>
-                            <input type="text" class="input-stock" name="stock" placeholder="1000">
+                            <input type="text" class="input-stock" name="stock" value="<%= productToEdit.stock %>">
                         </div>
                         <!-- <div class="contenedor-input-cb">
                             <label class="label-subtitulos" for="cb">Código de Barras</label>
@@ -55,7 +62,7 @@
                     <div class="contenedor-precioOyP">
                         <div class="contenedor-input-precio">
                             <label class="label-subtitulos" for="po">Precio Original</label>
-                            <input type="text" class="input-precio" name="precioProd" placeholder="150">
+                            <input type="text" class="input-precio" name="precioProd" value="<%= productToEdit.precioProd %>">
                          </div>
                         <!--<div class="contenedor-input-precio">
                             <label class="label-subtitulos" for="pp">Precio Promocional</label>
@@ -67,20 +74,20 @@
                 <div class="contenedor-descripcion">
                     <label class="label-titulos" for="nombre">Descripción</label>
                     <div class="contenedor-input-descrip">
-                        <input type="text" class="input-descrip" name="descripcionProd" placeholder="Escriba una descripción del producto...">
+                        <input type="text" class="input-descrip" name="descripcionProd" value="<%= productToEdit.descripcionProd %>">
                     </div>
                 </div>
                 <div class="contenedor-categoria">
                     <label class="label-titulos" for="nombre">Categoría</label>
                     <div class="contenedor-input-cat">
-                        <input type="text" class="input-cat" name="categoriaProd" placeholder="Caramelo">
+                        <input type="text" class="input-cat" name="categoriaProd" value="<%= productToEdit.categoriaProd %>">
                         <!-- <img src="/img/agregar-cat.png"> -->
                     </div>
                 </div>
                 <div class="contenedor-tipo">
                     <label class="label-titulos" for="nombre">Tipo</label>
                     <div class="contenedor-input-tipo">
-                        <input type="text" class="input-tipo" name="tipoProd" placeholder="Caramelo Masticable">
+                        <input type="text" class="input-tipo" name="tipoProd"value="<%= productToEdit.tipoProd %>">
                     </div>
                 </div>
         <div class="">
