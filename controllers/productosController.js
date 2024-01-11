@@ -46,22 +46,38 @@ const productosController = {
    update: (req, res) => {
         console.log("Llego update")
         const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../data/productsDataBase.json")))
-        req.body.id = req.params.id;
-        req.body.imagen = req.file ? req.file.filename : req.body.oldImagen;
+        /* req.body.idProd = parseInt(req.params.id);
+        req.body.fotoProd = req.file ? req.file.filename : req.body.oldImagen;
         const productUpdate = products.map (prod => {
             if(prod.idProd == req.body.id){ 
-                prod.fotoProd = req.file.imagen
+                prod = req.body;
+                prod.fotoProd = req.body.fotoProd;
                 console.log("req.body", req.body);  
-                return prod = req.body;
+                return prod;
             }
             
             return prod;
-        })
+        }) */
+
+        prod.idProd = parseInt(req.params.id);
+        prod.nombreProd = req.body.nombreProd;
+        prod.precioProd = parseFloat(req.body.precioProd);
+        prod.stock = parseInt(req.body.stock);
+        prod.fotoProd = req.file ? req.file.filename : req.body.oldImagen;
+        prod.descripcionProd = req.body.descripcionProd;
+        prod.categoriaProd = req.body.categoriaProd;
+        prod.tipoProd = req.body.tipoProd;
+        /* prod.estado = true; */
+
         
-        const prodUpdates = JSON.stringify(productUpdate, null, 2)
-        fs.writeFileSync(path.resolve(__dirname, "../data/productsDataBase.json"), prodUpdates)
-        res.send('Actualización exitosa'); 
-        res.redirect('/listadoProductos/')
+        const prodUpdates = JSON.stringify(prod, null, 2)
+        try{
+            fs.writeFileSync(path.resolve(__dirname, "../data/productsDataBase.json"), prodUpdates)        
+            res.send('Actualización exitosa'); 
+        } catch(error){
+            console.log("Eh no pa");
+            res.redirect('/listadoProductos/');
+        }
     },
 
     delete: (req, res) => {
