@@ -35,17 +35,17 @@ const productsController = require('../controllers/productosController');
 router.get('/', productsController.index); 
 
 /*** GET ONE PRODUCT ***/ 
-router.get('/detail/:id/', productsController.detail); 
+router.get('/detail/:id', productsController.detail); 
 
 /*** CREATE ONE PRODUCT ***/ 
 router.get('/create/', productsController.create); 
 router.post('/', uploadFile.single('image'), productsController.store); 
 
 /*** EDIT ONE PRODUCT ***/ 
-router.get('/edit/:id/', productsController.edit); 
-router.put('/edit/:id/', uploadFile.single('image'), productsController.update);
+router.get('/edit/:id', productsController.edit); 
+router.put('/edit/:id', uploadFile.single('image'), productsController.update);
 
 /*** DELETE ONE PRODUCT ***/ 
-router.delete('/delete/:id/', productsController.delete); 
+router.delete('/delete/:id', productsController.delete); 
 
 module.exports = router;
