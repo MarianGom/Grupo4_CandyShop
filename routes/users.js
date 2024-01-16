@@ -2,42 +2,62 @@ const express = require('express');
 const usersController = require('../controllers/usersController');
 const path = require('path');
 const router = express.Router();
+const { check } = require('express-validator');
 
 /* Multer */
 const multer = require('multer');
+
+function createImageName(file) {
+    return 'img-'+ Date.now() + '-' + file.originalname;
+}
+
 const storage =  multer.diskStorage({
     destination: (req, file, cb) => {
-        console.log("entro en destinnaition", file)
-        const destinationFolder = path.join(
+        const publicFolder = path.join(
             __dirname,
-            '../public/img/productos'
+            '../public/img/users'
         )
-        cb(null, destinationFolder)
+        cb(null, publicFolder);
     },
     filename: (req, file, cb) => {
         const newFileName = createImageName(file)  
-        cb(null, newFileName)
+        cb(null, newFileName);
     }
 })
 
-function createImageName(file) {
-    return 'img-'+ Date.now() + '-' + file.originalname
-}
-
 const uploadFile = multer({ storage: storage });
-
 const productsController = require('../controllers/productosController');
+
+
+/* Validaciones - ExpressValidator */
+let validateRegister = [
+    check('mailUser')
+        .notEmpty().withMessage('Completar el email.').bail()
+        .isLength({ min: 6})
+        .isEmail().withMessage('Tienes que ingresar un email válido.'),
+    check('nombreUser')
+        .notEmpty().withMessage('Completar el nombre.').bail()
+        .isString(),
+    check('apellidoUser')
+        .notEmpty().withMessage('Completar el apellido.').bail()
+        .isString(),
+    check('password')
+        .notEmpty().withMessage('Completar contraseña.').bail(),
+    check('confirmPassword')
+        .notEmpty().withMessage('Confirmar contraseña').bail()
+];
 
 /* Routes */
 router.get('/login', usersController.login);
-router.get('/register', usersController.create);
+router.post('/login', usersController.log);
 
-/* Propio */
-router.get('/profile/:id', usersController.detail);
+router.get('/register', usersController.create);
+router.post('/register', validateRegister, usersController.store);
+
+/* router.get('/profile/:id', usersController.detail); */
 
 
 /* Admin */
 
-router
 
 module.exports = router;

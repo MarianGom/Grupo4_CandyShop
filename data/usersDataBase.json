@@ -98,5 +98,25 @@
     "fotoPefil": "http://dummyimage.com/144x178.bmp/dddddd/000000",
     "perfilUser": "at",
     "estado": false
+  },
+  {
+    "mailUser": "rocio@rocio.com",
+    "nombreUser": "Maria",
+    "apellidoUser": "Gonzales",
+    "contraseña": "123456",
+    "perfilUser": "cliente",
+    "fotoPerfil": "default",
+    "estado": true,
+    "idUser": 1705433739101
+  },
+  {
+    "mailUser": "cherry@rocio.com",
+    "nombreUser": "cherry",
+    "apellidoUser": "rooma",
+    "password": "987654321",
+    "perfilUser": "cliente",
+    "fotoPerfil": "default",
+    "estado": true,
+    "idUser": 1705437025936
   }
 ]
