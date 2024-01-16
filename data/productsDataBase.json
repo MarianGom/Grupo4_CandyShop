@@ -1,9 +1,9 @@
 [
   {
     "idProd": 1,
-    "nombreProd": "FLYNN PAFF 2345 daeeeee",
+    "nombreProd": "FLYNN PAFF",
     "precioProd": 27554.36,
-    "stock": 2574,
+    "stock": 1000,
     "fotoProd": "flynnpaff-manzana.png",
     "descripcionProd": "Sabor Manzana",
     "categoriaProd": "Caramelo",
@@ -12,9 +12,9 @@
   },
   {
     "idProd": 2,
-    "nombreProd": "FLYNN PAFF daleeeee paa",
+    "nombreProd": "FLYNN PAFF",
     "precioProd": 27554.36,
-    "stock": 2574,    
+    "stock": 2574,
     "fotoProd": "flynnpaff-uva.png",
     "descripcionProd": "Sabor Uva",
     "categoriaProd": "Caramelo",
@@ -77,13 +77,25 @@
     "estado": true
   },
   {
-    "nombreProd": "nombre",
-    "stock": "1",
-    "precioProd": "150",
-    "descripcionProd": "descrpicion",
-    "categoriaProd": "carameol",
+    "nombreProd": "Cubanitos",
+    "stock": 100,
+    "precioProd": 15000,
+    "descripcionProd": "Rellenos de dulce de leche",
+    "categoriaProd": "Obleas",
     "tipoProd": "ñññ",
-    "fotoProd": "img-1704734451887-Untitled.png",
-    "idProd": 1704734451905
+    "fotoProd": "img-1705356985462-a1.webp",
+    "idProd": 1704734451905,
+    "estado": true
+  },
+  {
+    "nombreProd": "Cubanitos",
+    "stock": 100,
+    "precioProd": 15000,
+    "descripcionProd": "Rellenos de dulce de leche",
+    "categoriaProd": "Obleas",
+    "tipoProd": "ñññ",
+    "fotoProd": "img-1705356985462-a1.webp",
+    "idProd": 1704734451906,
+    "estado": true
   }
 ]

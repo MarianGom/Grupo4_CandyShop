@@ -44,8 +44,9 @@ const productosController = {
     },
 
    update: (req, res) => {
-        console.log("Llego update")
-        const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../data/productsDataBase.json")))
+        console.log("Llego update");
+        const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../data/productsDataBase.json")));
+
         /* req.body.idProd = parseInt(req.params.id);
         req.body.fotoProd = req.file ? req.file.filename : req.body.oldImagen;
         const productUpdate = products.map (prod => {
@@ -59,31 +60,72 @@ const productosController = {
             return prod;
         }) */
 
-        prod.idProd = parseInt(req.params.id);
-        prod.nombreProd = req.body.nombreProd;
-        prod.precioProd = parseFloat(req.body.precioProd);
-        prod.stock = parseInt(req.body.stock);
-        prod.fotoProd = req.file ? req.file.filename : req.body.oldImagen;
-        prod.descripcionProd = req.body.descripcionProd;
-        prod.categoriaProd = req.body.categoriaProd;
-        prod.tipoProd = req.body.tipoProd;
-        /* prod.estado = true; */
+        let idProducto = req.params.id;
+
+        const productUpdate = products.map(prod => {
+            if(prod.idProd == idProducto){ 
+                prod.idProd = parseInt(req.params.id);
+                prod.nombreProd = req.body.nombreProd;
+                prod.precioProd = parseFloat(req.body.precioProd);
+                prod.stock = parseInt(req.body.stock);
+                try{
+                    prod.fotoProd = req.file ? req.file.filename : req.body.oldImagen;
+                } catch(error) {
+                    console.log(error)
+                }
+                prod.descripcionProd = req.body.descripcionProd;
+                prod.categoriaProd = req.body.categoriaProd;
+                prod.tipoProd = req.body.tipoProd;
+            }
+        })
+
+        console.log('Si terminó de crear el objeto \n'+ JSON.stringify(products) + '\n');
 
         
-        const prodUpdates = JSON.stringify(prod, null, 2)
         try{
-            fs.writeFileSync(path.resolve(__dirname, "../data/productsDataBase.json"), prodUpdates)        
-            res.send('Actualización exitosa'); 
+            const prodUpdates = JSON.stringify(products, null, 2);
+            console.log('Si entró al primer try \n\n');
+            try{
+                fs.writeFileSync(path.resolve(__dirname, "../data/productsDataBase.json"), prodUpdates);
+                /* res.send('Actualización exitosa'); */
+                res.redirect('/listadoProductos/');
+            } catch(error){
+                console.log("Eh no pa");
+                res.redirect('/listadoProductos/');
+            }
         } catch(error){
-            console.log("Eh no pa");
-            res.redirect('/listadoProductos/');
+            console.log(error);
         }
+        
+        
     },
 
     delete: (req, res) => {
-        console.log("query", req.query)
+        /* console.log("query", req.query)
 
-        res.status().send({message: "OK"})
+        res.status().send({message: "OK"}) */
+
+        console.log('\n\n\nEntra en borrar\n\n\n')
+
+        const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../data/productsDataBase.json")));
+
+        let idDelete = req.params.id;
+
+        products =  products.filter(function(prod){
+            if(celular.id != idDelete){
+                return celular;
+            }
+        })
+
+        console.log(products);
+
+        try{
+            fs.writeFileSync(path.resolve(__dirname, "../data/productsDataBase.json"), products);
+            res.redirect('/listadoProductos/');
+        } catch(error){
+            console.log(error);
+            res.redirect('/listadoProductos/');
+        }
     },  
 }
 
