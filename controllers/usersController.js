@@ -1,12 +1,12 @@
 const path = require('path');
 const fs = require('fs');
 const cookieParser = require('cookie-parser');
+const { findAll, findOne , create} = require('../models/user.model');
+const { json } = require('body-parser');
 
 const login = path.resolve(__dirname, '../views/usuarios/login.ejs');
 const register = path.resolve(__dirname, '../views/usuarios/register.ejs');
-
-const { findAll, findOne , create} = require('../models/user.model');
-const { json } = require('body-parser');
+const profile = path.resolve(__dirname, '../views/usuarios/editProfile.ejs');
 
 const usersController = {
     login: (req, res, next) => {
@@ -16,6 +16,10 @@ const usersController = {
     log: (req, res) => {
         let datos = req.body
         res.render(register, {});
+    },
+
+    show: (req, res) => {
+        res.render(profile, {})
     },
 
     /* PARA ADMIN */

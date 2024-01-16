@@ -54,6 +54,8 @@ router.post('/login', usersController.log);
 router.get('/register', usersController.create);
 router.post('/register', validateRegister, usersController.store);
 
+router.get('/profile', usersController.show);
+
 /* router.get('/profile/:id', usersController.detail); */
 
 

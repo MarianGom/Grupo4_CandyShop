@@ -110,10 +110,11 @@ const productosController = {
         const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../data/productsDataBase.json")));
 
         let idDelete = req.params.id;
+        let position;
 
         products =  products.filter(function(prod){
             if(celular.id != idDelete){
-                return celular;
+                position = products.findIndex(celular)
             }
         })
 
