@@ -5,6 +5,8 @@ const mainProduct = path.resolve(__dirname, '../views/productos/listProductos.ej
 const createProduct = path.resolve(__dirname, '../views/productos/crearProductos.ejs');
 const editProduct = path.resolve(__dirname, '../views/productos/editarProductos.ejs');
 const detailProduct = path.resolve(__dirname, '../views/productos/productoVer.ejs');
+const deleteProduct = path.resolve(__dirname, '../views/productos/borrarProductos.ejs');
+
 
 const { findAll, findOne , create} = require('../models/product.model');
 const { json } = require('body-parser');
@@ -44,7 +46,7 @@ const productosController = {
     },
 
    update: (req, res) => {
-        console.log("Llego update");
+        /* console.log("Llego update"); */
         const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../data/productsDataBase.json")));
 
         /* req.body.idProd = parseInt(req.params.id);
@@ -80,7 +82,6 @@ const productosController = {
         })
 
         console.log('Si terminó de crear el objeto \n'+ JSON.stringify(products) + '\n');
-
         
         try{
             const prodUpdates = JSON.stringify(products, null, 2);
@@ -101,60 +102,45 @@ const productosController = {
     },
 
     delete: (req, res) => {
+        console.log('\n\n\nvista de delete\n\n\n');
+        const idProduct = req.params.id
+        const product = findOne(idProduct)
+        res.render(deleteProduct, {product: product})
+    },
+
+    destroy: (req, res) => {
         /* console.log("query", req.query)
 
         res.status().send({message: "OK"}) */
 
-        console.log('\n\n\nEntra en borrar\n\n\n')
+        let idProducto = req.params.id;
 
         const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../data/productsDataBase.json")));
 
-        let idDelete = req.params.id;
-        let position;
-
-        products =  products.filter(function(prod){
-            if(celular.id != idDelete){
-                position = products.findIndex(celular)
+        const productDel = products.map(prod => {
+            if(prod.idProd == idProducto){ 
+                prod.idProd = parseInt(req.params.id);
+                prod.estado = false;
             }
         })
 
-        console.log(products);
-
         try{
-            fs.writeFileSync(path.resolve(__dirname, "../data/productsDataBase.json"), products);
-            res.redirect('/listadoProductos/');
+            const prodUpdates = JSON.stringify(products, null, 2);
+            console.log('Si entró al primer try \n\n');
+            try{
+                fs.writeFileSync(path.resolve(__dirname, "../data/productsDataBase.json"), prodUpdates);
+                res.redirect('/listadoProductos/');
+            } catch(error){
+                console.log(error)
+                res.redirect('/listadoProductos/');
+            }
         } catch(error){
             console.log(error);
-            res.redirect('/listadoProductos/');
         }
+
+        res.redirect('/listadoProductos/');
+
     },  
 }
 
 module.exports = productosController;
-
-
-
-
-
-
-
-
-/*const path = require('path');
-const fs = require('fs');
-
-const productsFilePath = path.join(__dirname,'../data/productsDataBase.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
-const productosController = {
-    index: (req, res, next) => {
-        res.render('home', {});
-    },
-    show: (req, res, next) => {
-        res.render('productDetail', {})
-    },
-    edit: (req, res, next) => {
-        res.render('productEdit', {})
-    }
-}
-
-module.exports = productosController;*/
