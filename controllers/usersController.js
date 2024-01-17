@@ -6,7 +6,8 @@ const { json } = require('body-parser');
 
 const login = path.resolve(__dirname, '../views/usuarios/login.ejs');
 const register = path.resolve(__dirname, '../views/usuarios/register.ejs');
-const profile = path.resolve(__dirname, '../views/usuarios/editProfile.ejs');
+const detail = path.resolve(__dirname, '../views/usuarios/detailProfile.ejs');
+const editProfile = path.resolve(__dirname, '../views/usuarios/editProfile.ejs');
 
 const usersController = {
     login: (req, res, next) => {
@@ -19,23 +20,16 @@ const usersController = {
     },
 
     show: (req, res) => {
-        res.render(profile, {})
+        const idUsuario = req.params.id;
+        const datos = findOne(idUsuario);
+        res.render(detail, {user: datos});
     },
-
-    /* PARA ADMIN */
-    /*
-    detail: (req, res, next) =>{
-        const profile = findOne(idUser);
-        res.render(perfil, {profile : profile});
-    }, 
-    */
 
     create: (req, res, next) => {
         res.render(register, {});
     },
 
     store: (req, res, next) => {
-        /* console.log('\n Entra al store\n'); */
         const userNew = req.body;
 
         delete userNew.confirmPassword;
@@ -43,7 +37,7 @@ const usersController = {
         userNew.perfilUser = "cliente";
         userNew.fotoPerfil = "default";
         userNew.estado = true;
-        /* console.log("\n\nAqui si llega\n\n"); */
+        
         try{
             create(userNew);
             res.redirect('/user/login');
@@ -53,8 +47,9 @@ const usersController = {
     },
 
     edit: (req, res, next) => {
-        const profile = findOne(idUser);
-        res.render('/editarUser');
+        const idUsuario = req.params.id;
+        const datos = findOne(idUsuario);
+        res.render(editProfile, {user: datos});
     },
 
     update: (req, res, next) => {

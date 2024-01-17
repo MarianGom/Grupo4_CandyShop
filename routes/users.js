@@ -26,7 +26,6 @@ const storage =  multer.diskStorage({
 })
 
 const uploadFile = multer({ storage: storage });
-const productsController = require('../controllers/productosController');
 
 
 /* Validaciones - ExpressValidator */
@@ -54,9 +53,11 @@ router.post('/login', usersController.log);
 router.get('/register', usersController.create);
 router.post('/register', validateRegister, usersController.store);
 
-router.get('/profile', usersController.show);
+router.get('/profile/:id', usersController.show);
 
-/* router.get('/profile/:id', usersController.detail); */
+router.get('/edit/:id', usersController.edit); 
+/* router.put('/edit/:id', uploadFile.single('image'), usersController.update); */
+
 
 
 /* Admin */

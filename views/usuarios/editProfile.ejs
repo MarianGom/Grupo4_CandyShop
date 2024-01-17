@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Perfil</title>
+    <title>Login</title>
 
     <link rel="shortcut icon" href="/img/favicon.png" type="image/png">
     
     <link rel="stylesheet" href="/css/room.css">
-    <link rel="stylesheet" href="/css/profile.css">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,9 +23,62 @@
 </head>
 <body onresize="resizeMenu()">
 
+
     <%- include('../partials/nav') %>
     <main>
-        LAQUESO
+        <form action="/user/edit/<%= user.idProd %>?_method=PUT" method="POST" enctype="multipart/form-data">
+
+            <div class="nombre">
+                <label for="nombreUser">Nombre:</label>
+                <input type="text" name="nombreUser" value="<%= user.nombreUser %>">
+            </div>
+    
+            <br>
+    
+            <div class="apellido">
+                <label for="apellidoUser">Apellido:</label>
+                <input type="text" name="apellidoUser" value="<%= user.apellidoUser %>">
+            </div>
+    
+            <br>
+    
+            <div class="mail">
+                <label for="mailUser">Mail:</label>
+                <input type="text" name="mailUser" value="<%= user.mailUser %>">
+            </div>
+    
+            <br>
+    
+            <div class="password">
+                <label for="contraseña">Contraseña:</label>
+                <input type="text" name="contraseña" value="<%= user.contraseña %>">
+            </div>
+    
+            <br>
+    
+            <div class="perfil">
+                <label for="perfilUser">Tipo de perfil:</label>
+                <input type="text" name="perfilUser" value="<%= user.perfilUser %>">
+            </div>
+    
+            <br>
+    
+            <div class="foto">
+                <label for="fotoPefil">Foto:</label>
+                <input type="text" name="fotoPefil" value="<%= user.fotoPefil %>">
+            </div>
+
+            <br>
+
+            <div class="submit">
+                <button type="submit" id="add">
+                    <i class="bi bi-plus-circle"></i>
+                    GUARDAR CAMBIOS
+                </button>
+            </div>
+        </form>
+        
+
     </main>
     
     <%- include('../partials/footer') %>

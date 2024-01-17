@@ -3,6 +3,7 @@ const { join } = require('path')
 
 const model = {
     file: join(__dirname, '../data', 'usersDataBase.json'),
+    
     findAll: () => JSON.parse(readFileSync(model.file, {encoding : 'utf-8'})),
 
     findOne: id => model.findAll().find(usuario => usuario.idUser == id), 

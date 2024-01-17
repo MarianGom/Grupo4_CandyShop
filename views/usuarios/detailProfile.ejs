@@ -8,7 +8,6 @@
     <link rel="shortcut icon" href="/img/favicon.png" type="image/png">
     
     <link rel="stylesheet" href="/css/room.css">
-    <link href="/css/login.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,54 +26,53 @@
 
     <%- include('../partials/nav') %>
     <main>
-        <div class="contenedor-login">
-            <div class="logo-login">
-                <img src="/img/candyshop-sm.png" alt="Logo de CandyShop" width="100%">
-            </div>
-            <h3>Iniciar Sesión</h3>
-            <section class="contenedor-email-contraseña">
-                <form action="ingresar-mail-contraseña" method="post">
-                    <div class="input-email">
-                        <label for="email">E-mail</label>
-                        <input type="email" id="email" name="email" placeholder="maria@gmail.com" required>
-                    </div>
-                    <div class="input-contraseña">
-                        <label for="password">Contraseña</label>
-                        <div>
-                            <input type="password" id="password" name="password" placeholder="********" required>
-                            <button type="none" class="ver" onmouseover="lookPassword()">
-                                <i class="bi bi-eye"></i>
-                            </button> 
-                        </div>
-                    </div>
-                    <div class="recordar">
-                        <input type="checkbox" id="recordar" name="recordar">
-                        <label for="recordar">Recordar Usuario y Contraseña</label>
-                    </div>
-                    <!-- <div class="olvido-contraseña">
-                        <a href=""><strong>¿Olvidaste tu contraseña?</strong></a>
-                    </div> -->
-                    <div class="contenedor-boton-is"><button type="submit" class="boton-is"><strong>Iniciar Sesión</strong></button></div>
-                </form>
-            </section>
-    
-            <!-- <section class="contenedor-redes">
-                <p><strong>O puedes hacerlo con</strong></p>
-                <div>
-                    <a href="https://www.facebook.com/"><i class="bi bi-facebook"></i></a>
-                    <a href="https://www.google.com/"><i class="bi bi-google"></i></a>
-                </div>
-            </section> -->
-            <div class="contenedor-registro">
-                <a href="/login/register">
-                    <div>
-                        ¿Todavía no posees una cuenta?
-                        <strong>Registrarme</strong>
-                    </div>
-                </a>
-            </div>
-            <div class="contenedor-golosinas"><img class="golosinas-login" src="/img/golosinas-login-recortado.png"></div>
+        
+        <div class="nombre">
+            <p>Nombre:</p>
+            <h4><%= user.nombreUser %></h4>
         </div>
+
+        <br>
+
+        <div class="apellido">
+            <p>Apellido:</p>
+            <h4><%= user.apellidoUser %></h4>
+        </div>
+
+        <br>
+
+        <div class="mail">
+            <p>Email:</p>
+            <h4><%= user.mailUser %></h4>
+        </div>
+
+        <br>
+
+        <div class="password">
+            <p>Contraseña:</p>
+            <h4><%= user.contraseña %></h4>
+        </div>
+
+        <br>
+
+        <div class="perfil">
+            <p>Tipo de perfil:</p>
+            <h4><%= user.perfilUser %></h4>
+        </div>
+
+        <br>
+
+        <div class="foto">
+            <p>Foto:</p>
+            <h4><%= user.fotoPefil %></h4>
+        </div>
+
+        <a href="/user/edit/<%= user.idProd %>">
+            <button>
+                <i class="bi bi-pencil"></i>
+            </button>
+        </a>
+
     </main>
     
     <%- include('../partials/footer') %>
