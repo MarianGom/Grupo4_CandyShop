@@ -58,8 +58,8 @@ router.get('/profile/:id', usersController.show);
 router.get('/edit/:id', usersController.edit); 
 router.put('/edit/:id', uploadFile.single('image'), usersController.update);
 
-/* router.get('/delete/:id', productsController.delete); 
-router.delete('/delete/:id', productsController.destroy);  */
+router.get('/delete/:id', usersController.delete); 
+router.delete('/delete/:id', usersController.destroy);
 
 /* Admin */
 

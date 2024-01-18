@@ -8,6 +8,8 @@ const login = path.resolve(__dirname, '../views/usuarios/login.ejs');
 const register = path.resolve(__dirname, '../views/usuarios/register.ejs');
 const detail = path.resolve(__dirname, '../views/usuarios/detailProfile.ejs');
 const editProfile = path.resolve(__dirname, '../views/usuarios/editProfile.ejs');
+const deleteProfile = path.resolve(__dirname, '../views/usuarios/deleteProfile.ejs');
+
 
 const usersController = {
     login: (req, res, next) => {
@@ -102,7 +104,39 @@ const usersController = {
     */
 
     delete: (req, res, next) =>{
-        res.redirect('/editarUser');
+        const idUsuario = req.params.id;
+        const datos = findOne(idUsuario);
+        res.render(deleteProfile, {user: datos});    
+    },
+
+    destroy: (req, res, next) =>{
+
+        let idUser = req.params.id;
+
+        const usuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../data/usersDataBase.json")));
+
+        const userDel = usuarios.map(user => {
+            if(user.idUser == idUser){ 
+                user.idUser = parseInt(req.params.id);
+                user.estado = false;
+            }
+        })
+
+        try{
+            const usersUpdates = JSON.stringify(usuarios, null, 2);
+            console.log('Si entró al primer try \n\n');
+            try{
+                fs.writeFileSync(path.resolve(__dirname, "../data/usersDataBase.json"), usersUpdates);
+                res.redirect('/listadoProductos/');
+            } catch(error){
+                console.log(error)
+                res.redirect('/listadoProductos/');
+            }
+        } catch(error){
+            console.log(error);
+        }
+
+        res.redirect('/listadoProductos/');
     }
 };
 
