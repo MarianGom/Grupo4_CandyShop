@@ -37,11 +37,17 @@
                         <!--Aquí solicito la imagen-->
                         <div class="custom-file">
                             <figure class="form-group">
-                                <img  class="w-100" src="/img/productos/<%= productToEdit.fotoProd%>" alt="<%= productToEdit.nombreProd%>">
+                                <% if (productToEdit.fotoProd) {%>
+                                    <img class="w-100" src="/img/productos/<%= productToEdit.fotoProd%>" alt="<%= productToEdit.nombreProd%>">
+                                <%} else {%>
+                                    <p>Todavia no posee imagen</p>
+                                <%}%>
+                               
                             </figure>
-                            <input type="hidden"  name="oldImagen"  value="<%= productToEdit.fotoProd%>">
+                            <input type="hidden" name="oldImagen" value="<%= productToEdit.fotoProd%>">
                             <!--De esta forma logro conservar y que viaje la imagen anterior de esta forma evito que el usuario seleccione una imagen nuevamente, ( si no lo desea) -->
-                            <input type="file" name="image" >
+                            <input type="file" name="image">
+                        </div>
                     </div>
                 </div>
                 <div class="contenedor-stock">

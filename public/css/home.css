@@ -385,23 +385,121 @@ article{
     margin-top: 10px;
 }
 
+#marcas li{
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .marcas{
-    margin: 0px 20px;
-    width: 75px;
+    margin: 0px 25px;
+    width: 40px;
+    display: block;
+    position: absolute;
+    left: -30px;
+    animation-name: marq;
+    animation-duration: 22.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.aguila{
+    animation-delay: 0s;
+}
+
+
+.bonobon{
+    animation-delay: -1.5s;
+}
+
+.butter-toffees{
+    animation-delay: -3s;
+}
+
+.Cabsha{
+    animation-delay: -4.5s;
+}
+
+.cadbury{
+    animation-delay: -6s;
+}
+
+.cofler{
+    animation-delay: -7.5s;
+}
+
+.ferreroRocher{
+    animation-delay: -9s;
+}
+
+.flyn{
+    animation-delay: -10.5s;
+}
+
+.halls{
+    animation-delay: -12s;
+}
+
+.milka{
+    animation-delay: -13.5s;
+}
+
+.mogul{
+    animation-delay: -15s;
+}
+
+.pico-dulce{
+    animation-delay: -16.5s;
+}
+
+.Tic-Tac{
+    animation-delay: -18s;
+}
+
+.Toblerone{
+    animation-delay: -19.5s;
+}
+
+.beldent{
+    animation-delay: -21s;
+}
+
+
+@keyframes marq {
+    0% {
+        opacity : 1;
+        transform: translateX(-20px);
+        
+    }
+    50% {
+        transform: translateX(100vw);
+        opacity: 1;
+    }
+    51%{
+        opacity: 0;
+/*         transform: scale(0,0);*/
+    }
+    100%{
+        opacity: 0;
+/*         transform: scale(0,0);*/
+    }
 }
 
 @media (min-width: 576px){
 
-    
     .logos{
         display: flex;
         width: 50%;
         height: auto;
     }
+
     #mid2{
         display: flex;
         flex-direction: column;
     }
+    
     .pago{
         display: flex;
         flex-direction: row;
@@ -420,11 +518,9 @@ article{
         display: block;
     }
 
-    /* Banner */
     #banner{
         height: 300px;
     }
-    
 }
 
 

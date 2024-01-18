@@ -4,6 +4,7 @@ const methodOverride = require('method-override');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const session = require('express-session');
 
 var mainRouter = require('./routes/main');
 var usersRouter = require('./routes/users');
@@ -21,10 +22,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({secret: 'default', idioma: 'esp'}));
 
 app.use('/', mainRouter);
 app.use('/listadoProductos', productsRouter);
-app.use('/login', usersRouter);
+app.use('/user', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

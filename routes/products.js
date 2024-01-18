@@ -8,7 +8,7 @@ const multer = require('multer')
 //lugar donde se guardaran los archivos en el servidor
 const storage =  multer.diskStorage({
     destination: (req, file, cb) => {
-        console.log("entro en destinnaition", file)
+        console.log("entro en destination", file)
         const destinationFolder = path.join(
             __dirname,
             '../public/img/productos'
@@ -35,17 +35,18 @@ const productsController = require('../controllers/productosController');
 router.get('/', productsController.index); 
 
 /*** GET ONE PRODUCT ***/ 
-router.get('/detail/:id/', productsController.detail); 
+router.get('/detail/:id', productsController.detail); 
 
 /*** CREATE ONE PRODUCT ***/ 
 router.get('/create/', productsController.create); 
 router.post('/', uploadFile.single('image'), productsController.store); 
 
 /*** EDIT ONE PRODUCT ***/ 
-router.get('/edit/:id/', productsController.edit); 
-router.put('/edit/:id/', uploadFile.single('image'), productsController.update);
+router.get('/edit/:id', productsController.edit); 
+router.put('/edit/:id', uploadFile.single('image'), productsController.update);
 
 /*** DELETE ONE PRODUCT ***/ 
-router.delete('/delete/:id/', productsController.delete); 
+router.get('/delete/:id', productsController.delete); 
+router.delete('/delete/:id', productsController.destroy); 
 
 module.exports = router;
