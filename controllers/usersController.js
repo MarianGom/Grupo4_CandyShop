@@ -53,8 +53,41 @@ const usersController = {
     },
 
     update: (req, res, next) => {
-        const profile = findOne(idUser);
-        res.redirect('/editarUser');
+        const users = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../data/usersDataBase.json")));
+        let idUser = req.params.id;
+
+        const userUpd = users.map(user => {
+            if(user.iduser == idUser){ 
+                user.iduser = parseInt(req.params.id);
+                user.nombreUser = req.body.nombreUser;
+                user.apellidoUser = req.body.apellidoUser;
+                user.mailUser = req.body.mailUser;
+                user.password = req.body.password;
+                try{
+                    user.fotouser = req.file ? req.file.filename : req.body.oldImagen;
+                } catch(error) {
+                    console.log(error)
+                }
+                user.perfilUser = req.body.perfilUser;
+                user.estado = true;
+            }
+        })
+
+        console.log('Si terminó de crear el objeto \n'+ JSON.stringify(users) + '\n');
+        
+        try{
+            const usersUpdates = JSON.stringify(users, null, 2);
+            console.log('Si entró al primer try \n\n');
+            try{
+                fs.writeFileSync(path.resolve(__dirname, "../data/usersDataBase.json"), usersUpdates);
+                res.redirect('/listadoProductos/');
+            } catch(error){
+                console.log("Eh no pa");
+                res.redirect('/listadoProductos/');
+            }
+        } catch(error){
+            console.log(error);
+        }
     },
 
 

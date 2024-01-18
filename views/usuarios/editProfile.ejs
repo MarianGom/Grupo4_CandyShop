@@ -63,11 +63,19 @@
     
             <br>
     
-            <div class="foto">
-                <label for="fotoPefil">Foto:</label>
-                <input type="text" name="fotoPefil" value="<%= user.fotoPefil %>">
-            </div>
+            <figure class="form-group">
+                <% if (user.fotoPerfil) {%>
+                    <img class="w-100" src="/img/productos/<%= user.fotoPerfil%>" alt="<%= user.nombreUser%>">
+                <%} else {%>
+                    <p>Todavia no posee imagen</p>
+                <%}%>
+               
+            </figure>
+            <input type="hidden" name="oldImagen" value="<%= user.fotoPerfil%>">
+            <input type="file" name="image">
 
+            <br>
+            <hr>
             <br>
 
             <div class="submit">
