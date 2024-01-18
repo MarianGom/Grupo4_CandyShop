@@ -57,14 +57,14 @@ const usersController = {
         let idUser = req.params.id;
 
         const userUpd = users.map(user => {
-            if(user.iduser == idUser){ 
-                user.iduser = parseInt(req.params.id);
+            if(user.idUser == idUser){ 
+                user.idUser = parseInt(req.params.id);
                 user.nombreUser = req.body.nombreUser;
                 user.apellidoUser = req.body.apellidoUser;
                 user.mailUser = req.body.mailUser;
                 user.password = req.body.password;
                 try{
-                    user.fotouser = req.file ? req.file.filename : req.body.oldImagen;
+                    user.fotoPerfil = req.file ? req.file.filename : req.body.oldImagen;
                 } catch(error) {
                     console.log(error)
                 }
@@ -73,8 +73,6 @@ const usersController = {
             }
         })
 
-        console.log('Si terminó de crear el objeto \n'+ JSON.stringify(users) + '\n');
-        
         try{
             const usersUpdates = JSON.stringify(users, null, 2);
             console.log('Si entró al primer try \n\n');

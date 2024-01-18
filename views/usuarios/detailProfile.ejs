@@ -50,7 +50,7 @@
 
         <div class="password">
             <p>Contraseña:</p>
-            <h4><%= user.contraseña %></h4>
+            <h4><%= user.password %></h4>
         </div>
 
         <br>
@@ -64,10 +64,18 @@
 
         <div class="foto">
             <p>Foto:</p>
-            <h4><%= user.fotoPefil %></h4>
+            <h4><%= user.fotoPerfil %></h4>
         </div>
+        <% if (user.fotoPerfil) {%>
+            <img class="w-100" src="/img/usuarios/<%= user.fotoPerfil%>" alt="<%= user.nombreUser%>">
+        <%} else {%>
+            <p>Todavia no posee imagen</p>
+        <%}%>
 
-        <a href="/user/edit/<%= user.idProd %>">
+        <br>
+        <br>
+
+        <a href="/user/edit/<%= user.idUser %>">
             <button>
                 <i class="bi bi-pencil"></i>
             </button>
