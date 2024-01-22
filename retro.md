@@ -103,3 +103,27 @@
         *No responder ante el pedido de algún integrante.
         *No contestar mensajes en Whatsapp.
         *Avisar días antes o en el día de la entrega del sprint que no pueden realizar algo.
+
+
+# 6to Sprint
+- Start Doing:
+        * Revisar código antiguo y eliminar lo que no se utiliza, ya sea propio o ajeno.
+        * Documentar el desarrollo de la aplicación.
+          
+- More of:
+        * Comunicación eficiente y corta.
+        * Pactar y cumplir de forma estricta con los horarios para las reuniones.
+        * Comunicación/feedback entre los integrantes.
+  
+- Keep Doing:
+        * Revisar el trello de forma frecuente.
+        * Testear el código pusheado propio y ajeno.
+        * Actualizaciónes en el repositorio de GitHub.
+        * Actualizaciones del tablero Trello.
+  
+- Less of:
+        * Demoras en la finalización de tareas.
+  
+- Stop Doing:
+        * Posponer entregas.
+        * Avisar días antes o en el día de la entrega del sprint que no pueden realizar algo.
