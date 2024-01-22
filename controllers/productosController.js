@@ -102,7 +102,6 @@ const productosController = {
     },
 
     delete: (req, res) => {
-        console.log('\n\n\nvista de delete\n\n\n');
         const idProduct = req.params.id
         const product = findOne(idProduct)
         res.render(deleteProduct, {product: product})
