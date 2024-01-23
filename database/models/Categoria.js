@@ -7,8 +7,7 @@ module.exports = (sequelize, dataTypes) => {
         idCat: {
             type: dataTypes.INTEGER,
             autoincrement: true,
-            primaryKey: true,
-            allowNull: false
+            primaryKey: true
         },
             
         nombre: {
@@ -28,10 +27,10 @@ module.exports = (sequelize, dataTypes) => {
 
     Categoria.associate = function(models) {
         Categoria.hasMany(models.Producto, {
-            as: "produtos",
+            as: "productos",
             foreignKey: "idCat"
         })
     }
 
-    return InfoNutricional;
+    return Categoria;
 }

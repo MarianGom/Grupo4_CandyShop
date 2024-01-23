@@ -7,8 +7,7 @@ module.exports = (sequelize, dataTypes) => {
         idPedido: {
             type: dataTypes.INTEGER,
             autoincrement: true,
-            primaryKey: true,
-            allowNull: false
+            primaryKey: true
         },
         
         tipoPago : {
@@ -28,6 +27,11 @@ module.exports = (sequelize, dataTypes) => {
         estado: {
             type: dataTypes.INTEGER,
             allowNull: false
+        },
+
+        idUser: {
+            type: dataTypes.INTEGER,
+            allowNull: false
         }
     };
 
@@ -42,8 +46,13 @@ module.exports = (sequelize, dataTypes) => {
 
     Pedido.associate = function(models) {
         Pedido.hasMany(models.ProdxPedido, {
-            as: "ProdxPedidos",
+            as: "prodxPedidos",
             foreignKey: "idPedido"
+        })
+
+        Pedido.belongsTo( models.Usuario, {
+            as: "usuarios",
+            foreignKey: "idUser"
         })
     }
 

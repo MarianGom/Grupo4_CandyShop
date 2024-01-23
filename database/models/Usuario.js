@@ -7,8 +7,7 @@ module.exports = (sequelize, dataTypes) => {
         idUser: {
             type: dataTypes.INTEGER,
             autoincrement: true,
-            primaryKey: true,
-            allowNull: false
+            primaryKey: true
         },
     
         nombre: {
@@ -37,8 +36,7 @@ module.exports = (sequelize, dataTypes) => {
         },
     
         telefono: {
-            type: dataTypes.STRING,
-            allowNull: true
+            type: dataTypes.STRING
         },
     
         estado: {
@@ -54,8 +52,8 @@ module.exports = (sequelize, dataTypes) => {
 
     let config = {
         timestamps: true,
-        createdAt: 'created_at',
-        updatedAt: 'updated_at',
+        createdAt: false,
+        updatedAt: false,
         deletedAt: false
     }
 
@@ -64,7 +62,7 @@ module.exports = (sequelize, dataTypes) => {
     Usuario.associate = function(models) {
         Usuario.hasMany(models.Pedido, {
             as: "Pedidos",
-            foreignKey: "idPedido"
+            foreignKey: "idUser"
         })
     }
 

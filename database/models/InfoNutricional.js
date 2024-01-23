@@ -7,8 +7,7 @@ module.exports = (sequelize, dataTypes) => {
         idNutri: {
             type: dataTypes.INTEGER,
             autoincrement: true,
-            primaryKey: true,
-            allowNull: false
+            primaryKey: true
         },
             
         valorEnerg: {
@@ -61,7 +60,7 @@ module.exports = (sequelize, dataTypes) => {
 
     InfoNutricional.associate = function(models) {
         InfoNutricional.hasMany(models.Producto, {
-            as: "produtos",
+            as: "productos",
             foreignKey: "idNutri"
         })
     }

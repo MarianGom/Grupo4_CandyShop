@@ -4,12 +4,22 @@ const cookieParser = require('cookie-parser');
 const { findAll, findOne , create} = require('../models/user.model');
 const { json } = require('body-parser');
 
+const db = require('../database/models');
+const sequelize = db.sequelize;
+const { Op } = require("sequelize");
+
+/* Paths */
 const login = path.resolve(__dirname, '../views/usuarios/login.ejs');
 const register = path.resolve(__dirname, '../views/usuarios/register.ejs');
 const detail = path.resolve(__dirname, '../views/usuarios/detailProfile.ejs');
 const editProfile = path.resolve(__dirname, '../views/usuarios/editProfile.ejs');
 const deleteProfile = path.resolve(__dirname, '../views/usuarios/deleteProfile.ejs');
 
+/* DBs */
+const Usuario = db.Usuario;
+
+
+/* Controller */
 
 const usersController = {
     login: (req, res, next) => {
@@ -21,41 +31,101 @@ const usersController = {
         res.render(register, {});
     },
 
-    show: (req, res) => {
-        const idUsuario = req.params.id;
-        const datos = findOne(idUsuario);
-        res.render(detail, {user: datos});
+    show: async (req, res) => {
+
+        /* JSON */
+        /* const idUsuario = req.params.id;
+        const datos = Usuario.findOne({
+            where:{
+                idUser : idUsuario
+            }
+        }).then(
+            res.render(detail, {user: datos})
+        ) */
+
+
+        /* ORM */
+        try{
+            const datos = await Usuario.findOne({
+                where: {
+                    idUser: req.params.id
+                }
+            })
+            
+            res.render(detail, {user: datos})
+        } catch(error){
+            console.log(error)
+        }
+        
     },
 
     create: (req, res, next) => {
         res.render(register, {});
     },
 
-    store: (req, res, next) => {
+    store: async (req, res, next) => {
         const userNew = req.body;
 
-        delete userNew.confirmPassword;
+        /* JSON */
 
+        /* delete userNew.confirmPassword;
         userNew.perfilUser = "cliente";
         userNew.fotoPerfil = "default";
-        userNew.estado = true;
+        userNew.estado = true; 
         
         try{
             create(userNew);
             res.redirect('/user/login');
         } catch(error){
             console.log(error)
+        } */
+
+
+        /* ORM */
+
+        await Usuario.create({
+            nombre: userNew.nombreUser,
+            apellido: userNew.apellidoUser,
+            email: userNew.mailUser,
+            password: userNew.password,
+            /* password: bcryptjs.hashSync(userNew.password, 10), */
+            estado: 1,
+            isAdmin: 0
+        }).then(
+            res.render(login,{})
+        )
+
+        console.log(`\n\nPasó el registro\n\n`);
+
+    },
+
+    edit: async (req, res, next) => {
+        
+        /* JSON */
+        /* const idUsuario = req.params.id;
+        const user = req.body;
+        const datos = findOne(idUsuario);
+        res.render(editProfile, {user: datos}); */
+
+
+        /* ORM */
+        try{
+            const datos = await Usuario.findOne({
+                where: {
+                    idUser: req.params.id
+                }
+            })
+            
+            res.render(editProfile, {user: datos})
+        } catch(error){
+            console.log(error)
         }
     },
 
-    edit: (req, res, next) => {
-        const idUsuario = req.params.id;
-        const datos = findOne(idUsuario);
-        res.render(editProfile, {user: datos});
-    },
+    update: async (req, res, next) => {
 
-    update: (req, res, next) => {
-        const users = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../data/usersDataBase.json")));
+        /* JSON */
+        /* const users = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../data/usersDataBase.json")));
         let idUser = req.params.id;
 
         const userUpd = users.map(user => {
@@ -87,8 +157,45 @@ const usersController = {
             }
         } catch(error){
             console.log(error);
+        } */
+
+
+
+        /* ORM */
+
+        const userId = req.params.id;
+        const user = req.body;
+
+        await Usuario.update(
+            {
+                nombre: user.nombreUser,
+                apellido: user.apellidoUser,
+                email: user.mailUser,
+                password: user.password,
+                fotoPerfil: user.image,
+                telefono: user.telefonoUser,
+            },
+            {
+                where: {
+                    idUser: userId
+                }
+            }
+        )
+
+        try{
+            const datos = await Usuario.findOne({
+                where: {
+                    idUser: req.params.id
+                }
+            })
+            
+            res.render(editProfile, {user: datos})
+        } catch(error){
+            console.log(error)
         }
     },
+
+
 
 
     /* Para lo del admin */
@@ -103,16 +210,32 @@ const usersController = {
     }
     */
 
-    delete: (req, res, next) =>{
-        const idUsuario = req.params.id;
+    delete: async (req, res, next) =>{
+
+        /* JSON */
+        /* const idUsuario = req.params.id;
         const datos = findOne(idUsuario);
-        res.render(deleteProfile, {user: datos});    
+        res.render(deleteProfile, {user: datos});*/
+
+        /* ORM */
+
+        try{
+            const datos = await Usuario.findOne({
+                where: {
+                    idUser: req.params.id
+                }
+            })
+            
+            res.render(deleteProfile, {user: datos})
+        } catch(error){
+            console.log(error)
+        }
+
     },
 
-    destroy: (req, res, next) =>{
-
-        let idUser = req.params.id;
-
+    destroy: async (req, res, next) =>{
+        /* JSON */
+        /* let idUser = req.params.id;
         const usuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../data/usersDataBase.json")));
 
         const userDel = usuarios.map(user => {
@@ -135,8 +258,24 @@ const usersController = {
         } catch(error){
             console.log(error);
         }
+        res.redirect('/listadoProductos/'); */
 
-        res.redirect('/listadoProductos/');
+
+        /* ORM */
+        const userId = req.params.id;
+
+        await Usuario.update(
+            {
+                estado: 0,
+            },
+            {
+                where: {
+                    idUser: userId
+                }
+            }
+        )
+        res.redirect('/listadoProductos/')
+
     }
 };
 

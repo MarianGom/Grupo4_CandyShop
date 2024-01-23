@@ -7,8 +7,7 @@ module.exports = (sequelize, dataTypes) => {
         idProdxPedido:{
             type: dataTypes.INTEGER,
             autoincrement: true,
-            primaryKey: true,
-            allowNull: false
+            primaryKey: true
         },
 
         idProd: {
@@ -41,14 +40,12 @@ module.exports = (sequelize, dataTypes) => {
     const ProdxPedido = sequelize.define(alias, cols, config);
 
     ProdxPedido.associate = function(models) {
-        ProdxPedido.belogsTo(models.Pedido, {
+        ProdxPedido.belongsTo(models.Pedido, {
             as: "Pedidos",
             foreignKey: "idPedido"
         })
-    }
-
-    ProdxPedido.associate = function(models) {
-        ProdxPedido.belogsTo(models.Producto, {
+        
+        ProdxPedido.belongsTo(models.Producto, {
             as: "Productos",
             foreignKey: "idProd"
         })

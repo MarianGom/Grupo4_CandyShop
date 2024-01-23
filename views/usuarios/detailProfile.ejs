@@ -29,21 +29,21 @@
         
         <div class="nombre">
             <p>Nombre:</p>
-            <h4><%= user.nombreUser %></h4>
+            <h4><%= user.nombre %></h4>
         </div>
 
         <br>
 
         <div class="apellido">
             <p>Apellido:</p>
-            <h4><%= user.apellidoUser %></h4>
+            <h4><%= user.apellido %></h4>
         </div>
 
         <br>
 
         <div class="mail">
             <p>Email:</p>
-            <h4><%= user.mailUser %></h4>
+            <h4><%= user.email %></h4>
         </div>
 
         <br>
@@ -57,7 +57,12 @@
 
         <div class="perfil">
             <p>Tipo de perfil:</p>
-            <h4><%= user.perfilUser %></h4>
+            <h4><% if (user.isAdmin == false) { %>
+                    Usuario
+                <% } else { %>
+                    Administrador
+                <% } %>
+            </h4>
         </div>
 
         <br>
@@ -67,10 +72,18 @@
             <h4><%= user.fotoPerfil %></h4>
         </div>
         <% if (user.fotoPerfil) {%>
-            <img class="w-100" src="/img/usuarios/<%= user.fotoPerfil%>" alt="<%= user.nombreUser%>">
+            <img class="w-100" src="/img/usuarios/<%= user.fotoPerfil %>" alt="<%= user.nombre %>">
         <%} else {%>
             <p>Todavia no posee imagen</p>
         <%}%>
+        
+        <br>
+        <br>
+
+        <div class="telefono">
+            <p>Teléfono:</p>
+            <h4><%= user.telefono %></h4>
+        </div>
 
         <br>
         <br>
