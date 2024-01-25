@@ -30,21 +30,21 @@
 
             <div class="nombre">
                 <label for="nombreUser">Nombre:</label>
-                <input type="text" name="nombreUser" value="<%= user.nombreUser %>">
+                <input type="text" name="nombreUser" value="<%= user.nombre %>">
             </div>
     
             <br>
     
             <div class="apellido">
                 <label for="apellidoUser">Apellido:</label>
-                <input type="text" name="apellidoUser" value="<%= user.apellidoUser %>">
+                <input type="text" name="apellidoUser" value="<%= user.apellido %>">
             </div>
     
             <br>
     
             <div class="mail">
                 <label for="mailUser">Mail:</label>
-                <input type="text" name="mailUser" value="<%= user.mailUser %>">
+                <input type="text" name="mailUser" value="<%= user.email %>">
             </div>
     
             <br>
@@ -56,16 +56,16 @@
     
             <br>
     
-            <div class="perfil">
-                <label for="perfilUser">Tipo de perfil:</label>
-                <input type="text" name="perfilUser" value="<%= user.perfilUser %>">
+            <div class="telefono">
+                <label for="telefonoUser">Telefono:</label>
+                <input type="text" name="telefonoUser" value="<%= user.telefono %>">
             </div>
     
             <br>
     
             <figure class="form-group">
                 <% if (user.fotoPerfil) {%>
-                    <img class="w-100" src="/img/usuarios/<%= user.fotoPerfil%>" alt="<%= user.nombreUser%>">
+                    <img class="w-100" src="/img/usuarios/<%= user.fotoPerfil%>" alt="<%= user.nombre%>">
                 <%} else {%>
                     <p>Todavia no posee imagen</p>
                 <%}%>
