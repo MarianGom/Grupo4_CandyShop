@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -27,23 +27,32 @@
     <%- include('../partials/nav') %>
 
         <main>
-            <div id="banner"></div>
+            <div id="banner-rosa">
+            </div>
+
             <div class="container">
                 <div class="add-product">
                     <h2>Productos</h2>
                     <a href="/listadoProductos/create">
-                        <button type="button" id="add"><i class="bi bi-plus-circle"></i> AGREGAR PRODUCTO</button></a>
-
+                        <button type="button" id="add">
+                            <i class="bi bi-plus-circle"></i>
+                        </button>
+                    </a>
                 </div>
+
                 <form action="#" method="GET">
-                    <div class="input">Buscar productos por nombre o código<div><i class="bi bi-search">
+                    <!-- <div class="input">
+                        Buscar productos por nombre o código
+                        <div>
+                            <i class="bi bi-search">
                                 <p class="buscar">Buscar</p>
-                            </i></div>
+                            </i>
+                        </div>
+                    </div> -->
+                    <input type="text" class="input-search" placeholder="Buscar productos por nombre o código">
                 </form>
-
             </div>
 
-            </div>
             <div class="nav-products">
                 <div class="info">
                     <li>Foto</li>
@@ -59,56 +68,66 @@
             </div>
             <div class="products">
 
-                <% products.forEach(product=> { %>
-                        <article>
-                            <% if (product.fotoProd != null) {%>
-                                <img src="/img/productos/<%= product.fotoProd %>" alt="">
-                            <%} else {%>
-                                <p> Todavia no posee imagen</p>
-                            <%}%>
-                            <div class="main-product">
-                                <div id="categoria">
-                                    <%= product.idCat %>
-                                </div>
-                                <div class="type">
+                <% products.forEach(product => { %>
+                    <article class="product">
+                        <div class="left">
+                            <div class="top">
+                                <% if (product.fotoProd != null) {%>
+                                    <img src="/img/productos/<%= product.fotoProd %>" alt="">
+                                <%} else {%>
+                                    <p> Todavia no posee imagen</p>
+                                <%}%>
+    
+                                <div class="nombre">
                                     <%= product.nombre %>
                                 </div>
-                                <div class="desc">
-                                    <p>
-                                        <%= product.sabor %>
-                                    </p>
+                                <div class="sabor">
+                                    <%= product.sabor %>
                                 </div>
                             </div>
-                            <div>
-                                <p>
-                                    <%= product.precio %>
-                                </p>
-                            </div>
-                            <div>
-                                <p>
-                                    <%= product.stock %>u
-                                </p>
-                            </div>
 
-                            <div class="menu-article">
+                            <div class="bottom">
+                                <div class="price">
+                                    <p>Código:</p>
+                                    <%= product.idProd %>
+                                </div>
+                                <div class="price">
+                                    <p>Precio:</p>
+                                    <%= product.precio %>
+                                </div>
+                                <div class="stock">
+                                    <p>Stock:</p>
+                                        <%= product.stock %> u
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="right">
+                            <div class="details">
                                 <a href="/listadoProductos/detail/<%= product.idProd %>">
                                     <i class="bi bi-list-columns"></i>
                                 </a>
+                            </div>
+                            
+                            <div class="edit">
                                 <a href="/listadoProductos/edit/<%= product.idProd %>">
                                     <button>
                                         <i class="bi bi-pencil"></i>
                                     </button>
                                 </a>
+                            </div>
 
+                            <!-- <div class="delete">
                                 <a href="/listadoProductos/delete/<%= product.idProd %>">
                                     <button type="submit">
                                         <i class="bi bi-trash"></i>
                                     </button>
                                 </a>
-                            </div>
+                            </div> -->
+                        </div>
 
-                        </article>
-                    <% }) %>
+                    </article>
+                <% }) %>    
             </div>
         </main>
 
