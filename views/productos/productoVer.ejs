@@ -32,18 +32,16 @@
     <main>
         <div class="contenedor-rosa"></div>
         <div class="products">
-                    <div class="main-product">
-                        <article class="caramelo1">
-                            <img src="/img/productos/flynnpaff-banana.png" alt="">
-                            <div class="detail">
-                                <div class="product">Caramelo masticable </div>
-                                <div class="brand"> "FLYNN PAFF"</div>
-                                <div class="desc"> Sabor Banana</div>  
-                            </div>  
-                        </article>
-                    </div>
-
-
+            <div class="main-product">
+                <article class="caramelo1">
+                    <img src="/img/productos/<%= product.fotoProd %>" alt="<%= product.nombre %>">
+                    <div class="detail">
+                        <div class="product"> <%= product.idCat %> </div>
+                        <div class="brand"> <%= product.nombre %> </div>
+                        <div class="desc"> <%= product.sabor %> </div>  
+                    </div>  
+                </article>
+            </div>
         </div>
 
     

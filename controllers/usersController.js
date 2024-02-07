@@ -1,12 +1,14 @@
 const path = require('path');
-const fs = require('fs');
+/*const fs = require('fs');
 const cookieParser = require('cookie-parser');
 const { findAll, findOne , create} = require('../models/user.model');
-const { json } = require('body-parser');
+const { json } = require('body-parser'); */
 
+/* Models */
 const db = require('../database/models');
 const sequelize = db.sequelize;
 const { Op } = require("sequelize");
+const Usuario = db.Usuario;
 
 /* Paths */
 const login = path.resolve(__dirname, '../views/usuarios/login.ejs');
@@ -14,9 +16,6 @@ const register = path.resolve(__dirname, '../views/usuarios/register.ejs');
 const detail = path.resolve(__dirname, '../views/usuarios/detailProfile.ejs');
 const editProfile = path.resolve(__dirname, '../views/usuarios/editProfile.ejs');
 const deleteProfile = path.resolve(__dirname, '../views/usuarios/deleteProfile.ejs');
-
-/* DBs */
-const Usuario = db.Usuario;
 
 
 /* Controller */
@@ -196,20 +195,6 @@ const usersController = {
     },
 
 
-
-
-    /* Para lo del admin */
-
-    /* 
-    const isAdmin = (req, res) => {
-        if(req.session.admin){
-
-        } else {
-            res.redirect('/login')
-        }
-    }
-    */
-
     delete: async (req, res, next) =>{
 
         /* JSON */
@@ -277,6 +262,24 @@ const usersController = {
         res.redirect('/listadoProductos/')
 
     }
+
+    
+
+    /* Para lo del admin */
+
+    /* 
+    const isAdmin = (req, res) => {
+        if(req.session.admin){
+
+        } else {
+            res.redirect('/login')
+        }
+    }
+    */
+
+
+
+    
 };
 
 module.exports = usersController;
