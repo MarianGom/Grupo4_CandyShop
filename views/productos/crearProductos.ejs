@@ -7,14 +7,12 @@
     <title>Crear Producto</title>
 
     <link rel="stylesheet" href="/css/room.css">
-    <link rel="stylesheet" href="/css/crearProductos.css">
+    <link rel="stylesheet" href="/css/listProducto.css">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
 
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
@@ -22,51 +20,69 @@
     <!-- JS -->
     <script src="/js/menu.js"></script>
     <script src="/js/banner.js"></script>
+
 </head>
 
 <body>
-    <!-- Luciana Figueroa -->
 
     <%- include('../partials/nav') %>
 
         <main>
-            <div class="contenedor-rosa"></div>
-            <h1>Crear Producto</h1>
-            <form action="/listadoProductos/" method="POST" enctype="multipart/form-data">
-                <div class="contenedor-nombre">
-                    <label class="label-titulos" for="nombre">Nombre</label>
-                    <div class="contenedor-input-nombre">
-                        <input type="text" class="input-custom" name="nombre" placeholder="FLYNN PAFF">
-                        <input type="text" class="input-custom" name="sabor" placeholder="Sabor Manzana">
+            <div id="banner-rosa">
+            </div>
 
-                        <input type="file" id="image" name="image">
-                    </div>
+            <div class="containerAdd">
+                <div class="add-product">
+                    <h1>Nuevo producto</h1>
                 </div>
-                <div class="contenedor-descripcion">
-                    <label class="label-titulos" for="nombre">Descripción</label>
-                    <div class="contenedor-input-descrip">
+            </div>
+
+            <form action="/listadoProductos/" method="POST" enctype="multipart/form-data">
+                <div class="general">
+                    <h2>General</h2>
+                    <div class="input-nombre">
+                        <label class="label-titulos" for="nombre">Nombre del producto</label>
+                        <input type="text" class="input-nombre" name="nombre" placeholder="Nombre de producto">
+                    </div>
+                    <div class="input-sabor">
+                        <input type="text" class="input-sabor" name="sabor" placeholder="Sabor Manzana">
+                    </div>
+                    <div class="input-descripcion">
                         <input type="text" class="input-descrip" name="descripcion" placeholder="Escriba una descripción del producto...">
                     </div>
+                        <input type="file" id="image" name="image">
                 </div>
-                <div class="contenedor-precio">
+
+                <div class="stock">
+                    <h2>Stock</h2>
+                    <div class="input-stock">
+                        <label class="label-subtitulos" for="stock">Stock</label>
+                        <input type="text" class="input-stock" name="stock" placeholder="1000">
+                    </div>
+                </div>
+
+                <div class="precio">
+                    <h2>Precio</h2>
+                    <div class="input-precio">
+                        <label class="label-subtitulos" for="precio">Precio Original</label>
+                        <input type="text" class="input-precio" name="precio" placeholder="150">
+                    </div>
+                </div>
+
+                <div class="descripcion">
+                    <label class="label-titulos" for="nombre">Descripción</label>
+                </div>
+                <div class="precio">
                     <label class="label-titulos" for="precio">Precio</label>
-                    <div class="contenedor-precioOyP">
-                        <div class="contenedor-input-precio">
-                            <label class="label-subtitulos" for="po">Precio Original</label>
-                            <input type="text" class="input-precio" name="precio" placeholder="150">
+                    <div class="precioOyP">
+                        <div class="input-precio">
                         </div>
                     </div>
                 </div>
-                <div class="contenedor-stock">
+                <div class="stock">
                     <label class="label-titulos" for="stock">Stock</label>
-                    <div class="contenedor-stock-cb">
-                        <div class="contenedor-input-stock">
-                            <label class="label-subtitulos" for="stock">Stock</label>
-                            <input type="text" class="input-stock" name="stock" placeholder="1000">
-                        </div>
-                    </div>
                 </div>
-<!--                 <div class="contenedor-categoria">
+<!--                 <div class="categoria">
                     <label class="label-titulos" for="nombre">Categoría</label>
                     <div class="contenedor-input-cat">
                         <input type="text" class="input-cat" name="categoriaProd" placeholder="Caramelo">
