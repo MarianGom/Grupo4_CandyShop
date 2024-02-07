@@ -27,7 +27,7 @@ button{
     justify-content: space-between;
 }
 
-h2{
+h1{
     color: var( --text-violeta);
     font-size: 2rem;
     font-weight: 800;
@@ -233,6 +233,18 @@ article img{
 
 .pagination a:hover{
     color: var(--bg-rosa-oscuro);
+}
+
+
+/* ÚNICAMENTE EN crearProducto */
+
+.containerAdd{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px 0%;
+    height: 60px;
+    justify-content: space-between;
 }
 
 
