@@ -72,32 +72,38 @@
                     <article class="product">
                         <div class="left">
                             <div class="top">
-                                <% if (product.fotoProd != null) {%>
-                                    <img src="/img/productos/<%= product.fotoProd %>" alt="">
-                                <%} else {%>
-                                    <p> Todavia no posee imagen</p>
-                                <%}%>
-    
-                                <div class="nombre">
-                                    <%= product.nombre %>
+                                <div class="imagen">
+                                    <% if (product.fotoProd != null) {%>
+                                        <img src="/img/productos/<%= product.fotoProd %>" alt="">
+                                    <%} else {%>
+                                        <p>Todavia no posee imagen</p>
+                                    <%}%>
                                 </div>
-                                <div class="sabor">
-                                    <%= product.sabor %>
+
+                                <div class="texto">
+                                    <div class="nombre">
+                                        "<%= product.nombre %>"
+                                    </div>
+                                    <div class="sabor">
+                                        <%= product.sabor %>
+                                    </div>
                                 </div>
                             </div>
 
                             <div class="bottom">
-                                <div class="price">
+                                <div class="code">
                                     <p>Código:</p>
                                     <%= product.idProd %>
                                 </div>
+
                                 <div class="price">
                                     <p>Precio:</p>
                                     <%= product.precio %>
                                 </div>
+
                                 <div class="stock">
                                     <p>Stock:</p>
-                                        <%= product.stock %> u
+                                    <%= product.stock %> u
                                 </div>
                             </div>
                         </div>
@@ -111,9 +117,7 @@
                             
                             <div class="edit">
                                 <a href="/listadoProductos/edit/<%= product.idProd %>">
-                                    <button>
-                                        <i class="bi bi-pencil"></i>
-                                    </button>
+                                    <i class="bi bi-pencil"></i>
                                 </a>
                             </div>
 
@@ -128,6 +132,14 @@
 
                     </article>
                 <% }) %>    
+            </div>
+
+            <div class="pagination">
+                <a href=""><</a>
+                <a href="">1</a>
+                <a href="">2</a>
+                <a href="">3</a>
+                <a href="">></a>
             </div>
         </main>
 
