@@ -6,6 +6,12 @@
     --bg-rosa-oscuro: #FF6AC2;
     --bg-violeta-claro: #EAD8FA;
     --bg-violeta-oscuro: #BC7AF9;
+    --bg-gris: #585858;
+
+    --bg-rosa-oscuro-hover: #e84ba7;
+    --bg-violeta-oscuro-hover: #924ad5;
+    --bg-gris-hover: #474747;
+
     --text-principal: #272727;
     --text-secundario: rgba(39, 39, 39, 0.5);
     --text-disabled: #6F6F6F;
@@ -13,6 +19,7 @@
     --text-rosa-claro: #E474BA;
     --text-rosa-oscuro: #8E2764;
     --text-violeta: #AA63EC;
+    --text-gris: #535353;
 
     --telegram: #0088cc;
     --whatsapp: #25D366;

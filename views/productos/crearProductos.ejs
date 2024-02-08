@@ -33,69 +33,127 @@
 
             <div class="containerAdd">
                 <div class="add-product">
-                    <h1>Nuevo producto</h1>
+                    <h1>
+                        Nuevo producto
+                    </h1>
                 </div>
             </div>
+            <div class="products">
 
-            <form action="/listadoProductos/" method="POST" enctype="multipart/form-data">
-                <div class="general">
-                    <h2>General</h2>
-                    <div class="input-nombre">
-                        <label class="label-titulos" for="nombre">Nombre del producto</label>
-                        <input type="text" class="input-nombre" name="nombre" placeholder="Nombre de producto">
-                    </div>
-                    <div class="input-sabor">
-                        <input type="text" class="input-sabor" name="sabor" placeholder="Sabor Manzana">
-                    </div>
-                    <div class="input-descripcion">
-                        <input type="text" class="input-descrip" name="descripcion" placeholder="Escriba una descripción del producto...">
-                    </div>
-                        <input type="file" id="image" name="image">
-                </div>
+                <form action="/listadoProductos/" method="POST" enctype="multipart/form-data">
 
-                <div class="stock">
-                    <h2>Stock</h2>
-                    <div class="input-stock">
-                        <label class="label-subtitulos" for="stock">Stock</label>
-                        <input type="text" class="input-stock" name="stock" placeholder="1000">
-                    </div>
-                </div>
+                    <div class="group-general"> 
+                        <h2>
+                            General
+                        </h2>
 
-                <div class="precio">
-                    <h2>Precio</h2>
-                    <div class="input-precio">
-                        <label class="label-subtitulos" for="precio">Precio Original</label>
-                        <input type="text" class="input-precio" name="precio" placeholder="150">
-                    </div>
-                </div>
+                        <div class="input-nombre">
+                            <label class="label-titulos" for="nombre">
+                                Nombre del producto
+                            </label>
+                            <input type="text" class="i-nombre" id="nombre" name="nombre" placeholder="Nombre de producto">
+                        </div>
 
-                <div class="descripcion">
-                    <label class="label-titulos" for="nombre">Descripción</label>
-                </div>
-                <div class="precio">
-                    <label class="label-titulos" for="precio">Precio</label>
-                    <div class="precioOyP">
-                        <div class="input-precio">
+                        <div class="input-sabor">
+                            <label class="label-titulos" for="sabor">
+                                Línea de producto
+                            </label>
+                            <input type="text" class="i-sabor" id="sabor" name="sabor" placeholder="Sabor Manzana">
+                        </div>
+
+                        <div class="input-descripcion">
+                            <label class="label-titulos" for="descripcion">
+                                Descripción
+                            </label>
+                            <input type="text" class="i-descripcion" id="descripcion" name="descripcion" placeholder="Escriba una descripción del producto...">
                         </div>
                     </div>
-                </div>
-                <div class="stock">
-                    <label class="label-titulos" for="stock">Stock</label>
-                </div>
-<!--                 <div class="categoria">
-                    <label class="label-titulos" for="nombre">Categoría</label>
-                    <div class="contenedor-input-cat">
-                        <input type="text" class="input-cat" name="categoriaProd" placeholder="Caramelo">
+    
+
+                    <div class="group-stock">
+                        <h2>Stock</h2>
+
+                        <div class="input-stock">
+                            <label class="label-titulos" for="stock">
+                                Stock disponible
+                            </label>
+                            <input type="text" class="i-stock" name="stock" placeholder="1000">
+                        </div>
                     </div>
-                </div>
-                <div class="contenedor-tipo">
-                    <label class="label-titulos" for="nombre">Tipo</label>
-                    <div class="contenedor-input-tipo">
-                        <input type="text" class="input-tipo" name="tipoProd" placeholder="Caramelo Masticable">
+
+    
+                    <div class="group-precio">
+                        <h2>Precio</h2>
+
+                        <div class="input-precio">
+                            <label class="label-titulos" for="precio">
+                                Precio
+                            </label>
+                            <input type="text" class="i-precio" name="precio" placeholder="150">
+                        </div>
                     </div>
-                </div> -->
-                <button type="submit" id="add"><i class="bi bi-plus-circle"></i> GUARDAR PRODUCTO</button>
-            </form>
+
+
+                    <div class="group-imagen">
+                        <h2>Imagen</h2>
+
+                        <div class="input-imagen">
+                            <label class="label-titulos" for="image">
+                                Imagen seleccionada
+                            </label>
+                            <input type="file" id="image" name="image">
+                        </div>
+                    </div>
+
+
+                    <div class="group-categoria">
+                        <h2>Categoría</h2>
+
+                        <div class="input-categoria">
+                            <label class="label-titulos" for="nombre">
+                                Categoría
+                            </label>
+                            <input type="text" class="i-categoria" name="categoriaProd" placeholder="Caramelo">
+
+                            <!-- Select de categorias existentes -->
+
+                        </div>
+                    </div>
+
+                    <div class="group-info-nutricional">
+                        <h2>
+                            Información nutricional
+                        </h2>
+
+                        <input type="checkbox"> 
+                        ¿Desea cargar luego la información nutricional del producto?
+                    </div>
+                    
+                    <!-- <div class="input-imagen">
+                        <label class="label-titulos" for="image">Imagen seleccionada</label>
+                        <input type="file" id="image" name="image">
+                    </div> 
+
+                    <div class="contenedor-tipo">
+                        <label class="label-titulos" for="nombre">Tipo</label>
+                        <div class="contenedor-input-tipo">
+                            <input type="text" class="input-tipo" name="tipoProd" placeholder="Caramelo Masticable">
+                        </div>
+                    </div> -->
+
+                    <div class="guardar">
+                        <button type="submit" class="button-violeta">
+                            Guardar producto
+                        </button>
+                    </div>
+
+                    <div class="cancelar">
+                        <button type="submit" class="button-gris">
+                            Cancelar
+                        </button>
+                    </div>
+                </form>
+            </div>
         </main>
 
         <%- include('../partials/footer') %>
