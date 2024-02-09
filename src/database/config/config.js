@@ -2,11 +2,10 @@ module.exports = {
   "development": {
     "username": "root",
     "password": null,
-    "database": "dbcandystore",
+    "database": "database_development",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
-
   "test": {
     "username": "root",
     "password": null,
@@ -14,7 +13,6 @@ module.exports = {
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
-  
   "production": {
     "username": "root",
     "password": null,

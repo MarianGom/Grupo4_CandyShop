@@ -25,8 +25,22 @@ const usersController = {
         res.render(login, {});
     },
 
-    log: (req, res) => {
-        let datos = req.body
+    log: async (req, res) => {
+        let mailUser = req.body.email
+        let password = req.body.password
+
+        try{
+            const datos = await Usuario.findOne({
+                where: {
+                    idUser: req.params.id
+                }
+            })
+            
+            res.render(detail, {user: datos})
+        } catch(error){
+            console.log(error)}
+        
+
         res.render(register, {});
     },
 
