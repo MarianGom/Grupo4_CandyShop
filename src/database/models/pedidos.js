@@ -52,7 +52,7 @@ module.exports = (sequelize, dataTypes) => {
         })
 
         Pedido.belongsTo( models.Usuario, {
-            as: "Usuarios",
+            as: "Pedidos",
             foreignKey: "idUser"
         })
     }

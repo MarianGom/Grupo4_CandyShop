@@ -41,12 +41,14 @@ module.exports = (sequelize, dataTypes) => {
     
         estado: {
             type: dataTypes.INTEGER,
-            allowNull: false
+            allowNull: false,
+            defaultValue: 1
         },
     
         isAdmin: {
             type: dataTypes.BOOLEAN,
-            allowNull: false
+            allowNull: false, 
+            default: false
         }
     };
 

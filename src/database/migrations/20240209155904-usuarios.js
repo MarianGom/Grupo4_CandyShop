@@ -11,12 +11,15 @@ module.exports = {
             },
             nombre: {
                 type: DataTypes.STRING,
+                allowNull: false
             },
             apellido: {
                 type: DataTypes.STRING,
+                allowNull: false
             },
             email: {
                 type: DataTypes.STRING,
+                allowNull: false
             },
             password: {
                 type: DataTypes.TEXT,
@@ -25,7 +28,7 @@ module.exports = {
         
             fotoPerfil: {
                 type: DataTypes.STRING,
-                defaultValue: 'profile.png'
+                allowNull: true
             },
         
             telefono: {

@@ -1,5 +1,6 @@
 'use strict';
 const { DataTypes } = require("sequelize");
+
 module.exports = {
     async up (queryInterface, Sequelize) {
     
@@ -9,31 +10,63 @@ module.exports = {
                 primaryKey: true,
                 autoIncrement: true,
             },
-            userId: {
+
+            idCat: {
                 type: DataTypes.INTEGER,
                 references: {
                     model: {
-                        tableName: "usuarios",
+                        tableName: "categorias",
                     },
                     key: "id",
                 },
                 allowNull: false,
             },
+
+            idInfo: {
+                type: DataTypes.INTEGER,
+                references: {
+                    model: {
+                        tableName: "infos",
+                    },
+                    key: "id",
+                },
+                allowNull: false,
+            },
+
             nombre:  {
                 type: DataTypes.STRING,
                 allowNull: false,
             },
+
+            sabor:  {
+                type: DataTypes.STRING,
+                allowNull: false,
+            },
+
             descripcion:  {
                 type: DataTypes.STRING,
                 allowNull: false,
             },
+
             precio: {
                 type: DataTypes.INTEGER,
                 allowNull: false,
             },
-            cantidad: {
+
+            stock: {
                 type: DataTypes.INTEGER,
                 allowNull: false,
+            },
+
+            fotoProd: {
+                type: DataTypes.INTEGER,
+                allowNull: true
+            },
+
+            estado: {
+                type: DataTypes.INTEGER,
+                allowNull: false,
+                defaultValue: 1
             }
         });
       

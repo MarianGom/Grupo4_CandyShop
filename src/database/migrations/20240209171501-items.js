@@ -1,14 +1,47 @@
 'use strict';
+const { DataTypes } = require("sequelize");
 
-/** @type {import('sequelize-cli').Migration} */
 module.exports = {
     async up (queryInterface, Sequelize) {
-        /**
-         * Add altering commands here.
-         *
-         * Example:
-         * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
-         */
+        await queryInterface.createTable('items', {
+            id:{
+                type: DataTypes.INTEGER,
+                autoincrement: true,
+                primaryKey: true
+            },
+    
+            idProd: {
+                type: DataTypes.INTEGER,
+                references: {
+                    model: {
+                        tableName: "productos",
+                    },
+                    key: "id",
+                },
+                allowNull: false,
+            },
+            
+            idPedido: {
+                type: DataTypes.INTEGER,
+                references: {
+                    model: {
+                        tableName: "pedidos",
+                    },
+                    key: "id",
+                },
+                allowNull: false,
+            },
+                
+            cantidad: {
+                type: DataTypes.INTEGER
+            },
+    
+            estado: {
+                type: DataTypes.INTEGER,
+                allowNull: false
+            }
+        }
+        )
     },
 
     async down (queryInterface, Sequelize) {

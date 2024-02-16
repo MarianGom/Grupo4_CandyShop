@@ -4,7 +4,7 @@ module.exports = (sequelize, dataTypes) => {
     let alias = 'Items';
 
     let cols = {
-        idProdxPedido:{
+        id:{
             type: dataTypes.INTEGER,
             autoincrement: true,
             primaryKey: true
@@ -42,12 +42,12 @@ module.exports = (sequelize, dataTypes) => {
 
     Item.associate = function(models) {
         Item.belongsTo(models.Pedido, {
-            as: "Pedidos",
+            as: "Items",
             foreignKey: "idPedido"
         })
         
         Item.belongsTo(models.Producto, {
-            as: "Productos",
+            as: "Items",
             foreignKey: "idProd"
         })
     }
