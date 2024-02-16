@@ -1,25 +1,23 @@
 'use strict';
+const { faker } = require("@faker-js/faker");
 
-/** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up (queryInterface, Sequelize) {
-    /**
-     * Add seed commands here.
-     *
-     * Example:
-     * await queryInterface.bulkInsert('People', [{
-     *   name: 'John Doe',
-     *   isBetaMember: false
-     * }], {});
-    */
-  },
+    async up(queryInterface, Sequelize) {
+        const categorias = [];
+            Array(10)
+                .fill(0)
+                .forEach((_, i) => {        
+                    const randomCat = {
+                        id: i + 1,
+                        nombre: faker.commerce.department()
+                    };
+                    categorias.push(randomCat);
+                })
+        await queryInterface.bulkInsert("categorias", categorias);
+    },
 
-  async down (queryInterface, Sequelize) {
-    /**
-     * Add commands to revert seed here.
-     *
-     * Example:
-     * await queryInterface.bulkDelete('People', null, {});
-     */
-  }
+    async down(queryInterface, Sequelize) {
+        await queryInterface.bulkDelete('categorias', null, {});
+        
+    }
 };
