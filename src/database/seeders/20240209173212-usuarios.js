@@ -4,7 +4,7 @@ const { faker } = require("@faker-js/faker");
 module.exports = {
     async up(queryInterface, Sequelize) {
         const users = [];
-        Array(250)
+        Array(50)
             .fill(0)
             .forEach((_, i) => {        
                 const randomUser = {
@@ -20,6 +20,7 @@ module.exports = {
     },
 
     async down(queryInterface, Sequelize) {
+        
         await queryInterface.bulkDelete('usuarios', null, {});
 
     }

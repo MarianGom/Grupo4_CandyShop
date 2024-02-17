@@ -2,24 +2,25 @@
 const { faker } = require("@faker-js/faker");
 
 module.exports = {
-  async up (queryInterface, Sequelize) {
-    /**
-     * Add seed commands here.
-     *
-     * Example:
-     * await queryInterface.bulkInsert('People', [{
-     *   name: 'John Doe',
-     *   isBetaMember: false
-     * }], {});
-    */
-  },
+    async up (queryInterface, Sequelize) {
+        const pedidos = [];
+            Array(50)
+                .fill(0)
+                .forEach((_, i) => {        
+                    const randomList = {
+                        id: i + 1,
+                        tipoPago: "efectivo",
+                        fecha: faker.date.anytime(),         
+                        coordenadas: faker.location.nearbyGPSCoordinate(),
+                        estado: 1,
+                        idUser: faker.number.int(50),
+                    };
+                    pedidos.push(randomList);
+            })
+        await queryInterface.bulkInsert("pedidos", pedidos);
+    },
 
-  async down (queryInterface, Sequelize) {
-    /**
-     * Add commands to revert seed here.
-     *
-     * Example:
-     * await queryInterface.bulkDelete('People', null, {});
-     */
-  }
+    async down (queryInterface, Sequelize) {
+        await queryInterface.bulkDelete('pedidos', null, {});
+    }
 };

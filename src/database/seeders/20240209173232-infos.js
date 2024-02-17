@@ -9,14 +9,14 @@ module.exports = {
                 .forEach((_, i) => {        
                     const randomInfo = {
                         id: i + 1,
-                        valorEnerg: faker.number.int(100),
-                        porcion: faker.commerce.department(),
-                        proteina: faker.number.int(100),
-                        /* sodio: faker.number.int(100),
-                        grasaTotal: faker.number.int(100),
-                        grasaSaturada: faker.number.int(100),
-                        grasaTrans: faker.number.int(100),
-                        fibraAlim: faker.number.int(100), */
+                        valorEnerg: faker.number.int(10),
+                        porcion: "20 g",
+                        proteina: faker.number.int(10),
+                        sodio: faker.number.int(10),
+                        grasaTotal: faker.number.int(10),
+                        grasaSaturada: faker.number.int(10),
+                        grasaTrans: faker.number.int(10),
+                        fibraAlim: faker.number.int(10),
                         otros: faker.commerce.productDescription()
                     };
                     infos.push(randomInfo);
