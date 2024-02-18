@@ -15,8 +15,8 @@ module.exports = {
                         precio: faker.commerce.price(),
                         stock: faker.number.int({ min: 100, max: 5000 }),
                         estado: 1,
-                        idNutri: faker.number.int(10),
-                        idCat: faker.number.int(20), 
+                        idInfo: faker.number.int({ min: 1, max: 20 }),
+                        idCat: faker.number.int({ min: 1, max: 10 }), 
                     };
                     productos.push(randomProduct);
             })

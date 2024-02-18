@@ -21,7 +21,7 @@ module.exports = {
             },
                 
             coordenadas: {
-                type: DataTypes.INTEGER,
+                type: DataTypes.STRING,
                 allowNull: false
             },
             

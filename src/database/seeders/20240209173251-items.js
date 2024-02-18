@@ -9,10 +9,10 @@ module.exports = {
                 .forEach((_, i) => {        
                     const randomItem = {
                         id: i + 1,
-                        cantidad: faker.number.int(1000),
+                        cantidad: faker.number.int({ min: 1, max: 1000 }),
                         estado: 1,
-                        idProd: faker.number.int(50),
-                        idPedido: faker.number.int(50),         
+                        idProd: faker.number.int({ min: 1, max: 50 }),
+                        idPedido: faker.number.int({ min: 1, max: 50 }),         
                     };
                     items.push(randomItem);
             })

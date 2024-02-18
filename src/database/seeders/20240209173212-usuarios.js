@@ -13,6 +13,7 @@ module.exports = {
                     apellido: faker.person.lastName(),         
                     email: faker.internet.email(),
                     password: faker.person.zodiacSign(),
+                    estado: 1,
                 };
                 users.push(randomUser);
             })

@@ -11,9 +11,9 @@ module.exports = {
                         id: i + 1,
                         tipoPago: "efectivo",
                         fecha: faker.date.anytime(),         
-                        coordenadas: faker.location.nearbyGPSCoordinate(),
+                        coordenadas: faker.location.county(),
                         estado: 1,
-                        idUser: faker.number.int(50),
+                        idUser: faker.number.int({ min: 1, max: 50 }),
                     };
                     pedidos.push(randomList);
             })

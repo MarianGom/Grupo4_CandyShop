@@ -3,7 +3,7 @@ const { faker } = require("@faker-js/faker");
 
 module.exports = {
     async up(queryInterface, Sequelize) {
-        const categorias = [];
+        const cate = [];
             Array(10)
                 .fill(0)
                 .forEach((_, i) => {        
@@ -11,9 +11,9 @@ module.exports = {
                         id: i + 1,
                         nombre: faker.commerce.department()
                     };
-                    categorias.push(randomCat);
+                    cate.push(randomCat);
                 })
-        await queryInterface.bulkInsert("categorias", categorias);
+        await queryInterface.bulkInsert("categorias", cate);
     },
 
     async down(queryInterface, Sequelize) {
