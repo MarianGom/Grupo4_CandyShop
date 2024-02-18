@@ -47,6 +47,8 @@
         *No responder ante el pedido de algún integrante.
         *No contestar mensajes en Whatsapp.
 
+
+
 # 4to Sprint
 
 - Start Doing:
@@ -74,6 +76,8 @@
         *Posponer entregas.
         *No responder ante el pedido de algún integrante.
         *No contestar mensajes en Whatsapp.
+
+
 
 # 5to Sprint
 
@@ -105,7 +109,9 @@
         *Avisar días antes o en el día de la entrega del sprint que no pueden realizar algo.
 
 
+
 # 6to Sprint
+
 - Start Doing:
         * Revisar código antiguo y eliminar lo que no se utiliza, ya sea propio o ajeno.
         * Documentar el desarrollo de la aplicación.
@@ -127,3 +133,26 @@
 - Stop Doing:
         * Posponer entregas.
         * Avisar días antes o en el día de la entrega del sprint que no pueden realizar algo.
+
+
+
+# 7mo Sprint
+
+- Start Doing:
+        * Documentar el desarrollo de la aplicación.
+          
+- More of:
+        * Revisar código antiguo y eliminar lo que no se utiliza, ya sea propio o ajeno.
+        * Comunicación/feedback entre los integrantes. 
+  
+- Keep Doing:
+        * Revisar el trello de forma frecuente.
+        * Testear el código pusheado propio y ajeno.
+        * Actualizaciónes en el repositorio de GitHub.
+        * Actualizaciones del tablero Trello.
+  
+- Less of:
+        * Pausas de mas de 3 días (Sin ver el código).
+  
+- Stop Doing:
+        * Posponer entregas.
