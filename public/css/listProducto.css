@@ -353,7 +353,6 @@ h1{
     
     .nav-products{
         width: 100%;
-        background-color: aqua;
         display: flex;
         align-items: center;
         justify-content: space-between;
