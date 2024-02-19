@@ -8,9 +8,9 @@ const { json } = require('body-parser'); */
 
 /* Models */
 const db = require('../database/models');
-const Producto = db.Producto;
-const Categoria = db.Categoria;
-const InfoNutricional = db.InfoNutricional;
+const Producto = db.Productos;
+const Categoria = db.Categorias;
+const InfoNutricional = db.Infos;
 
 const mainProduct = path.resolve(__dirname, '../views/productos/listProductos.ejs');
 const createProduct = path.resolve(__dirname, '../views/productos/crearProductos.ejs');
@@ -20,9 +20,9 @@ const deleteProduct = path.resolve(__dirname, '../views/productos/borrarProducto
 
 
 const productosController = {
+
     index: async (req, res) => {
         /* JSON */
-
         /* const products = findAll()
         res.render(mainProduct, {products: products}); */
 
@@ -101,9 +101,7 @@ const productosController = {
     update: async (req, res) => {
         /* JSON */
         /* const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../data/productsDataBase.json")));
-
         let idProducto = req.params.id;
-
         const productUpdate = products.map(prod => {
             if(prod.idProd == idProducto){ 
                 prod.idProd = parseInt(req.params.id);
@@ -120,7 +118,6 @@ const productosController = {
                 prod.tipoProd = req.body.tipoProd;
             }
         })
-        
         try{
             const prodUpdates = JSON.stringify(products, null, 2);
             try{
@@ -133,6 +130,10 @@ const productosController = {
         } catch(error){
             console.log(error);
         } */
+
+
+        /* ORM */
+
         const foto = req.file ? req.file.filename : req.body.oldImagen;
 
         await Producto.update({

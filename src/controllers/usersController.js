@@ -8,7 +8,7 @@ const { json } = require('body-parser'); */
 const db = require('../database/models');
 const sequelize = db.sequelize;
 const { Op } = require("sequelize");
-const Usuario = db.Usuario;
+const Usuario = db.Usuarios;
 
 /* Paths */
 const login = path.resolve(__dirname, '../views/usuarios/login.ejs');
