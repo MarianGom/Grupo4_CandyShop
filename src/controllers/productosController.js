@@ -22,11 +22,7 @@ const deleteProduct = path.resolve(__dirname, '../views/productos/borrarProducto
 const productosController = {
 
     index: async (req, res) => {
-        /* JSON */
-        /* const products = findAll()
-        res.render(mainProduct, {products: products}); */
 
-        /* ORM */
         const categorias = await Categoria.findAll({
         })
 
@@ -40,10 +36,6 @@ const productosController = {
     },
 
     detail: async (req, res) => {
-        /* JSON */
-        /* const product = findOne(idProduct)
-        console.log("El producto es ", product)
-        res.render(detailProduct, {product : product}) */
 
         const datos = await Producto.findOne({
             where: {
@@ -54,20 +46,11 @@ const productosController = {
     },
 
     create: (req, res) => {
+
         res.render(createProduct, {})
     },
     
     store: async (req, res) => {
-        /* JSON */
-        /* console.log("entro por el controller, req.body ", req.body)
-		console.log("entro por el controller, req.file ", req.file)
-        console.log("req.body", req.body);
-        const productNew = req.body
-        productNew.fotoProd = req.file.filename
-        create(productNew)
-        res.redirect('/listadoProductos/') */
-
-        /* ORM */
 
         const foto = req.file ? req.file.filename : req.body.oldImagen;
 
@@ -84,16 +67,10 @@ const productosController = {
         })
 
         res.redirect('/listadoProductos/');
-
     },
 
     edit: async (req, res) => {
-        /* JSON */
-        /* const idProduct = req.params.id
-        const product = fi.id.idndOne(idProduct)
-        res.render(editProduct, {productToEdit: product}) */
 
-        /* ORM */
         const datos = await Producto.findOne({
             where:{
                 id: req.params.id
@@ -103,40 +80,6 @@ const productosController = {
     },
 
     update: async (req, res) => {
-        /* JSON */
-        /* const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../data/productsDataBase.json")));
-        let idProducto = req.params.id;
-        const productUpdate = products.map(prod => {
-            if(prod.idProd == idProducto){ 
-                prod.idProd = parseInt(req.params.id);
-                prod.nombreProd = req.body.nombreProd;
-                prod.precioProd = parseFloat(req.body.precioProd);
-                prod.stock = parseInt(req.body.stock);
-                try{
-                    prod.fotoProd = req.file ? req.file.filename : req.body.oldImagen;
-                } catch(error) {
-                    console.log(error)
-                }
-                prod.descripcionProd = req.body.descripcionProd;
-                prod.categoriaProd = req.body.categoriaProd;
-                prod.tipoProd = req.body.tipoProd;
-            }
-        })
-        try{
-            const prodUpdates = JSON.stringify(products, null, 2);
-            try{
-                fs.writeFileSync(path.resolve(__dirname, "../data/productsDataBase.json"), prodUpdates);
-                res.redirect('/listadoProductos/');
-            } catch(error){
-                console.log("Eh no pa");
-                res.redirect('/listadoProductos/');
-            }
-        } catch(error){
-            console.log(error);
-        } */
-
-
-        /* ORM */
 
         const foto = req.file ? req.file.filename : req.body.oldImagen;
 
@@ -160,12 +103,7 @@ const productosController = {
     },
 
     delete: async (req, res) => {
-        /* JSON */
-        /* const idProduct = req.params.id
-        const product = findOne(idProduct)
-        res.render(deleteProduct, {product: product}) */
 
-        /* ORM */
         const idProduct = req.params.id
         const datos = await Producto.findOne({
             where: {
@@ -176,36 +114,7 @@ const productosController = {
     },
 
     destroy: async (req, res) => {
-        /* JSON */
-            /* let idProducto = req.params.id;
-
-            const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../data/productsDataBase.json")));
-
-            const productDel = products.map(prod => {
-                if(prod.idProd == idProducto){ 
-                    prod.idProd = parseInt(req.params.id);
-                    prod.estado = false;
-                }
-            })
-
-            try{
-                const prodUpdates = JSON.stringify(products, null, 2);
-                console.log('Si entró al primer try \n\n');
-                try{
-                    fs.writeFileSync(path.resolve(__dirname, "../data/productsDataBase.json"), prodUpdates);
-                    res.redirect('/listadoProductos/');
-                } catch(error){
-                    console.log(error)
-                    res.redirect('/listadoProductos/');
-                }
-            } catch(error){
-                console.log(error);
-            }
-
-            res.redirect('/listadoProductos/'); */
-
-
-        /* ORM */
+        
         const idProduct = req.params.id
         await Producto.update({
             estado: 0,

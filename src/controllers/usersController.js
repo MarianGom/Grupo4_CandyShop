@@ -1,8 +1,4 @@
 const path = require('path');
-/*const fs = require('fs');
-const cookieParser = require('cookie-parser');
-const { findAll, findOne , create} = require('../models/user.model');
-const { json } = require('body-parser'); */
 
 /* Models */
 const db = require('../database/models');
@@ -17,9 +13,7 @@ const detail = path.resolve(__dirname, '../views/usuarios/detailProfile.ejs');
 const editProfile = path.resolve(__dirname, '../views/usuarios/editProfile.ejs');
 const deleteProfile = path.resolve(__dirname, '../views/usuarios/deleteProfile.ejs');
 
-
 /* Controller */
-
 const usersController = {
     login: (req, res, next) => {
         res.render(login, {});
@@ -46,18 +40,6 @@ const usersController = {
 
     show: async (req, res) => {
 
-        /* JSON */
-        /* const idUsuario = req.params.id;
-        const datos = Usuario.findOne({
-            where:{
-                idUser : idUsuario
-            }
-        }).then(
-            res.render(detail, {user: datos})
-        ) */
-
-
-        /* ORM */
         try{
             const datos = await Usuario.findOne({
                 where: {
@@ -79,23 +61,6 @@ const usersController = {
     store: async (req, res, next) => {
         const userNew = req.body;
 
-        /* JSON */
-
-        /* delete userNew.confirmPassword;
-        userNew.perfilUser = "cliente";
-        userNew.fotoPerfil = "default";
-        userNew.estado = true; 
-        
-        try{
-            create(userNew);
-            res.redirect('/user/login');
-        } catch(error){
-            console.log(error)
-        } */
-
-
-        /* ORM */
-
         await Usuario.create({
             nombre: userNew.nombreUser,
             apellido: userNew.apellidoUser,
@@ -113,15 +78,7 @@ const usersController = {
     },
 
     edit: async (req, res, next) => {
-        
-        /* JSON */
-        /* const idUsuario = req.params.id;
-        const user = req.body;
-        const datos = findOne(idUsuario);
-        res.render(editProfile, {user: datos}); */
-
-
-        /* ORM */
+ 
         try{
             const datos = await Usuario.findOne({
                 where: {
@@ -136,45 +93,6 @@ const usersController = {
     },
 
     update: async (req, res, next) => {
-
-        /* JSON */
-        /* const users = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../data/usersDataBase.json")));
-        let idUser = req.params.id;
-
-        const userUpd = users.map(user => {
-            if(user.idUser == idUser){ 
-                user.idUser = parseInt(req.params.id);
-                user.nombreUser = req.body.nombreUser;
-                user.apellidoUser = req.body.apellidoUser;
-                user.mailUser = req.body.mailUser;
-                user.password = req.body.password;
-                try{
-                    user.fotoPerfil = req.file ? req.file.filename : req.body.oldImagen;
-                } catch(error) {
-                    console.log(error)
-                }
-                user.perfilUser = req.body.perfilUser;
-                user.estado = true;
-            }
-        })
-
-        try{
-            const usersUpdates = JSON.stringify(users, null, 2);
-            console.log('Si entró al primer try \n\n');
-            try{
-                fs.writeFileSync(path.resolve(__dirname, "../data/usersDataBase.json"), usersUpdates);
-                res.redirect('/listadoProductos/');
-            } catch(error){
-                console.log("Eh no pa");
-                res.redirect('/listadoProductos/');
-            }
-        } catch(error){
-            console.log(error);
-        } */
-
-
-
-        /* ORM */
 
         const userId = req.params.id;
         const user = req.body;
@@ -211,13 +129,6 @@ const usersController = {
 
     delete: async (req, res, next) =>{
 
-        /* JSON */
-        /* const idUsuario = req.params.id;
-        const datos = findOne(idUsuario);
-        res.render(deleteProfile, {user: datos});*/
-
-        /* ORM */
-
         try{
             const datos = await Usuario.findOne({
                 where: {
@@ -233,34 +144,7 @@ const usersController = {
     },
 
     destroy: async (req, res, next) =>{
-        /* JSON */
-        /* let idUser = req.params.id;
-        const usuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../data/usersDataBase.json")));
-
-        const userDel = usuarios.map(user => {
-            if(user.idUser == idUser){ 
-                user.idUser = parseInt(req.params.id);
-                user.estado = false;
-            }
-        })
-
-        try{
-            const usersUpdates = JSON.stringify(usuarios, null, 2);
-            console.log('Si entró al primer try \n\n');
-            try{
-                fs.writeFileSync(path.resolve(__dirname, "../data/usersDataBase.json"), usersUpdates);
-                res.redirect('/listadoProductos/');
-            } catch(error){
-                console.log(error)
-                res.redirect('/listadoProductos/');
-            }
-        } catch(error){
-            console.log(error);
-        }
-        res.redirect('/listadoProductos/'); */
-
-
-        /* ORM */
+       
         const userId = req.params.id;
 
         await Usuario.update(

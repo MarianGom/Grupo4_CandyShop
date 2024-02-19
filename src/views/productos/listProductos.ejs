@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listado de Productos</title>
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/png">
 
     <link rel="stylesheet" href="/css/room.css">
     <link rel="stylesheet" href="/css/listProducto.css">
@@ -30,137 +31,131 @@
             <div id="banner-rosa">
             </div>
 
-            <div class="container">
-                <div class="add-product">
-                    <h1>Productos</h1>
-                    <a href="/listadoProductos/create">
-                        <button type="button" id="add">
-                            <i class="bi bi-plus-circle"></i>
-                        </button>
-                    </a>
+            <div class="cuerpo">
+                <div class="container">
+                    <div class="add-product">
+                        <h1>Productos</h1>
+                        <a href="/listadoProductos/create">
+                            <button type="button" id="add">
+                                <i class="bi bi-plus-circle"></i>
+                            </button>
+                        </a>
+                    </div>
+        
+                    <form action="#" method="GET">
+                        <input type="text" class="input-search" placeholder="Buscar productos por nombre o código">
+                    </form>
                 </div>
-
-                <form action="#" method="GET">
-                    <!-- <div class="input">
-                        Buscar productos por nombre o código
-                        <div>
-                            <i class="bi bi-search">
-                                <p class="buscar">Buscar</p>
-                            </i>
-                        </div>
-                    </div> -->
-                    <input type="text" class="input-search" placeholder="Buscar productos por nombre o código">
-                </form>
-            </div>
-
-            <div class="nav-products">
-                <div class="info">
-                    <li>Foto</li>
-                    <li>Cat</li>
-                    <li>Nombre</li>
-                    <li>Precio</li>
-                    <li>Stock</li>
+        
+                <div class="nav-products">
+                    <div class="info">
+                        <li>Foto</li>
+                        <li>Cat</li>
+                        <li>Nombre</li>
+                        <li>Precio</li>
+                        <li>Stock</li>
+                    </div>
+                    <div class="action">
+                        <li>Acciones</li>
+                    </div>
                 </div>
-                <div class="action">
-                    <li>Acciones</li>
-                </div>
-            </div>
-            <div class="products">
-
-                <% products.forEach(product => { %>
-                    <article class="product">
-                        <div class="left">
-                            <div class="top">
-                                <div class="imagen">
-                                    <% if (product.fotoProd != null) {%>
-                                        <img src="/img/productos/<%= product.fotoProd %>" alt="">
-                                    <%} else {%>
-                                        <p>No posee imagen</p>
-                                    <%}%>
+        
+                <div class="products">
+                    <% products.forEach(product => { %>
+                        <article class="product">
+                            <div class="left">
+                                <div class="top">
+                                    <div class="imagen">
+                                        <% if (product.fotoProd != null) {%>
+                                            <img src="/img/productos/<%= product.fotoProd %>" alt="">
+                                        <%} else {%>
+                                            <p>No posee imagen</p>
+                                        <%}%>
+                                    </div>
+    
+                                    <div class="texto">
+                                        <div class="categoria">
+                                            <% categorias.forEach(categoria => { %>
+                                                <% if (product.idCat == categoria.id) { %>
+                                                    <%= categoria.nombre %>
+                                            <%}else{}})%>
+                                        </div>
+    
+                                        <div class="nombre">
+                                            "<%= product.nombre %>"
+                                        </div>
+    
+                                        <div class="sabor">
+                                            <%= product.sabor %>
+                                        </div>
+    
+                                        <div class="code">
+                                            <%= product.id %>
+                                        </div>
+        
+                                        <div class="price">
+                                            $ <%= product.precio %>
+                                        </div>
+        
+                                        <div class="stock">
+                                            <%= product.stock %> u
+                                        </div>
+                                    </div>
                                 </div>
-
-                                <div class="texto">
-                                    <div class="categoria">
-                                        <% categorias.forEach(categoria => { %>
-                                            <% if (product.idCat == categoria.id) { %>
-                                                <%= categoria.nombre %>
-                                        <%}else{}})%>
-                                    </div>
-
-                                    <div class="nombre">
-                                        "<%= product.nombre %>"
-                                    </div>
-
-                                    <div class="sabor">
-                                        <%= product.sabor %>
-                                    </div>
-
+    
+                                <div class="bottom">
                                     <div class="code">
+                                        <p>Código:</p>
                                         <%= product.id %>
                                     </div>
     
                                     <div class="price">
+                                        <p>Precio:</p>
                                         $ <%= product.precio %>
                                     </div>
     
                                     <div class="stock">
+                                        <p>Stock:</p>
                                         <%= product.stock %> u
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="bottom">
-                                <div class="code">
-                                    <p>Código:</p>
-                                    <%= product.id %>
+    
+                            <div class="right">
+                                <div class="details">
+                                    <a href="/listadoProductos/detail/<%= product.id %>">
+                                        <i class="bi bi-list-columns"></i>
+                                    </a>
                                 </div>
-
-                                <div class="price">
-                                    <p>Precio:</p>
-                                    $ <%= product.precio %>
+                                
+                                <div class="edit">
+                                    <a href="/listadoProductos/edit/<%= product.id %>">
+                                        <i class="bi bi-pencil"></i>
+                                    </a>
                                 </div>
-
-                                <div class="stock">
-                                    <p>Stock:</p>
-                                    <%= product.stock %> u
+    
+                                <div class="delete">
+                                    <a href="/listadoProductos/delete/<%= product.id %>">
+                                        <i class="bi bi-trash"></i>
+                                    </a>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="right">
-                            <div class="details">
-                                <a href="/listadoProductos/detail/<%= product.id %>">
-                                    <i class="bi bi-list-columns"></i>
-                                </a>
-                            </div>
-                            
-                            <div class="edit">
-                                <a href="/listadoProductos/edit/<%= product.id %>">
-                                    <i class="bi bi-pencil"></i>
-                                </a>
-                            </div>
-
-                            <div class="delete">
-                                <a href="/listadoProductos/delete/<%= product.id %>">
-                                    <i class="bi bi-trash"></i>
-                                </a>
-                            </div>
-                        </div>
-
-                    </article>
-                <% }) %>    
-            </div>
-
-            <div class="pagination">
-                <a href=""><</a>
-                <a href="">1</a>
-                <a href="">2</a>
-                <a href="">3</a>
-                <a href="">></a>
+    
+                        </article>
+                    <% }) %>    
+                </div>
+        
+                <div class="pagination">
+                    <a href=""><</a>
+                    <a href="">1</a>
+                    <a href="">2</a>
+                    <a href="">3</a>
+                    <a href="">></a>
+                </div>
             </div>
         </main>
 
-        <%- include('../partials/footer') %>
+    <%- include('../partials/footer') %>
 </body>
 
 </html>
