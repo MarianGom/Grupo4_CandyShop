@@ -1,49 +1,12 @@
 var express = require('express');
-const mainController = require('../controllers/mainController');
 var router = express.Router();
+const mainController = require('../controllers/mainController');
 
-/* GET home page. */
+
 router.get('/', mainController.index);
-
-/* GET nosotros page. */
 router.get('/nosotros', mainController.info)
-
-/* GET productos page. */
 router.get('/productos', mainController.productos)
-
-
-/* GET carrito page. */
 router.get('/carrito', mainController.carrito)
 
 
 module.exports = router;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*const express = require('express');
-const router = express.Router();
-const path = require('path');
-
-const carritoController = require('../controllers/carritoController');
-const productosController = require('../controllers/productosController');
-const usersController = require('../controllers/usersController');
-
-router.get('/', productosController.index);
-router.get('/producto', productosController.show);
-router.get('/edit', productosController.show); /* Hasta  
-
-router.get('/login', usersController.login);
-router.get('/registro', usersController.add);
-
-router.get('/carrito', carritoController.index);*/

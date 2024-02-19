@@ -60,9 +60,9 @@ module.exports = (sequelize, dataTypes) => {
     const InfoNutricional = sequelize.define(alias, cols, config);
 
     InfoNutricional.associate = function(models) {
-        InfoNutricional.hasMany(models.Producto, {
+        InfoNutricional.hasMany(models.Productos, {
             as: "productos",
-            foreignKey: "id"
+            foreignKey: "idInfo"
         })
     }
 

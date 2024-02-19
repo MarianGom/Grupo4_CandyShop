@@ -1,4 +1,4 @@
-const {readFileSync, writeFileSync, readFile } = require('fs')
+/* const {readFileSync, writeFileSync, readFile } = require('fs')
 const { join } = require('path')
 
 const model = {
@@ -21,4 +21,4 @@ const model = {
  
 }
 
-module.exports = model
+module.exports = model */

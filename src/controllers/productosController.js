@@ -1,8 +1,10 @@
 const path = require('path');
+
+/* 
 const fs = require('fs');
 
 const { findAll, findOne , create} = require('../models/product.model');
-const { json } = require('body-parser');
+const { json } = require('body-parser'); */
 
 /* Models */
 const db = require('../database/models');
@@ -170,32 +172,32 @@ const productosController = {
 
     destroy: async (req, res) => {
         /* JSON */
-        /* let idProducto = req.params.id;
+            /* let idProducto = req.params.id;
 
-        const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../data/productsDataBase.json")));
+            const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../data/productsDataBase.json")));
 
-        const productDel = products.map(prod => {
-            if(prod.idProd == idProducto){ 
-                prod.idProd = parseInt(req.params.id);
-                prod.estado = false;
-            }
-        })
+            const productDel = products.map(prod => {
+                if(prod.idProd == idProducto){ 
+                    prod.idProd = parseInt(req.params.id);
+                    prod.estado = false;
+                }
+            })
 
-        try{
-            const prodUpdates = JSON.stringify(products, null, 2);
-            console.log('Si entró al primer try \n\n');
             try{
-                fs.writeFileSync(path.resolve(__dirname, "../data/productsDataBase.json"), prodUpdates);
-                res.redirect('/listadoProductos/');
+                const prodUpdates = JSON.stringify(products, null, 2);
+                console.log('Si entró al primer try \n\n');
+                try{
+                    fs.writeFileSync(path.resolve(__dirname, "../data/productsDataBase.json"), prodUpdates);
+                    res.redirect('/listadoProductos/');
+                } catch(error){
+                    console.log(error)
+                    res.redirect('/listadoProductos/');
+                }
             } catch(error){
-                console.log(error)
-                res.redirect('/listadoProductos/');
+                console.log(error);
             }
-        } catch(error){
-            console.log(error);
-        }
 
-        res.redirect('/listadoProductos/'); */
+            res.redirect('/listadoProductos/'); */
 
 
         /* ORM */
