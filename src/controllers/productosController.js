@@ -27,12 +27,16 @@ const productosController = {
         res.render(mainProduct, {products: products}); */
 
         /* ORM */
+        const categorias = await Categoria.findAll({
+        })
+
         const products = await Producto.findAll({
             where: {
                 estado: 1
             }
         })
-        res.render(mainProduct, {products: products})
+
+        res.render(mainProduct, {products: products, categorias: categorias})
     },
 
     detail: async (req, res) => {
@@ -43,7 +47,7 @@ const productosController = {
 
         const datos = await Producto.findOne({
             where: {
-                idProd: req.params.id
+                id: req.params.id
             }
         })
         res.render(detailProduct, {product: datos});
@@ -92,7 +96,7 @@ const productosController = {
         /* ORM */
         const datos = await Producto.findOne({
             where:{
-                idProd: req.params.id
+                id: req.params.id
             }
         })
         res.render(editProduct, {productToEdit: datos})
@@ -165,7 +169,7 @@ const productosController = {
         const idProduct = req.params.id
         const datos = await Producto.findOne({
             where: {
-                idProd: idProduct
+                id: idProduct
             }
         })
         res.render(deleteProduct, {product: datos})
@@ -207,7 +211,7 @@ const productosController = {
             estado: 0,
         },{
             where:{
-                idProd: idProduct
+                id: idProduct
             }
         })
 

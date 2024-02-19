@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="/css/room.css">
     <link rel="stylesheet" href="/css/listProducto.css">
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,7 +23,6 @@
 </head>
 
 <body>
-    <!-- Mariana Gomez -->
 
     <%- include('../partials/nav') %>
 
@@ -62,7 +62,6 @@
                     <li>Stock</li>
                 </div>
                 <div class="action">
-
                     <li>Acciones</li>
                 </div>
             </div>
@@ -76,16 +75,36 @@
                                     <% if (product.fotoProd != null) {%>
                                         <img src="/img/productos/<%= product.fotoProd %>" alt="">
                                     <%} else {%>
-                                        <p>Todavia no posee imagen</p>
+                                        <p>No posee imagen</p>
                                     <%}%>
                                 </div>
 
                                 <div class="texto">
+                                    <div class="categoria">
+                                        <% categorias.forEach(categoria => { %>
+                                            <% if (product.idCat == categoria.id) { %>
+                                                <%= categoria.nombre %>
+                                        <%}else{}})%>
+                                    </div>
+
                                     <div class="nombre">
                                         "<%= product.nombre %>"
                                     </div>
+
                                     <div class="sabor">
                                         <%= product.sabor %>
+                                    </div>
+
+                                    <div class="code">
+                                        <%= product.id %>
+                                    </div>
+    
+                                    <div class="price">
+                                        $ <%= product.precio %>
+                                    </div>
+    
+                                    <div class="stock">
+                                        <%= product.stock %> u
                                     </div>
                                 </div>
                             </div>
@@ -93,12 +112,12 @@
                             <div class="bottom">
                                 <div class="code">
                                     <p>Código:</p>
-                                    <%= product.idProd %>
+                                    <%= product.id %>
                                 </div>
 
                                 <div class="price">
                                     <p>Precio:</p>
-                                    <%= product.precio %>
+                                    $ <%= product.precio %>
                                 </div>
 
                                 <div class="stock">
@@ -110,24 +129,22 @@
 
                         <div class="right">
                             <div class="details">
-                                <a href="/listadoProductos/detail/<%= product.idProd %>">
+                                <a href="/listadoProductos/detail/<%= product.id %>">
                                     <i class="bi bi-list-columns"></i>
                                 </a>
                             </div>
                             
                             <div class="edit">
-                                <a href="/listadoProductos/edit/<%= product.idProd %>">
+                                <a href="/listadoProductos/edit/<%= product.id %>">
                                     <i class="bi bi-pencil"></i>
                                 </a>
                             </div>
 
-                            <!-- <div class="delete">
-                                <a href="/listadoProductos/delete/<%= product.idProd %>">
-                                    <button type="submit">
-                                        <i class="bi bi-trash"></i>
-                                    </button>
+                            <div class="delete">
+                                <a href="/listadoProductos/delete/<%= product.id %>">
+                                    <i class="bi bi-trash"></i>
                                 </a>
-                            </div> -->
+                            </div>
                         </div>
 
                     </article>
