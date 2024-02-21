@@ -30,10 +30,16 @@ const productosController = {
         const products = await Producto.findAll({
             where: {
                 estado: 1
-            }
+            },
         })
 
-        res.render(mainProduct, {products: products, categorias: categorias, paginaActual: page})
+        /* Empezar ppaginación */
+        let count = 0;
+        products.forEach(product => {
+            count++;
+        });
+
+        res.render(mainProduct, {products: products, categorias: categorias})
     },
 
     list: async (req, res) => {
