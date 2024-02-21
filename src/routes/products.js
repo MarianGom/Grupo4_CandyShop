@@ -31,7 +31,9 @@ const uploadFile = multer({ storage: storage });
 
 /* RUTAS */ 
 
-router.get('/', productsController.index); 
+router.get('/?page', productsController.index); 
+
+router.get('/all', productsController.list);
 
 router.get('/detail/:id', productsController.detail); 
  

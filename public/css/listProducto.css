@@ -368,21 +368,49 @@ h1{
         flex-direction: row;
         justify-content: space-between;    
         width: 100%;
-        background-color: burlywood;
+    }
+
+    .top{
+        width: 100%;
+    }
+
+    .top .imagen{
+        width: 75px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .top .texto {
-        width: auto;
-        background-color: aqua;
+        width: 100%;
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: space-around;
-        font-weight: 600;
+        font-weight: 500;
+        font-size: 14px;
     }
 
     .top .categoria, .top .texto .code, .top .texto .price, .top .texto .stock{
         display: block;
+    }
+
+    .top .texto .code, .top .texto .price, .top .texto .stock{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 75px;
+        text-align: center;
+    }
+
+    .top .texto .categoria, .top .texto .nombre, .top .texto .sabor{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 125px;
+        height: 100%;
+        text-align: center;
     }
 
     .bottom{

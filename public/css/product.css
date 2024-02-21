@@ -8,8 +8,6 @@ body{
     margin-top: 50px;
 }
 
-/*slider publicidad*/
-
 .banner img{
     width: 100%;
     margin-top: 2%;
@@ -17,43 +15,6 @@ body{
     position:relative;
     top:20%;
 }
-
-
-/*
-.slider.wrapper{
-    position: relative;
-    max-width: 1000px;
-    width: 100%;
-    margin: 0 auto;
-    
-}
-
-.slider-frame{
-    display: flex;
-    box-sizing: border-box;
-    justify-content: center;  
-    aspect-ratio: 16 / 9;
-    overflow-x: hidden;
-    scroll-snap-type: mandatory;
-    scroll-behavior: smooth;
-    
-    border-radius: .5rem;
-
-    background-color: #FFB4E0;
-    animation: slide 10s linear infinite;
-    width: 100%;
-    height: 268px;
-
-}
-
-.slider img{
-    flex: 1 0 100%;
-    width: 100%;
-    scroll-snap-align: start;
-    object-fit: cover;
-
-}
-*/
 
 /*opciones del slider*/
 
@@ -183,13 +144,11 @@ p{
 
 
 }
-
+/* 
 .carrito {
     display: flex;
     flex-direction: row;
-
-
-}
+} */
 
 .add{
     display: none;
@@ -226,12 +185,6 @@ article:hover {
 .dropdown-menu a:hover {
     background-color: #ff6ac190; 
 }
-
-/* ul a:hover {
-    background-color: #FF6AC2; 
-} */
-
-
 
 /*numero de paginas*/
 
@@ -302,7 +255,6 @@ article:hover {
 .menu li {
     display: inline;
     margin-right: 10px;
-    
 }
 
 #caramelos {
@@ -311,68 +263,13 @@ article:hover {
     justify-content: space-evenly;
 }
 
-
-
 .productos-categoria{
     display: none
-     
 }
-
 
 :target {
     display: flex;        
     flex-wrap: wrap;
-
-}
-
-
-.arrow{
-    display: flex;
-    width: 140px;
-    height: 30px;
-    justify-content: center;
-    flex-shrink: 0;
-    
-    border: none;
-    
-    position: relative;
-    right: 20px;
-    background-color: #FFA8D4BF;
-    color: #000;
-    text-align: center;
-    font-family: Open Sans;
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    letter-spacing: -0.525px;
-    border-radius:60px;
-}
-
-
-.dropdown-menu {
-    display: none;
-    
-}
-
-.btn-group:focus .dropdown-menu {
-    display:block;
-
-}
-
-.btn-group:focus-within .dropdown-menu {
-    display: block;
-}
-
-.arrow i{
-    display: flex;
-    flex-wrap: wrap;
-    position: relative;
-    left: 55px;
-    top: 5px;
-    font-size: 1.5rem;
-    color:#E474BA;
-    background-color: #FFE5E5;
 }
 
 footer p{
@@ -431,6 +328,7 @@ footer p{
     border-radius: 50%;
     border: 1px solid #969696a0;
 }
+
 
 @media (min-width: 576px){
     

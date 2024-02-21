@@ -31,7 +31,7 @@ app.use(session({secret: 'default', idioma: 'esp'}));
 
 
 app.use('/', mainRouter);
-app.use('/listadoProductos', productsRouter);
+app.use('/productos', productsRouter);
 app.use('/user', usersRouter);
 
 

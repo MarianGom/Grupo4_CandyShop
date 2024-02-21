@@ -12,7 +12,8 @@ const Producto = db.Productos;
 const Categoria = db.Categorias;
 const InfoNutricional = db.Infos;
 
-const mainProduct = path.resolve(__dirname, '../views/productos/listProductos.ejs');
+const mainProduct = path.resolve(__dirname, '../views/productos/catalogoProductos.ejs');
+const listProduct = path.resolve(__dirname, '../views/productos/listProductos.ejs');
 const createProduct = path.resolve(__dirname, '../views/productos/crearProductos.ejs');
 const editProduct = path.resolve(__dirname, '../views/productos/editarProductos.ejs');
 const detailProduct = path.resolve(__dirname, '../views/productos/productoVer.ejs');
@@ -32,7 +33,21 @@ const productosController = {
             }
         })
 
-        res.render(mainProduct, {products: products, categorias: categorias})
+        res.render(mainProduct, {products: products, categorias: categorias, paginaActual: page})
+    },
+
+    list: async (req, res) => {
+
+        const categorias = await Categoria.findAll({
+        })
+
+        const products = await Producto.findAll({
+            where: {
+                estado: 1
+            }
+        })
+
+        res.render(listProduct, {products: products, categorias: categorias})
     },
 
     detail: async (req, res) => {
@@ -66,7 +81,7 @@ const productosController = {
             idCat: 1,
         })
 
-        res.redirect('/listadoProductos/');
+        res.redirect('/productos/all');
     },
 
     edit: async (req, res) => {
@@ -99,7 +114,7 @@ const productosController = {
             }
         })
 
-        res.redirect('/listadoProductos/');
+        res.redirect('/productos/all');
     },
 
     delete: async (req, res) => {
@@ -124,7 +139,7 @@ const productosController = {
             }
         })
 
-        res.redirect('/listadoProductos/');
+        res.redirect('/productos/all');
     },  
 }
 
