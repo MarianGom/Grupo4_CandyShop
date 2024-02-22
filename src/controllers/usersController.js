@@ -43,7 +43,7 @@ const usersController = {
         try{
             const datos = await Usuario.findOne({
                 where: {
-                    idUser: req.params.id
+                    id: req.params.id
                 }
             })
             
@@ -82,7 +82,7 @@ const usersController = {
         try{
             const datos = await Usuario.findOne({
                 where: {
-                    idUser: req.params.id
+                    id: req.params.id
                 }
             })
             
@@ -116,7 +116,7 @@ const usersController = {
         try{
             const datos = await Usuario.findOne({
                 where: {
-                    idUser: req.params.id
+                    id: req.params.id
                 }
             })
             
@@ -132,7 +132,7 @@ const usersController = {
         try{
             const datos = await Usuario.findOne({
                 where: {
-                    idUser: req.params.id
+                    id: req.params.id
                 }
             })
             
@@ -153,7 +153,7 @@ const usersController = {
             },
             {
                 where: {
-                    idUser: userId
+                    id: userId
                 }
             }
         )

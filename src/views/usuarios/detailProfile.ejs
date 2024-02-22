@@ -8,6 +8,7 @@
     <link rel="shortcut icon" href="/img/favicon.png" type="image/png">
     
     <link rel="stylesheet" href="/css/room.css">
+    <link rel="stylesheet" href="/css/general.css">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -74,7 +75,7 @@
         <% if (user.fotoPerfil) {%>
             <img class="w-100" src="/img/usuarios/<%= user.fotoPerfil %>" alt="<%= user.nombre %>">
         <%} else {%>
-            <p>Todavia no posee imagen</p>
+            <img src="/img/usuarios/NoProfilePic.png" alt="Sin Foto">
         <%}%>
         
         <br>
@@ -82,13 +83,17 @@
 
         <div class="telefono">
             <p>Teléfono:</p>
-            <h4><%= user.telefono %></h4>
+            <% if (user.telefono) {%>
+                <h4><%= user.telefono %></h4>
+            <%} else {%>
+                <h4>Todavía no se registró un número de teléfono</h4>
+            <%}%>
         </div>
 
         <br>
         <br>
 
-        <a href="/user/edit/<%= user.idUser %>">
+        <a href="/user/edit/<%= user.id %>">
             <button>
                 <i class="bi bi-pencil"></i>
             </button>
@@ -97,7 +102,7 @@
         <br>
         <br>
 
-        <a href="/user/delete/<%= user.idUser %>">
+        <a href="/user/delete/<%= user.id %>">
             <button>
                 <i class="bi bi-trash"></i>
             </button>

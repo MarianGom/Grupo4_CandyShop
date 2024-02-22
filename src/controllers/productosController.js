@@ -1,16 +1,10 @@
 const path = require('path');
 
-/* 
-const fs = require('fs');
-
-const { findAll, findOne , create} = require('../models/product.model');
-const { json } = require('body-parser'); */
-
 /* Models */
 const db = require('../database/models');
 const Producto = db.Productos;
 const Categoria = db.Categorias;
-const InfoNutricional = db.Infos;
+/* const InfoNutricional = db.Infos; */
 
 const mainProduct = path.resolve(__dirname, '../views/productos/catalogoProductos.ejs');
 const listProduct = path.resolve(__dirname, '../views/productos/listProductos.ejs');
@@ -33,7 +27,7 @@ const productosController = {
             }
         })
 
-        const prodPorPagina = 9
+        const prodPorPagina = 6
         var pages = (total - (total%prodPorPagina))/prodPorPagina;
 
         try{

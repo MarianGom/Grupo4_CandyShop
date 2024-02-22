@@ -55,6 +55,8 @@ module.exports = (sequelize, dataTypes) => {
     let config = {
         tableName: "usuarios",
         timestamps: true,
+        createdAt: false,
+        updatedAt: false,
         deletedAt: false
     }
 
