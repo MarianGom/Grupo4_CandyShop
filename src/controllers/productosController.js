@@ -61,13 +61,38 @@ const productosController = {
         const categorias = await Categoria.findAll({
         })
 
-        const products = await Producto.findAll({
-            where: {
+        const total = await Producto.count({
+            where:{
                 estado: 1
             }
         })
 
-        res.render(listProduct, {products: products, categorias: categorias})
+        const prodPorPagina = 10
+        var pages = (total - (total%prodPorPagina))/prodPorPagina;
+
+        try{
+            
+            var pag = req.params.pag
+
+            const products = await Producto.findAll({
+                where: {
+                    estado: 1
+                },
+                limit: prodPorPagina, 
+                offset: prodPorPagina*pag
+            })
+
+            let paginas = [];
+
+            for(let i=0 ; i<=pages ; i++ ){
+                paginas.push(i);
+            }
+
+            res.render(listProduct, {products: products, categorias: categorias, paginas: paginas, paginaActual: parseInt(pag)})
+            
+        } catch(error){
+            console.log("\n\nNo hay parámetros de página\n\n");
+        }
     },
 
     detail: async (req, res) => {

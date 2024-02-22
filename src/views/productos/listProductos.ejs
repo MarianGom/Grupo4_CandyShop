@@ -146,12 +146,33 @@
                     <% }) %>    
                 </div>
         
-                <div class="pagination">
-                    <a href=""><</a>
-                    <a href="">1</a>
-                    <a href="">2</a>
-                    <a href="">3</a>
-                    <a href="">></a>
+                <div class="paginacion">
+                    <ul class="page-numbers">
+                        <% if (paginaActual>=1) {%>
+                            <li><a href="/productos/all/<%= paginaActual-1 %>#caramelos"><i class="bi bi-chevron-left active"></i></a></li>
+                        <% }else{ %>
+                            <li><i class="bi bi-chevron-left noactive"></i></li>
+        
+                        <%} paginas.forEach(pagina => { %>
+                            <% if (paginaActual == pagina) {%>
+                                <li class="noactive">
+                                    <%= pagina + 1 %>
+                                </li>
+                            <% }else{ %>
+                                <li>
+                                    <a href="/productos/all/<%=pagina%>#caramelos">
+                                        <%= pagina + 1 %>
+                                    </a>
+                                </li>
+                            <% } %>
+                        <% }) %>
+        
+                        <% if (paginaActual <= (paginas.length-2)) {%>
+                            <li><a href="/productos/all/<%= paginaActual+1 %>#caramelos"><i class="bi bi-chevron-right active"></i></a></li>
+                        <% }else{ %>
+                            <li><i class="bi bi-chevron-right noactive"></i></li>
+                        <% } %>
+                    </ul>
                 </div>
             </div>
         </main>

@@ -183,26 +183,6 @@ h1{
     display: none;
 }
 
-.pagination{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 50px;
-    margin: 40px 100px 50px 100px;
-    border: 4px solid var(--bg-rosa-claro);
-    border-radius: 10px;
-    color: var(--text-secundario);
-    font-weight: 600;
-}
-
-.pagination a{
-    width: 20px;
-}
-
-.pagination a:hover{
-    color: var(--bg-rosa-oscuro);
-}
-
 .button-rosa{
     display: flex;
     align-items: center;
@@ -268,6 +248,60 @@ h1{
 
 .cancelar, .guardar{
     padding: 10px 0px;
+}
+
+
+/* Paginación */
+
+.paginacion{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.page-numbers {
+    display: flex;
+    box-sizing: border-box;
+    justify-content: space-around;
+    min-width: 250px;
+    padding: 10px 0;
+    border: solid 3px #FFB4E0 ;
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-rosa-claro);
+    align-items: center;
+    margin-top: 2rem; 
+    margin-bottom: 3rem;
+}
+
+.page-numbers a{
+    transition: all 0.2s ease-in;
+}
+
+.page-numbers a:hover {
+    font-weight: 700;
+    color: var(--bg-rosa-oscuro-hover);
+}
+
+.noactive{
+    font-weight: 500;
+    color: var(--text-gris);
+}
+
+.paginacion i.noactive{
+    text-shadow: -1px -1px var(--text-gris), 0px -1px var(--text-gris), -1px 0px var(--text-gris);
+    transition: all 0.2s ease-in;
+}
+
+.paginacion i.active{
+    text-shadow: -1px -1px var(--text-rosa-claro), 0px -1px var(--text-rosa-claro), -1px 0px var(--text-rosa-claro);
+    transition: all 0.2s ease-in;
+}
+
+.paginacion i.active:hover{
+    text-shadow: -1px -1px var(--text-rosa-claro), 0px -1px var(--text-rosa-claro), -1px 0px var(--text-rosa-claro), 0px 0px 5px var(--bg-rosa-oscuro-hover);
 }
 
 

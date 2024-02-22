@@ -33,7 +33,7 @@ const uploadFile = multer({ storage: storage });
 
 router.get('/list/:pag', productsController.index); 
 
-router.get('/admin/all', productsController.list);
+router.get('/all/:pag', productsController.list);
 
 router.get('/detail/:id', productsController.detail); 
  
