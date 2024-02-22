@@ -45,7 +45,7 @@ main{
 /*Productos*/
 article{
     background-color: #fff;
-    border: 3px solid #E474BA;
+    border: 3px solid var(--text-rosa-claro);
     margin: 10px;
     padding: 40px;
     display: flex;
@@ -133,7 +133,7 @@ p{
     border-radius: 0px 5px 5px 0px;
     justify-content: center;
     align-items: center;
-    background: #E474BA;    
+    background: var(--text-rosa-claro);    
     width: 32px;
     height: 32px;
     position: relative;
@@ -160,7 +160,7 @@ input{
     bottom: 80px;
     width: 83px;
     height: 32px;
-    color: #E474BA ;
+    color: var(--text-rosa-claro) ;
     text-align: center;
     font-family: Open Sans;
     font-size: 16px;
@@ -168,7 +168,7 @@ input{
     font-weight: 600;
     line-height: 200%; /* 32px */
     letter-spacing: -0.56px;
-    border: solid #E474BA 2px;
+    border: solid var(--text-rosa-claro) 2px;
 }
 
 
@@ -186,7 +186,7 @@ article:hover {
     background-color: #ff6ac190; 
 }
 
-/*numero de paginas*/
+/* Paginación */
 
 .paginacion{
     width: 100%;
@@ -201,11 +201,11 @@ article:hover {
     min-width: 250px;
     padding: 10px 0;
     border: solid 3px #FFB4E0 ;
-    border-radius: 10px;
+    border-radius: 5px;
     background-color: #fff;
     font-size: 20px;
     font-weight: 600;
-    color: #E474BA;
+    color: var(--text-rosa-claro);
     align-items: center;
     margin-top: 2rem; 
     margin-bottom: 3rem;
@@ -216,17 +216,31 @@ article:hover {
 }
 
 .page-numbers a:hover {
-    font-weight: 800;
-    text-shadow: 0px 0px 5px #ffb4e066;
+    font-weight: 700;
+    color: var(--bg-rosa-oscuro-hover);
 }
 
-.paginacion .bi{
-    text-shadow: -1px -1px #E474BA, 0px -1px #E474BA, -1px 0px #E474BA;
+.noactive{
+    font-weight: 500;
+    color: var(--text-gris);
+}
+
+.paginacion i.noactive{
+    text-shadow: -1px -1px var(--text-gris), 0px -1px var(--text-gris), -1px 0px var(--text-gris);
     transition: all 0.2s ease-in;
 }
-.paginacion .bi:hover{
-    text-shadow: -1px -1px #E474BA, 0px -1px #E474BA, -1px 0px #E474BA, 0px 0px 5px #eb0089;
+
+.paginacion i.active{
+    text-shadow: -1px -1px var(--text-rosa-claro), 0px -1px var(--text-rosa-claro), -1px 0px var(--text-rosa-claro);
+    transition: all 0.2s ease-in;
 }
+
+.paginacion i.active:hover{
+    text-shadow: -1px -1px var(--text-rosa-claro), 0px -1px var(--text-rosa-claro), -1px 0px var(--text-rosa-claro), 0px 0px 5px var(--bg-rosa-oscuro-hover);
+}
+
+
+
 /*menu productos*/
 
 .prodMenu{
@@ -403,7 +417,7 @@ footer p{
         border-radius: 5px;
         background-color: #fff;
         font-size: 18px;
-        color: #E474BA;
+        color: var(--text-rosa-claro);
         align-items: center;
         margin: 10px auto; 
         position: relative;
@@ -414,8 +428,8 @@ footer p{
     }
 
     .add:hover{
-        border: solid 3px #E474BA;
-        background-color: #E474BA;
+        border: solid 3px var(--text-rosa-claro);
+        background-color: var(--text-rosa-claro);
         color: #FFFFFF;
         text-shadow: 0px 0px 5px rgba(255, 180, 224, 0.5);
     }

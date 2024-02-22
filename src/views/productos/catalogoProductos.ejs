@@ -66,7 +66,7 @@
                         <% if (product.fotoProd != null) {%>
                             <img src="/img/productos/<%= product.fotoProd %>" alt="">
                         <%} else {%>
-                            <img src="/img/productos/<%= product.fotoProd %>" alt="">
+                            <img src="/img/productos/NoPic.png" alt="">
                         <%}%>
                         <div class="detail">
                             <div class="product">Caramelo masticable </div>
@@ -84,14 +84,33 @@
             </div>
 
         </section>
- 
+
         <div class="paginacion">
             <ul class="page-numbers">
-                <li><a href="#"><i class="bi bi-chevron-left"></i></a></li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#"><i class="bi bi-chevron-right"></i></a></li>
+                <% if (paginaActual>=1) {%>
+                    <li><a href="/productos/<%= paginaActual-1 %>#caramelos"><i class="bi bi-chevron-left active"></i></a></li>
+                <% }else{ %>
+                    <li><i class="bi bi-chevron-left noactive"></i></li>
+
+                <%} paginas.forEach(pagina => { %>
+                    <% if (paginaActual == pagina) {%>
+                        <li class="noactive">
+                            <%= pagina + 1 %>
+                        </li>
+                    <% }else{ %>
+                    <li>
+                        <a href="/productos/<%=pagina%>#caramelos">
+                            <%= pagina + 1 %>
+                        </a>
+                    </li>
+                    <% } %>
+                <% }) %>
+
+                <% if (paginaActual <= (paginas.length-2)) {%>
+                    <li><a href="/productos/<%= paginaActual+1 %>#caramelos"><i class="bi bi-chevron-right active"></i></a></li>
+                <% }else{ %>
+                    <li><i class="bi bi-chevron-right noactive"></i></li>
+                <% } %>
             </ul>
         </div>
 
