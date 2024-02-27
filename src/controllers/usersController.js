@@ -16,6 +16,7 @@ const deleteProfile = path.resolve(__dirname, '../views/usuarios/deleteProfile.e
 /* Controller */
 const usersController = {
     login: (req, res, next) => {
+        /* Login Form */
         res.render(login, {});
     },
 
@@ -26,11 +27,14 @@ const usersController = {
         try{
             const datos = await Usuario.findOne({
                 where: {
-                    idUser: req.params.id
+                    email: mailUser
                 }
             })
+
+            if(datos.password == password){
+                res.render(detail, {user: datos})
+            }
             
-            res.render(detail, {user: datos})
         } catch(error){
             console.log(error)}
         

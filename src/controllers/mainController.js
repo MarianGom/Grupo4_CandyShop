@@ -1,24 +1,41 @@
 const path = require("path");
 
+const db = require('../database/models');
+const Producto = db.Productos;
+const Categoria = db.Categorias;
+
 const mainProduct = path.resolve(__dirname, '../views/productos/productoDetail.ejs');
 const carrito = path.resolve(__dirname, '../views/productos/productCart.ejs');
 
 const mainController = {
-  index: (req, res, next) => {
-    res.render("home", {});
-  },
+    index: async (req, res, next) => {
 
-  info: (req, res, next) => {
-    res.render("nosotros", {});
-  },
+        const categorias = Categoria.findAll();
 
-  productos:(req, res, next) => {
-    res.render(mainProduct , {});
-  },
-  
-  carrito:(req, res, next) => {
-    res.render(carrito , {});
-  },  
+        /* 
+        const ultimos = await Producto.findAll({
+            where: {
+                estado: 1
+            },
+            order: [['id', 'DESC']],
+            limit: 3
+        })
+        */
+
+        res.render("home", {categorias: categorias});
+    },
+
+    info: (req, res, next) => {
+        res.render("nosotros", {});
+    },
+
+    productos:(req, res, next) => {
+        res.render(mainProduct , {});
+    },
+    
+    carrito:(req, res, next) => {
+        res.render(carrito , {});
+    },  
 };
 
 module.exports = mainController;
