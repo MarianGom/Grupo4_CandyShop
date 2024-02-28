@@ -6,6 +6,7 @@ const Categoria = db.Categorias;
 
 const mainProduct = path.resolve(__dirname, '../views/productos/productoDetail.ejs');
 const carrito = path.resolve(__dirname, '../views/productos/productCart.ejs');
+const error = path.resolve(__dirname, '../views/error.ejs');
 
 const mainController = {
     index: async (req, res, next) => {
@@ -35,7 +36,11 @@ const mainController = {
     
     carrito:(req, res, next) => {
         res.render(carrito , {});
-    },  
+    },
+
+    error:(req, res, next) => {
+        res.render(error , {});
+    },   
 };
 
 module.exports = mainController;
