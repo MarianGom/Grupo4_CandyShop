@@ -1,7 +1,9 @@
 const path = require("path");
 
 const db = require('../database/models');
+const {sequelize} =  db;
 const Producto = db.Productos;
+const Item = db.Items;
 const Categoria = db.Categorias;
 
 const mainProduct = path.resolve(__dirname, '../views/productos/productoDetail.ejs');
@@ -12,18 +14,29 @@ const mainController = {
     index: async (req, res, next) => {
 
         const categorias = Categoria.findAll();
-
-        /* 
         const ultimos = await Producto.findAll({
             where: {
                 estado: 1
             },
             order: [['id', 'DESC']],
             limit: 3
-        })
-        */
+        });
 
-        res.render("home", {categorias: categorias});
+        const masPedidos = await Item.findAll({
+            attributes:[
+                'idProd',
+                [db.sequelize.fn('COUNT', db.sequelize.col('idProd')), 'total']
+            ],
+            where: {
+                estado: 1
+            },
+            group: 'idProd',
+            order: [[sequelize.literal('total'), 'DESC']],
+            limit: 3
+          });
+
+
+        res.render("home", {ultimosProductos: ultimos, pedidos: masPedidos});
     },
 
     info: (req, res, next) => {

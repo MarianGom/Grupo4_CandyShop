@@ -53,11 +53,10 @@ function changeBannerAuto(){
         btn3.setAttribute("class", "bannerBtn-activo");
         solo == 1;
     }
-
-    window.setTimeout(movBanner(), 10000);
 }
 
+window.addEventListener('load', () =>{
 
-function movBanner(){
-    window.setTimeout(changeBannerAuto(), 10000);
-}
+    window.setTimeout(changeBannerAuto(), 5000);
+
+})

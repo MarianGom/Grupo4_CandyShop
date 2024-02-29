@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,7 +23,7 @@
 
 </head>
 
-<body onresize="resizeMenu()">
+<body onresize="resizeMenu()" onload="movBanner()">
 
     <%- include('./partials/nav') %>
     <main>
@@ -40,7 +40,25 @@
             </div>
         </div>
 
-        <%- include('./partials/marquee') %>
+        <div id="marcas">
+            <ul>
+                <li><img class="marcas aguila" src="/img/marcas/aguila.png" alt="aguila"></li>
+                <li><img class="marcas beldent" src="/img/marcas/beldent.png" alt="beldent"></li>
+                <li><img class="marcas bonobon" src="/img/marcas/bonobon.png" alt="bonobon"></li>
+                <li><img class="marcas butter-toffees" src="/img/marcas/butter-toffees.png" alt="butter-toffees"></li>
+                <li><img class="marcas Cabsha" src="/img/marcas/cabsha.png" alt="Cabsha"></li>
+                <li><img class="marcas cadbury" src="/img/marcas/cadbury.png" alt="cadbury"></li>
+                <li><img class="marcas cofler" src="/img/marcas/cofler.png" alt="cofler"></li>
+                <li><img class="marcas ferreroRocher" src="/img/marcas/ferreroRocher.png" alt="ferreroRocher"></li>
+                <li><img class="marcas flyn" src="/img/marcas/flyn.png" alt="flyn"></li>
+                <li><img class="marcas halls" src="/img/marcas/Halls.webp" alt="halls"></li>
+                <li><img class="marcas milka" src="/img/marcas/milka.png" alt="milka"></li>
+                <li><img class="marcas mogul" src="/img/marcas/mogul.png" alt="mogul"></li>
+                <li><img class="marcas pico-dulce" src="/img/marcas/pico-dulce.png" alt="pico dulce"></li>
+                <li><img class="marcas Tic-Tac" src="/img/marcas/Tic-Tac.png" alt="Tic-Tac"></li>
+                <li><img class="marcas Toblerone" src="/img/marcas/Toblerone.webp" alt="Toblerone"></li>
+            </ul>
+        </div>
 
         <section class="iconos">
             <div class="envio">
@@ -75,28 +93,51 @@
         </div>
         <section class="new-products">
             
-            <% ultimosProductos.forEach(product => { %>
-                <article class="top ">
-                    <div class="producto-pic">
-                        <img src="/img/home img/chocolinas.png" alt="">
-                        <div class="circulo"></div>
-                    </div>
-                    <div class="detail">
-                        <div class="cat"><%= product.id %></div>
-                        <div class="product"><%= product.nombre %></div>
-                        <div class="desc"><%= product.sabor %></div> 
-                    </div> 
-                    <div class="price">$ <%= product.precio %> </div>
-                    <button class="add">Agregar al Carrito</button>
-                </article>
-            <% }) %>
+
+            <article class="top ">
+                <div class="producto-pic">
+                    <img src="/img/home img/chocolinas.png" alt="">
+                    <div class="circulo"></div>
+                </div>
+                <div class="detail">
+                    <div class="cat">Galletas Dulces</div>
+                    <div class="product"> Chocolinas </div>
+                    <div class="desc">Galleta Rellena Chocolate 258 gr</div> 
+                </div> 
+                <div class="price">$350</div>
+                <button class="add">Agregar al Carrito</button>
+            </article>
+
+            <article class="top segundo-item">
+                <div class="producto-pic">
+                    <img src="/img/home img/sonrisas 1.png" alt="">
+                    <div class="circulo"></div>
+                </div>
+                <div class="detail">
+                    <div class="cat">Galletas Dulces</div>
+                    <div class="product"> Sonrisas </div>
+                    <div class="desc">Galleta Rellena 108 gr</div> 
+                </div> 
+                <div class="price">$150</div>
+                <button class="add">Agregar al Carrito</button>
+            </article>
+
+            <article class="top tercer-item">
+                <div class="producto-pic">
+                    <img src="/img/home img/rumba 1.png" alt="">
+                    <div class="circulo"></div>
+                </div>
+                <div class="detail">
+                    <div class="cat">Galletas Dulces</div>
+                    <div class="product"> Rumba </div>
+                    <div class="desc">Galleta Rellena Chocolate 324 gr</div> 
+                </div> 
+                <div class="price">$250</div>
+                <button class="add">Agregar al Carrito</button>
+            </article>
+
         </section>            
 
-        <ul>
-            <% pedidos.forEach(pedido => { %>
-                <li><%= pedido.idProd %> - <%= pedido.total %></li>
-            <% }) %>
-        </ul>
 
         <div class="subtitulo">
             <h3>PRODUCTOS ESTRELLA:</h3>
