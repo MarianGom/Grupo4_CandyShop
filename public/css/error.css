@@ -1,20 +1,29 @@
-.caja-error{
+.caja-error, .caja-adios{
     margin: 25px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.caja-error .caja-titulo{
+.caja-error .caja-titulo, .caja-adios .caja-titulo{
     width: 100%;
     display: flex;
     justify-content: start;
+
+}
+
+.caja-adios h1{
+    text-align: left;
 }
 
 .caja-error img{
     max-width: 250px;
     /* filter: drop-shadow(5px 5px 4px #00000069); */
     animation: sombrita 10s ease 0s infinite normal;
+}
+
+.caja-adios img{
+    max-width: 250px;
 }
 
 @keyframes sombrita {
@@ -27,7 +36,7 @@
     100% {filter: drop-shadow(5px 5px 4px #00000050);}
 }
 
-.caja-error .caja-texto{
+.caja-error .caja-texto, .caja-adios .caja-texto{
     width: 100%;
     padding: 20px;
     display: flex;
@@ -35,14 +44,18 @@
     text-align: center;
 }
 
-.caja-error .caja-imagen{
+.caja-error .caja-imagen, .caja-adios .caja-imagen{
     display: flex;
     justify-content: center;
     width: 100%;
     margin-bottom: 50px;
 }
 
-.caja-error a{
+.caja-adios .caja-imagen{
+    margin-top: 30px;
+}
+
+.caja-error a, .caja-adios a{
     margin-bottom: 25px;
 }
 
@@ -55,6 +68,5 @@
         justify-content: end;
         text-align: center;
     }
-
 
 }

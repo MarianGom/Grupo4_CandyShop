@@ -12,6 +12,8 @@ const register = path.resolve(__dirname, '../views/usuarios/register.ejs');
 const detail = path.resolve(__dirname, '../views/usuarios/detailProfile.ejs');
 const editProfile = path.resolve(__dirname, '../views/usuarios/editProfile.ejs');
 const deleteProfile = path.resolve(__dirname, '../views/usuarios/deleteProfile.ejs');
+const goodbyeProfile = path.resolve(__dirname, '../views/adios.ejs');
+
 
 /* Controller */
 const usersController = {
@@ -47,7 +49,8 @@ const usersController = {
         try{
             const datos = await Usuario.findOne({
                 where: {
-                    id: req.params.id
+                    id: req.params.id,
+                    estado: 1
                 }
             })
             
@@ -86,11 +89,13 @@ const usersController = {
         try{
             const datos = await Usuario.findOne({
                 where: {
-                    id: req.params.id
+                    id: req.params.id, 
+                    estado: 1
                 }
             })
             
             res.render(editProfile, {user: datos})
+
         } catch(error){
             console.log(error)
         }
@@ -112,7 +117,7 @@ const usersController = {
             },
             {
                 where: {
-                    idUser: userId
+                    id: userId
                 }
             }
         )
@@ -148,21 +153,28 @@ const usersController = {
     },
 
     destroy: async (req, res, next) =>{
-       
-        const userId = req.params.id;
+        
+        try{
 
-        await Usuario.update(
-            {
-                estado: 0,
-            },
-            {
-                where: {
-                    id: userId
+            const userId = req.params.id;
+
+            await Usuario.update(
+                {
+                    estado: 2,
+                },
+                {
+                    where: {
+                        id: userId
+                    }
                 }
-            }
-        )
-        res.redirect('/listadoProductos/')
-
+            )
+            
+            res.render(goodbyeProfile, {});
+            
+        } catch(err){
+            console.log(err.message)    
+        }
+        
     }
 
     

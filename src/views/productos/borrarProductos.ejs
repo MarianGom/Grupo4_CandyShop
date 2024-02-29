@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,7 +26,7 @@
 
     <%- include('../partials/nav') %>
     <main>
-        <form action="/listadoProductos/delete/<%= product.idProd %>?_method=DELETE" method="POST">
+        <form action="/listadoProductos/delete/<%= product.id %>?_method=DELETE" method="POST">
             <div class="contenedor-nombre">
                 <label class="label-titulos" for="nombre">Nombre</label>
                 <div class="contenedor-input-nombre">
