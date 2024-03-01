@@ -40,7 +40,6 @@
             </div>
         </div>
 
-        <%- include('./partials/marquee') %>
 
         <section class="iconos">
             <div class="envio">
@@ -82,7 +81,7 @@
                         <div class="circulo"></div>
                     </div>
                     <div class="detail">
-                        <div class="cat"><%= product.id %></div>
+                        <div class="cat"><%= product.id %><%= product.dataValues.categoria %></div>
                         <div class="product"><%= product.nombre %></div>
                         <div class="desc"><%= product.sabor %></div> 
                     </div> 
@@ -92,59 +91,28 @@
             <% }) %>
         </section>            
 
-        <ul>
-            <% pedidos.forEach(pedido => { %>
-                <li><%= pedido.idProd %> - <%= pedido.total %></li>
-            <% }) %>
-        </ul>
-
         <div class="subtitulo">
             <h3>PRODUCTOS ESTRELLA:</h3>
             <h4>¡Los mas pedidos y amados por nuestros clientes!</h4>
         </div>
         <section class="star-products">
 
-            <article class="top">
-                <div class="producto-pic">
-                    <img src="/img/productos/bonobon-blanco.png" alt="">
-                    <div class="circulo"></div>
-                </div>
-                <div class="detail">
-                    <div class="cat">Bombón</div>
-                    <div class="product"> Bon o Bon</div>
-                    <div class="desc">Chocolate blanco relleno</div> 
-                </div> 
-                <div class="price">$150</div>
-                <button class="add">Agregar al Carrito</button>
-            </article>
+            <% masVendidos.forEach(topProduct => {%>
+                <article class="top">
+                    <div class="producto-pic">
+                        <img src="/img/productos/bonobon-blanco.png" alt="">
+                        <div class="circulo"></div>
+                    </div>
+                    <div class="detail">
+                        <div class="cat"><%= topProduct.categoria %></div>
+                        <div class="product"><%= topProduct.nombre %></div>
+                        <div class="desc"><%= topProduct.sabor %></div> 
+                    </div> 
+                    <div class="price">$<%= topProduct.precio %></div>
+                    <button class="add">Agregar al Carrito</button>
+                </article>
+            <% }); %>
 
-            <article class="top segundo-item">
-                <div class="producto-pic">
-                    <img src="/img/productos/flynnpaff-tutti.png" alt="">
-                    <div class="circulo"></div>
-                </div>
-                <div class="detail">
-                    <div class="cat">Caramelo masticable</div>
-                    <div class="product"> FLYNN-PAFF</div>
-                    <div class="desc">Sabor Tutti-Frutti </div>
-                </div> 
-                <div class="price">$150</div>
-                <button class="add">Agregar al Carrito</button>
-            </article>
-            
-            <article class="top tercer-item">
-                <div class="producto-pic">
-                    <img src="/img/productos/buttertoffee-agula.png" alt="">
-                    <div class="circulo"></div>
-                </div>
-                <div class="detail">
-                    <div class="cat">Caramelo masticable</div>
-                    <div class="product"> Butter Toffee</div>
-                    <div class="desc">Aguila</div> 
-                </div> 
-                <div class="price">$150</div>
-                <button class="add">Agregar al Carrito</button>
-            </article>
         </section>
         <div class="circle"><img src="/img/Buttons.svg" alt=""></div>
         <div class="h3"><h3>VISITÁ NUESTRAS CATEGORIAS</h3></div>
