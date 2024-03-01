@@ -35,6 +35,7 @@ const productosController = {
             var pag = req.params.pag
 
             const products = await Producto.findAll({
+                
                 where: {
                     estado: 1
                 },
@@ -58,23 +59,29 @@ const productosController = {
 
     list: async (req, res) => {
 
-        const categorias = await Categoria.findAll({
-        })
-
         const total = await Producto.count({
             where:{
                 estado: 1
             }
         })
 
-        const prodPorPagina = 10
+        const prodPorPagina = 10;
+
         var pages = (total - (total%prodPorPagina))/prodPorPagina;
-
+        var pag = req.params.pag
+        
         try{
-            
-            var pag = req.params.pag
-
             const products = await Producto.findAll({
+                attributes:{
+                    include:[
+                        [db.sequelize.col('Categorias.nombre'), 'categoria']
+                    ]
+                },
+                include:[{
+                    model: Categoria,
+                    as: 'Categorias',
+                    attributes: [],
+                }],
                 where: {
                     estado: 1
                 },
@@ -82,16 +89,23 @@ const productosController = {
                 offset: prodPorPagina*pag
             })
 
+            /* COMMENT!!! Para ver la consulta de arriba */
+            /* console.log("\n\n")
+            products.forEach(productoaver => {
+                console.log(`•${productoaver.nombre} - Categoria: ${productoaver.dataValues.categoria}`)
+            });
+            console.log("\n\n") */
+
             let paginas = [];
 
             for(let i=0 ; i<=pages ; i++ ){
                 paginas.push(i);
             }
 
-            res.render(listProduct, {products: products, categorias: categorias, paginas: paginas, paginaActual: parseInt(pag)})
+            res.render(listProduct, {products: products, paginas: paginas, paginaActual: parseInt(pag)})
             
         } catch(error){
-            console.log("\n\nNo hay parámetros de página\n\n");
+            console.log(`\n\n${error}\n\n`);
         }
     },
 

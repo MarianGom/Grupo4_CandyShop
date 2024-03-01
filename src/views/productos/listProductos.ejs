@@ -79,10 +79,7 @@
                                         </div>
 
                                         <div class="categoria">
-                                            <% categorias.forEach(categoria => { %>
-                                                <% if (product.idCat == categoria.id) { %>
-                                                    <%= categoria.nombre %>
-                                            <%}else{}})%>
+                                            <%= product.dataValues.categoria %>
                                         </div>
     
                                         <div class="nombre">
