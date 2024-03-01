@@ -4,13 +4,14 @@ const path = require('path');
 const db = require('../database/models');
 const Producto = db.Productos;
 const Categoria = db.Categorias;
+const Info = db.Infos;
 /* const InfoNutricional = db.Infos; */
 
 const mainProduct = path.resolve(__dirname, '../views/productos/catalogoProductos.ejs');
 const listProduct = path.resolve(__dirname, '../views/productos/listProductos.ejs');
+const detailProduct = path.resolve(__dirname, '../views/productos/detalleProductos.ejs');
 const createProduct = path.resolve(__dirname, '../views/productos/crearProductos.ejs');
 const editProduct = path.resolve(__dirname, '../views/productos/editarProductos.ejs');
-const detailProduct = path.resolve(__dirname, '../views/productos/productoVer.ejs');
 const deleteProduct = path.resolve(__dirname, '../views/productos/borrarProductos.ejs');
 
 
@@ -35,7 +36,16 @@ const productosController = {
             var pag = req.params.pag
 
             const products = await Producto.findAll({
-                
+                attributes:{
+                    include:[
+                        [db.sequelize.col('Categorias.nombre'), 'categoria']
+                    ]
+                },
+                include:[{
+                    model: Categoria,
+                    as: 'Categorias',
+                    attributes: [],
+                }],
                 where: {
                     estado: 1
                 },
@@ -56,6 +66,48 @@ const productosController = {
         }
 
     },
+
+    detail: async (req, res) => {
+
+        try{
+            const datos = await Producto.findOne({
+                attributes:{
+                    include:[
+                        [db.sequelize.col('Categorias.nombre'), 'categoria'],
+                        [db.sequelize.col('Infos.valorEnerg'), 'valorEnerg'],
+                        [db.sequelize.col('Infos.porcion'), 'porcion'],
+                        [db.sequelize.col('Infos.proteina'), 'proteina'],
+                        [db.sequelize.col('Infos.sodio'), 'sodio'],
+                        [db.sequelize.col('Infos.grasaTotal'), 'grasaTotal'],
+                        [db.sequelize.col('Infos.grasaSaturada'), 'grasaSaturada'],
+                        [db.sequelize.col('Infos.grasaTrans'), 'grasaTrans'],
+                        [db.sequelize.col('Infos.fibraAlim'), 'fibraAlim'],
+                        [db.sequelize.col('Infos.otros'), 'otros']
+                    ]
+                },
+                include:[{
+                    model: Categoria,
+                    as: 'Categorias',
+                    attributes: [],
+                },{
+                    model: Info,
+                    as: 'Infos',
+                    attributes: [],
+                }],
+                where: {
+                    id: req.params.id,
+                }
+            });
+    
+            res.render(detailProduct, {product: datos});
+
+        }catch(error){
+            console.log(`\n• Error: ${error}\n`)
+        }
+    },
+
+
+    /* 4Admin */
 
     list: async (req, res) => {
 
@@ -107,16 +159,6 @@ const productosController = {
         } catch(error){
             console.log(`\n\n${error}\n\n`);
         }
-    },
-
-    detail: async (req, res) => {
-
-        const datos = await Producto.findOne({
-            where: {
-                id: req.params.id
-            }
-        })
-        res.render(detailProduct, {product: datos});
     },
 
     create: (req, res) => {

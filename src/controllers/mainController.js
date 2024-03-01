@@ -16,8 +16,6 @@ const error = path.resolve(__dirname, '../views/error.ejs');
 const mainController = {
     index: async (req, res, next) => {
 
-        const categorias = Categoria.findAll();
-
         const ultimos = await Producto.findAll({
             attributes:{
                 include:[

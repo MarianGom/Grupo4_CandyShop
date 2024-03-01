@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Producto Ver</title>
+
+    <link rel="stylesheet" href="/css/room.css">
+    <link rel="stylesheet" href="/css/general.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <!-- JS -->
+    <script src="/js/menu.js"></script>
+    <script src="/js/banner.js"></script>
+</head>
+<body>
+    
+    <%- include('../partials/nav') %>
+    <main>
+        <div id="banner-rosa">
+        </div>
+
+        <div class=".caja-detalle-prod">
+            <section class="detalle-prod">
+                <a href="/productos/list/0">
+                    <button class="button-rosa">
+                        Volver
+                    </button>
+                </a>
+                <article class="">
+                    <% if (product.fotoProd != null) {%>
+                        <img src="/img/productos/<%= product.fotoProd %>" alt="<%= product.nombre %>">
+                    <%} else {%>
+                        <img src="/img/productos/NoPicSM.png" alt="No posee foto <%= product.nombre %>">
+                    <%}%>
+                    <div class="">
+                        <div class=""> <%= product.dataValues.categoria %> </div>
+                        <div class=""> <%= product.nombre %> </div>
+                        <div class=""> <%= product.sabor %> </div>  
+                    </div>
+                </article>
+
+                <div class="descripcion-prod">
+                    <%= product.descripcion %>
+                </div>
+
+                <div class="infoNutricional-prod">
+                    <table>
+                        <thead>
+                            <th>Porción</th>
+                            <th><%= product.dataValues.porcion %></th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Valor energético</td>
+                                <td><%= product.dataValues.valorEnerg %></td>
+                            </tr>
+                            <tr>
+                                <td>Proteina</td>
+                                <td><%= product.dataValues.proteina %></td>
+                            </tr>
+                            <tr>
+                                <td>Sodio</td>
+                                <td><%= product.dataValues.sodio %></td>
+                            </tr>
+                            <tr>
+                                <td>Fibra Alimentaria</td>
+                                <td><%= product.dataValues.fibraAlim %></td>
+                            </tr>
+                            <tr>
+                                <td>Grasas Totales</td>
+                                <td><%= product.dataValues.grasaTotal %></td>
+                            </tr>
+                            <tr>
+                                <td>Grasas Saturadas</td>
+                                <td><%= product.dataValues.grasaSaturada %></td>
+                            </tr>
+                            <tr>
+                                <td>Grasas Trans</td>
+                                <td><%= product.dataValues.grasaTrans %></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="mas-infoNutricional">
+                        <%= product.dataValues.otros %>
+                    </div>
+                </div>
+            </section>
+
+            <section id="acompaniar">
+                <div class="contenedor">
+                    <h2>Acompaña tu compra con:</h2>
+    
+                    <article class="producto">
+                        <div>
+                            <img src="/img/productos/flynnpaff-banana.png" alt="Flynn Paff Banana">  
+                            <div class="precioUnitario-xs">
+                                <h6>Precio</h6>
+                                <p>$ 150,00 c/u</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h6>Caramelo masticable</h6>
+                            <p>"FLYNN PAFF"</p>
+                            <p>Sabor Banana</p>
+    
+                            <div class="descripcionProducto">
+                                Caramelos masticables GEORGALOS "Flynn Paff: Sabor Banana" (Por unidad)
+                            </div>
+    
+                            <div class="precioUnitario-lg">
+                                <h4>$ 150,00</h4>
+                            </div>     
+                            <div class="agregarproducto">
+                                <input type="text" id="cantidad-mas" name="cantidad" maxlength="3" placeholder="0">
+                                <button><i class="bi bi-cart-plus-fill"></i></button>
+                            </div>
+                        </div>
+                        <div class="agregarproducto-lg">
+                            <button class="btn-rosa">Agregar al carrito</button>
+                        </div>
+                    </article>
+    
+                    <article class="producto">
+                        <div>
+                            <img src="/img/productos/flynnpaff-uva.png" alt="Flynn Paff Uva">
+                            <div class="precioUnitario-xs">
+                                <h6>Precio</h6>
+                                <p>$ 150,00</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h6>Caramelo masticable</h6>
+                            <p>"FLYNN PAFF"</p>
+                            <p>Sabor Uva</p>
+    
+                            <div class="descripcionProducto">
+                                Caramelos masticables GEORGALOS "Flynn Paff: Sabor Uva" (Por unidad)
+                            </div>
+    
+                            <div class="precioUnitario-lg">
+                                <h4>$ 150,00</h4>
+                            </div>
+                            <div class="agregarproducto">
+                                <input type="text" id="cantidad-mas" name="cantidad" maxlength="3" placeholder="0">
+                                <button><i class="bi bi-cart-plus-fill"></i></button>
+                            </div>
+                        </div>
+                        <div class="agregarproducto-lg">
+                            <button class="btn-rosa">Agregar al carrito</button>
+                        </div>
+                    </article>
+    
+                    <article class="producto">
+                        <div>
+                            <img src="/img/productos/flynnpaff-frutilla.png" alt="Flynn Paff Frutilla">
+                            <div class="precioUnitario-xs">
+                                <h6>Precio</h6>
+                                <p>$ 150,00</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h6>Caramelo masticable</h6>
+                            <p>"FLYNN PAFF"</p>
+                            <p>Sabor Frutilla</p>
+    
+                            <div class="descripcionProducto">
+                                Caramelos masticables GEORGALOS "Flynn Paff: Sabor Frutilla" (Por unidad)
+                            </div>
+    
+                            <div class="precioUnitario-lg">
+                                <h4>$ 150,00</h4>
+                            </div>
+                            <div class="agregarproducto">
+                                <input type="text" id="cantidad-mas" name="cantidad" maxlength="3" placeholder="0">
+                                <button><i class="bi bi-cart-plus-fill"></i></button>
+                            </div>
+                        </div>
+                        <div class="agregarproducto-lg">
+                            <button class="btn-rosa">Agregar al carrito</button>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </div>
+    </main>
+    <%- include('../partials/footer') %>
+    
+</body>
+</html>

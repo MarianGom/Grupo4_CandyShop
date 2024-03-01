@@ -62,22 +62,25 @@
                 <div id="caramelos" class="productos-categoria">
                     <!-- Productos de Caramelos -->
                     <% products.forEach(product => { %>
-                    <article class="caramelo1">
-                        <% if (product.fotoProd != null) {%>
-                            <img src="/img/productos/<%= product.fotoProd %>" alt="">
-                        <%} else {%>
-                            <img src="/img/productos/NoPic.png" alt="">
-                        <%}%>
-                        <div class="detail">
-                            <div class="product">Caramelo masticable </div>
-                            <div class="brand"><%= product.nombre %></div>
-                            <div class="desc"><%= product.sabor %></div>  
-                        </div>                  
-                        <div class="price">
-                            <p>Precio</p>$<%= product.precio %>
-                        </div>
-                        <button class="add">Agregar al Carrito</button>
-                    </article>
+                        <a href="/productos/detail/<%= product.id %>">
+                            <article class="caramelo1">
+                                <% if (product.fotoProd != null) {%>
+                                    <img src="/img/productos/<%= product.fotoProd %>" alt="">
+                                <%} else {%>
+                                    <img src="/img/productos/NoPic.png" alt="">
+                                <%}%>
+                                <div class="detail">
+                                    <div class="product"> <%= product.dataValues.categoria %> </div>
+                                    <div class="brand"> <%= product.nombre %> </div>
+                                    <div class="desc"> <%= product.sabor %> </div>  
+                                </div>                  
+                                <div class="price">
+                                    <p>Precio</p>$<%= product.precio %>
+                                </div>
+                                
+                                <button class="add">Agregar al Carrito</button>
+                            </article>
+                        </a>
                     <% }) %>
                 </div>
 
