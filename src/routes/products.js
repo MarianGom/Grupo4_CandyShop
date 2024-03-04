@@ -31,11 +31,11 @@ const uploadFile = multer({ storage: storage });
 
 /* RUTAS */ 
 
-router.get('/list/:pag', productsController.index); 
-
-router.get('/all/:pag', productsController.list);
-
+router.get('/list/:pag/:cat?', productsController.index);
 router.get('/detail/:id', productsController.detail); 
+
+/* Para admin */
+router.get('/all/:pag', productsController.list);
  
 router.get('/create/', productsController.create); 
 router.post('/list/0', uploadFile.single('image'), productsController.store); 

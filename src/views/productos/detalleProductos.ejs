@@ -29,64 +29,79 @@
         <div id="banner-rosa">
         </div>
 
-        <div class=".caja-detalle-prod">
+        <div class="caja-detalle-prod">
             <section class="detalle-prod">
-                <a href="/productos/list/0">
-                    <button class="button-rosa">
-                        Volver
-                    </button>
+                <a class="button-rosa" href="/productos/list/0">
+                    Volver
                 </a>
-                <article class="">
+                <article class="detalle-form-prod">
                     <% if (product.fotoProd != null) {%>
                         <img src="/img/productos/<%= product.fotoProd %>" alt="<%= product.nombre %>">
                     <%} else {%>
-                        <img src="/img/productos/NoPicSM.png" alt="No posee foto <%= product.nombre %>">
+                        <img src="/img/productos/NoPicSM.png" alt="No posee foto. '<%= product.nombre %>'">
                     <%}%>
-                    <div class="">
-                        <div class=""> <%= product.dataValues.categoria %> </div>
-                        <div class=""> <%= product.nombre %> </div>
+                    <div class="nombre-completo-prod">
+                        <div class="subtitulo"> <%= product.dataValues.categoria %> </div>
+                        <div class=""> "<%= product.nombre %>" </div>
                         <div class=""> <%= product.sabor %> </div>  
                     </div>
+                    <form method="post">
+                        <div class="precio">
+                            <p class="subtitulo">Precio:</p>
+                            $ <%= product.precio %> c/u
+                        </div>
+                        <div class="input-button-add"> 
+                            <input type="text" placeholder="1"> 
+                            <button class="add-to-cart" type="submit">
+                                <i class="bi bi-cart-plus"></i>
+                            </button>
+                        </div>
+                    </form>
                 </article>
 
                 <div class="descripcion-prod">
+                    <h4>Descripción del producto:</h4>
                     <%= product.descripcion %>
                 </div>
 
                 <div class="infoNutricional-prod">
+                    <h4 class="text-left">Información nutricional:</h4>
+
                     <table>
                         <thead>
-                            <th>Porción</th>
-                            <th><%= product.dataValues.porcion %></th>
+                            <tr>
+                                <th class="text-left">En base a una porción de:</th>
+                                <th class="text-right"><%= product.dataValues.porcion %></th>
+                            </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>Valor energético</td>
-                                <td><%= product.dataValues.valorEnerg %></td>
+                                <td class="text-right"><%= product.dataValues.valorEnerg %> kCal</td>
                             </tr>
                             <tr>
                                 <td>Proteina</td>
-                                <td><%= product.dataValues.proteina %></td>
+                                <td class="text-right"><%= product.dataValues.proteina %> g</td>
                             </tr>
                             <tr>
                                 <td>Sodio</td>
-                                <td><%= product.dataValues.sodio %></td>
+                                <td class="text-right"><%= product.dataValues.sodio %> g</td>
                             </tr>
                             <tr>
                                 <td>Fibra Alimentaria</td>
-                                <td><%= product.dataValues.fibraAlim %></td>
+                                <td class="text-right"><%= product.dataValues.fibraAlim %> g</td>
                             </tr>
                             <tr>
                                 <td>Grasas Totales</td>
-                                <td><%= product.dataValues.grasaTotal %></td>
+                                <td class="text-right"><%= product.dataValues.grasaTotal %> g</td>
                             </tr>
                             <tr>
                                 <td>Grasas Saturadas</td>
-                                <td><%= product.dataValues.grasaSaturada %></td>
+                                <td class="text-right"><%= product.dataValues.grasaSaturada %> g</td>
                             </tr>
                             <tr>
                                 <td>Grasas Trans</td>
-                                <td><%= product.dataValues.grasaTrans %></td>
+                                <td class="text-right"><%= product.dataValues.grasaTrans %> g</td>
                             </tr>
                         </tbody>
                     </table>
@@ -94,6 +109,7 @@
                         <%= product.dataValues.otros %>
                     </div>
                 </div>
+                
             </section>
 
             <section id="acompaniar">

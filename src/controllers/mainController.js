@@ -16,23 +16,6 @@ const error = path.resolve(__dirname, '../views/error.ejs');
 const mainController = {
     index: async (req, res, next) => {
 
-        const ultimos = await Producto.findAll({
-            attributes:{
-                include:[
-                    [sequelize.col('Categorias.nombre'), 'categoria']
-                ]
-            },
-            include:[{
-                model: Categoria,
-                as: 'Categorias',
-                attributes: [],
-            }],
-            where: {
-                estado: 1
-            },
-            order: [['id', 'DESC']],
-            limit: 3
-        });
 
         /* COMMENT!!! Para ver como funciona la consulta */
         /* ultimos.forEach(prod => {
@@ -75,8 +58,29 @@ const mainController = {
         })  */
 
         try {
+     
+            const ultimos = await Producto.findAll({
+                attributes:{
+                    include:[
+                        [sequelize.col('Categorias.nombre'), 'categoria']
+                    ]
+                },
+                include:[{
+                    model: Categoria,
+                    as: 'Categorias',
+                    attributes: [],
+                }],
+                where: {
+                    estado: 1
+                },
+                order: [['id', 'DESC']],
+                limit: 3
+            });
 
+            
             const resultado = await sequelize.query("SELECT Productos.*, count(items.idProd) AS total, Categorias.nombre as categoria FROM categorias, productos AS Productos INNER JOIN items ON items.idProd = productos.id WHERE Productos.estado = 1 AND Categorias.id = Productos.idCat GROUP BY idProd ORDER BY total DESC LIMIT 3", {type: QueryTypes.SELECT})
+           
+            
 
             res.render("home", {ultimosProductos: ultimos, masVendidos: resultado});
 

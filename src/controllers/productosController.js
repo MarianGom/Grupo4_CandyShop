@@ -59,6 +59,11 @@ const productosController = {
                 paginas.push(i);
             }
 
+            if(req.params.cat){
+                const catt = req.params.cat;
+                console.log(`\n\nSi se pidió un filtro según categoria: ${catt} \n\n`)
+            }
+
             res.render(mainProduct, {products: products, categorias: categorias, paginas: paginas, paginaActual: parseInt(pag)})
             
         } catch(error){

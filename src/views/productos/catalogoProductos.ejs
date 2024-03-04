@@ -47,13 +47,9 @@
                 <div class="menu">
                     <div class="btn-group">
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item">Chupetines</a><br></li>
-                            <li><a class="dropdown-item">Caramelos</a><br></li>
-                            <li><a class="dropdown-item">Gomitas</a><br></li>
-                            <li><a class="dropdown-item">Alfajores</a><br></li>
-                            <li><a class="dropdown-item">Chocolate</a><br></li>
-                            <li><a class="dropdown-item">Sin Azúcar</a><br></li>
-                            <li><a class="dropdown-item">Otros</a><br></li>
+                            <% categorias.forEach(element => {%>
+                                <li><a class="dropdown-item"><%= element.nombre%></a><br></li>
+                            <%});%>
                         </ul>
                     </div>
                 </div>
