@@ -38,8 +38,8 @@ module.exports = (sequelize, dataTypes) => {
     let config = {
         tableName: "pedidos",
         timestamps: true,
-        createdAt: 'created_at',
-        updatedAt: 'updated_at',
+        createdAt: false,
+        updatedAt: false,
         deletedAt: false
     }
 

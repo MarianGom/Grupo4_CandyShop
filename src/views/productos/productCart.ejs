@@ -21,7 +21,6 @@
 
 </head>
 <body onresize="resizeMenu()">
-    <!-- Rocio Marcos -->
 
     <%- include('../partials/nav') %>
 
@@ -51,32 +50,38 @@
                         <li>Quitar</li>
                     </ul>
 
-                    <ul class="producto">
-                        <li>
-                            <img src="/img/productos/flynnpaff-tutti.png" alt="Flynn Paff Tutti Frutti">
-                            <div>
-                                <h6>Caramelo masticable</h6>
-                                <p>"FLYNN PAFF"</p>
-                                <p>Sabor Tutti-Frutti</p>
-                            </div>
-                        </li>
-
-                        <li>
-                            <p>$ 150,00</p>
-                        </li>
-
-                        <li>
-                            <div class="btn-menos-mas">
-                                <button onclick="quitar(0)" id="menos-btn"><i class="bi bi-dash"></i></button>
-                                <input type="text" class="cantidad" id="cantidad-0" name="cantidad" maxlength="3" value="1">
-                                <button onclick="agregar(0)" id="mas-btn"><i class="bi bi-plus"></i></button>
-                            </div>
-                        </li>
-                        
-                        <li>
-                            <i class="bi bi-trash"></i>
-                        </li>
-                    </ul>
+                    <% pedido.forEach(element => {%>
+                        <ul class="producto">
+                            <li>
+                                <% if (element.fotoProd != null) {%>
+                                    <img src="/img/productos/<%= element.fotoProd %>" alt="<%= element.nombre %>">
+                                <%} else {%>
+                                    <img src="/img/productos/NoPic.png" alt="No hay foto disponible.">
+                                <%}%>
+                                <div>
+                                    <h6><%= element.categoria %></h6>
+                                    <p>"<%= element.nombre %>"</p>
+                                    <p>Sabor <%= element.sabor %></p>
+                                </div>
+                            </li>
+    
+                            <li>
+                                <p>$ <%= element.precio %></p>
+                            </li>
+    
+                            <li>
+                                <div class="btn-menos-mas">
+                                    <button onclick="quitar(0)" id="menos-btn"><i class="bi bi-dash"></i></button>
+                                    <input type="text" class="cantidad" id="cantidad-0" name="cantidad" maxlength="3" value="<%= element.cantidad %>">
+                                    <button onclick="agregar(0)" id="mas-btn"><i class="bi bi-plus"></i></button>
+                                </div>
+                            </li>
+                            
+                            <li>
+                                <i class="bi bi-trash"></i>
+                            </li>
+                        </ul>
+                    <%}); %>
 
                     <ul class="producto">
                         <li>

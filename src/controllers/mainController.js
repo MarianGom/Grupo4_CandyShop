@@ -5,6 +5,7 @@ const { sequelize } = db;
 const { QueryTypes } = require('sequelize');
 
 const Item = db.Items;
+const Pedido = db.Pedidos;
 const Producto = db.Productos;
 const Categoria = db.Categorias;
 
@@ -14,48 +15,8 @@ const error = path.resolve(__dirname, '../views/error.ejs');
 
 
 const mainController = {
+
     index: async (req, res, next) => {
-
-
-        /* COMMENT!!! Para ver como funciona la consulta */
-        /* ultimos.forEach(prod => {
-            console.log(`• ${prod.nombre} - Categoria: ${prod.dataValues.categoria}`);
-        }); */
-
-        
-        /* COMMENT!!! Para salir del apuro, y no tener que usar la query de SQL pura, descomentar y retornar top1, top2 y top3*/
-        /* const masPedidos = await Item.findAll({
-            attributes:[
-                'idProd',
-                [sequelize.fn('COUNT', sequelize.col('idProd')), 'total']
-            ],
-            where: {
-                estado: 1
-            },
-            group: 'idProd',
-            order: [[sequelize.literal('total'), 'DESC']],
-            limit: 3
-        });
-        var ids = []
-        masPedidos.forEach(element => {
-            ids.push(element.idProd);
-        });
-
-        const top1 = await Producto.findOne({
-            where:{
-                id: ids[0]
-            }
-        });
-        const top2 = await Producto.findOne({
-            where:{
-                id: ids[1]
-            }
-        })
-        const top3 = await Producto.findOne({
-            where:{
-                id: ids[2]
-            }
-        })  */
 
         try {
      
@@ -77,17 +38,12 @@ const mainController = {
                 limit: 3
             });
 
-            
-            const resultado = await sequelize.query("SELECT Productos.*, count(items.idProd) AS total, Categorias.nombre as categoria FROM categorias, productos AS Productos INNER JOIN items ON items.idProd = productos.id WHERE Productos.estado = 1 AND Categorias.id = Productos.idCat GROUP BY idProd ORDER BY total DESC LIMIT 3", {type: QueryTypes.SELECT})
-           
-            
+            const vendidos = await sequelize.query("SELECT Productos.*, count(items.idProd) AS total, Categorias.nombre as categoria FROM categorias, productos AS Productos INNER JOIN items ON items.idProd = productos.id WHERE Productos.estado = 1 AND Categorias.id = Productos.idCat GROUP BY idProd ORDER BY total DESC LIMIT 3", {type: QueryTypes.SELECT})            
 
-            res.render("home", {ultimosProductos: ultimos, masVendidos: resultado});
+            res.render("home", {ultimosProductos: ultimos, masVendidos: vendidos});
 
         } catch (error) {
-
-            console.error('Error al realizar la consulta: ', error);
-
+            console.error(`Error al realizar la consulta: \nerror`);
         }
             
     },
@@ -100,8 +56,43 @@ const mainController = {
         res.render(mainProduct , {});
     },
     
-    carrito:(req, res, next) => {
-        res.render(carrito , {});
+    carrito: async (req, res, next) => {
+        try{
+            if(req.params.idpedido){
+
+                /* Entra */
+                const idPedido = req.params.idpedido
+
+                const nroPedido = await Pedido.findOne({
+                    where: {
+                        id: idPedido
+                    }
+                });
+
+                if(nroPedido){
+
+                    const productosCarrito = await sequelize.query(`SELECT pedidos.id AS NroPedido, items.cantidad, categorias.nombre AS categoria, productos.nombre, productos.sabor, productos.precio FROM items, pedidos, productos, categorias WHERE pedidos.id = ${idPedido} AND productos.id = items.idProd AND pedidos.id = items.idPedido AND categorias.id = productos.idCat`, {type: QueryTypes.SELECT}) 
+
+                    res.render(carrito , {pedido: productosCarrito});
+                } else {
+                    console.log(`NO se encontró el pedido\n\n`);
+                }
+                
+
+            } else {
+
+                const nroPedido = await Pedido.findAll({
+                    where: {
+                        estado: 1,
+                    },
+                    limit: 1
+                });
+
+                res.render(carrito , {pedido: nroPedido});
+            }
+        }catch(error){
+            console.error(`Error al realizar la consulta: \n${error}`);
+        }
     },
 
     error:(req, res, next) => {
