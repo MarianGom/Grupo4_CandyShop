@@ -342,6 +342,99 @@ footer p{
 }
 
 
+
+
+
+
+.dropdown{
+    margin: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.dropbtn {
+    width: 200px;
+    background-color: var(--bg-rosa-oscuro);
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+}
+  
+.select-cat {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    border: 1px solid #FFB4E0;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.3);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: var(--bg-rosa-oscuro-hover);
+}
+
+
+
+.catalog-form form{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.catalog-form .input-button-add{
+    display: flex;
+}
+
+.catalog-form .input-button-add input{
+    height: 40px;
+    width: 80px;
+    border: 2px solid var(--bg-rosa-oscuro);
+    border-radius: 7px 0px 0px 7px;
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+}
+
+.catalog-form .add-to-cart{
+    display: block;
+    height: 40px;
+    width: 40px;
+    background-color: var(--bg-rosa-oscuro);
+    color: #FFFFFF;
+    font-size: 24px;
+    border-radius: 0px 7px 7px 0px;
+    transition:  all .3s ease-in-out;
+}
+
+.catalog-form .add-to-cart:hover {
+    background-color: var(--bg-rosa-oscuro-hover);
+}
+
+
+
+
 @media (min-width: 576px){
     
     .productos{
@@ -432,9 +525,9 @@ footer p{
         text-shadow: 0px 0px 5px rgba(255, 180, 224, 0.5);
     }
 
-    .menu button{
+    /* .menu button{
         display:none;
-    }
+    } */
 
     .dropdown-menu{
         display:flex;

@@ -390,12 +390,12 @@ h1{
     padding-top: 40px;
 }
 
-.nombre-completo-prod, .detalle-form-prod form .precio{
+.nombre-completo-prod, .detalle-form-prod form .precio, .golosina{
     font-weight: 600;
     text-align: center;
 }
 
-.detalle-form-prod .subtitulo{
+.detalle-form-prod .subtitulo, .golosina .subtitulo{
     color: var(--bg-rosa-oscuro-hover);
     font-size: 14px;
 }
@@ -441,6 +441,99 @@ h1{
     width: 100%;
 }
 
+
+
+/* Listar Productos */
+
+.dropdown{
+    margin: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.dropbtn {
+    width: 250px;
+    background-color: var(--bg-rosa-oscuro);
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+}
+  
+.select-cat {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    border: 1px solid #FFB4E0;
+    min-width: 250px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.3);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: var(--bg-rosa-oscuro-hover);
+}
+
+
+.bars .productos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bars .golosina{
+    border: 4px solid var(--bg-rosa-claro);
+    border-radius: 10px;
+    height: 200px;
+    width: 90%;
+    margin: 20px;
+    padding: 20px;
+}
+
+.bars .golosina a{
+    display: flex;
+    justify-content: space-around;
+}
+
+.bars .golosina .detail{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+}
+
+.bars .golosina img{
+    height: 100px;
+}
+
+
+.bars .catalog-form form{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 10px;
+}
 
 
 .text-left{

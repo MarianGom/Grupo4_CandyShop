@@ -8,7 +8,8 @@
     <link rel="shortcut icon" href="/img/favicon.png" type="image/png">
 
     <link rel="stylesheet" href="/css/room.css">
-    <link rel="stylesheet" href="/css/product.css">
+    <!-- <link rel="stylesheet" href="/css/product.css"> -->
+    <link rel="stylesheet" href="/css/general.css">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -43,43 +44,55 @@
         </div>
         
         <section class="bars"> 
-            <div class="prodMenu">
-                <div class="menu">
-                    <div class="btn-group">
-                        <ul class="dropdown-menu">
-                            <% categorias.forEach(element => {%>
-                                <li><a class="dropdown-item"><%= element.nombre%></a><br></li>
-                            <%});%>
-                        </ul>
+
+            <div class="dropdown">
+                <div class="select-cat">
+                    <button class="dropbtn">Categorias</button>
+                    <div class="dropdown-content">
+                        <a href="/productos/list/0">Todos</a>
+                        <% categorias.forEach(element => {%>
+                            <a href="/productos/list/0/<%= element.id %>" class="dropdown-item">
+                                <li>
+                                    <%= element.nombre%>
+                                </li>
+                            </a>
+                        <%});%>
                     </div>
                 </div>
             </div>
-            <div class="productos">
-                <div id="caramelos" class="productos-categoria">
-                    <!-- Productos de Caramelos -->
-                    <% products.forEach(product => { %>
-                        <a href="/productos/detail/<%= product.id %>">
-                            <article class="caramelo1">
-                                <% if (product.fotoProd != null) {%>
-                                    <img src="/img/productos/<%= product.fotoProd %>" alt="">
-                                <%} else {%>
-                                    <img src="/img/productos/NoPic.png" alt="">
-                                <%}%>
-                                <div class="detail">
-                                    <div class="product"> <%= product.dataValues.categoria %> </div>
-                                    <div class="brand"> <%= product.nombre %> </div>
-                                    <div class="desc"> <%= product.sabor %> </div>  
-                                </div>                  
-                                <div class="price">
-                                    <p>Precio</p>$<%= product.precio %>
-                                </div>
-                                
-                                <button class="add">Agregar al Carrito</button>
-                            </article>
-                        </a>
-                    <% }) %>
-                </div>
 
+            <div class="productos">
+                <% products.forEach(product => { %>
+                    <article class="golosina">
+                        <a href="/productos/detail/<%= product.id %>">
+                            <% if (product.fotoProd != null) {%>
+                                <img src="/img/productos/<%= product.fotoProd %>" alt="">
+                            <%} else {%>
+                                <img src="/img/productos/NoPic.png" alt="">
+                            <%}%>
+                            <div class="detail">
+                                <div class="subtitulo"> <%= product.dataValues.categoria %> </div>
+                                <div class=""> <%= product.nombre %> </div>
+                                <div class=""> <%= product.sabor %> </div>  
+                            </div>                  
+                        </a>
+                            
+                        <div class="catalog-form">
+                            <form method="post">
+                                <div class="precio">
+                                    <p class="subtitulo">Precio:</p>
+                                    $ <%= product.precio %> c/u
+                                </div>
+                                <div class="input-button-add"> 
+                                    <input type="text" placeholder="1"> 
+                                    <button class="add-to-cart" type="submit">
+                                        <i class="bi bi-cart-plus"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </article>
+                <% }) %>
             </div>
 
         </section>

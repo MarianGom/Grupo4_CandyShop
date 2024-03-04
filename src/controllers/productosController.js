@@ -22,52 +22,104 @@ const productosController = {
         const categorias = await Categoria.findAll({
         })
 
-        const total = await Producto.count({
-            where:{
-                estado: 1
-            }
-        })
-
-        const prodPorPagina = 6
-        var pages = (total - (total%prodPorPagina))/prodPorPagina;
+        const prodPorPagina = 6;
 
         try{
             
             var pag = req.params.pag
-
-            const products = await Producto.findAll({
-                attributes:{
-                    include:[
-                        [db.sequelize.col('Categorias.nombre'), 'categoria']
-                    ]
-                },
-                include:[{
-                    model: Categoria,
-                    as: 'Categorias',
-                    attributes: [],
-                }],
-                where: {
-                    estado: 1
-                },
-                limit: prodPorPagina, 
-                offset: prodPorPagina*pag
-            })
-
-            let paginas = [];
-
-            for(let i=0 ; i<=pages ; i++ ){
-                paginas.push(i);
-            }
-
+            
             if(req.params.cat){
+                
                 const catt = req.params.cat;
-                console.log(`\n\nSi se pidió un filtro según categoria: ${catt} \n\n`)
-            }
 
-            res.render(mainProduct, {products: products, categorias: categorias, paginas: paginas, paginaActual: parseInt(pag)})
+                const total = await Producto.count({
+                    attributes:{
+                        include:[
+                            [db.sequelize.col('Categorias.id'), 'IdCat']
+                        ]
+                    },
+                    include:[{
+                        model: Categoria,
+                        as: 'Categorias',
+                        attributes: [],
+                    }],
+                    where:{
+                        estado: 1,
+                        IdCat: catt
+                    }
+                })
+    
+                var pages = (total - (total%prodPorPagina))/prodPorPagina;
+
+                const products = await Producto.findAll({
+                    attributes:{
+                        include:[
+                            [db.sequelize.col('Categorias.nombre'), 'categoria'],
+                            [db.sequelize.col('Categorias.id'), 'IdCat']
+                        ]
+                    },
+                    include:[{
+                        model: Categoria,
+                        as: 'Categorias',
+                        attributes: [],
+                    }],
+                    where: {
+                        estado: 1,
+                        IdCat: catt
+                    },
+                    limit: prodPorPagina, 
+                    offset: prodPorPagina*pag
+                })
+
+                let paginas = [];
+
+                for(let i=0 ; i<=pages ; i++ ){
+                    paginas.push(i);
+                }
+    
+                res.render(mainProduct, {products: products, categorias: categorias, paginas: paginas, paginaActual: parseInt(pag)})
+
+            } else {
+
+                const total = await Producto.count({
+                    where:{
+                        estado: 1
+                    }
+                });
+        
+                var pages = (total - (total%prodPorPagina))/prodPorPagina;
+
+                const products = await Producto.findAll({
+                    attributes:{
+                        include:[
+                            [db.sequelize.col('Categorias.nombre'), 'categoria']
+                        ]
+                    },
+                    include:[{
+                        model: Categoria,
+                        as: 'Categorias',
+                        attributes: [],
+                    }],
+                    where: {
+                        estado: 1
+                    },
+                    limit: prodPorPagina, 
+                    offset: prodPorPagina*pag
+                })
+
+                let paginas = [];
+
+                for(let i=0 ; i<=pages ; i++ ){
+                    paginas.push(i);
+                }
+    
+                res.render(mainProduct, {products: products, categorias: categorias, paginas: paginas, paginaActual: parseInt(pag)})
+            }
             
         } catch(error){
-            console.log("\n\nNo hay parámetros de página\n\n");
+
+            console.log(`\n\n${error}\n\n`);
+
         }
 
     },
