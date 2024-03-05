@@ -1,4 +1,5 @@
 const path = require('path');
+const bcryptjs = require('bcryptjs');
 
 /* Models */
 const db = require('../database/models');
@@ -24,23 +25,39 @@ const usersController = {
 
     log: async (req, res) => {
         let mailUser = req.body.email
-        let password = req.body.password
+        let password = bcryptjs.hashSync(req.body.password, 10)
+
+        const datos = await Usuario.findOne({
+            where: {
+                email: mailUser
+            }
+        })
 
         try{
-            const datos = await Usuario.findOne({
-                where: {
-                    email: mailUser
-                }
-            })
+            
+            if(datos){
 
-            if(datos.password == password){
-                res.render(detail, {user: datos})
+
+                if(bcryptjs.compareSync(datos.password, password)){
+
+                    console.log("\n\nSi se logueó\n\n")
+                    res.render(detail, {user: datos})
+
+                } else {
+
+                    console.log("\n\nSi encontró datos, pero no se logueó\n\n")
+
+                }
+
+            } else {
+                console.log("\n\nNo se encontró un usuario\n\n")
             }
+
             
         } catch(error){
-            console.log(error)}
-        
-
+            console.log(error)
+            console.log("\n\nNo se pudo loguear\n\n")
+        }
         res.render(register, {});
     },
 
@@ -67,20 +84,35 @@ const usersController = {
 
     store: async (req, res, next) => {
         const userNew = req.body;
+        const error = '';
+        let usuarioExistente = await Usuario.findOne({
+            where: {
+                email: userNew.mailUser
+            }
+        })
 
-        await Usuario.create({
-            nombre: userNew.nombreUser,
-            apellido: userNew.apellidoUser,
-            email: userNew.mailUser,
-            password: userNew.password,
-            /* password: bcryptjs.hashSync(userNew.password, 10), */
-            estado: 1,
-            isAdmin: 0
-        }).then(
-            res.render(login,{})
-        )
+        console.log(usuarioExistente);
 
-        console.log(`\n\nPasó el registro\n\n`);
+        if(usuarioExistente != null){
+            let error = `\n\nEse mail ya está registrado\n\n`
+            console.log(error)
+
+            const oldData = req.body;
+
+            res.render(register, {oldData: oldData, error: error})
+            
+        } else {
+            await Usuario.create({
+                nombre: userNew.nombreUser,
+                apellido: userNew.apellidoUser,
+                email: userNew.mailUser,
+                password: bcryptjs.hashSync(userNew.password, 10),
+                estado: 1,
+                isAdmin: 0
+            }).then(
+                res.render(login,{})
+            )
+        }
 
     },
 
