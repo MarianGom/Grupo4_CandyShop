@@ -43,19 +43,20 @@
         </div>
         
         <section class="bars"> 
-
-            <div class="dropdown">
-                <div class="select-cat">
-                    <button class="dropbtn">Categorias</button>
-                    <div class="dropdown-content">
-                        <a href="/productos/list/0">Todos</a>
-                        <% categorias.forEach(element => {%>
-                            <a href="/productos/list/0/<%= element.id %>" class="dropdown-item">
-                                <li>
-                                    <%= element.nombre%>
-                                </li>
-                            </a>
-                        <%});%>
+            <div class="centrar">
+                <div class="dropdown">
+                    <div class="select-cat">
+                        <button class="dropbtn">Categorias</button>
+                        <div class="dropdown-content">
+                            <a href="/productos/list/0">Todos</a>
+                            <% categorias.forEach(element => {%>
+                                <a href="/productos/list/0/<%= element.id %>" class="dropdown-item">
+                                    <li>
+                                        <%= element.nombre%>
+                                    </li>
+                                </a>
+                            <%});%>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -99,7 +100,7 @@
         <div class="paginacion">
             <ul class="page-numbers">
                 <% if (paginaActual>=1) {%>
-                    <li><a href="/productos/list/<%= paginaActual-1 %>#caramelos"><i class="bi bi-chevron-left active"></i></a></li>
+                    <li><a href="/productos/list/<%= paginaActual-1 %>"><i class="bi bi-chevron-left active"></i></a></li>
                 <% }else{ %>
                     <li><i class="bi bi-chevron-left noactive"></i></li>
 
@@ -110,7 +111,7 @@
                         </li>
                     <% }else{ %>
                     <li>
-                        <a href="/productos/list/<%=pagina%>#caramelos">
+                        <a href="/productos/list/<%=pagina%>">
                             <%= pagina + 1 %>
                         </a>
                     </li>
@@ -118,7 +119,7 @@
                 <% }) %>
 
                 <% if (paginaActual <= (paginas.length-2)) {%>
-                    <li><a href="/productos/list/<%= paginaActual+1 %>#caramelos"><i class="bi bi-chevron-right active"></i></a></li>
+                    <li><a href="/productos/list/<%= paginaActual+1 %>"><i class="bi bi-chevron-right active"></i></a></li>
                 <% }else{ %>
                     <li><i class="bi bi-chevron-right noactive"></i></li>
                 <% } %>

@@ -22,7 +22,7 @@ const productosController = {
         const categorias = await Categoria.findAll({
         })
 
-        const prodPorPagina = 6;
+        const prodPorPagina = 12;
 
         try{
             

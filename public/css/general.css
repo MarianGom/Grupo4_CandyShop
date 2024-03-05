@@ -447,6 +447,7 @@ h1{
 
 .dropdown{
     margin: 30px;
+    width: 250px;
     display: flex;
     justify-content: center;
 }
@@ -494,6 +495,12 @@ h1{
     background-color: var(--bg-rosa-oscuro-hover);
 }
 
+
+.bars .centrar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 .bars .productos{
     display: flex;
@@ -565,6 +572,64 @@ h1{
 
     }
 
+
+
+    /* Listar Productos */
+
+    .bars .centrar{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .bars .productos{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .bars .golosina{
+        border: 4px solid var(--bg-rosa-claro);
+        border-radius: 10px;
+        height: 350px;
+        width: 250px;
+        margin: 20px;
+        padding: 20px;
+    }
+    
+    .bars .golosina a{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .bars .golosina .detail{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-top: 20px;
+        width: 150px;
+    }
+    
+    .bars .golosina img{
+        max-height: 100px;
+        max-width: 100px;
+    }
+    
+    .bars .catalog-form form{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 20px;
+    }
+
+    .bars .input-button-add{
+        padding-top: 20px;
+    }
 }
 
 @media (min-width: 992px){
