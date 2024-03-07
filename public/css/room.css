@@ -5,6 +5,7 @@
     --bg-rosa-claro: #FFB4E0;
     --bg-rosa-oscuro: #FF6AC2;
     --bg-violeta-claro: #EAD8FA;
+    --bg-violeta-medio: #E39AFC;
     --bg-violeta-oscuro: #BC7AF9;
     --bg-gris: #585858;
 
@@ -29,6 +30,8 @@
     --tiktok-up: #00F7EF;
     --tiktok-down: #FD014F;
     --instagram: #DD2A7B;
+
+    --sombra-primaria: rgba(39, 39, 39, 0.2);
 }
 
 *{

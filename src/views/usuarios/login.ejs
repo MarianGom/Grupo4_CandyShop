@@ -39,50 +39,74 @@
     </script>
 
     <%- include('../partials/nav') %>
-    <main>
+    <main class="login">
+
+        <img class="golosinas-full arriba" src="/img/estructura/caramelo-rosa.png">
+
         <section class="login-body">
             <div class="logo-login">
                  <img src="/img/estructura/candyshop-sm.png" alt="Logo de CandyShop">
             </div>
+
             <form action="/user/login" method="post">
+
                 <div class="input-group">
                     <label for="email">E-mail</label>
                     <input type="email" id="email" name="email" placeholder="E-mail" required>
                 </div>
+
                 <div class="input-group">
                     <label for="password">Contraseña</label>
-                    <div>
+                    <div class="password-input">
                         <input type="password" id="password" name="password" placeholder="********" required>
                         <button type="none" class="ver" onclick="lookPassword()">
                             <i class="bi bi-eye"></i>
                         </button> 
                     </div>
                 </div>
-                <div class="recordar">
-                    <input type="checkbox" id="recordar" name="recordar">
-                    <label for="recordar">
-                        Recordar Usuario y Contraseña
-                    </label>
-                </div>
-                <div class="olvido-contraseña">
+
+                <label class="center check">
+                    <input class="check-input" type="checkbox" id="recordar" name="recordar">
+    
+                    <span for="checkmark">
+                        Recordar usuario y contraseña
+                    </span>
+                </label>
+                
+                <div class="center">
                     <a href="">
                         ¿Olvidaste tu contraseña?
                     </a>
                 </div>
+                
                 <button type="submit" class="button-rosa">
                     Iniciar Sesión
                 </button>
+
+                <div class="button-transparente">
+                    <a href="/user/register">
+                        ¿Todavía no posees una cuenta?
+                        <br>
+                        <strong>Registrarme</strong>
+                    </a>
+                </div>
             </form>
     
-            <div class="contenedor-registro">
+            <img class="golosinas-login" src="/img/estructura/golosinas.png">
+        
+        </section>
+
+        <section class="extra-body">
+            <div class="button-transparente">
                 <a href="/user/register">
                     ¿Todavía no posees una cuenta?
+                    <br>
                     <strong>Registrarme</strong>
-
                 </a>
             </div>
-            <img class="golosinas-login" src="/img/estructura/golosinas-login-recortado.png">
         </section>
+
+        <img class="golosinas-full abajo" src="/img/estructura/golosinas.png">
     </main>
     
     <%- include('../partials/footer') %>
