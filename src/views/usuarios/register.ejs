@@ -8,7 +8,7 @@
     <link rel="shortcut icon" href="/img/favicon.png" type="image/png">
     
     <link rel="stylesheet" href="/css/room.css">
-    <link href="/css/register.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/general.css">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,63 +18,123 @@
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
-    <!-- JS -->
-    <script src="/js/menu.js"></script>
-
 </head>
 <body onresize="resizeMenu()">
 
     <%- include('../partials/nav') %>
 
-    <main>
-        <div class="contenedor-register">
+    <main class="register">
+
+        <img class="golosinas-full arriba" src="/img/estructura/caramelo-amarillo-lila.png">
+
+        <section class="extra-body">
+
             <div class="logo-register">
-                <img src="/img/candyshop-sm.png" alt="Logo de CandyShop" width="100%">
+                <img src="/img/estructura/candyshop-sm.png" alt="Logo de CandyShop">
             </div>
-            <h3 class="h3-register">Registrate</h3>
-            <section class="contenedor-email-contraseña">
-                <form action="/user/register" method="POST">
-                    <div class="input-email">
-                        <label for="mailUser">E-mail</label>
-                        <input type="email" id="mailUser" name="mailUser" placeholder="maria@gmail.com" required>
-                    </div>
-                    <div class="input-nombre">
-                        <label for="nombreUser">Nombre:</label>
-                        <input type="text" id="nombreUser" name="nombreUser" placeholder="Maria" required>
-                    </div>
-                    <div class="input-apellido">
-                        <label for="apellidoUser">Apellido:</label>
-                        <input type="text" id="apellidoUser" name="apellidoUser" placeholder="Gonzalez" required>
-                    </div>
-                    <div class="input-contraseña">
-                        <label for="password">Contraseña</label>
-                        <input type="password" id="password" name="password" placeholder="********" required>
-                    </div>
-                    <div class="input-confirmar-contra">
-                        <label for="confirmPassword">Confirmar Contraseña:</label>
-                        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="********" required>
-                    </div>
-                    <div class="terminos-condiciones">
-                        <input type="checkbox" id="tyc" name="tyc">
-                        <label for="tyc">Acepto términos y condiciones</label>
-                    </div>
-                    <div class="contenedor-boton-is"><button type="submit" class="boton-is"><strong>Registrarme</strong></button></div>
-                </form>
-            </section>
-    
-            <section class="contenedor-registro">
-                <a href="/user/login">
+
+            <div class="loop-caramelo">
+                <img src="/img/estructura/osito.png" alt="chocolatito">
+            </div>
+
+            <div class="bienvenida">
+
+                <a href="/user/login" class="button-transparente">
                     <div>
-                        ¿Ya tienes una cuenta?<br>
+                        ¿Ya tienes una cuenta?
+                        <br>
                         <strong>Iniciar Sesión</strong>
                     </div>
                 </a>
-            </section>
-            <div class="contenedor-golosinas"><img class="golosinas-register"src="/img/estructura/golosinas-login-recortado.png"></div>
-        </div>
+            </div>
+        </section>
+
+        <section class="register-body">
+            <div class="logo-register">
+                <img src="/img/estructura/candyshop-sm.png" alt="Logo de CandyShop">
+            </div>
+
+            <form action="/user/register" method="POST">
+                <div class="input-group">
+                    <label for="mailUser">E-mail</label>
+                    <input type="email" id="mailUser" name="mailUser" placeholder="usuario@mail.com" required>
+
+                    <!-- En caso de error -->
+                    <div class="mailError">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="nombreUser">Nombre:</label>
+                    <input type="text" id="nombreUser" name="nombreUser" placeholder="Nombre" required>
+
+                    <!-- En caso de error -->
+                    <div class="nombreError">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="apellidoUser">Apellido:</label>
+                    <input type="text" id="apellidoUser" name="apellidoUser" placeholder="Apellido" required>
+
+                    <!-- En caso de error -->
+                    <div class="apellidoError">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" name="password" placeholder="********" required>
+
+                    <!-- En caso de error -->
+                    <div class="passwordError">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="confirmPassword">Confirmar Contraseña:</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="********" required>
+
+                    <!-- En caso de error -->
+                    <div class="confirmacionError">
+                    </div>
+                </div>
+
+                <label class="center check">
+                    <input class="check-input" type="checkbox" id="tyc" name="tyc">
+    
+                    <span for="checkmark">
+                        Acepto <a href="linkDeTerminosYCondiciones" target="_blank">términos y condiciones</a>
+                    </span>
+                </label>
+
+                <button type="submit" class="button-rosa">
+                    Registrarme
+                </button>
+                
+                <a href="/user/login" class="button-transparente">
+                    <div>
+                        ¿Ya tienes una cuenta?
+                        <br>
+                        <strong>Iniciar Sesión</strong>
+                    </div>
+                </a>
+            </form>
+
+    
+            <img class="golosinas-register"src="/img/estructura/golosinas.png">
+
+        </section>
+
     </main>
     
     <%- include('../partials/footer') %>
+
+
+    <!-- JS -->
+    <script src="/js/menu.js"></script>
+    <script src="/js/registro.js"></script>
+
 </body>
 
 </html>

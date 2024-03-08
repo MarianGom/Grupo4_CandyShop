@@ -24,26 +24,14 @@
 </head>
 <body onresize="resizeMenu()">
 
-    <script>
-        function lookPassword(){
-            var x = document.getElementById("password");
-            if (x.type === "password") {
-                x.type = "text";
-                x.innerHTML = "<i class='bi bi-eye'></i>"
-            } else {
-                x.type = "password";
-                x.innerHTML = "<i class='bi bi-eye-slash'></i>"
-            }
-        }
-
-    </script>
-
     <%- include('../partials/nav') %>
+
     <main class="login">
 
         <img class="golosinas-full arriba" src="/img/estructura/caramelo-rosa.png">
 
         <section class="login-body">
+
             <div class="logo-login">
                  <img src="/img/estructura/candyshop-sm.png" alt="Logo de CandyShop">
             </div>
@@ -97,21 +85,24 @@
         </section>
 
         <section class="extra-body">
-            <p>
-                ¡Hola!<br>Bienvenido de nuevo.
+            <p class="bienvenida">
+                ¡Hola!<br>
+                Bienvenido de nuevo
             </p>
             
-            <div class="loop-caramelo"></div>
+            <div class="loop-caramelo">
+                <img src="/img/estructura/osito.png" alt="chocolatito">
+            </div>
 
             <div class="bienvenida">
 
-                <div class="button-transparente">
-                    <a href="/user/register">
+                <a href="/user/register" class="button-transparente">
+                    <div>
                         ¿Todavía no posees una cuenta?
                         <br>
                         <strong>Registrarme</strong>
-                    </a>
-                </div>
+                    </div>
+                </a>
             </div>
 
         </section>

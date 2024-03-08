@@ -576,7 +576,8 @@ h1{
 /* Para usuarios */
 
 
-/* Login */
+/* Login y Registro */
+
 .login-body{
     display: flex;
     flex-direction: column;
@@ -584,7 +585,14 @@ h1{
     background-color: var(--bg-amarillo);
 }
 
-.logo-login{
+.register-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--bg-rosa-claro);
+}
+
+.logo-login, .logo-register{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -595,30 +603,30 @@ h1{
     margin: 35px 0px 15px;
 }
 
-.login-body form{
+.login-body form, .register-body form{
     width: calc(100% - 100px);
 }
 
-.login-body .golosinas-login{
+.login-body .golosinas-login, .register-body .golosinas-register{
     margin-top: 30px;
     width: 150px;
     filter: drop-shadow(3px 0px 5px var(--sombra-primaria));
 }
 
-.login-body .input-group{
+.login-body .input-group, .register-body .input-group{
     display: flex;
     flex-direction: column;
     margin: 20px 0px;
 }
 
-.login-body .input-group label{
+.login-body .input-group label, .register-body .input-group label{
     margin-left: 10px;
     font-size: 14px;
     font-weight: 500;
     margin-bottom: 5px;
 }
 
-.login-body .input-group input{
+.login-body .input-group input, .register-body .input-group input{
     height: 40px;
     background-color: var(--bg-principal);
     border: none;
@@ -626,17 +634,17 @@ h1{
     padding: 0px 20px;
 }
 
-.login-body .password-input{
+.login-body .password-input, .register-body .password-input{
     display: flex;
     justify-content: center;
 }
 
-.login-body .password-input input{
+.login-body .password-input input, .register-body .password-input input{
     width: calc(100% - 40px);
     border-radius: 20px 0px 0px 20px;
 }
 
-.login-body .password-input button{
+.login-body .password-input button, .register-body .password-input button{
     width: 40px;
     border-radius: 0px 20px 20px 0px;
     background-color: var(--bg-principal);
@@ -646,30 +654,30 @@ h1{
     transition: all .2s ease-in-out;
 }
 
-.login-body .password-input button:hover{
+.login-body .password-input button:hover, .register-body .password-input button:hover{
     font-size: 16px;
     background-color: var(--bg-disabled);
 }
 
-.login-body label.check{
+.login-body label.check, .register-body label.check{
     display: flex;
     align-items: center;
     cursor: pointer;
     margin-top: 30px;
 }
 
-.login-body .check-input{
+.login-body .check-input, .register-body .check-input{
     cursor: pointer;
     margin-right: 5px;
     height: 16px;
     width: 16px;
 }
 
-.login-body .check-input:checked ~ .checkmark {
+.login-body .check-input:checked ~ .checkmark, .register-body .check-input:checked ~ .checkmark {
     background-color: var(--text-principal)!;
 }
 
-.login-body .button-rosa{
+.login-body .button-rosa, .register-body .button-rosa{
     width: 100%;
     color: var(--text-principal);
     font-size: 18px;
@@ -677,26 +685,31 @@ h1{
     text-transform: none;
 }
 
-.login-body .center{
+.login-body .center, .register-body .center{
     display: flex;
     justify-content: center;
 }
 
-.login-body div.center{
+.login-body div.center, .register-body label.center{
     margin: 30px 0px;
 }
 
-.login-body .button-transparente{
+.login-body .button-transparente, .register-body .button-transparente{
     font-size: 14px;
     margin: 30px 0px;
 }
 
-.login-body .button-transparente strong{
+.login-body .button-transparente strong, .register-body .button-transparente strong{
     font-size: 18px;
 }
 
 .extra-body, .golosinas-full{
     display: none;
+}
+
+.register-body .mailError, .register-body .nombreError, .register-body .apellidoError, .register-body .passwordError ,.register-body .confirmacionError{
+    margin: 5px 15px;
+    color: var(--text-rosa-oscuro);
 }
 
 
@@ -898,9 +911,9 @@ h1{
 
     /* Usuarios */
 
-    /* Login */
+    /* Login y Registro */
 
-    .login{
+    .login, .register{
         display: flex;
     }
 
@@ -913,20 +926,46 @@ h1{
         padding-bottom: 100px;
     }
 
-    .login-body form{
+    .register-body{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: var(--bg-rosa-claro);
+        width: 50%;
+        padding-bottom: 100px;
+    }
+
+    .login-body form, .register-body form{
         width: calc(100% - 250px);
     }
 
-    .login-body .button-transparente{
+    .login-body .button-transparente, .register-body .logo-register, .register-body .button-transparente, .golosinas-login, .golosinas-register{
         display: none;
     }
 
-    .extra-body{
+    .register-body form{
+        margin: 75px 0px 0px 0px;
+    }
+
+    .logo-register{
+        margin-top: 0px;
+    }
+
+    .login .extra-body{
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         background-color: var(--bg-violeta-medio);
+        width: 50%;
+    }
+
+    .register .extra-body{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--bg-rosa-medio);
         width: 50%;
     }
     
@@ -943,14 +982,22 @@ h1{
     }
 
     .extra-body .loop-caramelo{
-        background-image: url("/img/fondo-rosa.jpg");
-        background-position: 500px 200px;
-        box-shadow: 5px 5px 10px var(--sombra-primaria) inset;
-        display: block;
+        display: flex;
+        justify-content: center;
+        align-items: end;
         width: 100%;
-        height: 200px;
+        height: 225px;
+        margin-top: 30px;
+        background-image: url("/img/fondo-rosa.jpg");
+        background-position: 900px 225px;
+        box-shadow: 5px 5px 10px var(--sombra-primaria) inset;
     }
 
+    .extra-body .loop-caramelo img{
+        display: block;
+        height: 175px;
+        filter: drop-shadow(3px 0px 0px var(--sombra-secundaria));
+    }
 
     .extra-body .button-transparente{
         margin-top: 50px;
@@ -965,10 +1012,5 @@ h1{
     .golosinas-full.arriba{
         left: calc(50% - 100px);
         width: 200px;
-    }
-
-
-    .golosinas-login{
-        display: none;
     }
 }

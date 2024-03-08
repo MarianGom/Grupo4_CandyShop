@@ -3,6 +3,7 @@
     --bg-disabled: #DEDEDE;
     --bg-amarillo: #FFE66B;
     --bg-rosa-claro: #FFB4E0;
+    --bg-rosa-medio: #F880B2;
     --bg-rosa-oscuro: #FF6AC2;
     --bg-violeta-claro: #EAD8FA;
     --bg-violeta-medio: #E39AFC;
@@ -32,6 +33,7 @@
     --instagram: #DD2A7B;
 
     --sombra-primaria: rgba(39, 39, 39, 0.2);
+    --sombra-secundaria: #2f06553d;
 }
 
 *{

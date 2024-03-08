@@ -18,3 +18,14 @@ function resizeMenu(){
         menu.style.display = "none";
     }
 }
+
+function lookPassword(){
+    var x = document.getElementById("password");
+    if (x.type === "password") {
+        x.type = "text";
+        x.innerHTML = "<i class='bi bi-eye'></i>"
+    } else {
+        x.type = "password";
+        x.innerHTML = "<i class='bi bi-eye-slash'></i>"
+    }
+}
