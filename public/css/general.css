@@ -707,9 +707,44 @@ h1{
     display: none;
 }
 
-.register-body .mailError, .register-body .nombreError, .register-body .apellidoError, .register-body .passwordError ,.register-body .confirmacionError{
+.mailError,  .nombreError,  .apellidoError,  .passwordError , .confirmacionError{
     margin: 5px 15px;
     color: var(--text-rosa-oscuro);
+}
+
+
+
+/* Editar Usuario */
+.infoPerfil{
+
+}
+
+.caja-rosa{
+    height: 175px;
+    background-color: var(--bg-rosa-claro);
+}
+
+.caja-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: transparent;
+}
+
+.caja-info .foto{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.caja-info .foto img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.infoPerfil .nombre{
+    width: calc(100% - 100px);
 }
 
 
@@ -939,16 +974,8 @@ h1{
         width: calc(100% - 250px);
     }
 
-    .login-body .button-transparente, .register-body .logo-register, .register-body .button-transparente, .golosinas-login, .golosinas-register{
+    .login-body .button-transparente, .register-body .button-transparente, .golosinas-login, .golosinas-register{
         display: none;
-    }
-
-    .register-body form{
-        margin: 75px 0px 0px 0px;
-    }
-
-    .logo-register{
-        margin-top: 0px;
     }
 
     .login .extra-body{
@@ -964,7 +991,7 @@ h1{
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        padding-top: 125px;
         background-color: var(--bg-rosa-medio);
         width: 50%;
     }
@@ -980,7 +1007,7 @@ h1{
         text-align: center;
         width: calc(100% - 250px);
     }
-
+ 
     .extra-body .loop-caramelo{
         display: flex;
         justify-content: center;
@@ -991,8 +1018,8 @@ h1{
         background-image: url("/img/fondo-rosa.jpg");
         background-position: 900px 225px;
         box-shadow: 5px 5px 10px var(--sombra-primaria) inset;
-    }
-
+    } 
+    
     .extra-body .loop-caramelo img{
         display: block;
         height: 175px;

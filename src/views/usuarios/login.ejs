@@ -18,8 +18,6 @@
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
-    <!-- JS -->
-    <script src="/js/menu.js"></script>
 
 </head>
 <body onresize="resizeMenu()">
@@ -41,6 +39,10 @@
                 <div class="input-group">
                     <label for="email">E-mail</label>
                     <input type="email" id="email" name="email" placeholder="E-mail" required>
+                    
+                    <!-- En caso de error -->
+                    <div class="mailError">
+                    </div>
                 </div>
 
                 <div class="input-group">
@@ -50,6 +52,10 @@
                         <button type="none" class="ver" onclick="lookPassword()">
                             <i class="bi bi-eye"></i>
                         </button> 
+                    </div>
+
+                    <!-- En caso de error -->
+                    <div class="passwordError">
                     </div>
                 </div>
 
@@ -71,13 +77,13 @@
                     Iniciar Sesión
                 </button>
 
-                <div class="button-transparente">
-                    <a href="/user/register">
+                <a href="/user/register" class="button-transparente">
+                    <div>
                         ¿Todavía no posees una cuenta?
                         <br>
                         <strong>Registrarme</strong>
-                    </a>
-                </div>
+                    </div>
+                </a>
             </form>
     
             <img class="golosinas-login" src="/img/estructura/golosinas.png">
@@ -110,5 +116,11 @@
     </main>
     
     <%- include('../partials/footer') %>
+
+    
+    <!-- JS -->
+    <script src="/js/menu.js"></script>
+    <script src="/js/loginV.js"></script>
+
 </body>
 </html>

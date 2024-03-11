@@ -95,13 +95,18 @@ const usersController = {
 
         if(usuarioExistente != null){
             let error = `\n\nEse mail ya está registrado\n\n`
-            console.log(error)
+            console.log(error);
 
             const oldData = req.body;
 
             res.render(register, {oldData: oldData, error: error})
             
         } else {
+
+            /* Re-Chequear los campos por si las moscas */
+
+            /* const password = userNew.password.slice(16); */
+
             await Usuario.create({
                 nombre: userNew.nombreUser,
                 apellido: userNew.apellidoUser,

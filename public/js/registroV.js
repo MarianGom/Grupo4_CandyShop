@@ -1,11 +1,12 @@
 window.addEventListener('load', () => {
+    /* Inputs - Búsqueda por id */
     let mail = document.querySelector("input#mailUser");
     let nombre = document.querySelector("input#nombreUser");
     let apellido = document.querySelector("input#apellidoUser");
     let password = document.querySelector("input#password");
     let confirmacion = document.querySelector("input#confirmPassword");
 
-    /* Cajas de error */
+    /* Cajas de error - Búsqueda por clase */
     var mailError = document.querySelector("div.mailError");
     var nombreError = document.querySelector("div.nombreError");
     var apellidoError = document.querySelector("div.apellidoError");
@@ -14,22 +15,25 @@ window.addEventListener('load', () => {
 
     
 
+    /* Validación de Mail */
     mail.addEventListener('blur', () => {
-        /* Validación de formato Mail */
 
         mailError.innerHTML = "";
 
         let mailIngresado = mail.value;
 
+        /* Check por si está vacío */
         if(mailIngresado == ""){
-            mailError.innerHTML = "<h5>• El campo está vacío</h5>";
+            mailError.innerHTML = "<h5>• El campo está vacío.</h5>";
         } else {
-            if(mailIngresado.includes(".com") && mailIngresado.includes(".com")){
+            
+            /* Check por si contiene elementos específicos de formato de mail: "@" y ".com" */
+            if(mailIngresado.includes("@") && mailIngresado.includes(".com")){
 
-                console.log("Mail correcto");
+                /* Salida correcta */
 
             } else {
-                mailError.innerHTML = "<h5>• No es un formato de mail válido</h5>";
+                mailError.innerHTML = "<h5>• No es un formato de mail válido.</h5>";
             }
         }
     });
@@ -42,10 +46,13 @@ window.addEventListener('load', () => {
 
         let nombreIngresado = nombre.value;
         
+        /* Check por si está vacío */
         if(nombreIngresado == ""){
-            nombreError.innerHTML = "<h5>• El campo está vacío</h5>";
+            nombreError.innerHTML = "<h5>• El campo está vacío.</h5>";
         } else {
-            console.log(nombreIngresado);
+
+            /* Salida correcta */
+
         }
     });
 
@@ -57,10 +64,13 @@ window.addEventListener('load', () => {
 
         let apellidoIngresado = apellido.value;
         
+        /* Check por si está vacío */
         if(apellidoIngresado == ""){
-            apellidoError.innerHTML = "<h5>• El campo está vacío</h5>";
+            apellidoError.innerHTML = "<h5>• El campo está vacío.</h5>";
         } else {
-            console.log(apellidoIngresado);
+
+            /* Salida correcta */
+
         }
     });
 
@@ -72,10 +82,25 @@ window.addEventListener('load', () => {
 
         let passwordIngresado = password.value;
         
+        /* Check por si está vacío */
         if(passwordIngresado == ""){
-            passwordError.innerHTML = "<h5>• El campo está vacío</h5>";
+            passwordError.innerHTML = "<h5>• El campo está vacío.</h5>";
         } else {
-            console.log(passwordIngresado);
+
+            /* Check por si es muy corta la contraseña */
+            if(passwordIngresado.length >= 8){
+
+                /* Check por si es muy larga la contraseña */
+                if(passwordIngresado.length <= 16) {
+
+                    /* Salida correcta */
+
+                } else {
+                    passwordError.innerHTML = "<h5>• La contraseña no debe tener mas de 16 caracteres.</h5>";
+                }
+            } else {
+                passwordError.innerHTML = "<h5>• La contraseña no debe tener menos de 8 caracteres.</h5>";
+            }
         }
     });
 
@@ -87,15 +112,22 @@ window.addEventListener('load', () => {
 
         let confirmacionIngresado = confirmacion.value;
         
+        /* Check por si está vacío */
         if(confirmacionIngresado == ""){
-            confirmacionError.innerHTML = "<h5>• El campo está vacío</h5>";
+            confirmacionError.innerHTML = "<h5>• El campo está vacío.</h5>";
         } else {
+
+            /* Check por si la contraseña y la confirmación coinciden */
             if(password.value != confirmacionIngresado){
-                confirmacionError.innerHTML = "<h5>• La confirmación no coincide con la contraseña</h5>";
+                confirmacionError.innerHTML = "<h5>• La confirmación no coincide con la contraseña.</h5>";
             } else {
-                console.log(confirmacionIngresado);
+
+                /* Salida correcta */
+
             }
         }
     });
+
+
 
 } )
