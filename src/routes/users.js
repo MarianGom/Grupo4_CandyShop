@@ -28,6 +28,11 @@ const storage =  multer.diskStorage({
 const uploadFile = multer({ storage: storage });
 
 
+/* Middlewares */
+const guestMiddleware = require('../middlewares/guestMiddleware');
+const authMiddleware = require('../middlewares/authMiddleware');
+
+
 /* Validaciones - ExpressValidator */
 let validateRegister = [
     check('mailUser')
@@ -47,11 +52,11 @@ let validateRegister = [
 ];
 
 /* Routes */
-router.get('/login', usersController.login);
-router.post('/login', usersController.log);
+router.get('/login', guestMiddleware, usersController.login);
+router.post('/login', guestMiddleware, usersController.log);
 
-router.get('/register', usersController.create);
-router.post('/register', validateRegister, usersController.store);
+router.get('/register', guestMiddleware, usersController.create);
+router.post('/register', validateRegister, guestMiddleware, usersController.store);
 
 router.get('/profile/:id', usersController.show);
 

@@ -20,45 +20,59 @@ const goodbyeProfile = path.resolve(__dirname, '../views/adios.ejs');
 const usersController = {
     login: (req, res, next) => {
         /* Login Form */
+        console.log(req.session);
         res.render(login, {});
     },
 
     log: async (req, res) => {
-        let mailUser = req.body.email
-        let password = bcryptjs.hashSync(req.body.password, 10)
+        let mailUser = req.body.email;
+        let passwordRaw = req.body.password;
+        /* let password = bcryptjs.hashSync(req.body.password, 10); */
 
-        const datos = await Usuario.findOne({
+
+        const usuario = await Usuario.findOne({
             where: {
                 email: mailUser
             }
         })
 
+        const datos = usuario.dataValues;
+        const validacion = bcryptjs.compareSync(passwordRaw, datos.password);
+
         try{
             
             if(datos){
 
+                if(validacion){
+                    /* Log Exitoso */
+                    let dataSession = datos;
+                    delete dataSession.password;
+                    delete dataSession.fotoPerfil;
+                    delete dataSession.telefono;
+                    
+                    req.session.usuario = dataSession;
 
-                if(bcryptjs.compareSync(datos.password, password)){
+                    console.log(req.session.usuario);
 
-                    console.log("\n\nSi se logueó\n\n")
-                    res.render(detail, {user: datos})
+                    res.render(detail, {user: datos});
 
-                } else {
-
-                    console.log("\n\nSi encontró datos, pero no se logueó\n\n")
-
+                } else {   
+                    /* Error en validación */
+                    console.log("\nLos datos enviados no son correctas\n");
+                    res.render(login, {});
                 }
-
-            } else {
-                console.log("\n\nNo se encontró un usuario\n\n")
-            }
-
+            } 
             
         } catch(error){
             console.log(error)
             console.log("\n\nNo se pudo loguear\n\n")
+            res.render(login, {});
         }
-        res.render(register, {});
+    },
+
+    logout: (req,res)=> {
+        req.session.destroy();
+        return res.redirect('/')
     },
 
     show: async (req, res) => {
@@ -126,7 +140,7 @@ const usersController = {
         try{
             const datos = await Usuario.findOne({
                 where: {
-                    id: req.params.id, 
+                    id: req.session.usuario.id, 
                     estado: 1
                 }
             })

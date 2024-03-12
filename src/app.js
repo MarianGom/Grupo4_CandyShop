@@ -27,7 +27,12 @@ app.use(methodOverride('_method'));
 
 app.use(express.static(path.resolve(__dirname, '../public')));
 
-app.use(session({secret: 'default', idioma: 'esp'}));
+app.use(session({
+    secret: 'El queso', 
+    idioma: 'esp',
+    resave: false,
+    saveUninitialized: false
+}));
 
 
 app.use('/', mainRouter);
