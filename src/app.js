@@ -5,6 +5,7 @@ const methodOverride = require('method-override');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const session = require('express-session');
+const userOnMiddleware = require('./middlewares/userOnMiddleware');
 
 
 var mainRouter = require('./routes/main');
@@ -26,6 +27,9 @@ app.use(cookieParser());
 app.use(methodOverride('_method'));
 
 app.use(express.static(path.resolve(__dirname, '../public')));
+
+
+app.use(userOnMiddleware);
 
 app.use(session({
     secret: 'El queso', 

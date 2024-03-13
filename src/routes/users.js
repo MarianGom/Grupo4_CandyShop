@@ -54,6 +54,7 @@ let validateRegister = [
 /* Routes */
 router.get('/login', guestMiddleware, usersController.login);
 router.post('/login', guestMiddleware, usersController.log);
+router.get('/logout', usersController.logout);
 
 router.get('/register', guestMiddleware, usersController.create);
 router.post('/register', validateRegister, guestMiddleware, usersController.store);
