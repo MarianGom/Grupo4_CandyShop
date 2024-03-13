@@ -721,7 +721,9 @@ h1{
 
 .caja-rosa{
     height: 175px;
-    background-color: var(--bg-rosa-claro);
+    width: 100%;
+    background: rgb(255,180,224);
+    background: linear-gradient(180deg, rgba(255,180,224,1) 60%, rgba(255,255,255,0) 60%);
 }
 
 .caja-info{

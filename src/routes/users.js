@@ -51,6 +51,7 @@ let validateRegister = [
         .notEmpty().withMessage('Confirmar contraseña').bail()
 ];
 
+
 /* Routes */
 router.get('/login', guestMiddleware, usersController.login);
 router.post('/login', guestMiddleware, usersController.log);
