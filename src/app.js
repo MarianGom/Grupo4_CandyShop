@@ -15,6 +15,17 @@ var usersRouter = require('./routes/users');
 var app = express();
 
 
+app.use(session({
+    secret: 'El queso', 
+    idioma: 'esp',
+    resave: false,
+    saveUninitialized: false
+}));
+
+app.use(userOnMiddleware);
+
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -27,17 +38,6 @@ app.use(cookieParser());
 app.use(methodOverride('_method'));
 
 app.use(express.static(path.resolve(__dirname, '../public')));
-
-
-app.use(userOnMiddleware);
-
-app.use(session({
-    secret: 'El queso', 
-    idioma: 'esp',
-    resave: false,
-    saveUninitialized: false
-}));
-
 
 app.use('/', mainRouter);
 app.use('/productos', productsRouter);

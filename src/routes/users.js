@@ -54,20 +54,24 @@ let validateRegister = [
 /* Routes */
 router.get('/login', guestMiddleware, usersController.login);
 router.post('/login', guestMiddleware, usersController.log);
-router.get('/logout', usersController.logout);
+router.get('/logout', authMiddleware, usersController.logout);
 
 router.get('/register', guestMiddleware, usersController.create);
 router.post('/register', validateRegister, guestMiddleware, usersController.store);
 
-router.get('/profile/:id', usersController.show);
+router.get('/myProfile', authMiddleware, usersController.showOne);
 
 router.get('/edit/:id', usersController.edit); 
 router.put('/edit/:id', uploadFile.single('image'), usersController.update);
+
+router.get('/editPassw/:id', validateRegister, usersController.passwordEdit);
+router.put('/editPassw/:id', validateRegister, usersController.confirmPasswordEdit);
 
 router.get('/delete/:id', usersController.delete); 
 router.delete('/delete/:id', usersController.destroy);
 
 /* Admin */
+/* PARA REACT! router.get('/profile/:id', authMiddleware, usersController.showAll); */
 
 
 module.exports = router;
