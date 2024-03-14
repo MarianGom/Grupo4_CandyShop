@@ -5,6 +5,7 @@ const bcryptjs = require('bcryptjs');
 const db = require('../database/models');
 const sequelize = db.sequelize;
 const { Op } = require("sequelize");
+const { validationResult } = require('express-validator');
 const Usuario = db.Usuarios;
 
 /* Paths */
@@ -101,6 +102,17 @@ const usersController = {
         res.render(register, {});
     },
 
+    store: (req, res) =>{
+        const resultValidation = validationResult(req);
+        console.log(resultValidation.errors)
+        if( resultValidation.errors.length > 0){
+            return res.render('register', {
+                errors: resultValidation.mapped()
+            });
+        }
+    },
+    
+    /*
     store: async (req, res, next) => {
         const userNew = req.body;
         const error = '';
@@ -125,7 +137,7 @@ const usersController = {
             /* Re-Chequear los campos por si las moscas */
 
             /* const password = userNew.password.slice(16); */
-
+/*
             await Usuario.create({
                 nombre: userNew.nombreUser,
                 apellido: userNew.apellidoUser,
@@ -138,7 +150,7 @@ const usersController = {
             )
         }
 
-    },
+    }, */
 
     edit: async (req, res, next) => {
  
