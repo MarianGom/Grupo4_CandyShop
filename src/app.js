@@ -21,7 +21,7 @@ app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false })); // permite capturar informacion que se envia desde un formulario en req.body
 app.use(cookieParser());
 app.use(methodOverride('_method'));
 

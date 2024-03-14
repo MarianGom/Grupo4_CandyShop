@@ -2,7 +2,7 @@ const express = require('express');
 const usersController = require('../controllers/usersController');
 const path = require('path');
 const router = express.Router();
-const { check } = require('express-validator');
+const { body } = require('express-validator');
 
 /* Multer */
 const multer = require('multer');
@@ -35,33 +35,66 @@ const authMiddleware = require('../middlewares/authMiddleware');
 
 /* Validaciones - ExpressValidator */
 let validateRegister = [
-    check('mailUser')
+    body('mailUser')
         .notEmpty().withMessage('Completar el email.').bail()
         .isLength({ min: 6})
         .isEmail().withMessage('Tienes que ingresar un email válido.'),
-    check('nombreUser')
+    body('nombreUser')
         .notEmpty().withMessage('Completar el nombre.').bail()
+        .isLength({min : 2})
         .isString(),
-    check('apellidoUser')
+    body('apellidoUser')
         .notEmpty().withMessage('Completar el apellido.').bail()
+        .isLength({min : 2})
         .isString(),
-    check('password')
-        .notEmpty().withMessage('Completar contraseña.').bail(),
-    check('confirmPassword')
+    body('password')
+        .notEmpty().withMessage('Completar contraseña.').bail()
+        .isLength({min : 4}),
+    body('confirmPassword')
         .notEmpty().withMessage('Confirmar contraseña').bail()
+        .isLength({min : 4})
+];
+let validateEditUser = [
+    body('mailUser')
+        .notEmpty().withMessage('Completar el email.').bail()
+        .isLength({ min: 6})
+        .isEmail().withMessage('Tienes que ingresar un email válido.'),
+    body('nombreUser')
+        .notEmpty().withMessage('Completar el nombre.').bail()
+        .isLength({min : 2})
+        .isString(),
+    body('apellidoUser')
+        .notEmpty().withMessage('Completar el apellido.').bail()
+        .isLength({min : 2})
+        .isString(),
+    body('password')
+        .notEmpty().withMessage('Completar contraseña.').bail()
+        .isLength({min : 4})
+    ];
+
+let validateLogin = [
+    body('mail')
+        .notEmpty().withMessage('Completar el email.').bail()
+        .isLength({ min: 6})
+        .isEmail().withMessage('Tienes que ingresar un email válido.'),
+    body('password')
+        .notEmpty().withMessage('Completar contraseña.').bail()
+        .isLength({min : 4})
 ];
 
 /* Routes */
 router.get('/login', guestMiddleware, usersController.login);
-router.post('/login', guestMiddleware, usersController.log);
+router.post('/login', validateLogin, guestMiddleware, usersController.log);
+
 
 router.get('/register', guestMiddleware, usersController.create);
 router.post('/register', validateRegister, guestMiddleware, usersController.store);
 
+
 router.get('/profile/:id', usersController.show);
 
 router.get('/edit/:id', usersController.edit); 
-router.put('/edit/:id', uploadFile.single('image'), usersController.update);
+router.put('/edit/:id', uploadFile.single('image'),validateEditUser, usersController.update);
 
 router.get('/delete/:id', usersController.delete); 
 router.delete('/delete/:id', usersController.destroy);
