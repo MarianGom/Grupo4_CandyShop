@@ -5,6 +5,7 @@ const methodOverride = require('method-override');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const session = require('express-session');
+const userOnMiddleware = require('./middlewares/userOnMiddleware');
 
 
 var mainRouter = require('./routes/main');
@@ -12,6 +13,17 @@ var productsRouter = require('./routes/products');
 var usersRouter = require('./routes/users');
 
 var app = express();
+
+
+app.use(session({
+    secret: 'El queso', 
+    idioma: 'esp',
+    resave: false,
+    saveUninitialized: false
+}));
+
+app.use(userOnMiddleware);
+
 
 
 // view engine setup
@@ -26,14 +38,6 @@ app.use(cookieParser());
 app.use(methodOverride('_method'));
 
 app.use(express.static(path.resolve(__dirname, '../public')));
-
-app.use(session({
-    secret: 'El queso', 
-    idioma: 'esp',
-    resave: false,
-    saveUninitialized: false
-}));
-
 
 app.use('/', mainRouter);
 app.use('/productos', productsRouter);

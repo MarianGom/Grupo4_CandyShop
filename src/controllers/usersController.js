@@ -11,8 +11,10 @@ const Usuario = db.Usuarios;
 /* Paths */
 const login = path.resolve(__dirname, '../views/usuarios/login.ejs');
 const register = path.resolve(__dirname, '../views/usuarios/register.ejs');
-const detail = path.resolve(__dirname, '../views/usuarios/detailProfile.ejs');
+/* PARA REACT! const detail = path.resolve(__dirname, '../views/usuarios/detailProfile.ejs'); */
+const myProfile = path.resolve(__dirname, '../views/usuarios/detailProfile.ejs');
 const editProfile = path.resolve(__dirname, '../views/usuarios/editProfile.ejs');
+const editPassword = path.resolve(__dirname, '../views/usuarios/editPassword.ejs');
 const deleteProfile = path.resolve(__dirname, '../views/usuarios/deleteProfile.ejs');
 const goodbyeProfile = path.resolve(__dirname, '../views/adios.ejs');
 
@@ -55,7 +57,7 @@ const usersController = {
 
                     console.log(req.session.usuario);
 
-                    res.render(detail, {user: datos});
+                    res.redirect("/user/myProfile");
 
                 } else {   
                     /* Error en validación */
@@ -76,24 +78,25 @@ const usersController = {
         return res.redirect('/')
     },
 
-    show: async (req, res) => {
+    showOne: async (req, res, next) =>{
+        const idUsuarioOn = req.session.usuario.id;
 
         try{
-            const datos = await Usuario.findOne({
+            const misDatos = await Usuario.findOne({
                 where: {
-                    id: req.params.id,
+                    id: idUsuarioOn,
                     estado: 1
                 }
-            })
-            
-            res.render(detail, {user: datos})
-        } catch(error){
-            console.log(error)
+            });
+
+            res.render(myProfile,  {user: misDatos});
+        } catch (error){
+            console.log(error);
         }
-        
     },
 
     create: (req, res, next) => {
+        res.cookie('testing', 'Hola Mundo', { maxAge: 1000*30 })
         res.render(register, {});
     },
 
@@ -166,7 +169,7 @@ const usersController = {
 
     update: async (req, res, next) => {
 
-        const userId = req.params.id;
+        const userId = req.session.usuario.id;
         const user = req.body;
 
         await Usuario.update(
@@ -174,7 +177,7 @@ const usersController = {
                 nombre: user.nombreUser,
                 apellido: user.apellidoUser,
                 email: user.mailUser,
-                password: user.password,
+                /* password: user.password, */
                 fotoPerfil: user.image,
                 telefono: user.telefonoUser,
             },
@@ -188,7 +191,55 @@ const usersController = {
         try{
             const datos = await Usuario.findOne({
                 where: {
-                    id: req.params.id
+                    id: userId
+                }
+            })
+            
+            res.render(editProfile, {user: datos})
+        } catch(error){
+            console.log(error)
+        }
+    },
+
+    passwordEdit: async (req, res, next) => {
+
+        const userId = req.session.usuario.id;
+ 
+        try{
+            const datos = await Usuario.findOne({
+                where: {
+                    id: userId, 
+                    estado: 1
+                }
+            })
+            
+            res.render(editPassword, {user: datos})
+
+        } catch(error){
+            console.log(error)
+        }
+    },
+
+    confirmPasswordEdit: async (req, res, next) => {
+
+        const userId = req.session.usuario.id;
+        const user = req.body;
+
+        await Usuario.update(
+            {
+                password: user.password
+            },
+            {
+                where: {
+                    id: userId
+                }
+            }
+        )
+
+        try{
+            const datos = await Usuario.findOne({
+                where: {
+                    id: userId
                 }
             })
             
@@ -253,6 +304,25 @@ const usersController = {
         }
     }
     */
+
+    /*  PARA REACT!
+
+    showAll: async (req, res) => {
+
+        try{
+            const datos = await Usuario.findOne({
+                where: {
+                    id: req.params.id,
+                    estado: 1
+                }
+            })
+            
+            res.render(detail, {user: datos})
+        } catch(error){
+            console.log(error)
+        }
+        
+    }, */
 
 };
 

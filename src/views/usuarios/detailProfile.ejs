@@ -27,20 +27,20 @@
 
     <%- include('../partials/nav') %>
     <main class="infoPerfil">
-        <div class="caja-rosa">
-        </div>
         
         <div class="caja-info">
-
-            <h3>Mi Perfil</h3>
-            
-            <div class="foto">
-                <h4><%= user.fotoPerfil %></h4>
-                <% if (user.fotoPerfil) {%>
-                    <img class="w-100" src="/img/usuarios/<%= user.fotoPerfil %>" alt="<%= user.nombre %>">
-                <%} else {%>
-                    <img src="/img/usuarios/NoProfilePic.png" alt="Sin Foto">
-                <%}%>
+            <div class="caja-rosa">
+                
+                <h3>Mi Perfil</h3>
+                
+                <div class="foto">
+                    <!-- <h4><%= user.fotoPerfil %></h4> -->
+                    <% if (user.fotoPerfil) {%>
+                        <img class="w-100" src="/img/usuarios/<%= user.fotoPerfil %>" alt="<%= user.nombre %>">
+                    <%} else {%>
+                        <img src="/img/usuarios/NoProfilePic.png" alt="Sin Foto">
+                    <%}%>
+                </div>
             </div>
             
             <br>
