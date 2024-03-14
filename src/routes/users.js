@@ -65,8 +65,8 @@ router.get('/myProfile', authMiddleware, usersController.showOne);
 router.get('/edit/:id', usersController.edit); 
 router.put('/edit/:id', uploadFile.single('image'), usersController.update);
 
-router.get('/editPassw/:id', validateRegister, usersController.passwordEdit);
-router.put('/editPassw/:id', validateRegister, usersController.confirmPasswordEdit);
+router.get('/changePassword', usersController.passwordEdit);
+router.put('/changePassword', authMiddleware, usersController.confirmPasswordEdit);
 
 router.get('/delete/:id', usersController.delete); 
 router.delete('/delete/:id', usersController.destroy);

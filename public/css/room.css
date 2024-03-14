@@ -9,10 +9,11 @@
     --bg-violeta-medio: #E39AFC;
     --bg-violeta-oscuro: #BC7AF9;
     --bg-gris: #585858;
+    --bg-gris-oscuro: #474747;
 
     --bg-rosa-oscuro-hover: #e84ba7;
     --bg-violeta-oscuro-hover: #924ad5;
-    --bg-gris-hover: #474747;
+    --bg-gris-hover: #272727;
 
     --text-principal: #272727;
     --text-secundario: rgba(39, 39, 39, 0.5);

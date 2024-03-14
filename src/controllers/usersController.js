@@ -13,7 +13,9 @@ const register = path.resolve(__dirname, '../views/usuarios/register.ejs');
 /* PARA REACT! const detail = path.resolve(__dirname, '../views/usuarios/detailProfile.ejs'); */
 const myProfile = path.resolve(__dirname, '../views/usuarios/detailProfile.ejs');
 const editProfile = path.resolve(__dirname, '../views/usuarios/editProfile.ejs');
-const editPassword = path.resolve(__dirname, '../views/usuarios/editPassword.ejs');
+
+const editPass = path.resolve(__dirname, '../views/usuarios/editPassword.ejs');
+
 const deleteProfile = path.resolve(__dirname, '../views/usuarios/deleteProfile.ejs');
 const goodbyeProfile = path.resolve(__dirname, '../views/adios.ejs');
 
@@ -190,18 +192,16 @@ const usersController = {
     },
 
     passwordEdit: async (req, res, next) => {
-
-        const userId = req.session.usuario.id;
  
         try{
             const datos = await Usuario.findOne({
                 where: {
-                    id: userId, 
+                    id: req.session.usuario.id, 
                     estado: 1
                 }
             })
             
-            res.render(editPassword, {user: datos})
+            res.render(editPass, {user: datos})
 
         } catch(error){
             console.log(error)

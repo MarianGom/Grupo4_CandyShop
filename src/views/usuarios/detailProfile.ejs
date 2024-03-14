@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Mi Perfil</title>
 
     <link rel="shortcut icon" href="/img/favicon.png" type="image/png">
     
@@ -42,29 +42,21 @@
                     <%}%>
                 </div>
             </div>
-            
-            <br>
     
             <div class="nombre">
                 <p>Nombre:</p>
                 <h4><%= user.nombre %></h4>
             </div>
     
-            <br>
-    
             <div class="apellido">
                 <p>Apellido:</p>
                 <h4><%= user.apellido %></h4>
             </div>
     
-            <br>
-    
             <div class="mail">
                 <p>Email:</p>
                 <h4><%= user.email %></h4>
             </div>
-    
-            <br>
     
             <div class="perfil">
                 <p>Tipo de perfil:</p>
@@ -76,39 +68,32 @@
                 </h4>
             </div>
     
-            <br>
-    
-            <br>
-    
             <div class="telefono">
                 <p>Teléfono:</p>
                 <% if (user.telefono) {%>
                     <h4><%= user.telefono %></h4>
                 <%} else {%>
-                    <h4>Todavía no se registró un número de teléfono</h4>
+                    <h4>Todavía no se registró <br>un número de teléfono</h4>
                 <%}%>
             </div>
-    
-            <br>
-            <br>
-    
-            <a href="/user/edit/<%= user.id %>">
-                <button>
-                    <i class="bi bi-pencil"></i>
-                </button>
-            </a>
-    
-            <br>
-            <br>
-    
-            <a href="/user/delete/<%= user.id %>">
-                <button>
-                    <i class="bi bi-trash"></i>
-                </button>
-            </a>
-    
-            <br>
-            <br>
+
+            <div class="opciones">
+                <a href="/user/changePassword" class="button-rosa">
+                    Cambiar mi contraseña
+                </a>
+        
+                <a href="/user/edit" class="button-violeta">
+                    Editar Perfil
+                </a>
+        
+        
+                <a href="/user/delete" class="button-gris">
+                    Eliminar cuenta
+                </a>
+            </div>
+
+            <img class="golosinas-login" src="/img/estructura/golosinas.png" width="100px">
+
         </div>
 
     </main>
