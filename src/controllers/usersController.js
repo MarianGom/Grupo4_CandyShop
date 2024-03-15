@@ -102,17 +102,17 @@ const usersController = {
         res.render(register, {});
     },
 
-    store: (req, res) =>{
+    /* store: (req, res) =>{
         const resultValidation = validationResult(req);
         console.log(resultValidation.errors)
         if( resultValidation.errors.length > 0){
             return res.render('register', {
                 errors: resultValidation.mapped()
             });
-        }
-    },
+        } 
+    }, */
     
-    /*
+    
     store: async (req, res, next) => {
         const userNew = req.body;
         const error = '';
@@ -137,7 +137,7 @@ const usersController = {
             /* Re-Chequear los campos por si las moscas */
 
             /* const password = userNew.password.slice(16); */
-/*
+
             await Usuario.create({
                 nombre: userNew.nombreUser,
                 apellido: userNew.apellidoUser,
@@ -150,12 +150,12 @@ const usersController = {
             )
         }
 
-    }, */
+    }, 
 
     edit: async (req, res, next) => {
 
         const userId = req.session.usuario.id;
-        console.log(userId)
+        console.log(`\n\n${userId}\n\n`);
         try{
             const datos = await Usuario.findOne({
                 where: {
@@ -181,7 +181,6 @@ const usersController = {
                 nombre: user.nombreUser,
                 apellido: user.apellidoUser,
                 email: user.mailUser,
-                /* password: user.password, */
                 fotoPerfil: user.image,
                 telefono: user.telefonoUser,
             },
@@ -205,20 +204,20 @@ const usersController = {
         }
     },
 
-    passwordEdit: async (req, res, next) => {
- 
+    passwordEdit: (req, res, next) => {
+
         try{
-            const datos = await Usuario.findOne({
+           /*  const datos = await Usuario.findOne({
                 where: {
                     id: req.session.usuario.id, 
                     estado: 1
                 }
-            })
+            }) */
             
-            res.render(editPass, {user: datos})
+            res.render(editPass, {});
 
         } catch(error){
-            console.log(error)
+            console.log(error);
         }
     },
 

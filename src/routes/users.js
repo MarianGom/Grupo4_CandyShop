@@ -92,10 +92,10 @@ router.post('/register', validateRegister, guestMiddleware, usersController.stor
 
 router.get('/myProfile', authMiddleware, usersController.showOne);
 
-router.get('/edit/:id', usersController.edit); 
-router.put('/edit/:id', uploadFile.single('image'),validateEditUser, usersController.update);
+router.get('/edit', usersController.edit); 
+router.put('/edit', uploadFile.single('image'),validateEditUser, usersController.update);
 
-router.get('/changePassword', usersController.passwordEdit);
+router.get('/changePassword', authMiddleware, usersController.passwordEdit);
 router.put('/changePassword', authMiddleware, usersController.confirmPasswordEdit);
 
 router.get('/delete/:id', usersController.delete); 
