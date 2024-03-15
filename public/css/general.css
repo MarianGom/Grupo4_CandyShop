@@ -613,6 +613,12 @@ h1{
     filter: drop-shadow(3px 0px 5px var(--sombra-primaria));
 }
 
+.editPerfil .golosinas-login, .infoPerfil .golosinas-register{
+    margin-top: 30px;
+    width: 100px;
+    filter: drop-shadow(3px 0px 5px var(--sombra-primaria));
+}
+
 .login-body .input-group, .register-body .input-group{
     display: flex;
     flex-direction: column;
@@ -626,11 +632,29 @@ h1{
     margin-bottom: 5px;
 }
 
+.editPerfil .input-group label{
+    margin-left: 10px;
+    margin-bottom: 5px;
+}
+
 .login-body .input-group input, .register-body .input-group input{
     height: 40px;
     background-color: var(--bg-principal);
     border: none;
     border-radius: 20px;
+    padding: 0px 20px;
+}
+
+.editPerfil .input-group{
+    display: flex;
+    flex-direction: column;
+}
+
+.editPerfil .input-group input{
+    height: 40px;
+    background-color: var(--bg-principal);
+    border: 3px solid var(--bg-violeta-medio);
+    border-radius: 15px;
     padding: 0px 20px;
 }
 
@@ -644,7 +668,10 @@ h1{
     border-radius: 20px 0px 0px 20px;
 }
 
-.login-body .password-input button, .register-body .password-input button{
+.login-body .password-input div.ver, .register-body .password-input div.ver{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 40px;
     border-radius: 0px 20px 20px 0px;
     background-color: var(--bg-principal);
@@ -654,7 +681,7 @@ h1{
     transition: all .2s ease-in-out;
 }
 
-.login-body .password-input button:hover, .register-body .password-input button:hover{
+.login-body .password-input div.ver:hover, .register-body .password-input div.ver:hover{
     font-size: 16px;
     background-color: var(--bg-disabled);
 }
@@ -717,14 +744,18 @@ h1{
 /* Editar Usuario */
 
 
-.infoPerfil .caja-info{
+.infoPerfil .caja-info, .editPerfil .caja-info, .editPerfil .caja-info form{
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: transparent;
 }
 
-.infoPerfil .caja-rosa{
+.editPerfil .caja-info form{
+    width: 100%;
+}
+
+.infoPerfil .caja-rosa, .editPerfil .caja-rosa{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -735,13 +766,13 @@ h1{
     background: linear-gradient(180deg, rgba(255,180,224,1) 60%, rgba(255,255,255,0) 60%);
 }
 
-.infoPerfil .caja-rosa h3{
+.infoPerfil .caja-rosa h3, .editPerfil .caja-rosa h3{
     font-size: 30px;
     font-weight: 600;
     color: var(--text-rosa-claro)
 }
 
-.caja-info .caja-rosa .foto{
+.caja-info .caja-rosa .foto, .editPerfil .caja-rosa .foto{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -752,31 +783,29 @@ h1{
     background-color: var(--bg-principal);
 }
 
-.caja-info .foto img{
+.caja-rosa .foto img{
     width: 150px;
     height: 150px;
     border-radius: 50%;
 }
 
-.infoPerfil .nombre, .infoPerfil .apellido, .infoPerfil .mail, .infoPerfil .perfil, .infoPerfil .telefono{
+.infoPerfil .nombre, .infoPerfil .apellido, .infoPerfil .mail, .infoPerfil .perfil, .infoPerfil .telefono, .editPerfil .nombre, .editPerfil .apellido, .editPerfil .mail, .editPerfil .perfil, .editPerfil .telefono{
     width: calc(100% - 100px);
-
 }
 
-.infoPerfil .apellido, .infoPerfil .mail, .infoPerfil .perfil, .infoPerfil .telefono{
+.infoPerfil .apellido, .infoPerfil .mail, .infoPerfil .perfil, .infoPerfil .telefono, .editPerfil .apellido, .editPerfil .mail, .editPerfil .perfil, .editPerfil .telefono{
     margin-top: 30px;
-    
 }
 
 .infoPerfil .caja-info h4{
     text-align: center;
 }
 
-.infoPerfil .opciones{
+.infoPerfil .opciones, .editPerfil .opciones{
     margin: 40px 0px;
 }
 
-.infoPerfil .button-rosa, .infoPerfil .button-violeta, .infoPerfil .button-gris{
+.infoPerfil .button-rosa, .infoPerfil .button-violeta, .infoPerfil .button-gris, .editPerfil .button-rosa, .editPerfil .button-violeta, .editPerfil .button-gris{
     margin: 15px 0px;
 }
 
