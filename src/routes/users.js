@@ -98,8 +98,8 @@ router.put('/edit', uploadFile.single('image'),validateEditUser, usersController
 router.get('/changePassword', authMiddleware, usersController.passwordEdit);
 router.put('/changePassword', authMiddleware, usersController.confirmPasswordEdit);
 
-router.get('/delete/:id', usersController.delete); 
-router.delete('/delete/:id', usersController.destroy);
+router.get('/delete', authMiddleware, usersController.delete); 
+router.delete('/delete', authMiddleware, usersController.destroy);
 
 /* Admin */
 /* PARA REACT! router.get('/profile/:id', authMiddleware, usersController.showAll); */

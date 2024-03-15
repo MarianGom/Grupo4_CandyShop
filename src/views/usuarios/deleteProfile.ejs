@@ -8,6 +8,7 @@
     <link rel="shortcut icon" href="/img/favicon.png" type="image/png">
     
     <link rel="stylesheet" href="/css/room.css">
+    <link rel="stylesheet" href="/css/general.css">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,89 +24,53 @@
 </head>
 <body onresize="resizeMenu()">
 
-
     <%- include('../partials/nav') %>
-    <main>
-        <form action="/user/delete/<%= user.id %>?_method=DELETE" method="POST" enctype="multipart/form-data">
-            <h2>¿Está seguro que desea eliminar este usuario?</h2>
 
-            <div class="submit">
-                <button type="submit" id="add">
-                    <i class="bi bi-plus-circle"></i>
-                    Confirmar
-                </button>
+    <main class="delPerfil">
+        <div id="banner-rosa">
+        </div>
+
+        <div class="caja-info">
+            <div class="caja-titulo">
+                <h1>Eliminar mi cuenta</h1>
             </div>
-        </form>
-        
-        <div class="nombre">
-            <p>Nombre:</p>
-            <h4><%= user.nombre %></h4>
-        </div>
 
-        <br>
+            <div class="caja-texto">
+                <h4>¿Deseas eliminar tu cuenta?</h4>
+                
+                <p>
+                    Ten en cuenta que todos los <br>
+                    datos de esta cuenta se perderán, <br>
+                    lo que hará que no puedas <br>
+                    ver tus compras antiguas.
+                </p>
+                <p>
+                    Si aún quieres continuar con <br>
+                    el borrado de tu cuenta, <br>
+                    ingresa tu contraseña a continuación:
+                </p>
+            </div>
+            
+            <form action="/user/delete?_method=DELETE" method="POST" enctype="multipart/form-data">
+                <div class="input-group">
+                    <label for="password">Ingresar contraseña:</label>
+                    <input type="text" id="password" name="password" placeholder="********" required>
+                </div>
+    
+                <div class="opciones">
+                    <button type="submit" class="button-rosa">
+                        Eliminar mi cuenta
+                    </button>
+                    
+                    <a href="/user/myProfile" class="button-gris">
+                        Cancelar y volver
+                    </a>
+                </div>
+            </form>
+            
+            <img class="golosinas" src="/img/estructura/golosinas.png">
 
-        <div class="apellido">
-            <p>Apellido:</p>
-            <h4><%= user.apellido %></h4>
-        </div>
-
-        <br>
-
-        <div class="mail">
-            <p>Email:</p>
-            <h4><%= user.email %></h4>
-        </div>
-
-        <br>
-
-        <div class="password">
-            <p>Contraseña:</p>
-            <h4><%= user.password %></h4>
-        </div>
-
-        <br>
-
-        <div class="perfil">
-            <p>Tipo de perfil:</p>
-            <h4><% if (user.isAdmin == false) { %>
-                    Usuario
-                <% } else { %>
-                    Administrador
-                <% } %>
-            </h4>
-        </div>
-
-        <br>
-
-        <div class="foto">
-            <p>Foto:</p>
-            <h4><%= user.fotoPerfil %></h4>
-        </div>
-        <% if (user.fotoPerfil) {%>
-            <img class="w-100" src="/img/usuarios/<%= user.fotoPerfil %>" alt="<%= user.nombre %>">
-        <%} else {%>
-            <p>Todavia no posee imagen</p>
-        <%}%>
-        
-
-        <br>
-        <br>
-
-        <div class="telefono">
-            <p>Teléfono:</p>
-            <h4><%= user.telefono %></h4>
-        </div>
-
-
-        <br>
-        <br>
-        
-
-       <!--  <a href="/user/edit/<%= user.idUser %>">
-            <button>
-                <i class="bi bi-pencil"></i>
-            </button>
-        </a> -->
+        </div>    
 
     </main>
     

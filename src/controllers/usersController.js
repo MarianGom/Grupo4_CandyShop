@@ -253,14 +253,10 @@ const usersController = {
 
     delete: async (req, res, next) =>{
 
+
         try{
-            const datos = await Usuario.findOne({
-                where: {
-                    id: req.params.id
-                }
-            })
             
-            res.render(deleteProfile, {user: datos})
+            res.render(deleteProfile, {})
         } catch(error){
             console.log(error)
         }
@@ -271,20 +267,36 @@ const usersController = {
         
         try{
 
-            const userId = req.params.id;
-
-            await Usuario.update(
-                {
-                    estado: 2,
-                },
-                {
-                    where: {
-                        id: userId
-                    }
+            const userId = req.session.usuario.id;
+            let passwordRaw = req.body.password;
+    
+    
+            const usuario = await Usuario.findOne({
+                where: {
+                    id: userId
                 }
-            )
+            })
             
-            res.render(goodbyeProfile, {});
+
+            const datos = usuario.dataValues;
+            const validacion = bcryptjs.compareSync(passwordRaw, datos.password);
+    
+            if(validacion){
+
+                await Usuario.update(
+                    {
+                        estado: 2,
+                    },
+                    {
+                        where: {
+                            id: userId
+                        }
+                    }
+                )
+                
+                res.render(goodbyeProfile, {});
+            }
+            
             
         } catch(err){
             console.log(err.message)    

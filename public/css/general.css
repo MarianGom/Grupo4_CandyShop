@@ -613,7 +613,7 @@ h1{
     filter: drop-shadow(3px 0px 5px var(--sombra-primaria));
 }
 
-.editPerfil .golosinas-login, .infoPerfil .golosinas-register{
+.editPerfil .golosinas, .infoPerfil .golosinas, .delPerfil .golosinas{
     margin-top: 30px;
     width: 100px;
     filter: drop-shadow(3px 0px 5px var(--sombra-primaria));
@@ -632,7 +632,7 @@ h1{
     margin-bottom: 5px;
 }
 
-.editPerfil .input-group label{
+.editPerfil .input-group label, .delPerfil .input-group label{
     margin-left: 10px;
     margin-bottom: 5px;
 }
@@ -645,12 +645,12 @@ h1{
     padding: 0px 20px;
 }
 
-.editPerfil .input-group{
+.editPerfil .input-group, .delPerfil .input-group{
     display: flex;
     flex-direction: column;
 }
 
-.editPerfil .input-group input{
+.editPerfil .input-group input, .delPerfil .input-group input{
     height: 40px;
     background-color: var(--bg-principal);
     border: 3px solid var(--bg-violeta-medio);
@@ -744,7 +744,7 @@ h1{
 /* Editar Usuario */
 
 
-.infoPerfil .caja-info, .editPerfil .caja-info, .editPerfil .caja-info form{
+.infoPerfil .caja-info, .editPerfil .caja-info, .editPerfil .caja-info form, .delPerfil .caja-info{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -801,14 +801,43 @@ h1{
     text-align: center;
 }
 
-.infoPerfil .opciones, .editPerfil .opciones{
+.infoPerfil .opciones, .editPerfil .opciones, .delPerfil .opciones{
     margin: 40px 0px;
 }
 
-.infoPerfil .button-rosa, .infoPerfil .button-violeta, .infoPerfil .button-gris, .editPerfil .button-rosa, .editPerfil .button-violeta, .editPerfil .button-gris{
+.infoPerfil .button-rosa, .infoPerfil .button-violeta, .infoPerfil .button-gris, .editPerfil .button-rosa, .editPerfil .button-violeta, .editPerfil .button-gris, .delPerfil .button-rosa, .delPerfil .button-gris{
     margin: 15px 0px;
 }
 
+.delPerfil .caja-info{
+    margin: 25px 25px 0px 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.delPerfil .caja-titulo{
+    width: 100%;
+    display: flex;
+    justify-content: start;
+}
+
+.delPerfil .caja-texto{
+    width: 100%;
+    margin: 30px 0px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.delPerfil .caja-texto h4{
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.delPerfil .caja-texto p{
+    padding: 10px 0px;
+}
 
 /* MQ's */
 
