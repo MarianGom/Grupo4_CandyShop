@@ -98,6 +98,9 @@ router.put('/edit', uploadFile.single('image'),validateEditUser, usersController
 router.get('/changePassword', authMiddleware, usersController.passwordEdit);
 router.put('/changePassword', authMiddleware, usersController.confirmPasswordEdit);
 
+router.get('/changePic', authMiddleware, usersController.picEdit);
+router.put('/changePic', authMiddleware, usersController.confirmPicEdit);
+
 router.get('/delete', authMiddleware, usersController.delete); 
 router.delete('/delete', authMiddleware, usersController.destroy);
 

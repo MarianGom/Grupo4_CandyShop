@@ -1,66 +1,54 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cambiar contraseña</title>
+<%- include('../partials/fontsicons') %>
 
-    <link rel="shortcut icon" href="/img/favicon.png" type="image/png">
+    <!-- CSS -->
     <link rel="stylesheet" href="/css/room.css">
     <link rel="stylesheet" href="/css/general.css">
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
-
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     
-    <!-- JS -->
-    <script src="/js/menu.js"></script>
+    <!-- Titulo -->
+    <title>Cambiar foto</title>
+
 </head>
 <body onresize="resizeMenu()">
-    <%- include('./partials/nav') %>
 
-    <main>
-        <div id="banner-rosa">
-        </div>
+    <%- include('../partials/nav') %>
 
-        <div class="caja-adios">
-            <div class="caja-titulo">
-                <h1>Lamentamos<br>dejarte ir</h1>
-            </div>
+    <main class="editPic">
 
-            <div class="caja-texto">
-                
-            </div>
+        <div class="caja-info">
+            <div class="caja-rosa">
+                <h3>Editar foto</h3>
 
-            <form action="">
-                <div class="topPerfil">
-                    <h1>Editar perfil</h1>
-                    <div class="imgPerfil">
-    
-                        <% if (user.fotoPerfil) {%>
-                            <!-- <div class="img" style="background-image: url('/img/usuarios/<%= user.fotoPerfil %>');">
-                            </div> -->
-                            <img src="/img/usuarios/<%= user.fotoPerfil %>" alt="<%= user.nombre%>">
-                        <%} else {%>
-                            <p>Todavia no posee imagen</p>
-                        <%}%>
-                    </div>
+                <div class="foto">
+                    <% if (user.fotoPerfil) {%>
+                        <div class="img" style="background-image: url('/img/usuarios/<%= user.fotoPerfil %>');">
+                        </div>
+                        <img src="/img/usuarios/<%= user.fotoPerfil %>" alt="<%= user.nombre%>">
+                    <%} else {%>
+                        <p>Todavia no posee imagen</p>
+                    <%}%>
                 </div>
-                <!-- <input type="hidden" name="oldImagen" value="<%= user.fotoPerfil%>">
-                <input type="file" name="image"> -->
+            </div>
+
+             
+            <form action="">
+                <input type="hidden" name="oldImagen" value="<%= user.fotoPerfil%>">
+                <input type="file" name="image">
+
+
+                <a href="/">
+                    <button class="button-violeta">Guardar</button>
+                </a>
+
+                <a href="/">
+                    <button class="button-gris">Cancelar y volver</button>
+                </a>
             </form>
 
-            <a href="/">
-                <button class="button-rosa">Volver al inicio</button>
-            </a>
-        </div>
+            <img class="golosinas" src="/img/estructura/golosinas.png" width="100px">
 
+        </div>
     </main>
 
-    <%- include('./partials/footer') %>
+    <%- include('../partials/footer') %>
 </body>
 </html>

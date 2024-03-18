@@ -11,11 +11,12 @@ const Usuario = db.Usuarios;
 /* Paths */
 const login = path.resolve(__dirname, '../views/usuarios/login.ejs');
 const register = path.resolve(__dirname, '../views/usuarios/register.ejs');
-/* PARA REACT! const detail = path.resolve(__dirname, '../views/usuarios/detailProfile.ejs'); */
+
 const myProfile = path.resolve(__dirname, '../views/usuarios/detailProfile.ejs');
 const editProfile = path.resolve(__dirname, '../views/usuarios/editProfile.ejs');
 
-const editPass = path.resolve(__dirname, '../views/changePass.ejs');
+const editPass = path.resolve(__dirname, '../views/usuarios/changePass.ejs');
+const editPic = path.resolve(__dirname, '../views/usuarios/changePic.ejs');
 
 const deleteProfile = path.resolve(__dirname, '../views/usuarios/deleteProfile.ejs');
 const goodbyeProfile = path.resolve(__dirname, '../views/usuarios/adios.ejs');
@@ -245,6 +246,62 @@ const usersController = {
             })
             
             res.render(editProfile, {user: datos})
+        } catch(error){
+            console.log(error)
+        }
+    },
+
+
+    picEdit: async (req, res, next) => {
+
+
+        console.log("\nEntra por editar foto\n");
+
+
+        const userId = req.session.usuario.id;
+
+        try{
+            const datos = await Usuario.findOne({
+                where: {
+                    id: userId, 
+                    estado: 1
+                }
+            }) 
+            
+            res.render(editPic, { user: datos });
+
+        } catch(error){
+            console.log(error);
+        }
+
+    
+    },
+
+
+    confirmPicEdit: async (req, res, next) => {
+
+        const userId = req.session.usuario.id;
+        const pic = req.body;
+
+        await Usuario.update(
+            {
+                fotoPerfil: pic.image
+            },
+            {
+                where: {
+                    id: userId
+                }
+            }
+        )
+
+        try{
+            const datos = await Usuario.findOne({
+                where: {
+                    id: userId
+                }
+            })
+            
+            res.redirect('/user/myProfile');
         } catch(error){
             console.log(error)
         }
