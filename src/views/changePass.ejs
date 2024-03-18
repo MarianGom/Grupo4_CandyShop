@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar contraseña</title>
+
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/png">
+    <link rel="stylesheet" href="/css/room.css">
+    <link rel="stylesheet" href="/css/general.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- JS -->
+    <script src="/js/menu.js"></script>
+    <script src="/js/changePassV.js"></script>
+</head>
+<body onresize="resizeMenu()">
+    
+    <%- include('./partials/nav') %>
+
+    <main class="editPass">
+        <div id="banner-rosa">
+        </div>
+
+        <div class="caja-info">
+            <div class="caja-titulo">
+                <h1>Cambiar mi contraseña</h1>
+            </div>
+
+            <div class="caja-texto">
+                <form action="/user/changePassword?_method=PUT" method="POST" enctype="multipart/form-data">
+                    <div class="input-group">
+                        <label for="oldPassword">Contraseña actual:</label>
+                        <input type="password" id="oldPassword" name="oldPassword" maxlength="16" placeholder="********" autocomplete="off" required>
+    
+                        <!-- En caso de error -->
+                        <div class="oldPasswordError">
+                        </div>
+                    </div>
+    
+                    <div class="input-group">
+                        <label for="newPassword">Nueva contraseña:</label>
+                        <input type="password" id="newPassword" name="newPassword" maxlength="16" placeholder="********"  autocomplete="off" required>
+    
+                        <!-- En caso de error -->
+                        <div class="newPasswordError">
+                        </div>
+                    </div>
+    
+                    <div class="input-group">
+                        <label for="confirmPassword">Repetir nueva contraseña:</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="********" maxlength="16" autocomplete="off" required>
+    
+                        <div class="confirmacionError">
+                        </div>
+                    </div>
+                    
+                    <div class="opciones">
+                        <button type="submit" class="button-rosa">
+                            Cambiar mi contraseña
+                        </button>
+                        
+                        <a href="/user/myProfile" class="button-gris">
+                            Cancelar y volver
+                        </a>
+                    </div>
+                </form>
+            </div>
+
+            <img class="golosinas" src="/img/estructura/golosinas.png">
+
+        </div>
+
+    </main>
+
+    <%- include('./partials/footer') %>
+</body>
+</html>

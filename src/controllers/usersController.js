@@ -15,10 +15,10 @@ const register = path.resolve(__dirname, '../views/usuarios/register.ejs');
 const myProfile = path.resolve(__dirname, '../views/usuarios/detailProfile.ejs');
 const editProfile = path.resolve(__dirname, '../views/usuarios/editProfile.ejs');
 
-const editPass = path.resolve(__dirname, '../views/usuarios/changePassword.ejs');
+const editPass = path.resolve(__dirname, '../views/changePass.ejs');
 
 const deleteProfile = path.resolve(__dirname, '../views/usuarios/deleteProfile.ejs');
-const goodbyeProfile = path.resolve(__dirname, '../views/adios.ejs');
+const goodbyeProfile = path.resolve(__dirname, '../views/usuarios/adios.ejs');
 
 
 /* Controller */
@@ -204,17 +204,17 @@ const usersController = {
         }
     },
 
-    passwordEdit: (req, res, next) => {
+    passwordEdit: async (req, res, next) => {
 
         try{
-           /*  const datos = await Usuario.findOne({
+            const datos = await Usuario.findOne({
                 where: {
                     id: req.session.usuario.id, 
                     estado: 1
                 }
-            }) */
+            })
             
-            res.render(editPass, {});
+            res.render(editPass, {user: datos});
 
         } catch(error){
             console.log(error);

@@ -67,8 +67,8 @@ let validateEditUser = [
         .notEmpty().withMessage('Completar el apellido.').bail()
         .isLength({min : 2})
         .isString(),
-    body('password')
-        .notEmpty().withMessage('Completar contraseña.').bail()
+    body('telefono')
+        .notEmpty().withMessage('Completar teléfono.').bail()
         .isLength({min : 4})
     ];
 

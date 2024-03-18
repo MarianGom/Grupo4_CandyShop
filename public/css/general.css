@@ -613,7 +613,7 @@ h1{
     filter: drop-shadow(3px 0px 5px var(--sombra-primaria));
 }
 
-.editPerfil .golosinas, .infoPerfil .golosinas, .delPerfil .golosinas{
+.editPerfil .golosinas, .infoPerfil .golosinas, .delPerfil .golosinas, .editPass .golosinas{
     margin-top: 30px;
     width: 100px;
     filter: drop-shadow(3px 0px 5px var(--sombra-primaria));
@@ -632,7 +632,7 @@ h1{
     margin-bottom: 5px;
 }
 
-.editPerfil .input-group label, .delPerfil .input-group label{
+.editPerfil .input-group label, .delPerfil .input-group label, .editPass .input-group label{
     margin-left: 10px;
     margin-bottom: 5px;
 }
@@ -645,16 +645,20 @@ h1{
     padding: 0px 20px;
 }
 
-.editPerfil .input-group, .delPerfil .input-group{
+.editPerfil .input-group, .delPerfil .input-group, .editPass .input-group{
     display: flex;
     flex-direction: column;
 }
 
-.editPerfil .input-group input, .delPerfil .input-group input{
+.editPass .input-group{
+    margin: 30px 20px;
+}
+
+.editPerfil .input-group input, .delPerfil .input-group input, .editPass .input-group input{
     height: 40px;
     background-color: var(--bg-principal);
     border: 3px solid var(--bg-violeta-medio);
-    border-radius: 15px;
+    border-radius: 10px;
     padding: 0px 20px;
 }
 
@@ -734,7 +738,7 @@ h1{
     display: none;
 }
 
-.mailError,  .nombreError,  .apellidoError,  .passwordError , .confirmacionError{
+.mailError,  .nombreError,  .apellidoError,  .passwordError , .confirmacionError, .oldPasswordError, .newPasswordError{
     margin: 5px 15px;
     color: var(--text-rosa-oscuro);
 }
@@ -744,7 +748,7 @@ h1{
 /* Editar Usuario */
 
 
-.infoPerfil .caja-info, .editPerfil .caja-info, .editPerfil .caja-info form, .delPerfil .caja-info{
+.infoPerfil .caja-info, .editPerfil .caja-info, .editPerfil .caja-info form{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -801,22 +805,23 @@ h1{
     text-align: center;
 }
 
-.infoPerfil .opciones, .editPerfil .opciones, .delPerfil .opciones{
+.infoPerfil .opciones, .editPerfil .opciones, .delPerfil .opciones, .editPass .opciones{
     margin: 40px 0px;
 }
 
-.infoPerfil .button-rosa, .infoPerfil .button-violeta, .infoPerfil .button-gris, .editPerfil .button-rosa, .editPerfil .button-violeta, .editPerfil .button-gris, .delPerfil .button-rosa, .delPerfil .button-gris{
+.infoPerfil .button-rosa, .infoPerfil .button-violeta, .infoPerfil .button-gris, .editPerfil .button-rosa, .editPerfil .button-violeta, .editPerfil .button-gris, .delPerfil .button-rosa, .delPerfil .button-gris, .editPass .button-rosa, .editPass .button-gris{
     margin: 15px 0px;
 }
 
-.delPerfil .caja-info{
+.delPerfil .caja-info, .editPass .caja-info{
     margin: 25px 25px 0px 25px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: transparent;
 }
 
-.delPerfil .caja-titulo{
+.delPerfil .caja-titulo, .editPass .caja-titulo{
     width: 100%;
     display: flex;
     justify-content: start;
@@ -837,6 +842,10 @@ h1{
 
 .delPerfil .caja-texto p{
     padding: 10px 0px;
+}
+
+.editPass .caja-texto{
+    margin-top: 30px;
 }
 
 /* MQ's */

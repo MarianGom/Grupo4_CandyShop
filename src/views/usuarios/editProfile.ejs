@@ -45,7 +45,7 @@
             <form action="/user/edit?_method=PUT" method="POST" enctype="multipart/form-data">
                 <div class="input-group nombre">
                     <label for="nombreUser">Nombre:</label>
-                    <input type="text" id="nombreUser" name="nombreUser" value="<%= user.nombre %>">
+                    <input type="text" id="nombreUser" name="nombreUser" value="<%= user.nombre %>" pattern="[A-Za-z]{2,30}" maxlength="30">
 
                     <!-- En caso de error -->
                     <div class="nombreError">
@@ -54,7 +54,7 @@
             
                 <div class="input-group apellido">
                     <label for="apellidoUser">Apellido:</label>
-                    <input type="text" id="apellidoUser" name="apellidoUser" value="<%= user.apellido %>">
+                    <input type="text" id="apellidoUser" name="apellidoUser" value="<%= user.apellido %>" pattern="[A-Za-z]{2,30}" maxlength="30">
 
                     <!-- En caso de error -->
                     <div class="apellidoError">
@@ -63,7 +63,7 @@
             
                 <div class="input-group mail">
                     <label for="mailUser">Mail:</label>
-                    <input type="text" id="mailUser" name="mailUser" value="<%= user.email %>">
+                    <input type="text" id="mailUser" name="mailUser" value="<%= user.email %>" pattern="[A-Za-z]{2,50}" maxlength="50">
 
                     <!-- En caso de error -->
                     <div class="mailError">
@@ -72,8 +72,13 @@
             
                 <div class="input-group telefono center">
                     <label for="telefonoUser">Telefono:</label>
-                    <input type="text" id="telefonoUser" name="telefonoUser" value="<%= user.telefono %>">
-
+                    <input type="text" id="telefonoUser" name="telefonoUser" pattern="[0-9]{12}" maxlength="12"
+                    <% if(user.telefono){ %> 
+                        value="<%= user.telefono %>"
+                    <% } else { %> 
+                        placeholder="385-XXX-XXXX"
+                    <% } %>
+                    >
                     <!-- En caso de error -->
                     <div class="telefonoError">
                     </div>
