@@ -613,7 +613,7 @@ h1{
     filter: drop-shadow(3px 0px 5px var(--sombra-primaria));
 }
 
-.editPerfil .golosinas, .infoPerfil .golosinas, .delPerfil .golosinas{
+.editPerfil .golosinas, .infoPerfil .golosinas, .delPerfil .golosinas, .editPass .golosinas{
     margin-top: 30px;
     width: 100px;
     filter: drop-shadow(3px 0px 5px var(--sombra-primaria));
@@ -632,7 +632,7 @@ h1{
     margin-bottom: 5px;
 }
 
-.editPerfil .input-group label, .delPerfil .input-group label{
+.editPerfil .input-group label, .delPerfil .input-group label, .editPass .input-group label{
     margin-left: 10px;
     margin-bottom: 5px;
 }
@@ -645,16 +645,20 @@ h1{
     padding: 0px 20px;
 }
 
-.editPerfil .input-group, .delPerfil .input-group{
+.editPerfil .input-group, .delPerfil .input-group, .editPass .input-group{
     display: flex;
     flex-direction: column;
 }
 
-.editPerfil .input-group input, .delPerfil .input-group input{
+.editPass .input-group{
+    margin: 30px 20px;
+}
+
+.editPerfil .input-group input, .delPerfil .input-group input, .editPass .input-group input{
     height: 40px;
     background-color: var(--bg-principal);
     border: 3px solid var(--bg-violeta-medio);
-    border-radius: 15px;
+    border-radius: 10px;
     padding: 0px 20px;
 }
 
@@ -734,7 +738,7 @@ h1{
     display: none;
 }
 
-.mailError,  .nombreError,  .apellidoError,  .passwordError , .confirmacionError{
+.mailError,  .nombreError,  .apellidoError,  .passwordError , .confirmacionError, .oldPasswordError, .newPasswordError{
     margin: 5px 15px;
     color: var(--text-rosa-oscuro);
 }
@@ -744,7 +748,7 @@ h1{
 /* Editar Usuario */
 
 
-.infoPerfil .caja-info, .editPerfil .caja-info, .editPerfil .caja-info form, .delPerfil .caja-info{
+.infoPerfil .caja-info, .editPerfil .caja-info, .editPerfil .caja-info form, .editPic .caja-info{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -755,7 +759,7 @@ h1{
     width: 100%;
 }
 
-.infoPerfil .caja-rosa, .editPerfil .caja-rosa{
+.infoPerfil .caja-rosa, .editPerfil .caja-rosa, .editPic .caja-rosa{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -766,10 +770,44 @@ h1{
     background: linear-gradient(180deg, rgba(255,180,224,1) 60%, rgba(255,255,255,0) 60%);
 }
 
-.infoPerfil .caja-rosa h3, .editPerfil .caja-rosa h3{
+.infoPerfil .caja-rosa h3, .editPerfil .caja-rosa h3, .editPic .caja-rosa h3{
     font-size: 30px;
     font-weight: 600;
     color: var(--text-rosa-claro)
+}
+
+.infoPerfil .button-editPic{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    margin: -65px 35px;
+    background-color: var(--bg-principal);
+    color: var(--bg-rosa-medio);
+    border: 3px solid var(--bg-rosa-medio);
+    border-radius: 100%;
+    font-size: 25px;
+}
+
+.infoPerfil .button-editPic i{
+    text-shadow: 1px 1px 0px var(--bg-rosa-medio), 0px 1px 0px var(--bg-rosa-medio), 1px 0px 0px var(--bg-rosa-medio);
+}
+
+.infoPerfil .button-editPic:hover{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    margin: -65px 35px;
+    background-color: var(--bg-principal);
+    color: var(--bg-rosa-medio);
+    border: 3px solid var(--bg-rosa-medio);
+    border-radius: 100%;
+    font-size: 25px;
 }
 
 .caja-info .caja-rosa .foto, .editPerfil .caja-rosa .foto{
@@ -801,22 +839,23 @@ h1{
     text-align: center;
 }
 
-.infoPerfil .opciones, .editPerfil .opciones, .delPerfil .opciones{
+.infoPerfil .opciones, .editPerfil .opciones, .delPerfil .opciones, .editPass .opciones{
     margin: 40px 0px;
 }
 
-.infoPerfil .button-rosa, .infoPerfil .button-violeta, .infoPerfil .button-gris, .editPerfil .button-rosa, .editPerfil .button-violeta, .editPerfil .button-gris, .delPerfil .button-rosa, .delPerfil .button-gris{
+.infoPerfil .button-rosa, .infoPerfil .button-violeta, .infoPerfil .button-gris, .editPerfil .button-rosa, .editPerfil .button-violeta, .editPerfil .button-gris, .delPerfil .button-rosa, .delPerfil .button-gris, .editPass .button-rosa, .editPass .button-gris{
     margin: 15px 0px;
 }
 
-.delPerfil .caja-info{
+.delPerfil .caja-info, .editPass .caja-info{
     margin: 25px 25px 0px 25px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: transparent;
 }
 
-.delPerfil .caja-titulo{
+.delPerfil .caja-titulo, .editPass .caja-titulo{
     width: 100%;
     display: flex;
     justify-content: start;
@@ -837,6 +876,10 @@ h1{
 
 .delPerfil .caja-texto p{
     padding: 10px 0px;
+}
+
+.editPass .caja-texto{
+    margin-top: 30px;
 }
 
 /* MQ's */

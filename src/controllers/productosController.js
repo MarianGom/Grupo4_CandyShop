@@ -5,7 +5,6 @@ const db = require('../database/models');
 const Producto = db.Productos;
 const Categoria = db.Categorias;
 const Info = db.Infos;
-/* const InfoNutricional = db.Infos; */
 
 const mainProduct = path.resolve(__dirname, '../views/productos/catalogoProductos.ejs');
 const listProduct = path.resolve(__dirname, '../views/productos/listProductos.ejs');

@@ -1,0 +1,76 @@
+<%- include('../partials/fontsicons') %>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/room.css">
+    <link rel="stylesheet" href="/css/general.css">
+
+    <!-- Titulo -->
+    <title>Cambiar contraseña</title>
+    
+</head>
+<body onresize="resizeMenu()">
+    
+    <%- include('../partials/nav') %>
+
+    <main class="editPass">
+        <div id="banner-rosa">
+        </div>
+
+        <div class="caja-info">
+            <div class="caja-titulo">
+                <h1>Cambiar mi contraseña</h1>
+            </div>
+
+            <div class="caja-texto">
+                <form action="/user/changePassword?_method=PUT" method="POST" enctype="multipart/form-data">
+                    <div class="input-group">
+                        <label for="oldPassword">Contraseña actual:</label>
+                        <input type="password" id="oldPassword" name="oldPassword" maxlength="16" placeholder="********" autocomplete="off" required>
+    
+                        <!-- En caso de error -->
+                        <div class="oldPasswordError">
+                        </div>
+                    </div>
+    
+                    <div class="input-group">
+                        <label for="newPassword">Nueva contraseña:</label>
+                        <input type="password" id="newPassword" name="newPassword" maxlength="16" placeholder="********"  autocomplete="off" required>
+    
+                        <!-- En caso de error -->
+                        <div class="newPasswordError">
+                        </div>
+                    </div>
+    
+                    <div class="input-group">
+                        <label for="confirmPassword">Repetir nueva contraseña:</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="********" maxlength="16" autocomplete="off" required>
+    
+                        <div class="confirmacionError">
+                        </div>
+                    </div>
+                    
+                    <div class="opciones">
+                        <button type="submit" class="button-rosa">
+                            Cambiar mi contraseña
+                        </button>
+                        
+                        <a href="/user/myProfile" class="button-gris">
+                            Cancelar y volver
+                        </a>
+                    </div>
+                </form>
+            </div>
+
+            <img class="golosinas" src="/img/estructura/golosinas.png">
+
+        </div>
+
+    </main>
+
+    <%- include('../partials/footer') %>
+
+    <!-- JS -->
+    <script src="/js/changePassV.js"></script>
+    
+</body>
+</html>

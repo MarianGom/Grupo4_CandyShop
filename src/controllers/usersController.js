@@ -198,20 +198,22 @@ const usersController = {
     }
   },
 
-  passwordEdit: (req, res, next) => {
-    try {
-      /*  const datos = await Usuario.findOne({
+    passwordEdit: async (req, res, next) => {
+
+        try{
+            const datos = await Usuario.findOne({
                 where: {
                     id: req.session.usuario.id, 
                     estado: 1
                 }
-            }) */
+            })
+            
+            res.render(editPass, {user: datos});
 
-      res.render(editPass, {});
-    } catch (error) {
-      console.log(error);
-    }
-  },
+        } catch(error){
+            console.log(error);
+        }
+    },
 
   confirmPasswordEdit: async (req, res, next) => {
     const userId = req.session.usuario.id;
@@ -241,13 +243,74 @@ const usersController = {
     }
   },
 
-  delete: async (req, res, next) => {
-    try {
-      res.render(deleteProfile, {});
-    } catch (error) {
-      console.log(error);
-    }
-  },
+
+    picEdit: async (req, res, next) => {
+
+
+        console.log("\nEntra por editar foto\n");
+
+
+        const userId = req.session.usuario.id;
+
+        try{
+            const datos = await Usuario.findOne({
+                where: {
+                    id: userId, 
+                    estado: 1
+                }
+            }) 
+            
+            res.render(editPic, { user: datos });
+
+        } catch(error){
+            console.log(error);
+        }
+
+    
+    },
+
+
+    confirmPicEdit: async (req, res, next) => {
+
+        const userId = req.session.usuario.id;
+        const pic = req.body;
+
+        await Usuario.update(
+            {
+                fotoPerfil: pic.image
+            },
+            {
+                where: {
+                    id: userId
+                }
+            }
+        )
+
+        try{
+            const datos = await Usuario.findOne({
+                where: {
+                    id: userId
+                }
+            })
+            
+            res.redirect('/user/myProfile');
+        } catch(error){
+            console.log(error)
+        }
+    },
+
+
+    delete: async (req, res, next) =>{
+
+
+        try{
+            
+            res.render(deleteProfile, {})
+        } catch(error){
+            console.log(error)
+        }
+
+    },
 
   destroy: async (req, res, next) => {
     try {
