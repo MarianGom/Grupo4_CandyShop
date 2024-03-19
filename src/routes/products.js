@@ -29,30 +29,7 @@ const storage =  multer.diskStorage({
 
 const uploadFile = multer({ storage: storage });
 
-
-/* Validaciones - ExpressValidator */
-let validateAddProduct = [
-    body('nombre')
-        .notEmpty().withMessage('Completar el campo nombre').bail()
-        .isLength({ min: 4})
-        .isString(),
-    body('sabor')
-        .notEmpty().withMessage('Completar el campo sabor').bail()
-        .isLength({min : 4})
-        .isString(),
-    body('descripcion')
-        .notEmpty().withMessage('Completar el campo descripcion').bail()
-        .isLength({min : 4})
-        .isString(),
-    body('stock')
-        .notEmpty().withMessage('Completar el campo stock').bail()
-        .isInt(),
-    body('precio')
-        .notEmpty().withMessage('Completar el campo precio').bail()
-        .isFloat(),
-    body('categoriaProd')
-        .notEmpty().withMessage('Seleccionar una categoria').bail()
-];
+const validateAddProduct = require('../middlewares/addProductValidate')
 
 /* Validaciones - ExpressValidator */
 let validateEditProduct = [

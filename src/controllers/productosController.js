@@ -5,6 +5,7 @@ const db = require('../database/models');
 const Producto = db.Productos;
 const Categoria = db.Categorias;
 const Info = db.Infos;
+const { validationResult } = require("express-validator");
 
 const mainProduct = path.resolve(__dirname, '../views/productos/catalogoProductos.ejs');
 const listProduct = path.resolve(__dirname, '../views/productos/listProductos.ejs');
@@ -223,7 +224,10 @@ const productosController = {
     },
     
     store: async (req, res) => {
-
+        console.log('entro al store')
+        const resultValidation = validationResult(req);
+        if (resultValidation.isEmpty()) {
+        console.log(resultValidation)
         const foto = req.file ? req.file.filename : req.body.oldImagen;
 
         await Producto.create({
@@ -237,9 +241,15 @@ const productosController = {
             idNutri: 1,
             idCat: 1,
         })
-
         res.redirect('/productos/all');
-    },
+    }else{
+
+        return res.render(register, {
+            errors: resultValidation.mapped(),
+            oldData: req.body,
+          });
+    }
+},
 
     edit: async (req, res) => {
 
