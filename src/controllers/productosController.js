@@ -224,10 +224,11 @@ const productosController = {
     },
     
     store: async (req, res) => {
-        console.log('entro al store')
         const resultValidation = validationResult(req);
-        if (resultValidation.isEmpty()) {
-        console.log(resultValidation)
+        if (!resultValidation.isEmpty()) {
+          return res.render(createProduct, {
+            errors: resultValidation.mapped()});
+        }
         const foto = req.file ? req.file.filename : req.body.oldImagen;
 
         await Producto.create({
@@ -242,13 +243,6 @@ const productosController = {
             idCat: 1,
         })
         res.redirect('/productos/all');
-    }else{
-
-        return res.render(register, {
-            errors: resultValidation.mapped(),
-            oldData: req.body,
-          });
-    }
 },
 
     edit: async (req, res) => {
@@ -263,6 +257,11 @@ const productosController = {
 
     update: async (req, res) => {
 
+        const resultValidation = validationResult(req);
+        if (!resultValidation.isEmpty()) {
+          return res.render(editProduct, {
+            errors: resultValidation.mapped()});
+        }
         const foto = req.file ? req.file.filename : req.body.oldImagen;
 
         await Producto.update({
