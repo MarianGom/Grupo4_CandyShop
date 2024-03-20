@@ -9,36 +9,40 @@ const { validationResult } = require('express-validator');
 const Usuario = db.Usuarios;
 
 const usersAPIController = {
-    details: (req, res) => {
-        let user = req.params.id;
-        Movies
-        .destroy({where: {id: user}, force: true}) // force: true es para asegurar que se ejecute la acción
-        .then(confirm => {
-            let respuesta;
-            console.log('confirm', confirm)
-            if(confirm){
-                respuesta ={
-                    meta: {
-                        status: 200,
-                        total: confirm.length,
-                        url: 'api/user/details/:id'
-                    },
-                    data:confirm
-                }
-            }else{
-                respuesta ={
-                    meta: {
-                        status: 204,
-                        total: confirm.length,
-                        url: 'api/user/details/:id'
-                    },
-                    data:confirm
+    allUsers: (req, res) => {
+        Usuario.findAll()
+        then(usuarios => {
+            let consulta = {
+                meta:{
+                    status: 200,
+                    total: usuarios.length,
+                    url: 'api/usuarios'
                 }
             }
-            res.json(respuesta);
-        })    
-        .catch(error => res.send(error))
-    }
+            res.json(consulta)
+        })
+        .catch(error => console.log(error))
+    },
+
+    details: (req, res) => {
+        let userId = req.params.id;
+        Usuario.findOne({
+            where: {
+                id: userId,
+                estado: 1,
+            },
+        })
+        .then(usuarios => {
+            let consulta = {
+                meta:{
+                    status: 200,
+                    total: usuarios.length,
+                    url: 'api/usuarios/:id'
+                }
+            }
+        })
+        .catch(error => console.log(error))
+    },
 
 }
 

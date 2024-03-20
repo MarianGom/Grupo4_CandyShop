@@ -11,6 +11,8 @@ const userOnMiddleware = require('./middlewares/userOnMiddleware');
 var mainRouter = require('./routes/main');
 var productsRouter = require('./routes/products');
 var usersRouter = require('./routes/users');
+var apiUsersRouter = require('./routes/api/users');
+var apiProductsRouter = require('./routes/api/products');
 
 var app = express();
 
@@ -23,7 +25,6 @@ app.use(session({
 }));
 
 app.use(userOnMiddleware);
-
 
 
 // view engine setup
@@ -42,6 +43,8 @@ app.use(express.static(path.resolve(__dirname, '../public')));
 app.use('/', mainRouter);
 app.use('/productos', productsRouter);
 app.use('/user', usersRouter);
+app.use('/api', apiUsersRouter);
+app.use('/api', apiProductsRouter);
 
 
 // catch 404 and forward to error handler
