@@ -41,6 +41,11 @@ const usersController = {
   },
 
   log: async (req, res) => {
+    const resultValidation = validationResult(req);
+    if (!resultValidation.isEmpty()) {
+      return res.render(login, {
+        errors: resultValidation.mapped()});
+    } 
     let mailUser = req.body.email;
     let passwordRaw = req.body.password;
     /* let password = bcryptjs.hashSync(req.body.password, 10); */
@@ -110,7 +115,13 @@ const usersController = {
 
   store: async (req, res, next) => {
     const resultValidation = validationResult(req);
-    if (resultValidation.isEmpty()) {
+    if (!resultValidation.isEmpty()) {
+      return res.render(register, {
+        errors: resultValidation.mapped(),
+        oldData: req.body,
+      });
+    } 
+    console.log(resultValidation)
       const userNew = req.body;
       const error = "";
       let usuarioExistente = await Usuario.findOne({
@@ -142,12 +153,7 @@ const usersController = {
           isAdmin: 0,
         }).then(res.render(login, {}));
       }
-    } else {
-      return res.render(register, {
-        errors: resultValidation.mapped(),
-        oldData: req.body,
-      });
-    }
+    
   },
 
   edit: async (req, res, next) => {

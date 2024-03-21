@@ -4,6 +4,8 @@ const path = require('path');
 const router = express.Router();
 const { body } = require('express-validator');
 
+const User = require("../database/models");
+
 /* Multer */
 const multer = require('multer');
 
@@ -31,13 +33,39 @@ const uploadFile = multer({ storage: storage });
 /* Middlewares */
 const guestMiddleware = require('../middlewares/guestMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware');
-const registerValidations = require('../middlewares/registerValidate')
 
 /* Validaciones - ExpressValidator */
+let registerValidate = [
+    body('mailUser')
+    .notEmpty().withMessage('Completar el email.').bail()
+    .isEmail().withMessage('Tienes que ingresar un email válido.'),
+    body('nombreUser')
+    .notEmpty().withMessage('Completar el nombre.').bail()
+    .isString().withMessage('No se permiten numeros ni caracteres especiales').bail()
+    .isLength({min : 2}).withMessage('Debe contener minimo dos caracteres'),
+    body('apellidoUser')
+    .notEmpty().withMessage('Completar el apellido.').bail()
+    .isString().withMessage('No se permiten numeros ni caracteres especiales').bail()
+    .isLength({min : 2}).withMessage('Debe contener minimo dos caracteres')    ,
+    body('password')
+    .notEmpty().withMessage('Completar contraseña.').bail()
+    .isLength({min : 8}).withMessage('Debe contener  minimo ocho caracteres'),
+    body('confirmPassword')
+    .notEmpty().withMessage('Confirmar contraseña').bail()
+    .isLength({min : 8}).withMessage('Debe contener minimo ocho caracteres')
+    ];
+
+let validateLogin = [
+        body('email')
+            .notEmpty().withMessage('Completar el email.').bail()
+            .isEmail().withMessage('Tienes que ingresar un email válido.'),
+        body('password')
+            .notEmpty().withMessage('Completar contraseña.').bail()
+            .isLength({min : 8})
+    ];
 let validateEditUser = [
     body('mailUser')
         .notEmpty().withMessage('Completar el email.').bail()
-        .isLength({ min: 6})
         .isEmail().withMessage('Tienes que ingresar un email válido.'),
     body('nombreUser')
         .notEmpty().withMessage('Completar el nombre.').bail()
@@ -49,26 +77,19 @@ let validateEditUser = [
         .isString(),
     body('telefono')
         .notEmpty().withMessage('Completar teléfono.').bail()
-        .isLength({min : 4})
+        .isLength({min : 8})
     ];
 
-let validateLogin = [
-    body('mail')
-        .notEmpty().withMessage('Completar el email.').bail()
-        .isLength({ min: 6})
-        .isEmail().withMessage('Tienes que ingresar un email válido.'),
-    body('password')
-        .notEmpty().withMessage('Completar contraseña.').bail()
-        .isLength({min : 4})
-];
+
 
 /* Routes */
+
 router.get('/login', guestMiddleware, usersController.login);
-router.post('/login', validateLogin, guestMiddleware, usersController.log);
+router.post('/login',  guestMiddleware, validateLogin, usersController.log);
 router.get('/logout', authMiddleware, usersController.logout);
 
 router.get('/register', guestMiddleware, usersController.create);
-router.post('/register', registerValidations, guestMiddleware, usersController.store);
+router.post('/register', guestMiddleware, registerValidate, usersController.store);
 
 router.get('/myProfile', authMiddleware, usersController.showOne);
 

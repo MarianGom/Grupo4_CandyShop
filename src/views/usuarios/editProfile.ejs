@@ -35,6 +35,11 @@
 
                     <!-- En caso de error -->
                     <div class="nombreError">
+                            <% if (locals.errors && errors.nombreUser) { %>
+                                <div class="text-danger">
+                                    <p><%= errors.nombreUser.msg %></p>
+                                </div>
+                            <% } %>
                     </div>
                 </div>
             
@@ -44,6 +49,11 @@
 
                     <!-- En caso de error -->
                     <div class="apellidoError">
+                            <% if (locals.errors && errors.apellidoUser) { %>
+                                <div class="text-danger">
+                                    <p><%= errors.apellidoUser.msg %></p>
+                                </div>
+                            <% } %>
                     </div>
                 </div>
             
@@ -53,6 +63,11 @@
 
                     <!-- En caso de error -->
                     <div class="mailError">
+                            <% if (locals.errors && errors.mailUser) { %>
+                                <div class="text-danger">
+                                    <p><%= errors.mailUser.msg %></p>
+                                </div>
+                            <% } %>
                     </div>
                 </div>
             
@@ -67,6 +82,7 @@
                     >
                     <!-- En caso de error -->
                     <div class="telefonoError">
+                        
                     </div>
                 </div>
 

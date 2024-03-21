@@ -37,6 +37,14 @@
                             Nombre del producto
                         </label>
                         <input type="text" class="i-nombre" id="nombre" name="nombre" placeholder="Nombre de producto">
+                        <!-- En caso de error -->
+                        <div class="mailError">
+                        <% if (locals.errors && errors.nombre) { %>
+                            <div class="text-danger">
+                                <p><%= errors.nombre.msg %></p>
+                            </div>
+                        <% } %>
+                </div>
                     </div>
 
                     <div class="input-sabor">
@@ -44,6 +52,14 @@
                             Línea de producto
                         </label>
                         <input type="text" class="i-sabor" id="sabor" name="sabor" placeholder="Sabor Manzana">
+                        <!-- En caso de error -->
+                        <div class="mailError">
+                        <% if (locals.errors && errors.sabor) { %>
+                            <div class="text-danger">
+                                <p><%= errors.sabor.msg %></p>
+                            </div>
+                        <% } %>
+                    </div>
                     </div>
 
                     <div class="input-descripcion">
@@ -51,6 +67,14 @@
                             Descripción
                         </label>
                         <input type="text" class="i-descripcion" id="descripcion" name="descripcion" placeholder="Escriba una descripción del producto...">
+                        <!-- En caso de error -->
+                        <div class="mailError">
+                        <% if (locals.errors && errors.descripcion) { %>
+                            <div class="text-danger">
+                                <p><%= errors.descripcion.msg %></p>
+                            </div>
+                        <% } %>
+                    </div>
                     </div>
                 </div>
 
@@ -63,6 +87,14 @@
                             Stock disponible
                         </label>
                         <input type="text" class="i-stock" name="stock" placeholder="1000">
+                        <!-- En caso de error -->
+                        <div class="mailError">
+                            <% if (locals.errors && errors.stock) { %>
+                         <div class="text-danger">
+                                <p><%= errors.stock.msg %></p>
+                            </div>
+                        <% } %>
+                    </div>
                     </div>
                 </div>
 
@@ -75,6 +107,14 @@
                             Precio
                         </label>
                         <input type="text" class="i-precio" name="precio" placeholder="150">
+                        <!-- En caso de error -->
+                        <div class="mailError">
+                        <% if (locals.errors && errors.precio) { %>
+                            <div class="text-danger">
+                                <p><%= errors.precio.msg %></p>
+                            </div>
+                        <% } %>
+                    </div>
                     </div>
                 </div>
 
@@ -99,7 +139,14 @@
                             Categoría
                         </label>
                         <input type="text" class="i-categoria" name="categoriaProd" placeholder="Caramelo">
-
+                        <!-- En caso de error -->
+                    <div class="mailError">
+                        <% if (locals.errors && errors.categoriaProd) { %>
+                            <div class="text-danger">
+                                <p><%= errors.categoriaProd.msg %></p>
+                            </div>
+                        <% } %>
+                    </div>
                         <!-- Select de categorias existentes -->
 
                     </div>
