@@ -30,46 +30,47 @@ const usersController = {
     log: async (req, res) => {
         const resultValidation = validationResult(req);
         if (!resultValidation.isEmpty()) {
-        return res.render(login, {
-            errors: resultValidation.mapped()});
+            return res.render(login, {
+                errors: resultValidation.mapped()});
         } 
+
         let mailUser = req.body.email;
         let passwordRaw = req.body.password;
         /* let password = bcryptjs.hashSync(req.body.password, 10); */
 
         const usuario = await Usuario.findOne({
-        where: {
-            email: mailUser,
-        },
+            where: {
+                email: mailUser,
+            },
         });
 
         const datos = usuario.dataValues;
         const validacion = bcryptjs.compareSync(passwordRaw, datos.password);
 
         try {
-        if (datos) {
-            if (validacion) {
-            /* Log Exitoso */
-            let dataSession = datos;
-            delete dataSession.password;
-            delete dataSession.fotoPerfil;
-            delete dataSession.telefono;
+            if (datos) {
+                if (validacion) {
+                /* Log Exitoso */
+                let dataSession = datos;
+                delete dataSession.password;
+                delete dataSession.fotoPerfil;
+                delete dataSession.telefono;
 
-            req.session.usuario = dataSession;
+                req.session.usuario = dataSession;
 
-            console.log(req.session.usuario);
+                console.log(req.session.usuario);
 
-            res.redirect("/user/myProfile");
-            } else {
-            /* Error en validación */
-            console.log("\nLos datos enviados no son correctas\n");
-            res.render(login, {});
+                res.redirect("/user/myProfile");
+                } else {
+                /* Error en validación */
+                console.log("\nLos datos enviados no son correctas\n");
+                res.render(login, {});
+                }
             }
-        }
         } catch (error) {
-        console.log(error);
-        console.log("\n\nNo se pudo loguear\n\n");
-        res.render(login, {});
+            console.log(error);
+            console.log("\n\nNo se pudo loguear\n\n");
+            res.render(login, {});
         }
     },
 
@@ -84,14 +85,14 @@ const usersController = {
         try {
         const misDatos = await Usuario.findOne({
             where: {
-            id: idUsuarioOn,
-            estado: 1,
+                id: idUsuarioOn,
+                estado: 1,
             },
         });
 
         res.render(myProfile, { user: misDatos });
         } catch (error) {
-        console.log(error);
+            console.log(error);
         }
     },
 
@@ -103,17 +104,18 @@ const usersController = {
     store: async (req, res, next) => {
         const resultValidation = validationResult(req);
         if (!resultValidation.isEmpty()) {
-        return res.render(register, {
-            errors: resultValidation.mapped(),
-            oldData: req.body,
-        });
+            return res.render(register, {
+                errors: resultValidation.mapped(),
+                oldData: req.body,
+            });
         } 
+
         console.log(resultValidation)
         const userNew = req.body;
         const error = "";
         let usuarioExistente = await Usuario.findOne({
             where: {
-            email: userNew.mailUser,
+                email: userNew.mailUser,
             },
         });
 
@@ -132,12 +134,12 @@ const usersController = {
             /* const password = userNew.password.slice(16); */
 
             await Usuario.create({
-            nombre: userNew.nombreUser,
-            apellido: userNew.apellidoUser,
-            email: userNew.mailUser,
-            password: bcryptjs.hashSync(userNew.password, 10),
-            estado: 1,
-            isAdmin: 0,
+                nombre: userNew.nombreUser,
+                apellido: userNew.apellidoUser,
+                email: userNew.mailUser,
+                password: bcryptjs.hashSync(userNew.password, 10),
+                estado: 1,
+                isAdmin: 0,
             }).then(res.render(login, {}));
         }
         
@@ -145,49 +147,48 @@ const usersController = {
 
     edit: async (req, res, next) => {
         const userId = req.session.usuario.id;
-        console.log(`\n\n${userId}\n\n`);
+
         try {
-        const datos = await Usuario.findOne({
-            where: {
-            id: userId,
-            estado: 1,
-            },
-        });
-        res.render(editProfile, { user: datos });
+            const datos = await Usuario.findOne({
+                where: {
+                id: userId,
+                estado: 1,
+                },
+            });
+            res.render(editProfile, { user: datos });
         } catch (error) {
-        console.log(error);
+            console.log(error);
         }
+
     },
 
     update: async (req, res, next) => {
         const userId = req.session.usuario.id;
         const user = req.body;
 
-        await Usuario.update(
-        {
+        await Usuario.update({
             nombre: user.nombreUser,
             apellido: user.apellidoUser,
             email: user.mailUser,
             fotoPerfil: user.image,
             telefono: user.telefonoUser,
-        },
-        {
+        },{
             where: {
-            id: userId,
+                id: userId,
             },
         }
         );
 
         try {
-        const datos = await Usuario.findOne({
-            where: {
-            id: userId,
-            },
-        });
+            const datos = await Usuario.findOne({
+                where: {
+                    id: userId,
+                },
+            });
 
-        res.render(myProfile, { user: datos });
+            res.render(myProfile, { user: datos });
         } catch (error) {
-        console.log(error);
+            console.log(error);
         }
     },
 
@@ -215,18 +216,16 @@ const usersController = {
         await Usuario.update(
             {
                 password: user.password,
-            },
-            {
+            },{
                 where: {
                 id: userId,
                 },
-            }
-            );
+            });
 
         try {
             const datos = await Usuario.findOne({
                 where: {
-                id: userId,
+                    id: userId,
                 },
             });
 
@@ -291,10 +290,7 @@ const usersController = {
 
 
     delete: async (req, res, next) =>{
-
-
         try{
-            
             res.render(deleteProfile, {})
         } catch(error){
             console.log(error)
@@ -304,34 +300,32 @@ const usersController = {
 
     destroy: async (req, res, next) => {
         try {
-        const userId = req.session.usuario.id;
-        let passwordRaw = req.body.password;
+            const userId = req.session.usuario.id;
+            let passwordRaw = req.body.password;
 
-        const usuario = await Usuario.findOne({
-            where: {
-            id: userId,
-            },
-        });
-
-        const datos = usuario.dataValues;
-        const validacion = bcryptjs.compareSync(passwordRaw, datos.password);
-
-        if (validacion) {
-            await Usuario.update(
-            {
-                estado: 2,
-            },
-            {
+            const usuario = await Usuario.findOne({
                 where: {
-                id: userId,
+                    id: userId,
                 },
-            }
-            );
+            });
 
-            res.render(goodbyeProfile, {});
-        }
+            const datos = usuario.dataValues;
+            const validacion = bcryptjs.compareSync(passwordRaw, datos.password);
+
+            if (validacion) {
+                await Usuario.update(
+                {
+                    estado: 2,
+                },{
+                    where: {
+                    id: userId,
+                    },
+                });
+
+                res.render(goodbyeProfile, {});
+            }
         } catch (err) {
-        console.log(err.message);
+            console.log(err.message);
         }
     },
 
