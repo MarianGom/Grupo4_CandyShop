@@ -20,28 +20,33 @@
 
                 <div class="foto">
                     <% if (user.fotoPerfil) {%>
-                        <div class="img" style="background-image: url('/img/usuarios/<%= user.fotoPerfil %>');">
-                        </div>
                         <img src="/img/usuarios/<%= user.fotoPerfil %>" alt="<%= user.nombre%>">
                     <%} else {%>
-                        <p>Todavia no posee imagen</p>
+                        <img src="/img/usuarios/Profile.png" alt="No posee foto de perfil">
                     <%}%>
                 </div>
             </div>
 
              
-            <form action="">
-                <input type="hidden" name="oldImagen" value="<%= user.fotoPerfil%>">
-                <input type="file" name="image">
-
-
-                <a href="/">
-                    <button class="button-violeta">Guardar</button>
-                </a>
-
-                <a href="/">
-                    <button class="button-gris">Cancelar y volver</button>
-                </a>
+            <form method="POST" action="/user/changePassword?_method=PUT" enctype="multipart/form-data">
+                <div class="opciones">
+                    <input type="file" name="image" class="button-hidden">
+    
+                    <button class="button-rosa">Cargar imagen</button>
+    
+                    <div class="caja-texto">
+                        <h5>Archivo seleccionado:</h5>
+                        <p>Todavia no se seleccionó ninguna imagen</p>
+                    </div>
+    
+                    <a href="/">
+                        <button class="button-violeta">Guardar</button>
+                    </a>
+    
+                    <a href="/">
+                        <button class="button-gris">Cancelar y volver</button>
+                    </a>
+                </div>
             </form>
 
             <img class="golosinas" src="/img/estructura/golosinas.png" width="100px">

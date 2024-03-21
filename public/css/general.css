@@ -268,6 +268,11 @@ h1{
 }
 
 
+.button-hidden{
+    display: none;
+}
+
+
 .cancelar, .guardar{
     padding: 10px 0px;
 }
@@ -613,7 +618,7 @@ h1{
     filter: drop-shadow(3px 0px 5px var(--sombra-primaria));
 }
 
-.editPerfil .golosinas, .infoPerfil .golosinas, .delPerfil .golosinas, .editPass .golosinas{
+.editPerfil .golosinas, .infoPerfil .golosinas, .delPerfil .golosinas, .editPass .golosinas, .editPic .golosinas{
     margin-top: 30px;
     width: 100px;
     filter: drop-shadow(3px 0px 5px var(--sombra-primaria));
@@ -843,7 +848,7 @@ h1{
     margin: 40px 0px;
 }
 
-.infoPerfil .button-rosa, .infoPerfil .button-violeta, .infoPerfil .button-gris, .editPerfil .button-rosa, .editPerfil .button-violeta, .editPerfil .button-gris, .delPerfil .button-rosa, .delPerfil .button-gris, .editPass .button-rosa, .editPass .button-gris{
+.infoPerfil .button-rosa, .infoPerfil .button-violeta, .infoPerfil .button-gris, .editPerfil .button-rosa, .editPerfil .button-violeta, .editPerfil .button-gris, .delPerfil .button-rosa, .delPerfil .button-gris, .editPass .button-rosa, .editPass .button-gris, .editPic .button-rosa, .editPic .button-violeta, .editPic .button-gris{
     margin: 15px 0px;
 }
 
@@ -880,6 +885,10 @@ h1{
 
 .editPass .caja-texto{
     margin-top: 30px;
+}
+
+.editPic .caja-texto{
+    margin: 30px 0px;
 }
 
 /* MQ's */

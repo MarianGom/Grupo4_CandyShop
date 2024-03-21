@@ -2,7 +2,7 @@ const path = require('path');
 const bcryptjs = require('bcryptjs');
 
 /* Models */
-const db = require('../database/models');
+const db = require('../../database/models');
 const sequelize = db.sequelize;
 const { validationResult } = require('express-validator');
 

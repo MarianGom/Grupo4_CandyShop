@@ -12,197 +12,184 @@ const Usuario = db.Usuarios;
 const login = path.resolve(__dirname, "../views/usuarios/login.ejs");
 const register = path.resolve(__dirname, "../views/usuarios/register.ejs");
 /* PARA REACT! const detail = path.resolve(__dirname, '../views/usuarios/detailProfile.ejs'); */
-const myProfile = path.resolve(
-  __dirname,
-  "../views/usuarios/detailProfile.ejs"
-);
-const editProfile = path.resolve(
-  __dirname,
-  "../views/usuarios/editProfile.ejs"
-);
-
-const editPass = path.resolve(
-  __dirname,
-  "../views/usuarios/changePassword.ejs"
-);
-
-const deleteProfile = path.resolve(
-  __dirname,
-  "../views/usuarios/deleteProfile.ejs"
-);
+const myProfile = path.resolve( __dirname, "../views/usuarios/detailProfile.ejs");
+const editProfile = path.resolve( __dirname, "../views/usuarios/editProfile.ejs");
+const editPass = path.resolve( __dirname, "../views/usuarios/changePassword.ejs");
+const editPic = path.resolve( __dirname, "../views/usuarios/changePic.ejs");
+const deleteProfile = path.resolve( __dirname, "../views/usuarios/deleteProfile.ejs");
 const goodbyeProfile = path.resolve(__dirname, "../views/adios.ejs");
 
 /* Controller */
 const usersController = {
-  login: (req, res, next) => {
-    /* Login Form */
-    console.log(req.session);
-    res.render(login, {});
-  },
+    login: (req, res, next) => {
+        /* Login Form */
+        console.log(req.session);
+        res.render(login, {});
+    },
 
-  log: async (req, res) => {
-    const resultValidation = validationResult(req);
-    if (!resultValidation.isEmpty()) {
-      return res.render(login, {
-        errors: resultValidation.mapped()});
-    } 
-    let mailUser = req.body.email;
-    let passwordRaw = req.body.password;
-    /* let password = bcryptjs.hashSync(req.body.password, 10); */
+    log: async (req, res) => {
+        const resultValidation = validationResult(req);
+        if (!resultValidation.isEmpty()) {
+        return res.render(login, {
+            errors: resultValidation.mapped()});
+        } 
+        let mailUser = req.body.email;
+        let passwordRaw = req.body.password;
+        /* let password = bcryptjs.hashSync(req.body.password, 10); */
 
-    const usuario = await Usuario.findOne({
-      where: {
-        email: mailUser,
-      },
-    });
+        const usuario = await Usuario.findOne({
+        where: {
+            email: mailUser,
+        },
+        });
 
-    const datos = usuario.dataValues;
-    const validacion = bcryptjs.compareSync(passwordRaw, datos.password);
+        const datos = usuario.dataValues;
+        const validacion = bcryptjs.compareSync(passwordRaw, datos.password);
 
-    try {
-      if (datos) {
-        if (validacion) {
-          /* Log Exitoso */
-          let dataSession = datos;
-          delete dataSession.password;
-          delete dataSession.fotoPerfil;
-          delete dataSession.telefono;
+        try {
+        if (datos) {
+            if (validacion) {
+            /* Log Exitoso */
+            let dataSession = datos;
+            delete dataSession.password;
+            delete dataSession.fotoPerfil;
+            delete dataSession.telefono;
 
-          req.session.usuario = dataSession;
+            req.session.usuario = dataSession;
 
-          console.log(req.session.usuario);
+            console.log(req.session.usuario);
 
-          res.redirect("/user/myProfile");
-        } else {
-          /* Error en validación */
-          console.log("\nLos datos enviados no son correctas\n");
-          res.render(login, {});
+            res.redirect("/user/myProfile");
+            } else {
+            /* Error en validación */
+            console.log("\nLos datos enviados no son correctas\n");
+            res.render(login, {});
+            }
         }
-      }
-    } catch (error) {
-      console.log(error);
-      console.log("\n\nNo se pudo loguear\n\n");
-      res.render(login, {});
-    }
-  },
-
-  logout: (req, res) => {
-    req.session.destroy();
-    return res.redirect("/");
-  },
-
-  showOne: async (req, res, next) => {
-    const idUsuarioOn = req.session.usuario.id;
-
-    try {
-      const misDatos = await Usuario.findOne({
-        where: {
-          id: idUsuarioOn,
-          estado: 1,
-        },
-      });
-
-      res.render(myProfile, { user: misDatos });
-    } catch (error) {
-      console.log(error);
-    }
-  },
-
-  create: (req, res, next) => {
-    res.cookie("testing", "Hola Mundo", { maxAge: 1000 * 30 });
-    res.render(register, {});
-  },
-
-  store: async (req, res, next) => {
-    const resultValidation = validationResult(req);
-    if (!resultValidation.isEmpty()) {
-      return res.render(register, {
-        errors: resultValidation.mapped(),
-        oldData: req.body,
-      });
-    } 
-    console.log(resultValidation)
-      const userNew = req.body;
-      const error = "";
-      let usuarioExistente = await Usuario.findOne({
-        where: {
-          email: userNew.mailUser,
-        },
-      });
-
-      console.log(usuarioExistente);
-
-      if (usuarioExistente != null) {
-        let error = `\n\nEse mail ya está registrado\n\n`;
+        } catch (error) {
         console.log(error);
+        console.log("\n\nNo se pudo loguear\n\n");
+        res.render(login, {});
+        }
+    },
 
-        const oldData = req.body;
+    logout: (req, res) => {
+        req.session.destroy();
+        return res.redirect("/");
+    },
 
-        res.render(register, { oldData: oldData, error: error });
-      } else {
-        /* Re-Chequear los campos por si las moscas */
+    showOne: async (req, res, next) => {
+        const idUsuarioOn = req.session.usuario.id;
 
-        /* const password = userNew.password.slice(16); */
+        try {
+        const misDatos = await Usuario.findOne({
+            where: {
+            id: idUsuarioOn,
+            estado: 1,
+            },
+        });
 
-        await Usuario.create({
-          nombre: userNew.nombreUser,
-          apellido: userNew.apellidoUser,
-          email: userNew.mailUser,
-          password: bcryptjs.hashSync(userNew.password, 10),
-          estado: 1,
-          isAdmin: 0,
-        }).then(res.render(login, {}));
-      }
-    
-  },
+        res.render(myProfile, { user: misDatos });
+        } catch (error) {
+        console.log(error);
+        }
+    },
 
-  edit: async (req, res, next) => {
-    const userId = req.session.usuario.id;
-    console.log(`\n\n${userId}\n\n`);
-    try {
-      const datos = await Usuario.findOne({
-        where: {
-          id: userId,
-          estado: 1,
+    create: (req, res, next) => {
+        res.cookie("testing", "Hola Mundo", { maxAge: 1000 * 30 });
+        res.render(register, {});
+    },
+
+    store: async (req, res, next) => {
+        const resultValidation = validationResult(req);
+        if (!resultValidation.isEmpty()) {
+        return res.render(register, {
+            errors: resultValidation.mapped(),
+            oldData: req.body,
+        });
+        } 
+        console.log(resultValidation)
+        const userNew = req.body;
+        const error = "";
+        let usuarioExistente = await Usuario.findOne({
+            where: {
+            email: userNew.mailUser,
+            },
+        });
+
+        console.log(usuarioExistente);
+
+        if (usuarioExistente != null) {
+            let error = `\n\nEse mail ya está registrado\n\n`;
+            console.log(error);
+
+            const oldData = req.body;
+
+            res.render(register, { oldData: oldData, error: error });
+        } else {
+            /* Re-Chequear los campos por si las moscas */
+
+            /* const password = userNew.password.slice(16); */
+
+            await Usuario.create({
+            nombre: userNew.nombreUser,
+            apellido: userNew.apellidoUser,
+            email: userNew.mailUser,
+            password: bcryptjs.hashSync(userNew.password, 10),
+            estado: 1,
+            isAdmin: 0,
+            }).then(res.render(login, {}));
+        }
+        
+    },
+
+    edit: async (req, res, next) => {
+        const userId = req.session.usuario.id;
+        console.log(`\n\n${userId}\n\n`);
+        try {
+        const datos = await Usuario.findOne({
+            where: {
+            id: userId,
+            estado: 1,
+            },
+        });
+        res.render(editProfile, { user: datos });
+        } catch (error) {
+        console.log(error);
+        }
+    },
+
+    update: async (req, res, next) => {
+        const userId = req.session.usuario.id;
+        const user = req.body;
+
+        await Usuario.update(
+        {
+            nombre: user.nombreUser,
+            apellido: user.apellidoUser,
+            email: user.mailUser,
+            fotoPerfil: user.image,
+            telefono: user.telefonoUser,
         },
-      });
-      res.render(editProfile, { user: datos });
-    } catch (error) {
-      console.log(error);
-    }
-  },
+        {
+            where: {
+            id: userId,
+            },
+        }
+        );
 
-  update: async (req, res, next) => {
-    const userId = req.session.usuario.id;
-    const user = req.body;
+        try {
+        const datos = await Usuario.findOne({
+            where: {
+            id: userId,
+            },
+        });
 
-    await Usuario.update(
-      {
-        nombre: user.nombreUser,
-        apellido: user.apellidoUser,
-        email: user.mailUser,
-        fotoPerfil: user.image,
-        telefono: user.telefonoUser,
-      },
-      {
-        where: {
-          id: userId,
-        },
-      }
-    );
-
-    try {
-      const datos = await Usuario.findOne({
-        where: {
-          id: userId,
-        },
-      });
-
-      res.render(myProfile, { user: datos });
-    } catch (error) {
-      console.log(error);
-    }
-  },
+        res.render(myProfile, { user: datos });
+        } catch (error) {
+        console.log(error);
+        }
+    },
 
     passwordEdit: async (req, res, next) => {
 
@@ -221,40 +208,37 @@ const usersController = {
         }
     },
 
-  confirmPasswordEdit: async (req, res, next) => {
-    const userId = req.session.usuario.id;
-    const user = req.body;
+    confirmPasswordEdit: async (req, res, next) => {
+        const userId = req.session.usuario.id;
+        const user = req.body;
 
-    await Usuario.update(
-      {
-        password: user.password,
-      },
-      {
-        where: {
-          id: userId,
-        },
-      }
-    );
+        await Usuario.update(
+            {
+                password: user.password,
+            },
+            {
+                where: {
+                id: userId,
+                },
+            }
+            );
 
-    try {
-      const datos = await Usuario.findOne({
-        where: {
-          id: userId,
-        },
-      });
+        try {
+            const datos = await Usuario.findOne({
+                where: {
+                id: userId,
+                },
+            });
 
-      res.render(editProfile, { user: datos });
-    } catch (error) {
-      console.log(error);
-    }
-  },
+            res.render(editProfile, { user: datos });
+        } catch (error) {
+            console.log(error);
+        }
+    },
 
 
     picEdit: async (req, res, next) => {
-
-
         console.log("\nEntra por editar foto\n");
-
 
         const userId = req.session.usuario.id;
 
@@ -318,69 +302,39 @@ const usersController = {
 
     },
 
-  destroy: async (req, res, next) => {
-    try {
-      const userId = req.session.usuario.id;
-      let passwordRaw = req.body.password;
+    destroy: async (req, res, next) => {
+        try {
+        const userId = req.session.usuario.id;
+        let passwordRaw = req.body.password;
 
-      const usuario = await Usuario.findOne({
-        where: {
-          id: userId,
-        },
-      });
-
-      const datos = usuario.dataValues;
-      const validacion = bcryptjs.compareSync(passwordRaw, datos.password);
-
-      if (validacion) {
-        await Usuario.update(
-          {
-            estado: 2,
-          },
-          {
+        const usuario = await Usuario.findOne({
             where: {
-              id: userId,
+            id: userId,
             },
-          }
-        );
+        });
 
-        res.render(goodbyeProfile, {});
-      }
-    } catch (err) {
-      console.log(err.message);
-    }
-  },
+        const datos = usuario.dataValues;
+        const validacion = bcryptjs.compareSync(passwordRaw, datos.password);
 
-  /* Para lo del admin */
-
-  /* 
-    const isAdmin = (req, res) => {
-        if(req.session.admin){
-
-        } else {
-            res.redirect('/login')
-        }
-    }
-    */
-
-  /*  PARA REACT!
-
-    showAll: async (req, res) => {
-
-        try{
-            const datos = await Usuario.findOne({
+        if (validacion) {
+            await Usuario.update(
+            {
+                estado: 2,
+            },
+            {
                 where: {
-                    id: req.params.id,
-                    estado: 1
-                }
-            })
-            
-            res.render(detail, {user: datos})
-        } catch(error){
-            console.log(error)
+                id: userId,
+                },
+            }
+            );
+
+            res.render(goodbyeProfile, {});
         }
-        
-    }, */
+        } catch (err) {
+        console.log(err.message);
+        }
+    },
+
 };
 
 module.exports = usersController;
