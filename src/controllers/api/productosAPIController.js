@@ -4,21 +4,53 @@ const Categoria = db.Categorias;
 const Info = db.Infos;
 
 const productosAPIController = {
-    allProducts: (req, res) => {
-        Producto.findAll()
-        then(productos => {
+    allProducts: async (req, res) => {
+        try{
+            const productos = await Producto.findAll()
+
             let consulta = {
-                meta:{
-                    status: 200,
-                    total: productos.length,
-                    url: 'api/productos'
-                }
+                status: 200,
+                total: productos.length,
+                url: 'api/productos'
             }
-            res.json(consulta)
-        })
-        .catch(error => console.log(error))
+
+            return res.json({
+                meta: consulta,
+                data: productos
+            })
+
+        } catch(error) {
+            return res.send(error)
+        }
     },
 
+    details: async (req, res) => {
+
+        let productId = req.params.id;
+
+        try{
+
+            let producto = await Producto.findOne({
+                where: {
+                    id: productId,
+                },
+                });
+
+            let consulta = {
+                status: 200,
+                total: producto.length,
+                url: 'api/productos/:id'
+            };
+
+            return res.json({
+                meta: consulta,
+                data: producto.dataValues
+            });
+    
+        } catch(error) {
+                return res.send(error)
+        }
+    },
 }
 
 module.exports = productosAPIController;
