@@ -10,21 +10,48 @@ const Usuario = db.Usuarios;
 const usersAPIController = {
     allUsers: async (req, res) => {
         try{
-            const usuarios = await Usuario.findAll()
+
+            let usuarios
+
+            /* if(req.params.pag){
+                const total = await Usuario.count();
+
+                let usersPorPagina = 20;
+                let pages = (total - (total%prodPorPagina))/prodPorPagina;
+
+                usuarios = await Usuario.findAll({
+                    where: {
+                        estado: 1,
+                    },
+                    limit: usersPorPagina, 
+                    offset: usersPorPagina*pages
+                });
+
+            } else {
+            } */
+            
+            usuarios = await Usuario.findAll({
+                attributes: ['id', 'nombre', 'email']
+            });
 
             let consulta = {
                 status: 200,
-                total: usuarios.length,
+                /* total: usuarios.length, */
                 url: 'api/usuarios'
+            };
+
+            let total = {
+                total: usuarios.length
             }
 
             return res.json({
                 meta: consulta,
+                count: total,
                 data: usuarios
-            })
+            });
 
         } catch(error) {
-            return res.send(error)
+            return res.send(error);
         }
     },
 

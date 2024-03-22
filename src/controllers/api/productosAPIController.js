@@ -6,16 +6,23 @@ const Info = db.Infos;
 const productosAPIController = {
     allProducts: async (req, res) => {
         try{
-            const productos = await Producto.findAll()
+            const productos = await Producto.findAll({
+                attributes: ['id', 'nombre', 'email']
+            })
 
             let consulta = {
                 status: 200,
-                total: productos.length,
+                /* total: productos.length, */
                 url: 'api/productos'
+            }
+
+            let total = {
+                total: productos.length
             }
 
             return res.json({
                 meta: consulta,
+                count: total,
                 data: productos
             })
 
