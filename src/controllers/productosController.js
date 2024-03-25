@@ -218,9 +218,9 @@ const productosController = {
         }
     },
 
-    create: (req, res) => {
-
-        res.render(createProduct, {})
+    create:async (req, res) => {
+        const categorias = await Categoria.findAll();
+        res.render(createProduct, { categorias })
     },
     
     store: async (req, res) => {
@@ -230,7 +230,7 @@ const productosController = {
             errors: resultValidation.mapped()});
         }
         const foto = req.file ? req.file.filename : req.body.oldImagen;
-
+        
         await Producto.create({
             nombre: req.body.nombre,
             sabor: req.body.sabor,
@@ -240,9 +240,9 @@ const productosController = {
             fotoProd: foto || 'noImagen.png',
             estado: 1,
             idNutri: 1,
-            idCat: 1,
+            idCat: req.body.categoriaProd,
         })
-        res.redirect('/productos/all');
+        res.redirect('/productos/all/0');
 },
 
     edit: async (req, res) => {
@@ -273,14 +273,14 @@ const productosController = {
             fotoProd: foto || 'noImagen.png',
             estado: 1,
             idNutri: 1,
-            idCat: 1,
+            idCat: req.body.categoriaProd,
         },{
             where:{
                 idProd: req.params.id
             }
         })
 
-        res.redirect('/productos/all');
+        res.redirect('/productos/all/0');
     },
 
     delete: async (req, res) => {
@@ -305,7 +305,7 @@ const productosController = {
             }
         })
 
-        res.redirect('/productos/all');
+        res.redirect('/productos/all/0');
     },  
 }
 

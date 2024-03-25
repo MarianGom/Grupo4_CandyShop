@@ -33,28 +33,9 @@ const uploadFile = multer({ storage: storage });
 /* Middlewares */
 const guestMiddleware = require('../middlewares/guestMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware');
-const registerValidate = require('../middlewares/registerValidate')
-const loginValidate = require('../middlewares/loginValidate')
-
-
-let validateEditUser = [
-    body('mailUser')
-        .notEmpty().withMessage('Completar el email.').bail()
-        .isEmail().withMessage('Tienes que ingresar un email válido.'),
-    body('nombreUser')
-        .notEmpty().withMessage('Completar el nombre.').bail()
-        .isLength({min : 2})
-        .isString(),
-    body('apellidoUser')
-        .notEmpty().withMessage('Completar el apellido.').bail()
-        .isLength({min : 2})
-        .isString(),
-    body('telefono')
-        .notEmpty().withMessage('Completar teléfono.').bail()
-        .isLength({min : 8})
-    ];
-
-
+const registerValidate = require('../middlewares/registerValidate');
+const loginValidate = require('../middlewares/loginValidate');
+const editValidate = require('../middlewares/editValidate');
 
 /* Routes */
 
@@ -68,7 +49,7 @@ router.post('/register', guestMiddleware, registerValidate, usersController.stor
 router.get('/myProfile', authMiddleware, usersController.showOne);
 
 router.get('/edit', usersController.edit); 
-router.put('/edit', uploadFile.single('image'),validateEditUser, usersController.update);
+router.put('/edit', uploadFile.single('image'),editValidate, usersController.update);
 
 router.get('/changePassword', authMiddleware, usersController.passwordEdit);
 router.put('/changePassword', authMiddleware, usersController.confirmPasswordEdit);

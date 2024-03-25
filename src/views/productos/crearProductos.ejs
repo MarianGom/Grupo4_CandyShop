@@ -25,7 +25,7 @@
         </div>
         <div class="products">
 
-            <form action="/productos/" method="POST" enctype="multipart/form-data">
+            <form action="/productos/all/:pag" method="POST" enctype="multipart/form-data">
 
                 <div class="group-general"> 
                     <h2>
@@ -122,11 +122,11 @@
                 <div class="group-imagen">
                     <h2>Imagen</h2>
 
-                    <div class="input-imagen">
+                    <div class="input-imagen" >
                         <label class="label-titulos" for="image">
                             Imagen seleccionada
                         </label>
-                        <input type="file" id="image" name="image">
+                        <input  class="i-image" type="file" id="image" name="image">
                     </div>
                 </div>
 
@@ -138,17 +138,22 @@
                         <label class="label-titulos" for="nombre">
                             Categoría
                         </label>
-                        <input type="text" class="i-categoria" name="categoriaProd" placeholder="Caramelo">
+                  
+                        <!-- Select de categorias existentes -->
+                        <select class="i-categoria" name="categoriaProd" id="categoriaProd">
+                            <% categorias.forEach(categoria => { %>
+                                <option value="<%= categoria.id %>"><%= categoria.nombre %></option>
+                            <% }); %>
+                        </select>
+                        
                         <!-- En caso de error -->
-                    <div class="mailError">
+                        <div class="mailError">
                         <% if (locals.errors && errors.categoriaProd) { %>
                             <div class="text-danger">
                                 <p><%= errors.categoriaProd.msg %></p>
                             </div>
                         <% } %>
                     </div>
-                        <!-- Select de categorias existentes -->
-
                     </div>
                 </div>
 

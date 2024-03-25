@@ -13,7 +13,7 @@ const loginValidate = [
                 }
             })
             if(!userInDB){
-                throw new Error("Las credenciales no coinciden. Usuario o Contraseña incorrecta")
+                throw new Error('Las credenciales no coinciden.\nEmail o Contraseña incorrecta')
             }
             return true;
         }),
