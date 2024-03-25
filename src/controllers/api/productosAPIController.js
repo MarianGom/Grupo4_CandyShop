@@ -1,4 +1,8 @@
+
+/* Models */
 const db = require('../../database/models');
+const sequelize = db.sequelize;
+
 const Producto = db.Productos;
 const Categoria = db.Categorias;
 const Info = db.Infos;
@@ -6,9 +10,14 @@ const Info = db.Infos;
 const productosAPIController = {
     allProducts: async (req, res) => {
         try{
+
             const productos = await Producto.findAll({
-                attributes: ['id', 'nombre', 'email']
+                attributes: ['id', 'nombre']
             })
+
+            /* const countxCat = await sequelize.query("SELECT Categorias.nombre as categoria, COUNT(Productos.idCat) AS cantidad FROM Categorias INNER JOIN Productos ON Categorias.id = Productos.idCat GROUP BY Categorias.id;", {type: QueryTypes.SELECT}) */
+
+            console.log(countxCat)
 
             let consulta = {
                 status: 200,
@@ -23,6 +32,7 @@ const productosAPIController = {
             return res.json({
                 meta: consulta,
                 count: total,
+                /* countByCategory: prodXCat, */
                 data: productos
             })
 

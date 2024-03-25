@@ -11,27 +11,38 @@ const usersAPIController = {
     allUsers: async (req, res) => {
         try{
 
-            let usuarios
+            let usuarios;
 
-            /* if(req.params.pag){
-                const total = await Usuario.count();
+            const total = await Usuario.count();
 
-                let usersPorPagina = 20;
-                let pages = (total - (total%prodPorPagina))/prodPorPagina;
+            if(Object.keys(req.query).length !== 0 && req.query.page!= 0){
+
+                let page = parseInt(req.query.page);
+
+                let usersPorPagina = 10;
+                /* let pages = (total - (total%usersPorPagina))/usersPorPagina; */
 
                 usuarios = await Usuario.findAll({
                     where: {
                         estado: 1,
                     },
                     limit: usersPorPagina, 
-                    offset: usersPorPagina*pages
+                    offset: usersPorPagina*page
                 });
 
             } else {
-            } */
+
+                usuarios = await Usuario.findAll({
+                    attributes: ['id', 'nombre', 'email']
+                });
+
+            }
             
-            usuarios = await Usuario.findAll({
-                attributes: ['id', 'nombre', 'email']
+
+            let lista = JSON.parse(JSON.stringify(usuarios));
+            lista.forEach(user => {
+                let tinyURL = '/usuarios/' + user.id
+                user.detail = tinyURL;
             });
 
             let consulta = {
@@ -40,14 +51,10 @@ const usersAPIController = {
                 url: 'api/usuarios'
             };
 
-            let total = {
-                total: usuarios.length
-            }
-
             return res.json({
                 meta: consulta,
                 count: total,
-                data: usuarios
+                data: lista
             });
 
         } catch(error) {
@@ -62,10 +69,18 @@ const usersAPIController = {
         try{
 
             let usuario = await Usuario.findOne({
+                attributes: [
+                    'id',
+                    'email',
+                    'nombre',
+                    'apellido',
+                    'telefono',
+                    'fotoPerfil'
+                ],
                 where: {
                     id: userId,
-                },
-                });
+                }
+            });
 
             let consulta = {
                 status: 200,

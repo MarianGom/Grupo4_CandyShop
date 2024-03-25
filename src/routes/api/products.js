@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const productosAPIController = require('../../controllers/api/productosAPIController');
 
-router.get('/productos/:pag?', productosAPIController.allProducts);
-router.get('/productos/detail/:id', productosAPIController.details);
+router.get('/products/', productosAPIController.allProducts);
+router.get('/products/:id', productosAPIController.details);
 
 module.exports = router;
