@@ -235,18 +235,22 @@ const productosController = {
             
         }
 
-        const foto = req.file ? req.file.filename : req.body.oldImagen;
+        const foto = req.file ? req.file.filename : (req.body.oldImagen ? req.body.oldImagen : 'NoPic.png');
+
+        console.log(foto)
         await Producto.create({
             nombre: req.body.nombre,
             sabor: req.body.sabor,
             descripcion: req.body.descripcion,
             precio: req.body.precio,
             stock: req.body.stock,
-            fotoProd: foto || 'noImagen.png',
+            fotoProd: foto || 'NoPic.png',
             estado: 1,
             idNutri: 1,
             idCat: req.body.categoriaProd,
         })
+        
+
         res.redirect('/productos/all/0');
 },
 

@@ -30,7 +30,7 @@ module.exports = {
                     },
                     key: "id",
                 },
-                allowNull: false,
+                allowNull: true,
             },
 
             nombre:  {
@@ -59,7 +59,7 @@ module.exports = {
             },
 
             fotoProd: {
-                type: DataTypes.INTEGER,
+                type: DataTypes.STRING,
                 allowNull: true
             },
 
