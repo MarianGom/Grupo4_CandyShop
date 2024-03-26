@@ -1,18 +1,33 @@
 const { body } = require("express-validator");
+const path = require('path');
 
 const addProductValidate = [
     body('nombre')
         .notEmpty().withMessage('Completar el campo nombre').bail()
-        .matches(/^[a-zA-Z\s]+$/).withMessage('No se permiten numeros ni caracteres especiales')
-        .isLength({ min: 5}).withMessage('El nombre debe contener minimo 5 caracteres').bail(),
+        .matches(/^[a-zA-Z\s]+$/).withMessage('No se permiten numeros ni caracteres especiales').bail()
+        .isLength({ min: 3}).withMessage('El nombre debe contener minimo 3 caracteres'),
     body('sabor')
         .notEmpty().withMessage('Completar el campo sabor').bail()
-        .matches(/^[a-zA-Z\s]+$/).withMessage('No se permiten numeros ni caracteres especiales')
-        .isLength({min : 5}).withMessage('El campo sabor debe contener minimo 5 caracteres').bail(),
+        .matches(/^[a-zA-Z\s]+$/).withMessage('No se permiten numeros ni caracteres especiales').bail()
+        .isLength({min : 5}).withMessage('El campo sabor debe contener minimo 5 caracteres'),
     body('descripcion')
         .notEmpty().withMessage('Completar el campo descripcion').bail()
-        .isLength({min : 10}).withMessage('La descripcion debe contener minimo 10 caracteres').bail(),
-    body('stock')
+        .isLength({min : 10}).withMessage('La descripcion debe contener minimo 10 caracteres'),
+    body('image').custom((value, {req}) => {
+        let file = req.file;
+        if(file){
+            let fileExtension = req.file.mimetype
+            console.log(fileExtension)
+            if(fileExtension == 'image/jpg' || fileExtension == 'image/png'){
+              return true
+            }else{
+                throw new Error('El archivo debe ser JPG o PNG')
+            }
+        }
+        return true     
+        
+    }),
+        body('stock')
         .notEmpty().withMessage('Completar el campo stock').bail()
         .isInt().withMessage('No se permiten letras'),
     body('precio')

@@ -20,10 +20,8 @@ const storage =  multer.diskStorage({
             '../../public/img/productos'
         )
         cb(null, destinationFolder)
-        console.log('final destination')
     },
     filename: (req, file, cb) => {
-        console.log('entro a filename')
         const newFileName = createImageName(file)  
         cb(null, newFileName)
     }
