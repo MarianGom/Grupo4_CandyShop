@@ -4,7 +4,7 @@ const editProductValidate = [
    body('nombre')
         .notEmpty().withMessage('Completar el campo nombre').bail()
         .matches(/^[a-zA-Z\s]+$/).withMessage('No se permiten numeros ni caracteres especiales')
-        .isLength({ min: 5}).withMessage('El nombre debe contener minimo 5 caracteres').bail(),
+        .isLength({min: 3}).withMessage('El nombre debe contener minimo 3 caracteres').bail(),
     body('sabor')
         .notEmpty().withMessage('Completar el campo sabor').bail()
         .matches(/^[a-zA-Z\s]+$/).withMessage('No se permiten numeros ni caracteres especiales')
