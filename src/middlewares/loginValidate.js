@@ -19,7 +19,6 @@ const loginValidate = [
         }),
     body('password')
         .notEmpty().withMessage('Completar contraseña.').bail()
-        .isLength({min : 8})
         .custom(async (value, { req }) => {
             const user = await db.Usuarios.findOne({ where: { email: req.body.email } });
             if (user) {
