@@ -38,14 +38,17 @@
                                 </label>
                                 <h3 class="i-sabor"><%= product.sabor %></h3>
                             </div>
-
+                            
                             <div class="group-imagen">
+                                
+                                <figure class="form-group">
                                 <% if (product.fotoProd) {%>
                                     <img class="w-100" src="/img/productos/<%= product.fotoProd%>"
-                                        alt="<%= productToEdit.nombre%>">
+                                        alt="<%= product.nombre%>">
                                     <%} else {%>
                                         <p>Todavia no posee imagen</p>
                                         <%}%>
+                                </figure>
                             </div>
                         </div>
 

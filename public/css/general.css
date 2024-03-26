@@ -750,7 +750,7 @@ h1{
     display: none;
 }
 
-.mailError,  .nombreError,  .apellidoError,  .passwordError , .confirmacionError, .oldPasswordError, .newPasswordError{
+.mailError,  .nombreError,  .apellidoError,  .passwordError , .confirmacionError, .oldPasswordError, .newPasswordError, .error-validate{
     margin: 5px 15px;
     color: var(--text-rosa-oscuro);
 }

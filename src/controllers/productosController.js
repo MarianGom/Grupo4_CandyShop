@@ -266,9 +266,7 @@ const productosController = {
     },
 
     update: async (req, res) => {
-        console.log('entro el update')
         const errors = validationResult(req);
-        console.log(errors)
         if (!errors.isEmpty()) {
             const categorias = await Categoria.findAll();
             return res.render(editProduct, {
@@ -280,19 +278,20 @@ const productosController = {
         }
         const foto = req.file ? req.file.filename : req.body.oldImagen;
         console.log(req.body)
+
         await Producto.update({
             nombre: req.body.nombre,
             sabor: req.body.sabor,
             descripcion: req.body.descripcion,
             precio: req.body.precio,
             stock: req.body.stock,
-            fotoProd: foto || 'noImagen.png',
+            fotoProd: foto || 'NoPic.png',
             estado: 1,
             idNutri: 1,
             idCat: req.body.categoriaProd,
         },{
             where:{
-                idProd: req.params.id
+                id: req.params.id
             }
         })
 

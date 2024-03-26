@@ -4,7 +4,7 @@ const db = require("../database/models");
 const registerValidate = [
     body('mailUser')
     .notEmpty().withMessage('Completar el email.').bail()
-    .isEmail().withMessage('Tienes que ingresar un email válido.')
+    .isEmail().withMessage('Tienes que ingresar un email válido.').bail()
     .custom(async (value, {req}) =>{
         let userInDB = await db.Usuarios.findOne({
             where: {

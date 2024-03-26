@@ -36,9 +36,10 @@
                         <label class="label-titulos" for="nombre">
                             Nombre del producto
                         </label>
-                        <input type="text" class="i-nombre" id="nombre" name="nombre" placeholder="Nombre de producto">
+                        <input type="text" class="i-nombre" id="nombre" name="nombre" placeholder="Nombre de producto"
+                        value="<%= locals.oldData ? oldData.nombre : null  %>">
                         <!-- En caso de error -->
-                        <div class="mailError">
+                        <div class="error-validate">
                         <% if (locals.errors && errors.nombre) { %>
                             <div class="text-danger">
                                 <p><%= errors.nombre.msg %></p>
@@ -51,9 +52,10 @@
                         <label class="label-titulos" for="sabor">
                             Línea de producto
                         </label>
-                        <input type="text" class="i-sabor" id="sabor" name="sabor" placeholder="Sabor Manzana">
+                        <input type="text" class="i-sabor" id="sabor" name="sabor" placeholder="Sabor Manzana"
+                        value="<%= locals.oldData ? oldData.sabor : null  %>">
                         <!-- En caso de error -->
-                        <div class="mailError">
+                        <div class="error-validate">
                         <% if (locals.errors && errors.sabor) { %>
                             <div class="text-danger">
                                 <p><%= errors.sabor.msg %></p>
@@ -66,9 +68,10 @@
                         <label class="label-titulos" for="descripcion">
                             Descripción
                         </label>
-                        <input type="text" class="i-descripcion" id="descripcion" name="descripcion" placeholder="Escriba una descripción del producto...">
+                        <input type="text" class="i-descripcion" id="descripcion" name="descripcion" placeholder="Escriba una descripción del producto..."
+                        value="<%= locals.oldData ? oldData.descripcion : null  %>">
                         <!-- En caso de error -->
-                        <div class="mailError">
+                        <div class="error-validate">
                         <% if (locals.errors && errors.descripcion) { %>
                             <div class="text-danger">
                                 <p><%= errors.descripcion.msg %></p>
@@ -86,9 +89,10 @@
                         <label class="label-titulos" for="stock">
                             Stock disponible
                         </label>
-                        <input type="text" class="i-stock" name="stock" placeholder="1000">
+                        <input type="text" class="i-stock" name="stock" placeholder="1000"
+                        value="<%= locals.oldData ? oldData.stock : null  %>">
                         <!-- En caso de error -->
-                        <div class="mailError">
+                        <div class="error-validate">
                             <% if (locals.errors && errors.stock) { %>
                          <div class="text-danger">
                                 <p><%= errors.stock.msg %></p>
@@ -106,9 +110,10 @@
                         <label class="label-titulos" for="precio">
                             Precio
                         </label>
-                        <input type="text" class="i-precio" name="precio" placeholder="150">
+                        <input type="text" class="i-precio" name="precio" placeholder="150"
+                        value="<%= locals.oldData ? oldData.precio : null  %>">
                         <!-- En caso de error -->
-                        <div class="mailError">
+                        <div class="error-validate">
                         <% if (locals.errors && errors.precio) { %>
                             <div class="text-danger">
                                 <p><%= errors.precio.msg %></p>
@@ -129,6 +134,13 @@
                         <input  class="i-image" type="file" id="image" name="image">
                     </div>
                 </div>
+                <div class="error-validate">
+                <% if (locals.errors && errors.image) { %>
+                    <div class="text-danger">
+                        <p><%= errors.image.msg %></p>
+                    </div>
+                <% } %>
+                </div>
 
 
                 <div class="group-categoria">
@@ -141,13 +153,14 @@
                   
                         <!-- Select de categorias existentes -->
                         <select class="i-categoria" name="categoriaProd" id="categoriaProd">
+                            <option value="">Elige una categoria</option>
                             <% categorias.forEach(categoria => { %>
-                                <option value="<%= categoria.id %>"><%= categoria.nombre %></option>
-                            <% }); %>
+                                <option value="<%= categoria.id %>"> <%= categoria.nombre %> </option>
+                            <% }) %>
                         </select>
                         
                         <!-- En caso de error -->
-                        <div class="mailError">
+                        <div class="error-validate">
                         <% if (locals.errors && errors.categoriaProd) { %>
                             <div class="text-danger">
                                 <p><%= errors.categoriaProd.msg %></p>
