@@ -1,73 +1,212 @@
 <%- include('../partials/fontsicons') %>
-    
+
     <!-- CSS -->
     <link rel="stylesheet" href="/css/room.css">
+    <link rel="stylesheet" href="/css/general.css">
 
     <!-- Titulo -->
     <title>Editar Producto</title>
-    
-</head>
-<body>
-    
-    <%- include('../partials/nav') %>
 
-    <main>
-        <div class="contenedor-rosa"></div>
-        <h1>Editar Producto</h1>
-        
-			<form action="/productos/edit/<%= productToEdit.idProd %>?_method=PUT" method="POST" enctype="multipart/form-data" >
-                <div class="contenedor-nombre">
-                    <label class="label-titulos" for="nombre">Nombre</label>
-                    <div class="contenedor-input-nombre">
-                        <input type="text" class="input-custom" name="nombre" value="<%= productToEdit.nombre %>">
-                        <input type="text" class="input-custom" name="sabor" value="<%= productToEdit.sabor %>">
-                        
+    </head>
+
+    <body>
+
+        <%- include('../partials/nav') %>
+
+            <main>
+                <div class="containerAdd">
+                    <div class="edit-product">
+                        <h1>Editar Producto</h1>
+                    </div>
+                </div>
+                <div class="products">
+                    <form action="/productos/edit/<%= productToEdit.idProd %>?_method=PUT" method="POST"
+                        enctype="multipart/form-data">
+                        <div class="group-general">
+                            <h2>
+                                General
+                            </h2>
+                            <div class="input-nombre">
+                                <label class="label-titulos" for="nombre">
+                                    Nombre del producto
+                                </label>
+                                <input type="text" class="i-nombre" id="nombre" name="nombre"
+                                    value="<%= productToEdit.nombre %>">
+                                <!-- En caso de error -->
+                                <div class=" mailError">
+                                    <% if (locals.errors && errors.nombre) { %>
+                                        <div class="text-danger">
+                                            <p>
+                                                <%= errors.nombre.msg %>
+                                            </p>
+                                        </div>
+                                        <% } %>
+                                </div>
+
+                                <div class="input-sabor">
+                                    <label class="label-titulos" for="sabor">
+                                        Línea de producto
+                                    </label>
+                                    <input type="text" class="i-sabor" id="sabor" name="sabor"
+                                        value="<%= productToEdit.sabor %>">
+                                    <!-- En caso de error -->
+                                    <div class="mailError">
+                                        <% if (locals.errors && errors.sabor) { %>
+                                            <div class="text-danger">
+                                                <p>
+                                                    <%= errors.sabor.msg %>
+                                                </p>
+                                            </div>
+                                            <% } %>
+                                    </div>
+                                </div>
+
+                                <div class="input-descripcion">
+                                    <label class="label-titulos" for="descripcion">
+                                        Descripción
+                                    </label>
+                                    <input type="text" class="i-descripcion" id="descripcion" name="descripcion"
+                                        value="<%= productToEdit.descripcion %>">
+                                    <!-- En caso de error -->
+                                    <div class="mailError">
+                                        <% if (locals.errors && errors.descripcion) { %>
+                                            <div class="text-danger">
+                                                <p>
+                                                    <%= errors.descripcion.msg %>
+                                                </p>
+                                            </div>
+                                            <% } %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="group-stock">
+                            <h2>Stock</h2>
+
+                            <div class="input-stock">
+                                <label class="label-titulos" for="stock">
+                                    Stock disponible
+                                </label>
+                                <input type="text" class="i-stock" name="stock" placeholder="1000">
+                                <!-- En caso de error -->
+                                <div class="mailError">
+                                    <% if (locals.errors && errors.stock) { %>
+                                        <div class="text-danger">
+                                            <p>
+                                                <%= errors.stock.msg %>
+                                            </p>
+                                        </div>
+                                        <% } %>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="group-precio">
+                            <h2>Precio</h2>
+
+                            <div class="input-precio">
+                                <label class="label-titulos" for="precio">
+                                    Precio
+                                </label>
+                                <input type="text" class="i-precio" name="precio" placeholder="150">
+                                <!-- En caso de error -->
+                                <div class="mailError">
+                                    <% if (locals.errors && errors.precio) { %>
+                                        <div class="text-danger">
+                                            <p>
+                                                <%= errors.precio.msg %>
+                                            </p>
+                                        </div>
+                                        <% } %>
+                                </div>
+                            </div>
+                        </div>
+
+
                         <!--Aquí solicito la imagen-->
-                        <div class="custom-file">
+                        <div class="group-imagen">
+                            <h2>Imagen</h2>
+
                             <figure class="form-group">
                                 <% if (productToEdit.fotoProd) {%>
-                                    <img class="w-100" src="/img/productos/<%= productToEdit.fotoProd%>" alt="<%= productToEdit.nombre%>">
-                                <%} else {%>
-                                    <p>Todavia no posee imagen</p>
-                                <%}%>
-                               
+                                    <img class="w-100" src="/img/productos/<%= productToEdit.fotoProd%>"
+                                        alt="<%= productToEdit.nombre%>">
+                                    <%} else {%>
+                                        <p>Todavia no posee imagen</p>
+                                        <%}%>
+
                             </figure>
+                            
+                            <div class="input-imagen">
+                                <label class="label-titulos" for="image">
+                                    Imagen seleccionada
+                                </label>
+                            </div>
                             <input type="hidden" name="oldImagen" value="<%= productToEdit.fotoProd%>">
-                            <input type="file" name="image">
+                         
+                            <input class="i-image" type="file" id="image" name="image">
                         </div>
-                    </div>
-                </div>
-                <div class="contenedor-descripcion">
-                    <label class="label-titulos" for="nombre">Descripción</label>
-                    <div class="contenedor-input-descrip">
-                        <input type="text" class="input-descrip" name="descripcion" value="<%= productToEdit.descripcion %>">
-                    </div>
-                </div>
-                <div class="contenedor-precio">
-                    <label class="label-titulos" for="precio">Precio</label>
-                    <div class="contenedor-precioOyP">
-                        <div class="contenedor-input-precio">
-                            <label class="label-subtitulos" for="po">Precio Original</label>
-                            <input type="text" class="input-precio" name="precio" value="<%= productToEdit.precio %>">
-                         </div>
-                    </div>
-                </div>
-                <div class="contenedor-stock">
-                    <label class="label-titulos" for="stock">Stock</label>
-                    <div class="contenedor-stock-cb">
-                        <div class="contenedor-input-stock">
-                            <label class="label-subtitulos" for="stock">Stock</label>
-                            <input type="text" class="input-stock" name="stock" value="<%= productToEdit.stock %>">
+
+                        <div class="group-categoria">
+                            <h2>Categoría</h2>
+
+                            <div class="input-categoria">
+                                <label class="label-titulos" for="nombre">
+                                    Categoría
+                                </label>
+
+                                <!-- Select de categorias existentes -->
+                                <select class="i-categoria" name="categoriaProd" id="categoriaProd">
+                                    <% categorias.forEach(categoria => { %>
+                                        <% if (categoria.id === productToEdit.idCat) { %>
+                                            <option value="<%= categoria.id %>" selected>
+                                                <%= categoria.nombre %>
+                                            </option>
+                                        <% } else { %>
+                                            <option value="<%= categoria.id %>">
+                                                <%= categoria.nombre %>
+                                            </option>
+                                        <% } %>
+                                    <% }); %>
+                                </select>
+
+                                <!-- En caso de error -->
+                                <div class="mailError">
+                                    <% if (locals.errors && errors.categoriaProd) { %>
+                                        <div class="text-danger">
+                                            <p>
+                                                <%= errors.categoriaProd.msg %>
+                                            </p>
+                                        </div>
+                                        <% } %>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+
+                        <div class="group-info-nutricional">
+                            <h2>
+                                Información nutricional
+                            </h2>
+
+                            <input type="checkbox">
+                            ¿Desea cargar luego la información nutricional del producto?
+                        </div>
+
+                        <div class="guardar">
+                            <button type="submit" class="button-violeta">
+                                Guardar producto
+                            </button>
+                        </div>
+                        <div class="cancelar">
+                            <a href="/productos/all/0" class="button-gris">Cancelar</a>    
+                        </div>
+
+                    </form>
                 </div>
-        <div class="">
-            <button type="submit" id="add"><i class="bi bi-plus-circle"></i>GUARDAR PRODUCTO</button>
-        </div>
-    </form>
-    </main>
+            </main>
 
-    <%- include('../partials/footer') %>
-</body>
+            <%- include('../partials/footer') %>
+    </body>
 
-</html>
+    </html>

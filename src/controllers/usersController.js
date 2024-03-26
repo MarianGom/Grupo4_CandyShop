@@ -104,6 +104,7 @@ const usersController = {
     store: async (req, res, next) => {
         const resultValidation = validationResult(req);
         if (!resultValidation.isEmpty()) {
+            console.log(resultValidation)
             return res.render(register, {
                 errors: resultValidation.mapped(),
                 oldData: req.body,

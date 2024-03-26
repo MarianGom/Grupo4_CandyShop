@@ -3,79 +3,102 @@
     <!-- CSS -->
     <link rel="stylesheet" href="/css/room.css">
     <link rel="stylesheet" href="/css/profile.css">
-    
+    <link rel="stylesheet" href="/css/general.css">
+
+
     <!-- Titulo -->
     <title>Eliminar producto</title>
 
-</head>
-<body>
+    </head>
 
-    <%- include('../partials/nav') %>
+    <body>
 
-    <main>
-        <form action="/productos/delete/<%= product.id %>?_method=DELETE" method="POST">
-            <div class="contenedor-nombre">
-                <label class="label-titulos" for="nombre">Nombre</label>
-                <div class="contenedor-input-nombre">
-                    <h3><%= product.nombreProd %></h3>
-                    
-                    <div class="custom-file">
-                        <figure class="form-group">
-                            <img class="w-100" src="/img/productos/<%= product.fotoProd%>" alt="<%= product.nombreProd%>">
-                        </figure>
+        <%- include('../partials/nav') %>
+
+            <main>
+                <div class="containerAdd">
+                    <div class="deleted-product">
+                        <h1>Eliminar Producto</h1>
                     </div>
                 </div>
-            </div>
-            <div class="contenedor-stock">
-                <label class="label-titulos" for="stock">Stock</label>
-                <div class="contenedor-stock-cb">
-                    <div class="contenedor-input-stock">
-                        <label class="label-subtitulos" for="stock">Stock</label>
-                        <h3>
-                            <%= product.stock %>
-                        </h3>
-                    </div>
+                <div class="products">
+                    <form action="/productos/delete/<%= product.id %>?_method=DELETE" method="POST">
+                        <div class="input-nombre">
+                            <label class="label-titulos" for="nombre">
+                                Nombre del producto
+                            </label>
+                            <div>
+                                <h3 class="i-nombre">
+                                    <%= product.nombre %>
+                                </h3>
+                            </div>
+                            <div class="input-sabor">
+                                <label class="label-titulos" for="sabor">
+                                    Línea de producto
+                                </label>
+                                <h3 class="i-sabor"><%= product.sabor %></h3>
+                            </div>
+
+                            <div class="group-imagen">
+                                <% if (product.fotoProd) {%>
+                                    <img class="w-100" src="/img/productos/<%= product.fotoProd%>"
+                                        alt="<%= productToEdit.nombre%>">
+                                    <%} else {%>
+                                        <p>Todavia no posee imagen</p>
+                                        <%}%>
+                            </div>
+                        </div>
+
+                        <div class="input-stock">
+                            <label class="label-titulos" for="stock">Stock</label>
+                            <h3 class="i-stock">
+                                <%= product.stock %>
+                            </h3>
+
+                        </div>
+                        <div class="input-precio">
+                            <label class="label-titulos" for="precio">Precio</label>
+
+
+                            <h3 class="i-precio">
+                                <%= product.precio %>
+                            </h3>
+
+
+                        </div>
+                        <div class="input-descripcion">
+                            <label class="label-titulos" for="descripcion">Descripción</label>
+                            <h3 class="i-descripcion">
+                                <%= product.descripcion %>
+                            </h3>
+                        </div>
+                        <div class="input-categoria">
+                            <label class="label-titulos" for="nombre">Categoría</label>
+                            <h3 class="i-categoria" name="categoriaProd" id="categoriaProd">
+                                <% categorias.forEach(categoria=> { %>
+                                    <% if (categoria.id===product.idCat) { %>
+                                        <option value="<%= categoria.id %>" selected>
+                                            <%= categoria.nombre %>
+                                        </option>
+                                        <% } %>
+                                            <% }); %>
+                            </h3>
+
+                        </div>
+                        <div class="eliminar">
+                            <button type="submit" class="button-rosa">
+                                Eliminar Producto
+                            </button>
+                        </div>
+                        <div class="cancelar">
+                            <a href="/productos/all/0" class="button-gris">Cancelar</a>
+                           
+                        </div>
+                    </form>
                 </div>
-            </div>
-            <div class="contenedor-precio">
-                <label class="label-titulos" for="precio">Precio</label>
-                <div class="contenedor-precioOyP">
-                    <div class="contenedor-input-precio">
-                        <label class="label-subtitulos" for="po">Precio Original</label>
-                        <h3><%= product.precioProd %></h3>
-                     </div>
-                </div>
-            </div>
-            <div class="contenedor-descripcion">
-                <label class="label-titulos" for="nombre">Descripción</label>
-                <div class="contenedor-input-descrip">
-                    <h3>
-                        <%= product.descripcionProd %>
-                    </h3>
-                </div>
-            </div>
-            <div class="contenedor-categoria">
-                <label class="label-titulos" for="nombre">Categoría</label>
-                <div class="contenedor-input-cat">
-                    <h3>
-                        <%= product.categoriaProd %>
-                    </h3>
-                </div>
-            </div>
-            <div class="contenedor-tipo">
-                <label class="label-titulos" for="nombre">Tipo</label>
-                <div class="contenedor-input-tipo">
-                    <h3>
-                        <%= product.tipoProd %>
-                    </h3>
-                </div>
-            </div>
-            <div class="">
-                <button type="submit" id="add"><i class="bi bi-plus-circle"></i>Eliminar PRODUCTO</button>
-            </div>
-        </form>
-    </main>
-    
-    <%- include('../partials/footer') %>
-</body>
-</html>
+            </main>
+
+            <%- include('../partials/footer') %>
+    </body>
+
+    </html>

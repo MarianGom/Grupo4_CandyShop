@@ -38,7 +38,7 @@ h1{
     display: none;
 }
 
-.add-product{
+.add-product, .edit-product, .deleted-product{
     display: flex;
     align-items: center;
     width: calc(100vw - 70px);
@@ -273,7 +273,7 @@ h1{
 }
 
 
-.cancelar, .guardar{
+.cancelar, .guardar, .eliminar{
     padding: 10px 0px;
 }
 
@@ -337,6 +337,13 @@ h1{
 .products h2{
     font-size: 20px;
     color: var(--text-gris);
+}
+.products h3, .products option{
+    font-size: 15px;
+    color: var(--text-gris);
+    display: flex;
+    align-items: center;
+    font-weight: 600;
 }
 
 .products .group-general, .products .group-stock, .products .group-precio, .products .group-imagen, .products .group-categoria, .products .group-info-nutricional{
@@ -976,7 +983,7 @@ h1{
         align-items: center;
     }
 
-    .add-product, .nav-products, .product{
+    .add-product, .nav-products, .product, .deleted-product, .edit-product{
         max-width: 1150px;
     }
     

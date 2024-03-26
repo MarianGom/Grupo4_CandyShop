@@ -16,17 +16,18 @@ const editValidate = [
             }
             return true;
         }),
-    body('nombreUser')
+        body('nombreUser')
         .notEmpty().withMessage('Completar el nombre.').bail()
-        .isLength({min : 2})
-        .isString(),
-    body('apellidoUser')
+        .matches(/^[a-zA-Z\s]+$/).withMessage('No se permiten numeros ni caracteres especiales').bail()
+        .isLength({min : 2}).withMessage('Debe contener minimo dos caracteres'),
+        body('apellidoUser')
         .notEmpty().withMessage('Completar el apellido.').bail()
-        .isLength({min : 2})
-        .isString(),
+        .matches(/^[a-zA-Z\s]+$/).withMessage('No se permiten numeros ni caracteres especiales').bail()
+        .isLength({min : 2}).withMessage('Debe contener minimo dos caracteres'),
     body('telefono')
         .notEmpty().withMessage('Completar teléfono.').bail()
         .isLength({min : 8})
+        .isInt()
     ];
 
 module.exports = editValidate;

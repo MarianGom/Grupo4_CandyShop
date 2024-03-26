@@ -224,13 +224,18 @@ const productosController = {
     },
     
     store: async (req, res) => {
-        const resultValidation = validationResult(req);
-        if (!resultValidation.isEmpty()) {
-          return res.render(createProduct, {
-            errors: resultValidation.mapped()});
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            const categorias = await Categoria.findAll();
+            return res.render(createProduct, {
+                errors: errors.mapped(),
+                oldData: req.body,
+                categorias: categorias  
+            });
+            
         }
+
         const foto = req.file ? req.file.filename : req.body.oldImagen;
-        
         await Producto.create({
             nombre: req.body.nombre,
             sabor: req.body.sabor,
@@ -247,23 +252,30 @@ const productosController = {
 
     edit: async (req, res) => {
 
+        const categorias = await Categoria.findAll();
         const datos = await Producto.findOne({
             where:{
                 id: req.params.id
             }
         })
-        res.render(editProduct, {productToEdit: datos})
+        res.render(editProduct, {productToEdit: datos, categorias})
     },
 
     update: async (req, res) => {
-
-        const resultValidation = validationResult(req);
-        if (!resultValidation.isEmpty()) {
-          return res.render(editProduct, {
-            errors: resultValidation.mapped()});
+        console.log('entro el update')
+        const errors = validationResult(req);
+        console.log(errors)
+        if (!errors.isEmpty()) {
+            const categorias = await Categoria.findAll();
+            return res.render(editProduct, {
+                errors: errors.mapped(),
+                oldData: req.body,
+                categorias: categorias  
+            });
+            
         }
         const foto = req.file ? req.file.filename : req.body.oldImagen;
-
+        console.log(req.body)
         await Producto.update({
             nombre: req.body.nombre,
             sabor: req.body.sabor,
@@ -285,13 +297,14 @@ const productosController = {
 
     delete: async (req, res) => {
 
+        const categorias = await Categoria.findAll();
         const idProduct = req.params.id
         const datos = await Producto.findOne({
             where: {
                 id: idProduct
             }
         })
-        res.render(deleteProduct, {product: datos})
+        res.render(deleteProduct, {product: datos, categorias})
     },
 
     destroy: async (req, res) => {
