@@ -52,6 +52,9 @@
                         <a href="/productos/detail/<%= product.id %>">
                             <% if (product.fotoProd != null) {%>
                                 <img src="/img/productos/<%= product.fotoProd %>" alt="">
+                                <script>
+                                    console.log(product.fotoProd)
+                                </script>
                             <%} else {%>
                                 <img src="/img/productos/NoPic.png" alt="">
                             <%}%>

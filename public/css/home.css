@@ -281,7 +281,7 @@ article{
 
 .producto-pic img{
     position: absolute;
-    width: 250px;
+    max-width: 250px;
     z-index: 100;
 }
 

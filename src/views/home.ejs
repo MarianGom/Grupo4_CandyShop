@@ -61,7 +61,11 @@
             <% ultimosProductos.forEach(product => { %>
                 <article class="top ">
                     <div class="producto-pic">
-                        <img src="/img/home img/chocolinas.png" alt="">
+                        <% if(product.fotoProd){ %>
+                            <img src="/img/productos/<%= product.fotoProd %>" alt="">
+                        <% } else { %>
+                            <img src="/img/productos/NoPic.png" alt="">
+                        <% } %>
                         <div class="circulo"></div>
                     </div>
                     <div class="detail">
@@ -84,7 +88,11 @@
             <% masVendidos.forEach(topProduct => {%>
                 <article class="top">
                     <div class="producto-pic">
-                        <img src="/img/productos/bonobon-blanco.png" alt="">
+                        <% if(topProduct.fotoProd){ %>
+                            <img src="/img/productos/<%= topProduct.fotoProd %>" alt="">
+                        <% } else { %>
+                            <img src="/img/productos/NoPic.png" alt="" width="70px">
+                        <% } %>
                         <div class="circulo"></div>
                     </div>
                     <div class="detail">

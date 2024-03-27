@@ -58,7 +58,7 @@ router.get('/changePic', authMiddleware, usersController.picEdit);
 router.put('/changePic', authMiddleware, usersController.confirmPicEdit);
 
 router.get('/delete', authMiddleware, usersController.delete); 
-router.delete('/delete', authMiddleware, usersController.destroy);
+router.put('/delete', authMiddleware, usersController.destroy);
 
 /* Admin */
 /* PARA REACT! router.get('/profile/:id', authMiddleware, usersController.showAll); */

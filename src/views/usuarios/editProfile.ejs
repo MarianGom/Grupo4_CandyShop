@@ -59,7 +59,7 @@
             
                 <div class="input-group mail">
                     <label for="mailUser">Mail:</label>
-                    <input type="text" id="mailUser" name="mailUser" value="<%= user.email %>" pattern="[A-Za-z]{2,50}" maxlength="50">
+                    <input type="text" id="mailUser" name="mailUser" value="<%= user.email %>" maxlength="50">
 
                     <!-- En caso de error -->
                     <div class="mailError">
@@ -73,7 +73,7 @@
             
                 <div class="input-group telefono center">
                     <label for="telefonoUser">Telefono:</label>
-                    <input type="text" id="telefonoUser" name="telefonoUser" pattern="[0-9]{12}" maxlength="12"
+                    <input type="text" id="telefonoUser" name="telefonoUser" maxlength="12"
                     <% if(user.telefono){ %> 
                         value="<%= user.telefono %>"
                     <% } else { %> 

@@ -14,7 +14,7 @@ const register = path.resolve(__dirname, "../views/usuarios/register.ejs");
 /* PARA REACT! const detail = path.resolve(__dirname, '../views/usuarios/detailProfile.ejs'); */
 const myProfile = path.resolve( __dirname, "../views/usuarios/detailProfile.ejs");
 const editProfile = path.resolve( __dirname, "../views/usuarios/editProfile.ejs");
-const editPass = path.resolve( __dirname, "../views/usuarios/changePassword.ejs");
+const editPass = path.resolve( __dirname, "../views/usuarios/changePass.ejs");
 const editPic = path.resolve( __dirname, "../views/usuarios/changePic.ejs");
 const deleteProfile = path.resolve( __dirname, "../views/usuarios/deleteProfile.ejs");
 const goodbyeProfile = path.resolve(__dirname, "../views/adios.ejs");
@@ -230,7 +230,7 @@ const usersController = {
                 },
             });
 
-            res.render(editProfile, { user: datos });
+            res.render(myProfile, { user: datos });
         } catch (error) {
             console.log(error);
         }
@@ -283,7 +283,7 @@ const usersController = {
                 }
             })
             
-            res.redirect('/user/myProfile');
+            res.render(myProfile, { user: datos });
         } catch(error){
             console.log(error)
         }
