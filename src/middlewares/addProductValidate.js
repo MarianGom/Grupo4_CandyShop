@@ -1,5 +1,4 @@
 const { body } = require("express-validator");
-const path = require('path');
 
 const addProductValidate = [
     body('nombre')
@@ -18,7 +17,7 @@ const addProductValidate = [
         if(file){
             let fileExtension = req.file.mimetype
             console.log(fileExtension)
-            if(fileExtension == 'image/jpg' || fileExtension == 'image/png'){
+            if(fileExtension == 'image/jpeg' || fileExtension == 'image/png' || fileExtension=='image/jpg' ){
               return true
             }else{
                 throw new Error('El archivo debe ser JPG o PNG')
