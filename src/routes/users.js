@@ -2,9 +2,10 @@ const express = require('express');
 const usersController = require('../controllers/usersController');
 const path = require('path');
 const router = express.Router();
-const { body } = require('express-validator');
 
-const User = require("../database/models");
+/* const { body } = require('express-validator');
+
+const User = require("../database/models"); */
 
 /* Multer */
 const multer = require('multer');
