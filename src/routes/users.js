@@ -64,5 +64,5 @@ router.put('/delete', authMiddleware, usersController.destroy);
 /* Admin */
 /* PARA REACT! router.get('/profile/:id', authMiddleware, usersController.showAll); */
 
-
+aaaa
 module.exports = router;
